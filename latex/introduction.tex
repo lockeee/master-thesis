@@ -1,0 +1,14 @@
+\chapter{Einleitung}\label{intro}
+
+Es wird im weiteren davon ausgegangen, dass grundsätzliche Resultate der Graphentheorie, zum Beispiel durch den Besuch einer einführenden Vorlesung, bekannt sind. Es wird auf gängige Notation zurück gegriffen und, wo sinnvoll, auf die englische Terminologie verwiesen oder diese genutzt. \\
+Wir werden uns weitestgehend mit einfachen, planaren Graphen befassen, also solche die keine Mehrfachkanten und Schleifen besitzen und für die Kreuzungsfreie Einbettungen in der Ebene existieren. Sei $G = (V,E)$ ein Graph bestehend aus der Menge der Knoten $V$ und Kanten $E \subseteq ( \,V \times V ) \,$. Eine Kante $uv$ verbindet die beiden Knoten $u$ und $v$. Für einen planaren Graphen können wir auch die Menge der Gebiete (engl. faces) $F$ betrachten. Hierbei bezeichnen wir das unbeschränkte als das \textit{äussere} Gebiet. Wir werden drei Knoten $s_1,s_2,s_3$ im äusseren Gebiet oft gesondert betrachten und diese als \textit{Aufhängungen} bezeichnen. Mit dieser zusatzbedingung ist die (topologische) Einbettung in der Ebene eindeutig. 
+
+\begin{definition}
+Ein Graph $G$ ist zusammenhängen falls für alle Knoten $u,v$ ein Pfad von $u$ nach $v$ exisitert. $G$ ist \textit{k-zusammenhängend}, falls er nach der Entfernung von $k-1$ beliebigen Knoten weiterhin zusammanhängend ist.\\
+Sei $G$ planar mit den Aufhängungen $s_1,s_2,s_3$. Weiter sei $s_*$ ein zusätzlicher Knoten im äusseren Gebiet. Dann ist $G$ \textit{stark k-zusammenhängend}, falls $G \cup \{ s_1s_*,s_2s_*,s_3s_* \}$ k-zusammenhängend ist. 
+\end{definition}
+
+\input{sltr.tex}
+
+\input{schnyderwoods.tex}
+

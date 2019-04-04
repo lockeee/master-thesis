@@ -1,0 +1,94 @@
+\documentclass{TUBthesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Predefined class variables
+\Title{Grapheneinbettungen und Optimierung} %title of the thesis
+\Thesis{Master Thesis} %type of thesis, i.e. bachelor/master/diploma
+\Author{Jonas Neukamm} %name of author
+%\Uni{Technische Universität Berlin}
+\MNumber{324283} %matriculation number
+\Supervisor{Prof. Dr. Stefan Felsner} %name of supervisor and first referee
+\Referee{Dr. Frank Lutz} %name of second referee
+\Date{7.6.2019} %date of delivery
+\Language{german} %choose between english and german
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Room for definiton of additonal commands or to include additional packages.
+% Please check the loaded packages in the .cls file first.
+\DeclareMathOperator*{\argmax}{arg\, max}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{pgf,tikz}
+\usepackage{amsmath,url}
+\usepackage{enumitem}
+\usetikzlibrary{patterns}
+%\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+%for algorithm
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%bold symbols
+\usepackage{bm}
+\usepackage[textwidth=3.0cm]{todonotes}
+\usepackage{capt-of}
+%indicator function
+\usepackage{dsfont}
+
+%to ensure that floats stay in the subsection
+\usepackage[section]{placeins}
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
+
+% footnotes
+\usepackage[bottom]{footmisc}
+
+% for nice looking tables
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+%for good refs
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usetikzlibrary{arrows}
+
+%%%%proof: instead of proof.
+\usepackage{xpatch}
+\makeatletter
+
+\xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{}
+
+\AtBeginDocument{\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}}
+\makeatother
+% Math operators in correct font
+\DeclareMathOperator{\vol}{Vol}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\pos}{pos}
+\DeclareMathOperator{\interior}{int}
+
+
+%bigger than cdot, smaller than bullet \bigcdot
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+ %For better figure placement
+\input{figure_float_parameters.tex}
+
+\begin{document}
+
+\input{introduction.tex}
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}
+
+\end{document}
