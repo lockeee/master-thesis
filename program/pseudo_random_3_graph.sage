@@ -1,6 +1,6 @@
 import random
-attach my_SLTR.sage
-attach faa.sage
+load("/Users/jonasneukamm/Documents/GitHub/master-thesis/program/sltr.sage")
+load("/Users/jonasneukamm/Documents/GitHub/master-thesis//program/faa.sage")
 
 
 def random_3_graph(nodes):
@@ -127,18 +127,16 @@ def mini_test(nodes,number):
 	for i in range(number):
 		G = random_3_graph(nodes)
 		en =  len(G.edges())
-		print en
-		if en > 10:
-			if has_faa(G):
-				sltr = get_sltr(G)
-				if sltr == None:
-					print G.sparse6_string()
-					Only_FAA.append(G.sparse6_string())
-					FAA[en] = FAA[en] + 1
-				else:
-					SLTR[en] = SLTR[en] + 1
+		if has_faa(G):
+			sltr = get_sltr(G)
+			if sltr == None:
+				print G.sparse6_string()
+				Only_FAA.append(G.sparse6_string())
+				FAA[en] = FAA[en] + 1
 			else:
-				Nothing[en] = Nothing[en] + 1
+				SLTR[en] = SLTR[en] + 1
+		else:
+			Nothing[en] = Nothing[en] + 1
 	print "Finished"
 	str1 = ""
 	str2 = ""
