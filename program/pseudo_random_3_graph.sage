@@ -1,6 +1,6 @@
 import random
-load("/Users/jonasneukamm/Documents/GitHub/master-thesis/program/sltr.sage")
-load("/Users/jonasneukamm/Documents/GitHub/master-thesis//program/faa.sage")
+load("sltr.sage")
+load("faa.sage")
 
 
 def random_3_graph(nodes):
@@ -119,39 +119,63 @@ def vertices_edge(list_of_vertices):
 
 
 
-def mini_test(nodes,number):
-	SLTR = [0]*50
-	FAA = [0]*50
-	Nothing = [0]*50
+def mini_test(nodes,number,print_info=True):
+	SLTR = [0]*100
+	FAA = [0]*100
+	No_FAA = [0]*100
 	Only_FAA = []
+	Only_non_int_flow = []
 	for i in range(number):
+		if print_info:
+			print i
 		G = random_3_graph(nodes)
 		en =  len(G.edges())
 		if has_faa(G):
 			sltr = get_sltr(G)
 			if sltr == None:
-				print G.sparse6_string()
 				Only_FAA.append(G.sparse6_string())
 				FAA[en] = FAA[en] + 1
 			else:
 				SLTR[en] = SLTR[en] + 1
 		else:
-			Nothing[en] = Nothing[en] + 1
-	print "Finished"
-	str1 = ""
-	str2 = ""
-	str3 = ""
-	for i in range(50):
-		if SLTR[i] != 0:
-			str1 = str1 + " / " + str(i) + " " + str(SLTR[i]) 
-		if FAA[i] != 0:
-			str2 = str2 + " / " + str(i) + " " + str(FAA[i])
-		if Nothing[i] != 0:
-			str3 = str3 + " / " + str(i) + " " + str(Nothing[i]) 
-	print "SLTR" + str1
-	print "FAA" + str2
-	print "Nothing" + str3
-	return Only_FAA
+			No_FAA[en] = No_FAA[en] + 1
+	if print_info:
+		print "Finished checking some graphs on " + str(nodes) + " nodes."
+		str1 = ""
+		str2 = ""
+		str3 = ""
+		for i in range(100):
+			if SLTR[i] != 0:
+				str1 = str1 + " / " + str(i) + "-" + str(SLTR[i]) 
+			if FAA[i] != 0:
+				str2 = str2 + " / " + str(i) + "-" + str(FAA[i])
+			if No_FAA[i] != 0:
+				str3 = str3 + " / " + str(i) + "-" + str(No_FAA[i]) 
+		print "SLTR:" + str1
+		print "Only FAA:" + str2
+		print "Neither:" + str3
+		print
+		print "List of Only FAA graphs:"
+		print Only_FAA
+	return _test_sparse_graphs(Only_FAA,print_info=print_info)
+
+
+def _test_sparse_graphs(string_list,print_info=True):
+	Only_non_int_flow = []
+	if print_info:
+		print "Checking for non integer multi-flow-solution in only FAA graphs..."
+	for faa in string_list:
+		if print_info:
+			print "Checking: " + faa
+		sltr = get_sltr(G,check_non_int_flow=True,check_all_faces=True)
+		if sltr != None:
+			sltr = get_sltr(G)
+			if sltr != None:
+				print "Mistake found?! -- " + faa.sparse6_string()
+			else:
+				Only_non_int_flow.append(faa.sparse6_string())
+	return Only_non_int_flow
+
 
 
 

@@ -1,6 +1,10 @@
 import sage.all
+
+def has_sltr(graph,suspensions=None,outer_face=None):
+	return get_sltr(graph,suspensions,outer_face,check_non_int_flow=False) != None
+
 	
-def get_sltr(graph,suspensions=None,outer_face=None):
+def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int = False,check_all_faces=False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if suspensions != None:
 		G = copy(graph)
@@ -8,7 +12,7 @@ def get_sltr(graph,suspensions=None,outer_face=None):
 		for face in G.faces():
 			if is_outer_face(face, suspensions):
 				## face is the outer_face ##
-				[Flow, has_sltr] = calculate_2flow(G,face,suspensions)
+				[Flow, has_sltr] = calculate_2flow(G,face,suspensions,check_non_int_flow,check_just_non_int)
 				if has_sltr:
 					return get_good_faa(G,Flow[1],face,suspensions)
 				else:
@@ -27,29 +31,53 @@ def get_sltr(graph,suspensions=None,outer_face=None):
 			## Find all possible suspensions for this face ##
 			for j in Combinations(len(n),3):
 				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				[Flow, has_sltr] = calculate_2flow(H,face,suspensions)
+				[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
 				if has_sltr:
 					return get_good_faa(H,Flow[1],face,suspensions)
 				else:
 					if Flow != None:
 						print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
 		else:
-			## Just take arbitrary face
-			face = H.faces()[0]
-			nodes = []
-			for i in face:
-				nodes.append(i[0])
-			n = tuple(nodes)					
-			## Find all possible suspensions for this face ##
-			for j in Combinations(len(n),3):
-				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				[Flow, has_sltr] = calculate_2flow(H,face,suspensions)
-				if has_sltr:
-					return get_good_faa(H,Flow[1],face,suspensions)
-				else:
-					if Flow != None:
-						print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
-	return None
+			if check_all_faces:
+				## Check all faces neccesary?!
+				for face in H.faces():
+					nodes = []
+				for i in face:
+					nodes.append(i[0])
+				n = tuple(nodes)					
+				## Find all possible suspensions for this face ##
+				for j in Combinations(len(n),3):
+					suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+					[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
+					if has_sltr:
+						return get_good_faa(H,Flow[1],face,suspensions)
+					else:
+						if Flow != None:
+							print Flow[1].edges()
+							Flow[1].show()
+							plot_planar_graph(H)
+							return
+			else:
+				# check one face for now...
+				face = H.faces()[0]
+				nodes = []
+				for i in face:
+					nodes.append(i[0])
+				n = tuple(nodes)					
+				## Find all possible suspensions for this face ##
+				for j in Combinations(len(n),3):
+					suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+					[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
+					if has_sltr:
+						return get_good_faa(H,Flow[1],face,suspensions)
+					else:
+						if Flow != None:
+							print Flow[1].edges()
+							Flow[1].show()
+							plot_planar_graph(H)
+							return
+						#	print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
+	return
 	
 def get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 	gFAA = []
@@ -116,20 +144,25 @@ def is_internally3connected(G,suspensions):
 			return False
 	return True
 		
-def calculate_2flow(G,outer_face,suspensions):
+def calculate_2flow(G,outer_face,suspensions,check_non_int_flow=False,check_just_non_int=False):
 	H = graph2flow(G, outer_face, suspensions)
 	flow1 = give_flow1(G,outer_face)
 	flow2 = give_flow2(G,outer_face)
-	try:
-		return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],
-									use_edge_labels=True) , True]
-	except EmptySetError:
-		pass
-	try:
-		return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],
-									use_edge_labels=True,integer = False) , False]
-	except EmptySetError:
-		pass
+	if check_just_non_int:
+		try:
+			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
+		except EmptySetError:
+			pass
+	else:
+		try:
+			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True) , True]
+		except EmptySetError:
+			pass
+		if check_non_int_flow:
+			try:
+				return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
+			except EmptySetError:
+				pass
 	return [None,False]
 	
 def graph2flow(G,outer_face,suspensions):
