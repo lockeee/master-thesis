@@ -4,7 +4,7 @@ def has_sltr(graph,suspensions=None,outer_face=None):
 	return get_sltr(graph,suspensions,outer_face,check_non_int_flow=False) != None
 
 	
-def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int = False,check_all_faces=False):
+def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int = False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if suspensions != None:
 		G = copy(graph)
@@ -38,45 +38,25 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 					if Flow != None:
 						print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
 		else:
-			if check_all_faces:
-				## Check all faces neccesary?!
-				for face in H.faces():
-					nodes = []
-				for i in face:
-					nodes.append(i[0])
-				n = tuple(nodes)					
-				## Find all possible suspensions for this face ##
-				for j in Combinations(len(n),3):
-					suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-					[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
-					if has_sltr:
-						return get_good_faa(H,Flow[1],face,suspensions)
-					else:
-						if Flow != None:
-							print Flow[1].edges()
-							Flow[1].show()
-							plot_planar_graph(H)
-							return
-			else:
-				# check one face for now...
-				face = H.faces()[0]
-				nodes = []
-				for i in face:
-					nodes.append(i[0])
-				n = tuple(nodes)					
-				## Find all possible suspensions for this face ##
-				for j in Combinations(len(n),3):
-					suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-					[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
-					if has_sltr:
-						return get_good_faa(H,Flow[1],face,suspensions)
-					else:
-						if Flow != None:
-							print Flow[1].edges()
-							Flow[1].show()
-							plot_planar_graph(H)
-							return
-						#	print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
+			#Check for small face
+			face = H.faces()[len(H.faces())-1]
+			nodes = []
+			for i in face:
+				nodes.append(i[0])
+			n = tuple(nodes)					
+			## Find all possible suspensions for this face ##
+			for j in Combinations(len(n),3):
+				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+				[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
+				if has_sltr:
+					return get_good_faa(H,Flow[1],face,suspensions)
+				else:
+					if Flow != None:
+						print Flow[1].edges()
+						Flow[1].show()
+						plot_planar_graph(H)
+						return
+					#	print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
 	return
 	
 def get_good_faa(G, Flow2,outer_face=None,suspensions=None):
