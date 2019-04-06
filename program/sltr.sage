@@ -1,133 +1,82 @@
 import sage.all
 
 def has_sltr(graph,suspensions=None,outer_face=None):
-	return get_sltr(graph,suspensions,outer_face,check_non_int_flow=False) != None
+	return get_sltr(graph,suspensions,outer_face) != None
 
 	
-def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int = False):
+def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=True,check_just_non_int = False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
+	H = copy(graph)
 	if suspensions != None:
-		G = copy(graph)
 		## We are looking for the outer face ##
-		for face in G.faces():
-			if is_outer_face(face, suspensions):
+		for face in H.faces():
+			if _is_outer_face(face, suspensions):
 				## face is the outer_face ##
-				[Flow, has_sltr] = calculate_2flow(G,face,suspensions,check_non_int_flow,check_just_non_int)
-				if has_sltr:
-					return get_good_faa(G,Flow[1],face,suspensions)
-				else:
-					if Flow != None:
-						print 'Only non integer Flow found for: G = Graph(' + str(G.edges()) + ')'
-					break
+				return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int)
 	else:					
 		## We will check all posible triplets as suspensions ##
-		H = copy(graph)
 		if outer_face != None: 
 			face = outer_face
-			nodes = []
-			for i in face:
-				nodes.append(i[0])
-			n = tuple(nodes)
-			## Find all possible suspensions for this face ##
-			for j in Combinations(len(n),3):
-				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
-				if has_sltr:
-					return get_good_faa(H,Flow[1],face,suspensions)
-				else:
-					if Flow != None:
-						print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
 		else:
 			#Check for small face
-			face = H.faces()[len(H.faces())-1]
-			nodes = []
-			for i in face:
-				nodes.append(i[0])
-			n = tuple(nodes)					
-			## Find all possible suspensions for this face ##
-			for j in Combinations(len(n),3):
-				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				[Flow, has_sltr] = calculate_2flow(H,face,suspensions,check_non_int_flow,check_just_non_int)
-				if has_sltr:
-					return get_good_faa(H,Flow[1],face,suspensions)
-				else:
-					if Flow != None:
-						print Flow[1].edges()
-						Flow[1].show()
-						plot_planar_graph(H)
-						return
-					#	print 'Only non integer Flow found for: G = Graph(' + str(H.edges()) + ')'
+			#IS THIS REALLY ENOUGH??
+			face = H.faces()[0]
+		nodes = []
+		for i in face:
+			nodes.append(i[0])
+		n = tuple(nodes)
+		## Find all possible suspensions for this face ##
+		for j in Combinations(len(n),3):
+			suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+			return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int)
 	return
-	
-def get_good_faa(G, Flow2,outer_face=None,suspensions=None):
-	gFAA = []
-	if len(Flow2.vertices()) == 0:
-		if outer_face == None :
-			## Triangulation ##
-			for i in G.faces():
-				gFAA.append([face2ints([name_face_vertex(i)[2:]])])
-			return gFAA
-		else:
-			## Only assigned vertices to outer face ##
-			name = face2ints([name_face_vertex(outer_face)[2:]])
-			add = []
-			for i in outer_face:
-				if i[0] not in suspensions:
-					add.append(i[0])
-			gFAA = [[name,add]]
-			for i in interior_faces(G,oF = outer_face):
-				gFAA.append([face2ints([name_face_vertex(i)[2:]])])
-			return gFAA
+
+def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int):
+	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int)
+	if has_sltr:
+		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
 	else:
-		## interior vertices to assign ##
-		gFAA = []
-		firstN = copy(Flow2.neighbors_in('o2'))
-		for i in range(len(firstN)):
-			name = Flow2.neighbors_in(firstN[i])[0][:-3]
-			#name = name[:-3]
-			names = name.split(',')
-			names = [names[0][2:],names[1][2:]]
-			name0 = face2ints(names)
-			x = True
-			for j in range(len(gFAA)):
-				if  name0 == gFAA[j][0]:
-					x = False
-					gFAA[j][1].append(int(names[1]))
-					break
-			if x:
-				add = [name0]
-				add.append([int(names[1])])
-				gFAA.append(add)
-		## Append vertices assigned to outer Face ##
-		name = name_face_vertex(outer_face)[2:]
-		name = [face2ints([name])]
-		add = []
-		for i in outer_face:
-			if i[0] not in suspensions:
-				add.append(i[0])
-		name.append(add)
-		gFAA.insert(0,name)	
-		## Append triangles ##
-		for i in interior_faces(G,oF = outer_face):
-			if len(i) == 3:
-				gFAA.append([face2ints([name_face_vertex(i)[2:]])])
-		return gFAA
-		  
-def is_internally3connected(G,suspensions):
-	H = copy(G)
-	v = H.add_vertex()
-	H.add_edges([[v,suspensions[0]],[v,suspensions[1]],[v,suspensions[2]]])
-	for v in H.vertices():
-		K = copy(H)
-		K.delete_vertex(v)
-		if K.is_biconnected() == False:
-			return False
-	return True
+		if Flow != None and (check_non_int_flow or check_just_non_int):
+			print "Only non integer Flow found for: " + H.sparse6_string()
+	
+def _get_good_faa(G, Flow2,outer_face,suspensions):
+	gFAA = []
+	firstN = copy(Flow2.neighbors_in('o2'))
+	for i in range(len(firstN)):
+		name = Flow2.neighbors_in(firstN[i])[0][:-3]
+		#name = name[:-3]
+		names = name.split(',')
+		names = [names[0][2:],names[1][2:]]
+		name0 = _face_2_ints(names)
+		x = True
+		for j in range(len(gFAA)):
+			if  name0 == gFAA[j][0]:
+				x = False
+				gFAA[j][1].append(int(names[1]))
+				break
+		if x:
+			add = [name0]
+			add.append([int(names[1])])
+			gFAA.append(add)
+	## Append vertices assigned to outer Face ##
+	name = _name_face_vertex(outer_face)[2:]
+	name = [_face_2_ints([name])]
+	add = []
+	for i in outer_face:
+		if i[0] not in suspensions:
+			add.append(i[0])
+	name.append(add)
+	gFAA.insert(0,name)	
+	## Append triangles ##
+	for i in _interior_faces(G,oF = outer_face):
+		if len(i) == 3:
+			gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+	return gFAA
 		
-def calculate_2flow(G,outer_face,suspensions,check_non_int_flow=False,check_just_non_int=False):
-	H = graph2flow(G, outer_face, suspensions)
-	flow1 = give_flow1(G,outer_face)
-	flow2 = give_flow2(G,outer_face)
+def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow,check_just_non_int):
+	H = _graph_2_flow(G, outer_face, suspensions)
+	flow1 = _give_flow1(G,outer_face)
+	flow2 = _give_flow2(G,outer_face)
 	if check_just_non_int:
 		try:
 			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
@@ -145,30 +94,30 @@ def calculate_2flow(G,outer_face,suspensions,check_non_int_flow=False,check_just
 				pass
 	return [None,False]
 	
-def graph2flow(G,outer_face,suspensions):
+def _graph_2_flow(G,outer_face,suspensions):
 	## G is a planar, suspended, internally 3-connected graph ##
-	interior_Faces = interior_faces(G,oF = outer_face)
+	_interior_Faces = _interior_faces(G,oF = outer_face)
 	H = DiGraph([['i1','o2','o1'],[('Di2' , 'i2' , give_flow2(G,outer_face))]])
-	add_vertices2sink_edges(H,G,suspensions)
-	for face in interior_Faces:
-		face2flow(H,face)	
+	_add_vertices_2_sink_edges(H,G,suspensions)
+	for face in _interior_Faces:
+		_face_2_flow(H,face)	
 	for sV in outer_face:
-		H.set_edge_label('D' + name_vertex_vertex(sV[0]) , 'o2' , 0 )
+		H.set_edge_label('D' + _name_vertex_vertex(sV[0]) , 'o2' , 0 )
 	for oE in outer_face :
-		H.delete_edge('i1',name_edge_vertex(oE))
+		H.delete_edge('i1',_name_edge_vertex(oE))
 	return H
 	
-def give_flow1(G,outer_face):
+def _give_flow1(G,outer_face):
 	return len(G.edges())-len(outer_face) + 3*(len(G.faces())-1)
 	
-def give_flow2(G,outer_face):
+def _give_flow2(G,outer_face):
 	flow2 = 0
-	innerFaces = interior_faces(G,oF = outer_face)
+	innerFaces = _interior_faces(G,oF = outer_face)
 	for i in range(len(innerFaces)):
 		flow2 = flow2 + ( len(innerFaces[i]) - 3 )
 	return flow2
 	
-def interior_faces(G,oF = None, sus = None):
+def _interior_faces(G,oF = None, sus = None):
 	faces = copy(G.faces())
 	if oF != None:
 		face = find_face(G,oF)
@@ -203,61 +152,56 @@ def find_face(graph,this_face):
 
 
 
-def face2flow(H,face):
+def _face_2_flow(H,face):
 	## H is the new FlowGraph ##
-	name = name_face_vertex(face)
+	name = _name_face_vertex(face)
 	H.add_vertex(name)
 	H.add_edges([('i1','B' + name,3),(name,'o1' , len(face) )])
-	add_outer_ring(H,face,name)
+	_add_outer_ring(H,face,name)
 
-def add_outer_ring(H,edges,nameFace):
+def _add_outer_ring(H,edges,nameFace):
 	for i in range(len(edges)):
-		toAdd1 = name_edge_vertex(edges[i])
-		toAdd2 = name_edge_vertex(edges[i],edges)
+		toAdd1 = _name_edge_vertex(edges[i])
+		toAdd2 = _name_edge_vertex(edges[i],edges)
 		H.add_edges([(toAdd1,toAdd2,1),
 			(toAdd2,nameFace,1),
 			('i1',toAdd1,1)])
-		forVName = name_vertex_vertex(edges[i][1])
-		backVName = name_vertex_vertex(edges[i][0])
+		forVName = _name_vertex_vertex(edges[i][1])
+		backVName = _name_vertex_vertex(edges[i][0])
 		H.add_edges([(toAdd1,forVName,1),(toAdd1,backVName,1)])
-		add_triangle(H, edges, toAdd2, backVName, forVName)
+		_add_triangle(H, edges, toAdd2, backVName, forVName)
 		
-def add_triangle(H,face,dummyEdge,node,nextNode):
-	name = name_face_vertex(face) + ',' + node + ','
+def _add_triangle(H,face,dummyEdge,node,nextNode):
+	name = _name_face_vertex(face) + ',' + node + ','
 	## Nodes for Source1 ##
-	H.add_edges([('B' + name_face_vertex(face),name + 'T1' ,1),
+	H.add_edges([('B' + _name_face_vertex(face),name + 'T1' ,1),
 		( name + 'T1' , name + 'T2' , 1),
 		( name + 'T2' , name + 'T3' , 1),
 		( name + 'T3' , name + 'T4' , 1),
 		( name + 'T4' , dummyEdge , 1),
-		( name + 'T4' , name_face_vertex(face) + ',' + nextNode + ',T3', 1)])	
+		( name + 'T4' , _name_face_vertex(face) + ',' + nextNode + ',T3', 1)])	
 	## Nodes for Source2 ##
 	dummyName = 'D' + node 
 	H.add_edges([('i2',name + 'T1' , 1),
 		( name + 'T2' , dummyName , 1),
 		( dummyName , 'o2' , 1 )])
 		
-def add_vertices2sink_edges(H,G,suspensions):
+def _add_vertices_2_sink_edges(H,G,suspensions):
 	vertices = G.vertices()
 	for i in range(len(vertices)):
 		if vertices[i] in suspensions:
-			H.add_edge(name_vertex_vertex(vertices[i]), 'o1' , G.degree(vertices[i]) - 2 )
+			H.add_edge(_name_vertex_vertex(vertices[i]), 'o1' , G.degree(vertices[i]) - 2 )
 		else:	
-			H.add_edge(name_vertex_vertex(vertices[i]), 'o1' , G.degree(vertices[i]) - 3 )
+			H.add_edge(_name_vertex_vertex(vertices[i]), 'o1' , G.degree(vertices[i]) - 3 )
 	
-def face2ints(face):
+def _face_2_ints(face):
 	nodes = face[0].split()
 	face_name = []
 	for j in nodes:
 		face_name.append(int(j))
 	return face_name
 
-def get_suspensions(faa):
-	outer_face = faa[0][0]
-	outer_nodes = faa[0][1]
-	return copy(outer_face).remove(outer_nodes)	
-
-def is_outer_face(face,sus):
+def _is_outer_face(face,sus):
 	count = 0
 	for edge in face:
 		for i in sus:
@@ -269,25 +213,25 @@ def is_outer_face(face,sus):
 
 	
 ## Coherent naming in the flow graph seems to be Important##
-def name_face_vertex(face):
+def _name_face_vertex(face):
 	name = ''                  
 	for i in range(len(face)):
 		name = name+str(face[i][0])+' '
 	name = name[:-1]
 	return 'F:'+name 
 	
-def name_edge_vertex(edge, face = None):
+def _name_edge_vertex(edge, face = None):
 	edge1 = copy(edge) 
 	if edge1[0] < edge1[1]:                     
 		name = str(edge1[0]) + ' ' + str(edge1[1])
 	else:
 		name = str(edge1[1]) + ' ' + str(edge1[0])
 	if face != None :
-		return 'DE:' + name_face_vertex(face) + ' E:' + name
+		return 'DE:' + _name_face_vertex(face) + ' E:' + name
 	else :
 		return 'E:' + name
 		
-def name_vertex_vertex(vertex):
+def _name_vertex_vertex(vertex):
 	if type(vertex) == str:
 		return vertex
 	else:	
@@ -301,7 +245,7 @@ def plot_sltr(graph=None,vertices=None,index=None,suspensions=None,show_originia
 			plot_planar_graph(H)
 		faa = get_sltr(H,suspensions)
 		if faa != None:
-			layout = get_good_faa_layout(H,faa)
+			layout = _get_good_faa_layout(H,faa)
 			F = H.plot(pos=layout)
 			show(F)
 		else:
@@ -317,7 +261,7 @@ def plot_sltr(graph=None,vertices=None,index=None,suspensions=None,show_originia
 					plot_planar_graph(G)
 				faa = get_sltr(G,suspensions)
 				if faa != None:
-					layout = get_good_faa_layout(G,faa)
+					layout = _get_good_faa_layout(G,faa)
 					F = G.plot(pos=layout)
 					show(F)
 				else:
@@ -344,8 +288,8 @@ def plot_problem_graph(graph,limit,sus=None):
 	faces.sort(key = len)
 	if sus != None:
 		for oF in faces:
-			if is_outer_face(oF, sus):
-				[face_list,layout] = plot_problem_graph_iteration(graph,limit,0,sus,oF,[])
+			if _is_outer_face(oF, sus):
+				[face_list,layout] = _plot_problem_graph_iteration(graph,limit,0,sus,oF,[])
 				if layout != None:
 					G = copy(graph)
 					## plot ##
@@ -373,7 +317,7 @@ def plot_problem_graph(graph,limit,sus=None):
 			suspensions = (0,0,0)
 			for j in Combinations(len(n),3):
 				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				[face_list,layout] = plot_problem_graph_iteration(graph,limit,0,suspensions,oF,[])
+				[face_list,layout] = _plot_problem_graph_iteration(graph,limit,0,suspensions,oF,[])
 				if layout != None:
 					G = copy(graph)
 					## plot ##
@@ -390,27 +334,27 @@ def plot_problem_graph(graph,limit,sus=None):
 	return None
 
 
-def plot_problem_graph_iteration(graph,limit,iteration,sus,outer_face,face_list):
+def _plot_problem_graph_iteration(graph,limit,iteration,sus,outer_face,face_list):
 	if iteration == limit:
 		return [None,None]
 	else:
-		F = interior_faces(graph,outer_face)
+		F = _interior_faces(graph,outer_face)
 		F.sort(key = len)
 		for face in F:
 			n = len(face)
 			if n > 3:
-				[G,v] = insert_point_to_face(graph,face)
+				[G,v] = _insert_point_to_face(graph,face)
 				faa = get_sltr(G,suspensions = sus , outer_face = outer_face)
 				if faa != None:
-					layout = get_good_faa_layout(G,faa)
+					layout = _get_good_faa_layout(G,faa)
 					face_list.append([face,v])
 					return [face_list,layout]
 				else:
 					face_list_new = copy(face_list)
 					face_list_new.append([face,v])
-					return plot_problem_graph_iteration(G,limit,iteration+1,sus,outer_face,face_list_new)
+					return _plot_problem_graph_iteration(G,limit,iteration+1,sus,outer_face,face_list_new)
 
-def insert_point_to_face(graph,face,edge_amount=None):
+def _insert_point_to_face(graph,face,edge_amount=None):
 	points = []
 	n = len(face)
 	for i in range(n):
@@ -432,7 +376,7 @@ def insert_point_to_face(graph,face,edge_amount=None):
 		return[G,v]
 
 
-def get_good_faa_layout(graph,faa):
+def _get_good_faa_layout(graph,faa):
 	if len(faa[0]) > 1:
 		suspensions = []
 		for node in faa[0][0]:
@@ -453,31 +397,31 @@ def get_good_faa_layout(graph,faa):
 							faa_dict[node] = (n1,n2)
 							break			
 	G = copy(graph)
-	pos = get_good_faa_layout_iteration(G,faa_dict,0,suspensions)
+	pos = _get_good_faa_layout_iteration(G,faa_dict,0,suspensions)
 	return pos
 	
-def get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights=None):
+def _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights=None):
 	constant = 0.01
 	V = G.vertices()
 	n = len(V)
 	if weights == None:
 		j += 1
-		sol = get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
+		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
-		weights = calculate_weights(G,suspensions,j)
+		weights = _calculate_weights(G,suspensions,j)
 	j += 1
-	sol2 = get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
+	sol2 = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
 	pos2 = {V[i]:sol2[i] for i in range(n)}
 	G.set_pos(pos2)
-	weights2 = calculate_weights(G,suspensions,j)
+	weights2 = _calculate_weights(G,suspensions,j)
 	M = weights-weights2
 	if M.norm() < constant or j == 50:
 		return pos2
 	else:
-		return get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights2)	
+		return _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights2)	
 	
-def calculate_weights(G,suspensions,j):
+def _calculate_weights(G,suspensions,j):
 	V = G.vertices()
 	n = len(V)
 	W = zero_matrix(RR,n,n)
@@ -485,7 +429,7 @@ def calculate_weights(G,suspensions,j):
 	
 	##weights for edges ##
 	for E in G.edges():
-		q = get_edge_length(E,pos)
+		q = _get_edge_length(E,pos)
 		## TODO: Find a better function q and p##
 		q = q
 		i0 = V.index(E[0])
@@ -495,8 +439,8 @@ def calculate_weights(G,suspensions,j):
 		
 	## weights for faces ##
 	for F in G.faces():
-	#for F in interior_faces(G,sus=suspensions):
-		p = get_face_area(F,pos)
+	#for F in _interior_faces(G,sus=suspensions):
+		p = _get_face_area(F,pos)
 		## TODO: Find a better function q and p##
 		p = p
 		for E in F:
@@ -506,14 +450,14 @@ def calculate_weights(G,suspensions,j):
 			W[i1,i0] += p
 	return W
 	
-def get_face_area(F,pos):
+def _get_face_area(F,pos):
 	p = 0
 	for edge in F:
 		p += pos[edge[0]][0]*pos[edge[1]][1]  - pos[edge[1]][0]*pos[edge[0]][1]
 	p = abs(p/2)
 	return p
 	
-def get_edge_length(E,pos):
+def _get_edge_length(E,pos):
 	p0 = pos[E[0]]
 	p1 = pos[E[1]]
 	l0 = (p0[0] - p1[0])^2
@@ -521,7 +465,7 @@ def get_edge_length(E,pos):
 	q = sqrt(l0+l1)
 	return q
 	
-def get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
+def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 	pos = dict()
 	V = G.vertices()
 
