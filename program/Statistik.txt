@@ -23,7 +23,7 @@ V(G)	Graphs		No-SLTR:	2app. N-Int	Min-Max			Cut --> ( 	SLTR 					Non-SLTR )	Tri-
 30										0	(45(57,78)84)
 
 
-Smallest Graph no FAA : ":MeEgypEYGgA_Q@SSQiPB^" ?? 14 vertices
+Smallest Graph no FAA : ":MeEgypEYGgA_Q@SSQiPB^" on 14 vertices ??
 
 Some graphs on 8 vertices with sltrs for some outer faces and non for others:
 [':Ga@aYQsUsZ', ':GaG_R_SciLn']

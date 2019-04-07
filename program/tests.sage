@@ -1,3 +1,4 @@
+
 def run_iterator_test(nodes,print_info=True):
 	SLTR = [0]*500
 	FAA = [0]*500
@@ -5,13 +6,13 @@ def run_iterator_test(nodes,print_info=True):
 	Only_FAA = []
 	Only_non_int_flow = []
 	i = 0
-	for G in graphs.planar_graphs(nodes, minimum_connectivity=3):
+	for G in graphs.planar_graphs(nodes, minimum_connectivity=3,minimum_degree=4):
 		if print_info:
 			if mod(i,100) == 0:
 				print i
 		en =  len(G.edges())
 		# Check for vertex/edge ratio:
-		if nodes > 8 and len(G.edges()) > ((nodes-4)*3):
+		if check_vertex_edge_crit(nodes,en):
 				SLTR[en] = SLTR[en] + 1
 		else:
 			if has_faa(G):
@@ -107,8 +108,8 @@ def rerun_non_sltr():
 			if len(sparse_graph) < 5:
 				break
 			graph = Graph(sparse_graph[1:-3])
-			if len(graph.edges()) == 22:
-				print sparse_graph
+			dual = get_dual(graph)
+			print has_sltr(dual)
 
 
 
@@ -119,21 +120,30 @@ def looking_for_graphs_with_only_some_sltrs(nodes,print_info=True):
 		if print_info:
 			if mod(i,20) == 0:
 				print i
-		# Check for vertex/edge ratio:
-		#if nodes > 8 and len(G.edges()) > ((nodes-4)*3):
-		#		pass
-		#else:
-		if has_faa(G):
-			cf = 0
-			cns = 0
-			for face in G.faces():
-				cf += 1
-				sltr = get_sltr(G,outer_face=face)
-				if sltr == None:
-					cns += 1
-			if cns > 0 and cns < cf:
-				SLTR_only_some_faces.append(G.sparse6_string())
+		if not check_vertex_edge_crit(nodes,len(G.edges())):
+			if has_faa(G):
+				cf = 0
+				cns = 0
+				for face in G.faces():
+					cf += 1
+					sltr = get_sltr(G,outer_face=face)
+					if sltr == None:
+						cns += 1
+				if cns > 0 and cns < cf:
+					SLTR_only_some_faces.append(G.sparse6_string())
 		i = i+1
 	if print_info:
 		print "Finished checking all graphs on " + str(nodes) + " nodes and found " + str(len(SLTR_only_some_faces)) + " graphs."
 	return SLTR_only_some_faces
+
+def check_vertex_edge_crit(nodes,edges):
+	#if nodes > 8 and edges > ((nodes-4)*3):
+	#	return True
+	return False
+
+def get_dual(graph):
+	graph.allow_multiple_edges(False)
+	graph.allow_loops(False)
+	dual = graph.planar_dual()
+	dual.relabel()
+	return dual
