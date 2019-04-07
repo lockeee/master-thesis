@@ -6,21 +6,20 @@ def has_sltr(graph,suspensions=None,outer_face=None):
 	
 def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
-	H = copy(graph)
 	if suspensions != None:
 		if outer_face != None:
-			return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+			return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 		## We are looking for the outer face ##
 		else:
-			for outer_face in G.faces():
+			for outer_face in graph.faces():
 				if _is_outer_face(face, suspensions):
 					## face is the outer_face ##
-					return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+					return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
 		if outer_face == None: 
 			## Still hoping it is enough to check one random face as outer_face.
-			l = H.faces()
+			l = graph.faces()
 			l.sort(key=len)
 			outer_face = l[0]
 		nodes = []
@@ -28,12 +27,12 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 			nodes.append(i[0])
 		n = tuple(nodes)					
 		if suspensions != None:
-			return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+			return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 		else:
 			## Find all possible suspensions for this face ##
 			for j in Combinations(len(n),3):
 				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				sltr = _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+				sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 				if sltr != None:
 					return sltr
 
