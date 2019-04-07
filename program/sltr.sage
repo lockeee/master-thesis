@@ -16,6 +16,7 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 	else:					
 		## We will check all posible triplets as suspensions ##
 		if outer_face == None: 
+			## Still hoping it is enough to check one random face as outer_face.
 			l = H.faces()
 			l.sort(key=len)
 			outer_face = l[0]
