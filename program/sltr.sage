@@ -1,7 +1,7 @@
 import sage.all
 
 def has_sltr(graph,suspensions=None,outer_face=None):
-	return get_sltr(graph,suspensions,outer_face) != None
+	return get_sltr(graph,suspensions,outer_face,check_non_int_flow=False) != None
 
 	
 def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
@@ -9,77 +9,113 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 	H = copy(graph)
 	if suspensions != None:
 		## We are looking for the outer face ##
-		for face in H.faces():
+		for face in G.faces():
 			if _is_outer_face(face, suspensions):
 				## face is the outer_face ##
-				return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int_flow)
+				return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
 		if outer_face != None: 
 			face = outer_face
+			nodes = []
+			for i in face:
+				nodes.append(i[0])
+			n = tuple(nodes)
+			## Find all possible suspensions for this face ##
+			for j in Combinations(len(n),3):
+				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+				return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 		else:
 			#Check for small face
-			#IS THIS REALLY ENOUGH??
-			l = H.faces()
-			l.sort(key=len)
-			face = l[0]
-		nodes = []
-		for i in face:
-			nodes.append(i[0])
-		n = tuple(nodes)
-		## Find all possible suspensions for this face ##
-		for j in Combinations(len(n),3):
-			suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-			return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int_flow)
+			face = H.faces()[len(H.faces())-1]
+			nodes = []
+			for i in face:
+				nodes.append(i[0])
+			n = tuple(nodes)					
+			## Find all possible suspensions for this face ##
+			for j in Combinations(len(n),3):
+				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+				return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	return
 
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if has_sltr:
-		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
+		return _get_good_faa(graph,Flow[1],face,suspensions)
 	else:
-		if Flow != None and (check_non_int_flow or check_just_non_int_flow):
-			print "Only non integer Flow found for: " + H.sparse6_string()
+		if Flow != None:
+			print 'Only non integer Flow found for: G = Graph(' + graph.sparse6_String() + ')'
+	return
+
 	
-def _get_good_faa(G, Flow2,outer_face,suspensions):
+def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 	gFAA = []
-	firstN = copy(Flow2.neighbors_in('o2'))
-	for i in range(len(firstN)):
-		name = Flow2.neighbors_in(firstN[i])[0][:-3]
-		#name = name[:-3]
-		names = name.split(',')
-		names = [names[0][2:],names[1][2:]]
-		name0 = _face_2_ints(names)
-		x = True
-		for j in range(len(gFAA)):
-			if  name0 == gFAA[j][0]:
-				x = False
-				gFAA[j][1].append(int(names[1]))
-				break
-		if x:
-			add = [name0]
-			add.append([int(names[1])])
-			gFAA.append(add)
-	## Append vertices assigned to outer Face ##
-	name = _name_face_vertex(outer_face)[2:]
-	name = [_face_2_ints([name])]
-	add = []
-	for i in outer_face:
-		if i[0] not in suspensions:
-			add.append(i[0])
-	name.append(add)
-	gFAA.insert(0,name)	
-	## Append triangles ##
-	for i in _interior_faces(G,oF = outer_face):
-		if len(i) == 3:
-			gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
-	return gFAA
+	if len(Flow2.vertices()) == 0:
+		if outer_face == None :
+			## Triangulation ##
+			for i in G.faces():
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+			return gFAA
+		else:
+			## Only assigned vertices to outer face ##
+			name = _face_2_ints([_name_face_vertex(outer_face)[2:]])
+			add = []
+			for i in outer_face:
+				if i[0] not in suspensions:
+					add.append(i[0])
+			gFAA = [[name,add]]
+			for i in _interior_faces(G,oF = outer_face):
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+			return gFAA
+	else:
+		## interior vertices to assign ##
+		gFAA = []
+		firstN = copy(Flow2.neighbors_in('o2'))
+		for i in range(len(firstN)):
+			name = Flow2.neighbors_in(firstN[i])[0][:-3]
+			names = name.split(',')
+			names = [names[0][2:],names[1][2:]]
+			name0 = _face_2_ints(names)
+			x = True
+			for j in range(len(gFAA)):
+				if  name0 == gFAA[j][0]:
+					x = False
+					gFAA[j][1].append(int(names[1]))
+					break
+			if x:
+				add = [name0]
+				add.append([int(names[1])])
+				gFAA.append(add)
+		## Append vertices assigned to outer Face ##
+		name = _name_face_vertex(outer_face)[2:]
+		name = [_face_2_ints([name])]
+		add = []
+		for i in outer_face:
+			if i[0] not in suspensions:
+				add.append(i[0])
+		name.append(add)
+		gFAA.insert(0,name)	
+		## Append triangles ##
+		for i in _interior_faces(G,oF = outer_face):
+			if len(i) == 3:
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+		return gFAA
+		  
+def is_internally_3_connected(G,suspensions):
+	H = copy(G)
+	v = H.add_vertex()
+	H.add_edges([[v,suspensions[0]],[v,suspensions[1]],[v,suspensions[2]]])
+	for v in H.vertices():
+		K = copy(H)
+		K.delete_vertex(v)
+		if K.is_biconnected() == False:
+			return False
+	return True
 		
-def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
+def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow=False,check_just_non_int_flow=False):
 	H = _graph_2_flow(G, outer_face, suspensions)
-	print H.vertices()
-	flow1 = _give_flow1(G,outer_face)
-	flow2 = _give_flow2(G,outer_face)
+	flow1 = _give_flow_1(G,outer_face)
+	flow2 = _give_flow_2(G,outer_face)
 	if check_just_non_int_flow:
 		try:
 			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
@@ -95,13 +131,13 @@ def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow,check_just_non
 				return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
 			except EmptySetError:
 				pass
+	return [None,False]
 	
 def _graph_2_flow(G,outer_face,suspensions):
 	## G is a planar, suspended, internally 3-connected graph ##
-	_interior_Faces = _interior_faces(G,oF = outer_face)
-	H = DiGraph([['i1','o2','o1'],[('Di2' , 'i2' , give_flow2(G,outer_face))]])
+	H = DiGraph([['i1','o2','o1'],[('Di2' , 'i2' , _give_flow_2(G,outer_face))]])
 	_add_vertices_2_sink_edges(H,G,suspensions)
-	for face in _interior_Faces:
+	for face in _interior_faces(G,oF = outer_face):
 		_face_2_flow(H,face)	
 	for sV in outer_face:
 		H.set_edge_label('D' + _name_vertex_vertex(sV[0]) , 'o2' , 0 )
@@ -109,10 +145,10 @@ def _graph_2_flow(G,outer_face,suspensions):
 		H.delete_edge('i1',_name_edge_vertex(oE))
 	return H
 	
-def _give_flow1(G,outer_face):
+def _give_flow_1(G,outer_face):
 	return len(G.edges())-len(outer_face) + 3*(len(G.faces())-1)
 	
-def _give_flow2(G,outer_face):
+def _give_flow_2(G,outer_face):
 	flow2 = 0
 	innerFaces = _interior_faces(G,oF = outer_face)
 	for i in range(len(innerFaces)):
@@ -122,7 +158,7 @@ def _give_flow2(G,outer_face):
 def _interior_faces(G,oF = None, sus = None):
 	faces = copy(G.faces())
 	if oF != None:
-		face = find_face(G,oF)
+		face = _find_face(G,oF)
 		faces.remove(face)
 		return faces
 	if sus != None:
@@ -136,7 +172,7 @@ def _interior_faces(G,oF = None, sus = None):
 					faces.remove(face)
 					return faces
 
-def find_face(graph,this_face):
+def _find_face(graph,this_face):
 	length = len(this_face)
 	for face in graph.faces():
 		if len(face) == length:
@@ -202,6 +238,11 @@ def _face_2_ints(face):
 	for j in nodes:
 		face_name.append(int(j))
 	return face_name
+
+def _get_suspensions(faa):
+	outer_face = faa[0][0]
+	outer_nodes = faa[0][1]
+	return copy(outer_face).remove(outer_nodes)	
 
 def _is_outer_face(face,sus):
 	count = 0
@@ -441,7 +482,6 @@ def _calculate_weights(G,suspensions,j):
 		
 	## weights for faces ##
 	for F in G.faces():
-	#for F in _interior_faces(G,sus=suspensions):
 		p = _get_face_area(F,pos)
 		## TODO: Find a better function q and p##
 		p = p
