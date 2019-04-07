@@ -23,7 +23,7 @@ def random_3_graph(nodes):
 
 def choose_split_face_edge():
 	#true if face else false
-	cut1 = 300
+	cut1 = 450
 	cut2 = 900 
 	n = randint(0,1000)
 	if n < cut1:

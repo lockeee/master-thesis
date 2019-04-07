@@ -21,3 +21,6 @@ V(G)	Graphs		No-SLTR:	2app. N-Int	Min-Max			Cut --> ( 	SLTR 					Non-SLTR )	Tri-
 25										0	(38(47,63)69)
 
 30										0	(45(57,78)84)
+
+
+Smallest Graph no FAA : ":MeEgypEYGgA_Q@SSQiPB^" ?? 14 vertices
