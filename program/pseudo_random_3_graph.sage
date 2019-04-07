@@ -242,6 +242,10 @@ def rerun_list():
 		if mod(i,20) == 0:
 			print i
 
+def give_problem_graphs():
+	L = [':J`A?gOHCkRQePDAfP',':J`A?WqcQOqEgUiJGR']
+	return L		
+
 def give_list():
 	L = [':J`AC@paIOyDi\\DRF',
 	 ':J`A?gBaQK`tiXDbg',
