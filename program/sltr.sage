@@ -9,39 +9,32 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 	H = copy(graph)
 	if suspensions != None:
 		## We are looking for the outer face ##
-		for face in G.faces():
+		for outer_face in G.faces():
 			if _is_outer_face(face, suspensions):
 				## face is the outer_face ##
 				return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
-		if outer_face != None: 
-			face = outer_face
-			nodes = []
-			for i in face:
-				nodes.append(i[0])
-			n = tuple(nodes)
-			## Find all possible suspensions for this face ##
-			for j in Combinations(len(n),3):
-				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+		if outer_face == None: 
+			l = H.faces()
+			l.sort(key=len)
+			outer_face = l[0]
+		nodes = []
+		for i in outer_face:
+			nodes.append(i[0])
+		n = tuple(nodes)					
+		if suspensions != None:
+			return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 		else:
-			#Check for small face
-			face = H.faces()[len(H.faces())-1]
-			nodes = []
-			for i in face:
-				nodes.append(i[0])
-			n = tuple(nodes)					
 			## Find all possible suspensions for this face ##
 			for j in Combinations(len(n),3):
 				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
 				return _get_sltr(H,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
-	return
 
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if has_sltr:
-		return _get_good_faa(graph,Flow[1],face,suspensions)
+		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
 	else:
 		if Flow != None:
 			print 'Only non integer Flow found for: G = Graph(' + graph.sparse6_String() + ')'
@@ -281,20 +274,15 @@ def _name_vertex_vertex(vertex):
 		return 'V:' + str(vertex)
 		
 ##Plotting##	
-def plot_sltr(graph=None,vertices=None,index=None,suspensions=None,show_originial = None):
+def plot_sltr(graph=None,vertices=None,index=None,suspensions=None,show_originial = False,outer_face = None):
 	if graph != None:
-		H = copy(graph)
-		if show_originial:
-			plot_planar_graph(H)
-		faa = get_sltr(H,suspensions)
+		faa = get_sltr(graph,suspensions=suspensions,outer_face=outer_face)
 		if faa != None:
-			layout = _get_good_faa_layout(H,faa)
-			F = H.plot(pos=layout)
+			layout = _get_good_faa_layout(graph,faa)
+			F = graph.plot(pos=layout)
 			show(F)
 		else:
-			#plot_aproximation_to_sltr(H)
-			print 'approx'
-		return None
+			print "No SLTR found for given parameters"
 	if graph == None:
 		i = 0
 		for G in graphs.planar_graphs(vertices, minimum_connectivity=3):
@@ -302,7 +290,7 @@ def plot_sltr(graph=None,vertices=None,index=None,suspensions=None,show_originia
 			if i == index:
 				if show_originial:
 					plot_planar_graph(G)
-				faa = get_sltr(G,suspensions)
+				faa = get_sltr(G,suspensions=suspensions)
 				if faa != None:
 					layout = _get_good_faa_layout(G,faa)
 					F = G.plot(pos=layout)
