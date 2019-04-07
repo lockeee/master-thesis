@@ -4,7 +4,7 @@ def has_sltr(graph,suspensions=None,outer_face=None):
 	return get_sltr(graph,suspensions,outer_face) != None
 
 	
-def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=True,check_just_non_int = False):
+def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	H = copy(graph)
 	if suspensions != None:
@@ -12,7 +12,7 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=True,chec
 		for face in H.faces():
 			if _is_outer_face(face, suspensions):
 				## face is the outer_face ##
-				return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int)
+				return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
 		if outer_face != None: 
@@ -20,7 +20,9 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=True,chec
 		else:
 			#Check for small face
 			#IS THIS REALLY ENOUGH??
-			face = H.faces()[0]
+			l = H.faces()
+			l.sort(key=len)
+			face = l[0]
 		nodes = []
 		for i in face:
 			nodes.append(i[0])
@@ -28,15 +30,15 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=True,chec
 		## Find all possible suspensions for this face ##
 		for j in Combinations(len(n),3):
 			suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-			return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int)
+			return _get_sltr(H,suspensions,face,check_non_int_flow,check_just_non_int_flow)
 	return
 
-def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int):
-	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int)
+def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
+	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if has_sltr:
 		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
 	else:
-		if Flow != None and (check_non_int_flow or check_just_non_int):
+		if Flow != None and (check_non_int_flow or check_just_non_int_flow):
 			print "Only non integer Flow found for: " + H.sparse6_string()
 	
 def _get_good_faa(G, Flow2,outer_face,suspensions):
@@ -73,11 +75,12 @@ def _get_good_faa(G, Flow2,outer_face,suspensions):
 			gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
 	return gFAA
 		
-def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow,check_just_non_int):
+def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
 	H = _graph_2_flow(G, outer_face, suspensions)
+	print H.vertices()
 	flow1 = _give_flow1(G,outer_face)
 	flow2 = _give_flow2(G,outer_face)
-	if check_just_non_int:
+	if check_just_non_int_flow:
 		try:
 			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
 		except EmptySetError:
@@ -92,7 +95,6 @@ def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow,check_just_non
 				return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
 			except EmptySetError:
 				pass
-	return [None,False]
 	
 def _graph_2_flow(G,outer_face,suspensions):
 	## G is a planar, suspended, internally 3-connected graph ##
