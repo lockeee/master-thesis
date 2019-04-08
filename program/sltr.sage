@@ -1,7 +1,8 @@
 import sage.all
+attach("graph2ipe.sage")
 
 def has_sltr(graph,suspensions=None,outer_face=None):
-	return get_sltr(graph,suspensions,outer_face,check_non_int_flow=False) != None
+	return get_sltr(graph,suspensions,outer_face) != None
 
 	
 def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
@@ -12,30 +13,24 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 		## We are looking for the outer face ##
 		else:
 			for outer_face in graph.faces():
-				if _is_outer_face(face, suspensions):
+				if _is_outer_face(outer_face, suspensions):
 					## face is the outer_face ##
 					return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
-		if outer_face == None: 
-			## Still hoping it is enough to check one random face as outer_face.
-			l = graph.faces()
-			l.sort(key=len)
-			outer_face = l[0]
-		nodes = []
-		for i in outer_face:
-			nodes.append(i[0])
-		n = tuple(nodes)					
-		if suspensions != None:
-			return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
-		else:
-			## Find all possible suspensions for this face ##
-			for j in Combinations(len(n),3):
-				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+		if outer_face != None: 
+			## outer face is given
+			for suspensions in _give_suspension_list(graph,outer_face):
 				sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 				if sltr != None:
 					return sltr
-
+		else:
+			## Checking all outer faces:
+			for outer_face in graph.faces():
+				for suspensions in _give_suspension_list(graph,outer_face):
+					sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+					if sltr != None:
+						return sltr
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if has_sltr:
@@ -109,6 +104,29 @@ def is_internally_3_connected(G,suspensions):
 		if K.is_biconnected() == False:
 			return False
 	return True
+
+def _give_suspension_list(graph,outer_face=None):
+	sus_list = []
+	if outer_face != None:
+		nodes = []
+		for i in outer_face:
+			nodes.append(i[0])
+		n = tuple(nodes)					
+		## Find all possible suspensions for this face ##
+		for j in Combinations(len(n),3):
+			suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+			sus_list.append(suspensions)
+	else:
+		for outer_face in graph.faces():
+			nodes = []
+			for i in outer_face:
+				nodes.append(i[0])
+			n = tuple(nodes)					
+			## Find all possible suspensions for this face ##
+			for j in Combinations(len(n),3):
+				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
+				sus_list.append(suspensions)
+	return sus_list
 		
 def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow=False,check_just_non_int_flow=False):
 	H = _graph_2_flow(G, outer_face, suspensions)
@@ -284,66 +302,79 @@ def plot_planar_graph(graph):
 	show(graph.plot(pos=P))	
 
 def plot_sltr_or_aproximation(graph,sus=None,outer_face=None):
-	if has_sltr(graph,suspensions=sus,outer_face=outer_face):
-		plot_sltr(graph,outer_face=outer_face)
+	faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
+	if faa != None:
+		plot_sltr(graph,faa=faa)
 	else:
 		plot_aproximation_to_sltr(graph,sus=sus,outer_face=outer_face)
 
-def plot_sltr(graph,suspensions=None,outer_face = None):
-	faa = get_sltr(graph,suspensions=suspensions,outer_face=outer_face)
+def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
+	if faa == None:
+		faa = get_sltr(graph,suspensions=suspensions,outer_face=outer_face)
 	if faa != None:
-		layout = _get_good_faa_layout(graph,faa)
-		F = graph.plot(pos=layout)
+		layout = _get_good_faa_layout(graph,faa,suspensions=suspensions)
+		graph.set_pos(layout)
+		F = graph.plot()
 		show(F)
 	else:
 		print "No SLTR found for given parameters"
 
 def plot_aproximation_to_sltr(graph,sus=None,outer_face=None):
-	ultimate = 2
-	for limit in range(1,ultimate):
-		Plot = plot_problem_graph(graph,limit,sus,outer_face)
-		if Plot != None:
-			Plot.show(axes = False)
-			return
-	print('No close drawing found with at most ' + str(ultimate) + ' triangulated faces.')
+	ultimate = 3 ## at most ultimate triangulated faces
+	if sus != None:
+		if outer_face == None:
+			for outer_face in graph.faces():
+				if _is_outer_face(outer_face, sus):
+					break
+	Plot = plot_problem_graph(graph,ultimate,sus,outer_face)
+	if Plot != None:
+		Plot.show(axes = False)
+	else:
+		print('No close drawing found with at most ' + str(ultimate) + ' triangulated faces.')
 
-def plot_problem_graph(graph,limit,sus=None,outer_face=None):
+
+def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
 	colors = ['lightskyblue','lightgoldenrodyellow','lightsalmon', 'lightcoral','lightgreen']
 	faces = copy(graph.faces())
 	faces.sort(key = len)
 	if sus != None:
-		for oF in faces:
-			if _is_outer_face(oF, sus):
-				[face_list,layout] = _plot_problem_graph_iteration(graph,limit,0,sus,oF,[])
-				if layout != None:
-					G = copy(graph)
-					## plot ##
-					for i in range(len(face_list)):
-						[face,v] = face_list[i]
-						for e in face:
-							G.set_edge_label(e[0],e[1],1)
-						del layout[v]
-					P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
-					for i in range(len(face_list)):
-						[face,v] = face_list[i]
-						P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-					return P
-				else:
-					print 'No Approximation with those suspensions found...'
-					return None
+		[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
+		if layout != None:
+			G = copy(graph)
+			## plot ##
+			for i in range(len(face_list)):
+				[face,v] = face_list[i]
+				for e in face:
+					G.set_edge_label(e[0],e[1],1)
+				del layout[v]
+			P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
+			for i in range(len(face_list)):
+				[face,v] = face_list[i]
+				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
+			return P
 	else:
-		if outer_face == None:
-		## No suspensions given ##
+		if outer_face != None:
+			## No suspensions given ##
+			for suspensions in _give_suspension_list(graph,outer_face):
+					G = copy(graph)
+					[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
+					if layout != None:
+						## plot ##
+						for i in range(len(face_list)):
+							[face,v] = face_list[i]
+							for e in face:
+								G.set_edge_label(e[0],e[1],1)
+							del layout[v]
+						P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
+						for i in range(len(face_list)):
+							[face,v] = face_list[i]
+							P = P + polygon([layout[x[0]] for x in face], color=colors[i])
+						return P
+		else:
+			## nothing is given
 			for outer_face in faces:
-				nodes = []
-				for edge in outer_face:
-					nodes.append(edge[0])
-				n = tuple(nodes)
-				## Find all possible suspensions for this face ##
-				suspensions = (0,0,0)
-				for j in Combinations(len(n),3):
-					suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-					[face_list,layout] = _plot_problem_graph_iteration(graph,limit,0,suspensions,outer_face,[])
+				for suspensions in _give_suspension_list(graph,outer_face):
+					[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
 					if layout != None:
 						G = copy(graph)
 						## plot ##
@@ -357,50 +388,32 @@ def plot_problem_graph(graph,limit,sus=None,outer_face=None):
 							[face,v] = face_list[i]
 							P = P + polygon([layout[x[0]] for x in face], color=colors[i])
 						return P
-		else:
-			nodes = []
-			for edge in outer_face:
-				nodes.append(edge[0])
-			n = tuple(nodes)
-			## Find all possible suspensions for this face ##
-			suspensions = (0,0,0)
-			for j in Combinations(len(n),3):
-				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
-				G = copy(graph)
-				[face_list,layout] = _plot_problem_graph_iteration(G,limit,0,suspensions,outer_face,[])
-				if layout != None:
-					## plot ##
-					for i in range(len(face_list)):
-						[face,v] = face_list[i]
-						for e in face:
-							G.set_edge_label(e[0],e[1],1)
-						del layout[v]
-					P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
-					for i in range(len(face_list)):
-						[face,v] = face_list[i]
-						P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-					return P
 
 
-def _plot_problem_graph_iteration(graph,limit,iteration,sus,outer_face,face_list):
-	if iteration == limit:
-		return [None,None]
+def _plot_problem_graph_iteration(graph_list,ultimate,iteration,sus,outer_face):
+	graph_list_new = []
+	if iteration > ultimate:
+		return
 	else:
-		F = _interior_faces(graph,outer_face)
-		F.sort(key = len)
-		for face in F:
-			n = len(face)
-			if n > 3:
-				[G,v] = _insert_point_to_face(graph,face)
-				faa = get_sltr(G,suspensions = sus , outer_face = outer_face)
-				if faa != None:
-					layout = _get_good_faa_layout(G,faa)
-					face_list.append([face,v])
-					return [face_list,layout]
-				else:
-					face_list_new = copy(face_list)
-					face_list_new.append([face,v])
-					return _plot_problem_graph_iteration(G,limit,iteration+1,sus,outer_face,face_list_new)
+		for l in graph_list:
+			graph = l[0]
+			face_list = l[1]
+			F = _interior_faces(graph,outer_face)
+			F.sort(key = len)
+			for face in F:
+				if len(face) > 3:
+					[G,v] = _insert_point_to_face(graph,face)
+					faa = get_sltr(G,suspensions = sus , outer_face = outer_face)
+					if faa != None:
+						layout = _get_good_faa_layout(G,faa,suspensions=sus)
+						face_list.append([face,v])
+						return [face_list,layout]
+					else:
+						face_list_new = copy(face_list)
+						face_list_new.append([face,v])
+						graph_list_new.append([G,face_list_new])
+		return _plot_problem_graph_iteration(graph_list_new,ultimate,iteration+1,sus,outer_face)
+		
 
 def _insert_point_to_face(graph,face,edge_amount=None):
 	points = []
@@ -424,14 +437,15 @@ def _insert_point_to_face(graph,face,edge_amount=None):
 		return[G,v]
 
 
-def _get_good_faa_layout(graph,faa):
-	if len(faa[0]) > 1:
-		suspensions = []
-		for node in faa[0][0]:
-			if node not in faa[0][1]:
-				suspensions.append(node)
-	else:
-		suspensions = copy(faa[0][0])
+def _get_good_faa_layout(graph,faa,suspensions = None):
+	if suspensions == None:
+		if len(faa[0]) > 1:
+			suspensions = []
+			for node in faa[0][0]:
+				if node not in faa[0][1]:
+					suspensions.append(node)
+		else:
+			suspensions = copy(faa[0][0])
 	faa_dict = dict()
 	for face in faa:
 		if len(face) > 1:
@@ -445,31 +459,35 @@ def _get_good_faa_layout(graph,faa):
 							faa_dict[node] = (n1,n2)
 							break			
 	G = copy(graph)
-	pos = _get_good_faa_layout_iteration(G,faa_dict,0,suspensions)
+	pos = _get_good_faa_layout_start(G,faa_dict,0,suspensions)
 	return pos
 	
-def _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights=None):
-	constant = 0.01
+def _get_good_faa_layout_start(G,faa_dict,j,suspensions):
+	constant = 1
 	V = G.vertices()
 	n = len(V)
-	if weights == None:
-		j += 1
-		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
-		pos = {V[i]:sol[i] for i in range(n)}
-		G.set_pos(pos)
-		weights = _calculate_weights(G,suspensions,j)
+	sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict)
+	pos = {V[i]:sol[i] for i in range(n)}
+	G.set_pos(pos)
+	weights = _calculate_weights(G,faa_dict,suspensions,j)
+	return _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights)
+
+def _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights=None):
+	constant = 1
+	V = G.vertices()
+	n = len(V)
 	j += 1
 	sol2 = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
 	pos2 = {V[i]:sol2[i] for i in range(n)}
 	G.set_pos(pos2)
-	weights2 = _calculate_weights(G,suspensions,j)
+	weights2 = _calculate_weights(G,faa_dict,suspensions,j)
 	M = weights-weights2
 	if M.norm() < constant or j == 50:
 		return pos2
 	else:
 		return _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights2)	
 	
-def _calculate_weights(G,suspensions,j):
+def _calculate_weights(G,faa_dict,suspensions,j):
 	V = G.vertices()
 	n = len(V)
 	W = zero_matrix(RR,n,n)
@@ -479,7 +497,6 @@ def _calculate_weights(G,suspensions,j):
 	for E in G.edges():
 		q = _get_edge_length(E,pos)
 		## TODO: Find a better function q and p##
-		q = q
 		i0 = V.index(E[0])
 		i1 = V.index(E[1])
 		W[i0,i1] += q
@@ -489,7 +506,6 @@ def _calculate_weights(G,suspensions,j):
 	for F in G.faces():
 		p = _get_face_area(F,pos)
 		## TODO: Find a better function q and p##
-		p = p
 		for E in F:
 			i0 = V.index(E[0])
 			i1 = V.index(E[1])
@@ -499,8 +515,12 @@ def _calculate_weights(G,suspensions,j):
 	
 def _get_face_area(F,pos):
 	p = 0
-	for edge in F:
-		p += pos[edge[0]][0]*pos[edge[1]][1]  - pos[edge[1]][0]*pos[edge[0]][1]
+	for i in range(len(F)):
+		x1 = pos[F[i][0]][0]
+		x2 = pos[F[i][0]][1]
+		y1 = pos[F[i][1]][0]
+		y2 = pos[F[i][1]][1]
+		p += x1*y2 - x2*y1
 	p = abs(p/2)
 	return p
 	
@@ -539,7 +559,8 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 					wn1 = weights[j1,i]
 					wn2 = weights[j2,i]
 				else:
-					wn1 = wn2 = 1
+					wn1 = 1
+					wn2 = 1
 				s = wn1 + wn2
 				M[i,j1] = -wn1
 				M[i,j2] = -wn2

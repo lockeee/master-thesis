@@ -10,7 +10,7 @@ def graph2ipe(G,path):
 	P = pos.values()
 	print "P",P
 	E = G.edges(labels=False)
-	print E
+	F = G.faces()
 
 	ipe_file = path+'.ipe'
 	print "write ipefile to:",ipe_file
@@ -41,9 +41,10 @@ def graph2ipe(G,path):
 		M = 592-2*c
 		P = [(c+float(x*M)/x1,c+float(y*M)/y1) for (x,y) in P]
 	
-		add = -1
+		add = -G.vertices()[0]
+		print add
 		# write edges	
-		for i,j in E:
+		for (i,j) in E:
 			(xi,yi) = P[i+add]
 			(xj,yj) = P[j+add]
 			g.write('<path layer="beta" stroke="black">\n')
