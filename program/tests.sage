@@ -50,24 +50,23 @@ def mini_test(nodes,number,print_info=True):
 	SLTR = [0]*500
 	FAA = [0]*500
 	No_FAA = [0]*500
-	Only_FAA = []
+	Has_SLTR = []
 	Only_non_int_flow = []
 	for i in range(number):
-		if print_info:
-			if mod(i,20) == 0:
+		if print_info: 
+			if mod(i,5) == 0:
 				print i
 		G = random_3_graph(nodes)
 		en =  len(G.edges())
 		if has_faa(G):
 			sltr = get_sltr(G)
 			if sltr == None:
-				Only_FAA.append(G.sparse6_string())
 				FAA[en] = FAA[en] + 1
 			else:
 				SLTR[en] = SLTR[en] + 1
+				Has_SLTR.append(G)
 		else:
 			No_FAA[en] = No_FAA[en] + 1
-			print G.sparse6_string()
 	if print_info:
 		print "Finished checking some graphs on " + str(nodes) + " nodes."
 		str1 = ""
@@ -83,8 +82,8 @@ def mini_test(nodes,number,print_info=True):
 		print "SLTR:" + str1
 		print "Only FAA:" + str2
 		print "Neither:" + str3
-	print _test_sparse_graphs(Only_FAA,print_info=print_info)
-	return Only_FAA
+	#print _test_sparse_graphs(Only_FAA,print_info=print_info)
+	return Has_SLTR
 
 def _test_sparse_graphs(string_list,print_info=True):
 	Only_non_int_flow = []
