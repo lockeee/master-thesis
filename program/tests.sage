@@ -1,12 +1,14 @@
+import time
 
-def run_iterator_test(nodes,print_info=True):
+def run_iterator_test(nodes,print_info=True,sep_tri=False,just_one_face=True):
+	start = time.time()
 	SLTR = [0]*500
 	FAA = [0]*500
 	No_FAA = [0]*500
 	Only_FAA = []
 	Only_non_int_flow = []
 	i = 0
-	for G in graphs.planar_graphs(nodes, minimum_connectivity=3,minimum_degree=4):
+	for G in graphs.planar_graphs(nodes, minimum_connectivity=3):
 		if print_info:
 			if mod(i,100) == 0:
 				print i
@@ -16,16 +18,20 @@ def run_iterator_test(nodes,print_info=True):
 				SLTR[en] = SLTR[en] + 1
 		else:
 			if has_faa(G):
-				sltr = get_sltr(G)
-				if sltr == None:
-					Only_FAA.append(G.sparse6_string())
-					FAA[en] = FAA[en] + 1
-				else:
-					SLTR[en] = SLTR[en] + 1
+				faces = G.faces()
+				faces.sort(key=len)
+				faces.reverse()
+				for face in faces:
+					sltr = has_sltr(G,outer_face=face,with_tri_check=sep_tri)
+					if sltr:
+						SLTR[en] = SLTR[en] + 1
+					else:
+						Only_FAA.append(G.sparse6_string())
+						FAA[en] = FAA[en] + 1
+					if just_one_face:
+						break
 			else:
 				No_FAA[en] = No_FAA[en] + 1
-
-			
 		i = i+1
 	if print_info:
 		print "Finished checking all graphs on " + str(nodes) + " nodes."
@@ -42,7 +48,9 @@ def run_iterator_test(nodes,print_info=True):
 		print "SLTR:" + str1
 		print "Only FAA:" + str2
 		print "Neither:" + str3
-	print _test_sparse_graphs(Only_FAA,print_info=print_info)
+	end = time.time()
+	print "Took " + str(int(end-start)) + " seconds."
+	#print _test_sparse_graphs(Only_FAA,print_info=print_info)
 	return Only_FAA
 
 

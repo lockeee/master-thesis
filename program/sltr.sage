@@ -1,8 +1,10 @@
 import sage.all
 attach("graph2ipe.sage")
 
-def has_sltr(graph,suspensions=None,outer_face=None):
-	return get_sltr(graph,suspensions,outer_face) != None
+def has_sltr(graph,suspensions=None,outer_face=None,with_tri_check=True):
+	if with_tri_check:
+		return _has_sltr_with_tri(graph,suspensions=suspensions,outer_face=outer_face)
+	return get_sltr(graph,suspensions=suspensions,outer_face=outer_face) != None
 
 	
 def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
@@ -18,7 +20,7 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 					return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
-		if outer_face != None: 
+		if outer_face != None:
 			## outer face is given
 			for suspensions in _give_suspension_list(graph,outer_face):
 				sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
@@ -26,14 +28,12 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 					return sltr
 		else:
 			## Checking all outer faces:
-			faces = graph.faces()
-			faces.sort(key=len)
-			faces.reverse()
-			for outer_face in faces:
+			for outer_face in graph.faces():
 				for suspensions in _give_suspension_list(graph,outer_face):
 					sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 					if sltr != None:
 						return sltr
+
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if has_sltr:
@@ -402,7 +402,9 @@ def _plot_problem_graph_iteration(graph_list,ultimate,iteration,sus,outer_face):
 		for entry in graph_list:
 			graph = entry[0]
 			face_list = entry[1]
-			for face in _interior_faces(graph,outer_face):
+			iF = _interior_faces(graph,outer_face)
+			iF.sort(key=len)
+			for face in iF:
 				if len(face) > 3:
 					[G,v] = _insert_point_to_face(graph,face)
 					if has_faa(G):
@@ -581,3 +583,5 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 					M[i,j] = -wu
 				M[i,i] = s
 	return M.pseudoinverse()*b
+
+## Ways to make the algorithm faster...	
