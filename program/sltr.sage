@@ -301,12 +301,12 @@ def plot_planar_graph(graph):
 	P = graph.layout(layout='planar',set_embedding = True)
 	show(graph.plot(pos=P))	
 
-def plot_sltr_or_aproximation(graph,sus=None,outer_face=None):
+def plot_sltr_or_approximation(graph,sus=None,outer_face=None):
 	faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
 	if faa != None:
 		plot_sltr(graph,faa=faa)
 	else:
-		plot_aproximation_to_sltr(graph,sus=sus,outer_face=outer_face)
+		plot_approximation_to_sltr(graph,sus=sus,outer_face=outer_face)
 
 def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
 	if faa == None:
@@ -319,8 +319,8 @@ def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
 	else:
 		print "No SLTR found for given parameters"
 
-def plot_aproximation_to_sltr(graph,sus=None,outer_face=None):
-	ultimate = 3 ## at most ultimate triangulated faces
+def plot_approximation_to_sltr(graph,sus=None,outer_face=None):
+	ultimate = 2 ## at most ultimate triangulated faces
 	if sus != None:
 		if outer_face == None:
 			for outer_face in graph.faces():
@@ -372,42 +372,42 @@ def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
 						return P
 		else:
 			## nothing is given
-			for outer_face in faces:
-				for suspensions in _give_suspension_list(graph,outer_face):
-					[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
-					if layout != None:
-						G = copy(graph)
-						## plot ##
-						for i in range(len(face_list)):
-							[face,v] = face_list[i]
-							for e in face:
-								G.set_edge_label(e[0],e[1],1)
-							del layout[v]
-						P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
-						for i in range(len(face_list)):
-							[face,v] = face_list[i]
-							P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-						return P
+			print "Needs outer face or suspensions to calculate approximation"
+			# for outer_face in faces:
+			# 	for suspensions in _give_suspension_list(graph,outer_face):
+			# 		[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
+			# 		if layout != None:
+			# 			G = copy(graph)
+			# 			## plot ##
+			# 			for i in range(len(face_list)):
+			# 				[face,v] = face_list[i]
+			# 				for e in face:
+			# 					G.set_edge_label(e[0],e[1],1)
+			# 				del layout[v]
+			# 			P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
+			# 			for i in range(len(face_list)):
+			# 				[face,v] = face_list[i]
+			# 				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
+			# 			return P
 
 
 def _plot_problem_graph_iteration(graph_list,ultimate,iteration,sus,outer_face):
 	graph_list_new = []
-	if iteration > ultimate:
-		return
+	if iteration == ultimate:
+		return [None,None]
 	else:
-		for l in graph_list:
-			graph = l[0]
-			face_list = l[1]
-			F = _interior_faces(graph,outer_face)
-			F.sort(key = len)
-			for face in F:
+		for entry in graph_list:
+			graph = entry[0]
+			face_list = entry[1]
+			for face in _interior_faces(graph,outer_face):
 				if len(face) > 3:
 					[G,v] = _insert_point_to_face(graph,face)
-					faa = get_sltr(G,suspensions = sus , outer_face = outer_face)
-					if faa != None:
-						layout = _get_good_faa_layout(G,faa,suspensions=sus)
-						face_list.append([face,v])
-						return [face_list,layout]
+					if has_faa(G):
+						faa = get_sltr(G,suspensions = sus , outer_face = outer_face)
+						if faa != None:
+							layout = _get_good_faa_layout(G,faa,suspensions=sus)
+							face_list.append([face,v])
+							return [face_list,layout]
 					else:
 						face_list_new = copy(face_list)
 						face_list_new.append([face,v])
