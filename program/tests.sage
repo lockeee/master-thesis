@@ -117,7 +117,7 @@ def looking_for_graphs_with_only_some_sltrs(nodes,print_info=True):
 	i = 0
 	for G in graphs.planar_graphs(nodes, minimum_connectivity=3):
 		if print_info:
-			if mod(i,20) == 0:
+			if mod(i,4405) == 0:
 				print i
 		if not check_vertex_edge_crit(nodes,len(G.edges())):
 			if has_faa(G):
@@ -130,6 +130,7 @@ def looking_for_graphs_with_only_some_sltrs(nodes,print_info=True):
 						cns += 1
 				if cns > 0 and cns < cf:
 					SLTR_only_some_faces.append(G.sparse6_string())
+					print G.sparse6_string()
 		i = i+1
 	if print_info:
 		print "Finished checking all graphs on " + str(nodes) + " nodes and found " + str(len(SLTR_only_some_faces)) + " graphs."
