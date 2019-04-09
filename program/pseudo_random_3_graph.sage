@@ -1,5 +1,15 @@
 import random
 
+def choose_split_face_edge():
+	cut1 = 333 	## Adds one vertex and one edge
+	cut2 = 666 	## Adds one vertex and two edges
+				## Else triangulates random face --> >2 edges
+	n = randint(0,1000)
+	if n < cut1:
+		return 1
+	if n < cut2:
+		return 2
+	return 3
 
 def random_3_graph(nodes):
 	G = Graph([(0, 1, None), (0, 2, None), (0, 3, None), (1, 2, None), (1, 3, None), (2, 3, None)])
@@ -17,24 +27,14 @@ def random_3_graph(nodes):
 	if G.vertex_connectivity() > 2:
 		return G
 	else:
-		return random_3_graph(nodes)
-
-def choose_split_face_edge():
-	#true if face else false
-	cut1 = 450
-	cut2 = 900 
-	n = randint(0,1000)
-	if n < cut1:
-		return 1
-	if n < cut2:
-		return 2
-	return 3	
+		return random_3_graph(nodes)	
 
 def add_vertex_via_split(graph):
+	## Adds one vertex and one edge
 	list_of_vertices = []
 	for vertex in graph.vertices():
 		if graph.degree(vertex) > 3:
-			list_of_vertices .append(vertex)
+			list_of_vertices.append(vertex)
 	if len(list_of_vertices) > 0 :
 		n = randint(0,len(list_of_vertices)-1)
 		push_vertex = list_of_vertices[n]
@@ -62,6 +62,7 @@ def add_vertex_via_split(graph):
 
 
 def add_vertex_on_edge(graph):
+	## Adds one vertex and two edges
 	n = randint(0,len(graph.edges())-1)
 	edge1 = graph.edges()[n]
 	edge2 = (edge1[1],edge1[0],None)
@@ -86,6 +87,7 @@ def add_vertex_on_edge(graph):
 
 
 def add_vertex_in_face(graph):
+	## adds one vertex and >2 edges
 	n = randint(0,len(graph.faces())-1)
 	face = graph.faces()[n]
 	vertices = []
