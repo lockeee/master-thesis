@@ -26,7 +26,10 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 					return sltr
 		else:
 			## Checking all outer faces:
-			for outer_face in graph.faces():
+			faces = graph.faces()
+			faces.sort(key=len)
+			faces.reverse()
+			for outer_face in faces:
 				for suspensions in _give_suspension_list(graph,outer_face):
 					sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 					if sltr != None:
