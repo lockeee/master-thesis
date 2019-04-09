@@ -18,18 +18,22 @@ def run_iterator_test(nodes,print_info=True,sep_tri=False,just_one_face=True):
 				SLTR[en] = SLTR[en] + 1
 		else:
 			if has_faa(G):
-				faces = G.faces()
-				faces.sort(key=len)
-				faces.reverse()
-				for face in faces:
-					sltr = has_sltr(G,outer_face=face,with_tri_check=sep_tri)
-					if sltr:
-						SLTR[en] = SLTR[en] + 1
-					else:
-						Only_FAA.append(G.sparse6_string())
-						FAA[en] = FAA[en] + 1
-					if just_one_face:
-						break
+				if check_vertex_edge_crit_no_sltr(nodes,en):
+					Only_FAA.append(G.sparse6_string())
+					FAA[en] = FAA[en] + 1
+				else:
+					faces = G.faces()
+					faces.sort(key=len)
+					faces.reverse()
+					for face in faces:
+						sltr = has_sltr(G,outer_face=face,with_tri_check=sep_tri)
+						if sltr:
+							SLTR[en] = SLTR[en] + 1
+						else:
+							Only_FAA.append(G.sparse6_string())
+							FAA[en] = FAA[en] + 1
+						if just_one_face:
+							break
 			else:
 				No_FAA[en] = No_FAA[en] + 1
 		i = i+1
@@ -55,6 +59,7 @@ def run_iterator_test(nodes,print_info=True,sep_tri=False,just_one_face=True):
 
 
 def mini_test(nodes,number,print_info=True):
+	start = time.time()
 	SLTR = [0]*500
 	FAA = [0]*500
 	No_FAA = [0]*500
@@ -65,16 +70,20 @@ def mini_test(nodes,number,print_info=True):
 			if mod(i,5) == 0:
 				print i
 		G = random_3_graph(nodes)
-		en =  len(G.edges())
-		if has_faa(G):
-			sltr = get_sltr(G)
-			if sltr == None:
-				FAA[en] = FAA[en] + 1
-			else:
-				SLTR[en] = SLTR[en] + 1
-				Has_SLTR.append(G)
+		en = len(G.edges())
+		if check_vertex_edge_crit_sltr(nodes,en):
+			SLTR[en] = SLTR[en] + 1
+			Has_SLTR.append(G)
 		else:
-			No_FAA[en] = No_FAA[en] + 1
+			if has_faa(G):
+				sltr = get_sltr(G)
+				if sltr == None:
+					FAA[en] = FAA[en] + 1
+				else:
+					SLTR[en] = SLTR[en] + 1
+					Has_SLTR.append(G)
+			else:
+				No_FAA[en] = No_FAA[en] + 1
 	if print_info:
 		print "Finished checking some graphs on " + str(nodes) + " nodes."
 		str1 = ""
@@ -91,6 +100,8 @@ def mini_test(nodes,number,print_info=True):
 		print "Only FAA:" + str2
 		print "Neither:" + str3
 	#print _test_sparse_graphs(Only_FAA,print_info=print_info)
+	end = time.time()
+	print "Took " + str(int(end-start)) + " seconds."
 	return Has_SLTR
 
 def _test_sparse_graphs(string_list,print_info=True):
@@ -143,9 +154,14 @@ def looking_for_graphs_with_only_some_sltrs(nodes,print_info=True):
 		print "Finished checking all graphs on " + str(nodes) + " nodes and found " + str(len(SLTR_only_some_faces)) + " graphs."
 	return SLTR_only_some_faces
 
-def check_vertex_edge_crit(nodes,edges):
-	#if nodes > 8 and edges > ((nodes-4)*3):
-	#	return True
+def check_vertex_edge_crit_sltr(nodes,edges):
+	if nodes > 8 and edges > ((nodes-4)*3):
+		return True
+	return False
+
+def check_vertex_edge_crit_no_sltr(nodes,edges):
+	if nodes > 4 and edges < ((nodes-2)*2)+1:
+		return True
 	return False
 
 def get_dual(graph):
