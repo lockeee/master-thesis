@@ -5,7 +5,24 @@
   \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
 }
 \providecommand{\href}[2]{#2}
-\begin{thebibliography}{Sch90}
+\begin{thebibliography}{AF13b}
+
+\bibitem[AF13a]{af13h}
+Nieke Aerts and Stefan Felsner, \emph{Henneberg steps for triangle
+  representations}, The Seventh European Conference on Combinatorics, Graph
+  Theory and Applications, Springer, 2013, pp.~503--509.
+
+\bibitem[AF13b]{af13}
+\bysame, \emph{Straight line triangle representations}, International Symposium
+  on Graph Drawing, Springer, 2013, pp.~119--130.
+
+\bibitem[AF15]{af15}
+\bysame, \emph{Straight line triangle representations via schnyder labelings},
+  J. Graph Algorithms Appl. \textbf{19} (2015), no.~1, 467--505.
+
+\bibitem[F{\'a}r48]{fary48}
+Istv{\'a}n F{\'a}ry, \emph{On straight-line representation of planar graphs},
+  Acta Sci. Math. \textbf{11} (1948), 229--233.
 
 \bibitem[Fel01]{felsner01}
 Stefan Felsner, \emph{Convex drawings of planar graphs and the order dimension
@@ -19,5 +36,9 @@ Walter Schnyder, \emph{Planar graphs and poset dimension}, Order \textbf{5}
 \bysame, \emph{Embedding planar graphs on the grid}, in Proceedings of the
   first annual ACM-SIAM symposium on Disc. Algo., Phildadelphia, PA, USA
   (1990), pp. 138--148.
+
+\bibitem[Tut63]{tutte63}
+William~Thomas Tutte, \emph{How to draw a graph}, Proceedings of the London
+  Mathematical Society \textbf{3} (1963), no.~1, 743--767.
 
 \end{thebibliography}

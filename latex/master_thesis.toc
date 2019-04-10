@@ -2,6 +2,6 @@
 \babel@toc {german}{}
 \babel@toc {german}{}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}SLTRs}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Schnyder Woods}{2}{section.1.2}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{5}{chapter*.4}
+\contentsline {section}{\numberline {1.1}Geradlinige Dreiecks Darstellungen (SLTRs)}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Schnyder W\IeC {\"a}lder}{3}{section.1.2}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{5}{chapter*.6}

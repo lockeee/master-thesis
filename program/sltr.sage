@@ -543,13 +543,23 @@ def _get_edge_length(E,pos):
 	return q
 	
 def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
+	## True gives flat triangle for pictures
+	flat_triangle = False
+
 	pos = dict()
 	V = G.vertices()
 
 	## set outer positions on triangle ##
-	for i in range(3):
-		ai = pi/2 + pi*2*i/3
-		pos[suspensions[i]] = (100*cos(ai),100*sin(ai))
+	a0 = pi/2
+	a1 = pi/2 + pi*2/3
+	a2 = pi/2 + pi*4/3
+	
+	pos[suspensions[0]] = (100*cos(a0),100*sin(a0))
+	pos[suspensions[1]] = (100*cos(a1),100*sin(a1))
+	pos[suspensions[2]] = (100*cos(a2),100*sin(a2))
+
+	if flat_triangle:
+		pos[suspensions[0]] = (100*cos(a1),100*sin(a0))
 
 	n = len(V)
 	M = zero_matrix(RR,n,n)
