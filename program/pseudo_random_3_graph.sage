@@ -12,6 +12,7 @@ def choose_split_face_edge():
 	return 3
 
 def random_3_graph(nodes):
+	## Starting with a K_4
 	G = Graph([(0, 1, None), (0, 2, None), (0, 3, None), (1, 2, None), (1, 3, None), (2, 3, None)])
 	while len(G.vertices())<nodes:
 		index = choose_split_face_edge()

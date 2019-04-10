@@ -25,4 +25,6 @@ V(G)	Graphs		No-SLTR:	2app. N-Int	Min-Max			Cut --> ( 	SLTR 					Non-SLTR )
 
 Smallest Graph no FAA : ":MeEgypEYGgA_Q@SSQiPB^" on 14 vertices ??
 
-G = Graph(':I`A?gPaGk`deQ`s^') with 10 vertices has sltr only for some outer faces.
+Graphs with some sltrs for only some outer faces :
+10:	G = Graph(':I`A?gPaGk`deQ`s^')
+11:	L = [':J`A?gPaUGaecKkqSOf',':J`AC@pHCkhBNK`jgR',:J`A?gOHCkRQePDAfP']
