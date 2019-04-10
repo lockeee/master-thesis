@@ -304,12 +304,14 @@ def plot_planar_graph(graph):
 	P = graph.layout(layout='planar',set_embedding = True)
 	show(graph.plot(pos=P))	
 
-def plot_sltr_or_approximation(graph,sus=None,outer_face=None):
+def plot_sltr_or_approximation(graph,sus=None,outer_face=None,ipe = None):
 	faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
 	if faa != None:
-		plot_sltr(graph,faa=faa)
+		[Plot,G] = plot_sltr(graph,faa=faa)
 	else:
-		plot_approximation_to_sltr(graph,sus=sus,outer_face=outer_face)
+		[Plot,G] = plot_approximation_to_sltr(graph,sus=sus,outer_face=outer_face)
+	if Plot != None and ipe != None:
+		graph2ipe(G,ipe)
 
 def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
 	if faa == None:
@@ -317,8 +319,8 @@ def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
 	if faa != None:
 		layout = _get_good_faa_layout(graph,faa,suspensions=suspensions)
 		graph.set_pos(layout)
-		F = graph.plot()
-		show(F)
+		Plot.show(axes = False)
+		return [Plot,graph]
 	else:
 		print "No SLTR found for given parameters"
 
@@ -329,9 +331,10 @@ def plot_approximation_to_sltr(graph,sus=None,outer_face=None):
 			for outer_face in graph.faces():
 				if _is_outer_face(outer_face, sus):
 					break
-	Plot = plot_problem_graph(graph,ultimate,sus,outer_face)
+	[Plot,graph] = plot_problem_graph(graph,ultimate,sus,outer_face)
+	Plot.show(axes = False)
 	if Plot != None:
-		Plot.show(axes = False)
+		return [Plot,graph]
 	else:
 		print('No close drawing found with at most ' + str(ultimate) + ' triangulated faces.')
 
@@ -350,11 +353,12 @@ def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
 				for e in face:
 					G.set_edge_label(e[0],e[1],1)
 				del layout[v]
-			P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
+			G.set_pos(layout)
+			P = G.plot(color_by_label={None: 'black' , 1: 'red'})
 			for i in range(len(face_list)):
 				[face,v] = face_list[i]
 				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-			return P
+			return [P,G]
 	else:
 		if outer_face != None:
 			## No suspensions given ##
@@ -368,11 +372,12 @@ def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
 							for e in face:
 								G.set_edge_label(e[0],e[1],1)
 							del layout[v]
-						P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
+						G.set_pos(layout)
+						P = G.plot(color_by_label={None: 'black' , 1: 'red'})
 						for i in range(len(face_list)):
 							[face,v] = face_list[i]
 							P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-						return P
+						return [P,G]
 		else:
 			## nothing is given
 			print "Needs outer face or suspensions to calculate approximation"
