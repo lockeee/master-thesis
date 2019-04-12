@@ -24,7 +24,7 @@ def read_ipe_file(path):
 				y = M[1]*x0+M[3]*y0+M[5]
 
 			p = (x,y)
-			assert(p not in P) # valid embedding
+			#assert(p not in P) # valid embedding
 			P.append(p)
 
 	E = []
@@ -48,9 +48,10 @@ def read_ipe_file(path):
 				continue
 			i = P.index(p)
 			pts.append(i)
-		assert(len(pts) == 2) # no hypergraph
 		pts.sort()
 		e = tuple(pts)
+		print e
+		#assert(len(pts) == 2) # no hypergraph
 		if e not in E:
 			E.append(e)
 

@@ -165,7 +165,7 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
  
 \vfill
 
-\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of Master of Science}\\[0.3cm] % University requirement text
+\large \textit{Masterarbeit zur Prüfung zum Master of Science}\\[0.3cm] % University requirement text
 \textit{an der}\\[0.4cm]
 Technische Universität Berlin\\
 Institut für Mathematik

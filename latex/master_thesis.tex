@@ -55,7 +55,6 @@
 \usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
-
 %for good refs
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -83,11 +82,14 @@
 \makeatother
 
  %For better figure placement
+\usepackage{wrapfig}
 \input{figure_float_parameters.tex}
 
 \begin{document}
 
 \input{introduction.tex}
+\input{prerequisites.tex}
+\input{main1.tex}
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}
 
