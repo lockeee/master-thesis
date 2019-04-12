@@ -2,21 +2,19 @@ import sage.all
 attach("graph2ipe.sage")
 
 def has_sltr(graph,suspensions=None,outer_face=None,with_tri_check=True):
-	print "moving"
-	print graph.faces()
-	print outer_face
-	print suspensions
-	print ".."
 	if suspensions != None and outer_face == None:
 			raise ValueError("If the suspensions are given we also need an outer face")
-	elif with_tri_check:
-		return _has_sltr_with_tri(graph,suspensions=suspensions,outer_face=outer_face)
-	return get_sltr(graph,suspensions=suspensions,outer_face=outer_face) != None
+	else:
+		if with_tri_check:
+			return _has_sltr_with_tri(graph,suspensions=suspensions,outer_face=outer_face)
+		return get_sltr(graph,suspensions=suspensions,outer_face=outer_face) != None
 
 
 	
-def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
+def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
+	if embedding != None:
+		graph.set_embedding(embedding)
 	if suspensions != None:
 		if outer_face == None:
 			raise ValueError("If the suspensions are given we also need an outer face")
@@ -33,18 +31,20 @@ def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,che
 			## Checking all outer faces:
 			for outer_face in graph.faces():
 				for suspensions in _give_suspension_list(graph,outer_face):
-					sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
-					if sltr != None:
-						return sltr
+					good_faa = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+					if good_faa != None:
+						return good_faa
+	return None
 
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+	print [Flow, has_sltr]
 	if has_sltr:
 		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
 	else:
 		if Flow != None:
-			print 'Only non integer Flow found for: G = Graph(' + graph.sparse6_String() + ')'
-			raise ValueError("Need to stop! :)")
+			print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow,embedding)
+			raise ValueError("Only non integer Flow found for G.")
 	return
 
 	
@@ -105,7 +105,7 @@ def is_internally_3_connected(G,suspensions):
 	H = copy(G)
 	v = H.add_vertex()
 	H.add_edges([[v,suspensions[0]],[v,suspensions[1]],[v,suspensions[2]]])
-	return H.vertex_connectivity(k=3)
+	return H.vertex_connectivity()>2
 
 def _give_suspension_list(graph,outer_face=None):
 	sus_list = []
@@ -130,7 +130,7 @@ def _give_suspension_list(graph,outer_face=None):
 				sus_list.append(suspensions)
 	return sus_list
 		
-def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow=False,check_just_non_int_flow=False):
+def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
 	H = _graph_2_flow(graph, outer_face, suspensions)
 	flow1 = _give_flow_1(graph,outer_face,suspensions)
 	flow2 = _give_flow_2(graph,outer_face,suspensions)
@@ -147,6 +147,9 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow=False,chec
 		if check_non_int_flow:
 			try:
 				return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
+				# Flow = [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
+				# print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+				# raise( "Ok i think we found one ..." )
 			except EmptySetError:
 				pass
 	return [None,False]
@@ -175,9 +178,6 @@ def _give_flow_2(G,outer_face,suspensions):
 	
 def _interior_faces(G,oF = None, sus = None):
 	try:
-		print G.faces()
-		print oF
-		print sus
 		faces = copy(G.faces())
 		if oF != None:
 			face = _find_face(G,oF)
@@ -310,7 +310,8 @@ def plot_planar_graph(graph):
 	P = graph.layout(layout='planar',set_embedding = True)
 	show(graph.plot(pos=P))	
 
-def plot_sltr_or_approximation(graph,sus=None,outer_face=None,ipe = None):
+def plot_sltr_or_approximation(G,sus=None,outer_face=None,ipe = None):
+	graph=copy(G)
 	faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
 	if faa != None:
 		[Plot,G] = plot_sltr(graph,faa=faa)
@@ -318,6 +319,8 @@ def plot_sltr_or_approximation(graph,sus=None,outer_face=None,ipe = None):
 		[Plot,G] = plot_approximation_to_sltr(graph,sus=sus,outer_face=outer_face)
 	if Plot != None and ipe != None:
 		graph2ipe(G,ipe)
+	if Plot != None:
+		show(Plot)
 
 def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
 	if faa == None:
@@ -670,3 +673,11 @@ def _check_order(graph,vertices_one,vertices_two,triangle,outer_face,suspensions
 				break
 		return _has_separating_triangle_sltr(inner_graph,inner_face,triangle)
 	return True
+
+def print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow,embedding=None):
+	print "Graph  " + graph.sparse6_string()
+	print "Face and suspensions:  " + str(outer_face,suspensions)
+	print "Check non int = " + str(check_non_int_flow)
+	print "Check just non int: " + str(check_non_int_flow)
+	if embedding != None:
+		print "Embedding = " + str(embedding)

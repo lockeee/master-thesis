@@ -109,17 +109,17 @@ def mini_test(nodes,number,print_info=True):
 	Only_non_int_flow = []
 	for i in range(number):
 		if print_info: 
-			if mod(i,5) == 0:
+			if mod(i,20) == 0:
 				print i
-		[graph,suspensions,outer_face] = random_int_3_graph(nodes)
-		en = len(G.edges())
-		if has_faa(G):
-			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,check_non_int_flow=True,check_just_non_int_flow = True)
+		[graph,suspensions,outer_face,embedding] = random_int_3_graph(nodes)
+		en = len(graph.edges())
+		if has_faa(graph):
+			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = True)
 			if sltr == None:
 				FAA[en] = FAA[en] + 1
 			else:
 				SLTR[en] = SLTR[en] + 1
-				Has_SLTR.append(G)
+				Has_SLTR.append(graph)
 		else:
 			No_FAA[en] = No_FAA[en] + 1
 	if print_info:
@@ -213,8 +213,6 @@ def give_internally_3_con_graphs_with_sus(graph):
 	glist = []
 	for v in graph.vertices():
 		Nv = graph.neighbors(v)
-		print "node: " + str(v) + "  neigh:  " + str(Nv)
-		print graph.edges()
 		for j in Combinations(len(Nv),3):
 			G = copy(graph)
 			suspensions = ( Nv[j[0]] , Nv[j[1]] , Nv[j[2]] )
@@ -224,27 +222,17 @@ def give_internally_3_con_graphs_with_sus(graph):
 			if G.vertex_connectivity > 2:
 				G.delete_vertex(v)
 				outer_face = _give_resulting_outer_face(G,Nv)
-				print "moving"
-				print G.faces()
-				print outer_face
-				print suspensions
-				print ".."
 				glist.append([G,suspensions,outer_face])
 	return glist
 
-def _give_resulting_outer_face(graph,neighbors):
-	print "faces: " + str(graph.faces())
+def rerun_particular_graph(graph):
 	for face in graph.faces():
-		found = True
-		vertex_list = []
-		for edge in face:
-			vertex_list.append(edge[0])
-		print "v" + str(vertex_list)
-		print "n" + str(neighbors)
-		for n in neighbors:
-			if not n in vertex_list:
-				found = False
-		if found:
-			print "found"
-			return face
-	raise ValueError("No outer face found.")
+		for sus in _give_suspension_list(graph,face):
+			if is_internally_3_connected(graph,sus):
+				sltr = get_sltr(graph,suspensions=sus,outer_face=face,embedding=None,check_non_int_flow=True,check_just_non_int_flow = False)
+				if sltr != None:
+					print sltr
+				else:
+					print None
+			else:
+				print "not internally 3 connected"

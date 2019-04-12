@@ -31,8 +31,15 @@ def random_3_graph(nodes):
 		return random_3_graph(node)
 
 def random_int_3_graph(nodes):
+	if randint(0,100) < 30:
+		G = random_3_graph(nodes)
+		face = G.faces()[randint(0,len(G.faces())-1)]
+		l2 = _give_suspension_list(graph,face)
+		shuffle(l2)
+		suspensions = l2[0]
+		return [G,suspensions,face,None]
 	G = random_3_graph(nodes+1)
-	return give_one_internally_3_con_graphs_with_sus(G)
+	return _give_one_internally_3_con_graphs_with_sus(G)
 
 
 def add_vertex_via_split(graph):
@@ -123,21 +130,52 @@ def vertices_edge(list_of_vertices):
 		vertices_to_connect.append(list_of_vertices[index[i]])
 	return vertices_to_connect
 
-def give_one_internally_3_con_graphs_with_sus(graph):
-	vL = graph.vertices()
-	vL.shuffle()
-	for v in vL:
+def _give_one_internally_3_con_graphs_with_sus(graph):
+	vL = graph.vertices()	
+	iterator = range(len(vL))
+	shuffle(iterator)
+	for i in iterator:
+		v = graph.vertices()[i]
 		Nv = graph.neighbors(v)
-		Nv.shuffle()
 		sL = []
 		for j in Combinations(len(Nv),3):
 			suspensions = ( Nv[j[0]] , Nv[j[1]] , Nv[j[2]] )
 			sL.append(suspensions)
-		sL.shuffle()
+		shuffle(sL)
 		for suspensions in sL:	
 			G = copy(graph)
+			G.set_pos(pos=G.layout(layout='planar',set_embedding = True))
+			embedding = G.get_embedding()
+			new_embedding = make_new_dict(embedding,v)
 			G.delete_vertex(v)
+			outer_face = _give_resulting_outer_face(G,Nv,new_embedding)
 			if is_internally_3_connected(G,suspensions):
-				return G
+				return [G,suspensions,outer_face,new_embedding]
+
+def make_new_dict(D,v):
+	nD = dict()
+	for en in D.iteritems():
+		if en[0] != v:
+			n = []
+			for i in en[1]:
+				if i != v:
+					n.append(i)
+			nD[en[0]] = n
+	return nD
+
+def _give_resulting_outer_face(graph,neighbors,embedding):
+	for face in graph.faces(embedding=embedding):
+		found = True
+		vertex_list = []
+		for edge in face:
+			vertex_list.append(edge[0])
+		for n in neighbors:
+			if not n in vertex_list:
+				found = False
+		if found:
+			return face
+	raise ValueError("No outer face found for edges: " + str(graph.edges()) + ", faces: " + str(graph.faces()) + " and neighbors: " + str(neighbors))
+
+
 
 
