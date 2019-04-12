@@ -113,7 +113,7 @@ def add_vertex_in_face(graph):
 	return graph
 
 def vertices_face(list_of_vertices):
-	n = 3
+	n = randint(3,len(list_of_vertices))
 	index = list(range(len(list_of_vertices)))
 	random.shuffle(index)
 	vertices_to_connect = []

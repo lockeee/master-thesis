@@ -11,7 +11,7 @@ def has_sltr(graph,suspensions=None,outer_face=None,with_tri_check=True):
 
 
 	
-def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = False):
+def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = True):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if embedding != None:
 		graph.set_embedding(embedding)
@@ -38,7 +38,15 @@ def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int
 
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
-	print [Flow, has_sltr]
+	if check_just_non_int_flow:
+		if Flow != None and Flow[1] != None:
+			try:
+				return _get_good_faa(graph,Flow[1],outer_face,suspensions)
+			except EmptySetError:
+				print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+				pass
+		else:
+			return
 	if has_sltr:
 		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
 	else:
@@ -167,13 +175,14 @@ def _graph_2_flow(G,outer_face,suspensions):
 	return H
 	
 def _give_flow_1(G,outer_face,suspensions):
-	return len(G.edges())-len(outer_face) + 3*(len(G.faces())-1)
+	## E_int + 3*F_int ##
+	return 3*len(G.faces()) -3 + len(G.edges()) - len(outer_face)
 
 def _give_flow_2(G,outer_face,suspensions):
-	flow2 = 0
+	## sum(F_int -3)
+	flow2 = -len(outer_face)+3
 	for face in G.faces():
 		flow2 += ( len(face) - 3 )
-	flow2 -= len(outer_face)
 	return flow2
 	
 def _interior_faces(G,oF = None, sus = None):
@@ -211,9 +220,6 @@ def _find_face(graph,this_face):
 						ccw_count += 1
 				if ccw_count == length or cw_count == length:
 					return face
-
-
-
 
 def _face_2_flow(H,face):
 	## H is the new FlowGraph ##
@@ -314,26 +320,28 @@ def plot_sltr_or_approximation(G,sus=None,outer_face=None,ipe = None):
 	graph=copy(G)
 	faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
 	if faa != None:
-		[Plot,G] = plot_sltr(graph,faa=faa)
+		[Plot,G] = plot_sltr(graph,faa=faa,plotting = False)
 	else:
-		[Plot,G] = plot_approximation_to_sltr(graph,sus=sus,outer_face=outer_face)
+		[Plot,G] = plot_approximation_to_sltr(graph,sus=sus,outer_face=outer_face,plotting=False)
 	if Plot != None and ipe != None:
 		graph2ipe(G,ipe)
 	if Plot != None:
-		show(Plot)
+		Plot.show(axes = False)
 
-def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
+def plot_sltr(graph,suspensions=None,outer_face = None, faa = None,plotting=True):
 	if faa == None:
 		faa = get_sltr(graph,suspensions=suspensions,outer_face=outer_face)
 	if faa != None:
 		layout = _get_good_faa_layout(graph,faa,suspensions=suspensions)
 		graph.set_pos(layout)
 		Plot = graph.plot(axes = False)
+		if plotting:
+			show(Plot)
 		return [Plot,graph]
 	else:
 		print "No SLTR found for given parameters"
 
-def plot_approximation_to_sltr(graph,sus=None,outer_face=None):
+def plot_approximation_to_sltr(graph,sus=None,outer_face=None,plotting=True):
 	ultimate = 2 ## at most ultimate triangulated faces
 	if sus != None:
 		if outer_face == None:
@@ -341,14 +349,15 @@ def plot_approximation_to_sltr(graph,sus=None,outer_face=None):
 				if _is_outer_face(outer_face, sus):
 					break
 	[Plot,graph] = plot_problem_graph(graph,ultimate,sus,outer_face)
-	Plot.show(axes = False)
+	if plotting:
+		Plot.show(axes = False)
 	if Plot != None:
 		return [Plot,graph]
 	else:
 		print('No close drawing found with at most ' + str(ultimate) + ' triangulated faces.')
 
 
-def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
+def plot_problem_graph(graph,ultimate,sus=None,outer_face):
 	if outer_face == None:
 		raise ValueError("Needs outer face or suspensions to calculate approximation")
 	colors = ['lightskyblue','lightgoldenrodyellow','lightsalmon', 'lightcoral','lightgreen']
@@ -369,6 +378,7 @@ def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
 			for i in range(len(face_list)):
 				[face,v] = face_list[i]
 				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
+			print [P,G]
 			return [P,G]
 	else:
 		## No suspensions given ##

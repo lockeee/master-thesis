@@ -106,6 +106,8 @@ def mini_test(nodes,number,print_info=True):
 	FAA = [0]*500
 	No_FAA = [0]*500
 	Has_SLTR = []
+	Just_FAA = []
+	Nothing = []
 	Only_non_int_flow = []
 	for i in range(number):
 		if print_info: 
@@ -117,11 +119,13 @@ def mini_test(nodes,number,print_info=True):
 			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = True)
 			if sltr == None:
 				FAA[en] = FAA[en] + 1
+				Just_FAA.append([graph,suspensions,outer_face,embedding])
 			else:
 				SLTR[en] = SLTR[en] + 1
-				Has_SLTR.append(graph)
+				Has_SLTR.append([graph,suspensions,outer_face,embedding])
 		else:
 			No_FAA[en] = No_FAA[en] + 1
+			Nothing.append([graph,suspensions,outer_face,embedding])
 	if print_info:
 		print "Finished checking some graphs on " + str(nodes) + " nodes."
 		str1 = ""
@@ -139,7 +143,7 @@ def mini_test(nodes,number,print_info=True):
 		print "Neither:" + str3
 	end = time.time()
 	print "Took " + str(int(end-start)) + " seconds."
-	return Has_SLTR
+	return [Has_SLTR,Just_FAA,Nothing]
 
 def _test_sparse_graphs(string_list,print_info=True):
 	Only_non_int_flow = []
@@ -224,6 +228,13 @@ def give_internally_3_con_graphs_with_sus(graph):
 				outer_face = _give_resulting_outer_face(G,Nv)
 				glist.append([G,suspensions,outer_face])
 	return glist
+
+def plot_from_list(L):
+	for entry in L:
+		[graph,suspensions,outer_face,embedding] = entry
+		graph.set_embedding(embedding)
+		plot_sltr_or_approximation(graph,sus=suspensions,outer_face=outer_face)
+
 
 def rerun_particular_graph(graph):
 	for face in graph.faces():
