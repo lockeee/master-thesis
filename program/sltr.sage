@@ -325,7 +325,7 @@ def plot_sltr(graph,suspensions=None,outer_face = None, faa = None):
 	if faa != None:
 		layout = _get_good_faa_layout(graph,faa,suspensions=suspensions)
 		graph.set_pos(layout)
-		Plot.show(axes = False)
+		Plot = graph.plot(axes = False)
 		return [Plot,graph]
 	else:
 		print "No SLTR found for given parameters"

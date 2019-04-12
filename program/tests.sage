@@ -221,7 +221,7 @@ def give_internally_3_con_graphs_with_sus(graph):
 			for n in Nv:
 				if n not in suspensions:
 					G.delete_edge(n,v)
-			if G.vertex_connectivity(k=3):
+			if G.vertex_connectivity > 2:
 				G.delete_vertex(v)
 				outer_face = _give_resulting_outer_face(G,Nv)
 				print "moving"
