@@ -2,22 +2,25 @@ import sage.all
 attach("graph2ipe.sage")
 
 def has_sltr(graph,suspensions=None,outer_face=None,with_tri_check=True):
-	if with_tri_check:
+	print "moving"
+	print graph.faces()
+	print outer_face
+	print suspensions
+	print ".."
+	if suspensions != None and outer_face == None:
+			raise ValueError("If the suspensions are given we also need an outer face")
+	elif with_tri_check:
 		return _has_sltr_with_tri(graph,suspensions=suspensions,outer_face=outer_face)
 	return get_sltr(graph,suspensions=suspensions,outer_face=outer_face) != None
+
 
 	
 def get_sltr(graph,suspensions=None,outer_face=None,check_non_int_flow=False,check_just_non_int_flow = False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if suspensions != None:
-		if outer_face != None:
-			return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
-		## We are looking for the outer face ##
-		else:
-			for outer_face in graph.faces():
-				if _is_outer_face(outer_face, suspensions):
-					## face is the outer_face ##
-					return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+		if outer_face == None:
+			raise ValueError("If the suspensions are given we also need an outer face")
+		return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
 	else:					
 		## We will check all posible triplets as suspensions ##
 		if outer_face != None:
@@ -41,6 +44,7 @@ def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int
 	else:
 		if Flow != None:
 			print 'Only non integer Flow found for: G = Graph(' + graph.sparse6_String() + ')'
+			raise ValueError("Need to stop! :)")
 	return
 
 	
@@ -101,12 +105,7 @@ def is_internally_3_connected(G,suspensions):
 	H = copy(G)
 	v = H.add_vertex()
 	H.add_edges([[v,suspensions[0]],[v,suspensions[1]],[v,suspensions[2]]])
-	for v in H.vertices():
-		K = copy(H)
-		K.delete_vertex(v)
-		if K.is_biconnected() == False:
-			return False
-	return True
+	return H.vertex_connectivity(k=3)
 
 def _give_suspension_list(graph,outer_face=None):
 	sus_list = []
@@ -131,10 +130,10 @@ def _give_suspension_list(graph,outer_face=None):
 				sus_list.append(suspensions)
 	return sus_list
 		
-def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow=False,check_just_non_int_flow=False):
-	H = _graph_2_flow(G, outer_face, suspensions)
-	flow1 = _give_flow_1(G,outer_face)
-	flow2 = _give_flow_2(G,outer_face)
+def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow=False,check_just_non_int_flow=False):
+	H = _graph_2_flow(graph, outer_face, suspensions)
+	flow1 = _give_flow_1(graph,outer_face,suspensions)
+	flow2 = _give_flow_2(graph,outer_face,suspensions)
 	if check_just_non_int_flow:
 		try:
 			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
@@ -154,7 +153,7 @@ def _calculate_2_flow(G,outer_face,suspensions,check_non_int_flow=False,check_ju
 	
 def _graph_2_flow(G,outer_face,suspensions):
 	## G is a planar, suspended, internally 3-connected graph ##
-	H = DiGraph([['i1','o2','o1'],[('Di2' , 'i2' , _give_flow_2(G,outer_face))]])
+	H = DiGraph([['i1','o2','o1'],[('Di2' , 'i2' , _give_flow_2(G,outer_face,suspensions))]])
 	_add_vertices_2_sink_edges(H,G,suspensions)
 	for face in _interior_faces(G,oF = outer_face):
 		_face_2_flow(H,face)	
@@ -164,32 +163,39 @@ def _graph_2_flow(G,outer_face,suspensions):
 		H.delete_edge('i1',_name_edge_vertex(oE))
 	return H
 	
-def _give_flow_1(G,outer_face):
+def _give_flow_1(G,outer_face,suspensions):
 	return len(G.edges())-len(outer_face) + 3*(len(G.faces())-1)
-	
-def _give_flow_2(G,outer_face):
+
+def _give_flow_2(G,outer_face,suspensions):
 	flow2 = 0
-	innerFaces = _interior_faces(G,oF = outer_face)
-	for i in range(len(innerFaces)):
-		flow2 = flow2 + ( len(innerFaces[i]) - 3 )
+	for face in G.faces():
+		flow2 += ( len(face) - 3 )
+	flow2 -= len(outer_face)
 	return flow2
 	
 def _interior_faces(G,oF = None, sus = None):
-	faces = copy(G.faces())
-	if oF != None:
-		face = _find_face(G,oF)
-		faces.remove(face)
-		return faces
-	if sus != None:
-		for face in faces:
-			count = 0
-			for edge in face:
-				for i in sus:
-					if i == edge[0]:
-						count = count+1
-				if count == 3:
-					faces.remove(face)
-					return faces
+	try:
+		print G.faces()
+		print oF
+		print sus
+		faces = copy(G.faces())
+		if oF != None:
+			face = _find_face(G,oF)
+			faces.remove(face)
+			return faces
+		if sus != None:
+			for face in faces:
+				count = 0
+				for edge in face:
+					for i in sus:
+						if i == edge[0]:
+							count = count+1
+					if count == 3:
+						faces.remove(face)
+						return faces
+	except ValueError:
+		print (G.edges(),oF,sus)
+		print "Supposed outer_face not in faces"
 
 def _find_face(graph,this_face):
 	length = len(this_face)
@@ -340,6 +346,8 @@ def plot_approximation_to_sltr(graph,sus=None,outer_face=None):
 
 
 def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
+	if outer_face == None:
+		raise ValueError("Needs outer face or suspensions to calculate approximation")
 	colors = ['lightskyblue','lightgoldenrodyellow','lightsalmon', 'lightcoral','lightgreen']
 	faces = copy(graph.faces())
 	faces.sort(key = len)
@@ -360,43 +368,23 @@ def plot_problem_graph(graph,ultimate,sus=None,outer_face=None):
 				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
 			return [P,G]
 	else:
-		if outer_face != None:
-			## No suspensions given ##
-			for suspensions in _give_suspension_list(graph,outer_face):
-					G = copy(graph)
-					[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
-					if layout != None:
-						## plot ##
-						for i in range(len(face_list)):
-							[face,v] = face_list[i]
-							for e in face:
-								G.set_edge_label(e[0],e[1],1)
-							del layout[v]
-						G.set_pos(layout)
-						P = G.plot(color_by_label={None: 'black' , 1: 'red'})
-						for i in range(len(face_list)):
-							[face,v] = face_list[i]
-							P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-						return [P,G]
-		else:
-			## nothing is given
-			print "Needs outer face or suspensions to calculate approximation"
-			# for outer_face in faces:
-			# 	for suspensions in _give_suspension_list(graph,outer_face):
-			# 		[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
-			# 		if layout != None:
-			# 			G = copy(graph)
-			# 			## plot ##
-			# 			for i in range(len(face_list)):
-			# 				[face,v] = face_list[i]
-			# 				for e in face:
-			# 					G.set_edge_label(e[0],e[1],1)
-			# 				del layout[v]
-			# 			P = G.plot(pos=layout,color_by_label={None: 'black' , 1: 'red'})
-			# 			for i in range(len(face_list)):
-			# 				[face,v] = face_list[i]
-			# 				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-			# 			return P
+		## No suspensions given ##
+		for suspensions in _give_suspension_list(graph,outer_face):
+				G = copy(graph)
+				[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
+				if layout != None:
+					## plot ##
+					for i in range(len(face_list)):
+						[face,v] = face_list[i]
+						for e in face:
+							G.set_edge_label(e[0],e[1],1)
+						del layout[v]
+					G.set_pos(layout)
+					P = G.plot(color_by_label={None: 'black' , 1: 'red'})
+					for i in range(len(face_list)):
+						[face,v] = face_list[i]
+						P = P + polygon([layout[x[0]] for x in face], color=colors[i])
+					return [P,G]
 
 
 def _plot_problem_graph_iteration(graph_list,ultimate,iteration,sus,outer_face):
@@ -603,14 +591,7 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 
 def _has_sltr_with_tri(graph,suspensions=None,outer_face=None):
 	if suspensions != None:
-		if outer_face != None:
-			return _has_separating_triangle_sltr(graph,outer_face,suspensions)
-		## We are looking for the outer face ##
-		else:
-			for outer_face in graph.faces():
-				if _is_outer_face(outer_face, suspensions):
-					## face is the outer_face ##
-					return _has_separating_triangle_sltr(graph,outer_face,suspensions)
+		return _has_separating_triangle_sltr(graph,outer_face,suspensions)
 	else:					
 		## We will check all possible triplets as suspensions ##
 		if outer_face != None: 
@@ -654,6 +635,8 @@ def _av(list_item):
 	return abs(len(list_item[0][0])-len(list_item[0][1]))
 
 def _check_parts(graph,graph_parts,triangle,outer_face,suspensions):
+	if len(graph_parts) > 2:
+		return False
 	[g1,g2] = graph_parts
 	if _check_order(graph,g1,g2,triangle,outer_face,suspensions):
 		return True

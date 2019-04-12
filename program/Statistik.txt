@@ -1,4 +1,4 @@
-
+Stats for 3-Connected
 Sequence = [0,0,0,0,1,2,7,34,257,2606,32300,440564,6384634,
  96262938,1496225352,23833988129,387591510244,
  6415851530241,107854282197058]
@@ -16,16 +16,33 @@ V(G)	Graphs		No-SLTR:	2app. N-Int	Min-Max			Cut --> ( 	SLTR 					Non-SLTR )
 13		96262938
 14
 15										0	(22(27,33)39)
-		
-20										0	(30(37,48)54)
 
-25										0	(38(47,63)69)
+Stats for internally-3-Connected isomorphic graphs:
+V(G)	Graphs		No-SLTR:	Non_FAA	Min-Max-Edges 		SLTR 						Only-FAA )
+3		1			0					(3)					(1)
+4		2			0					(5,6)				(1,1)
+5		8 			3					(6(7,8)9)			(2,2,1)						(1,1,1)
+6		43			19					((8,11)12)			(1,8,8,5,2)					(5,6,5,3)
+7		267			122					(9(10,14)15)		(8,41,48,36,16,5)			(4,22,32,34,22,8)
+8		3173		1071				((11,17)18)			(4,55,280,398,210,70,14)	(39,142,228,276,238,117,31)	
+9										(12(13,20?)21)					
+10										((14,23?)24)	
+11										(15?(16,26?)27)	
+12										(?(17,29?)30)		
+13		
+14
+15
 
-30										0	(45(57,78)84)
+20										(?(28,?)54)
+
+22										(?(31,?)60)
 
 
-Smallest Graph no FAA : ":MeEgypEYGgA_Q@SSQiPB^" on 14 vertices ??
+Smallest Graph no FAA : G = Graph(":MeEgypEYGgA_Q@SSQiPB^") on 14 vertices ??
 
 Graphs with some sltrs for only some outer faces :
 10:	G = Graph(':I`A?gPaGk`deQ`s^')
-11:	L = [':J`A?gPaUGaecKkqSOf',':J`AC@pHCkhBNK`jgR',:J`A?gOHCkRQePDAfP']
+11:	L = [':J`A?gPaUGaecKkqSOf', ':J`AC@pHCkhBNK`jgR', ':J`A?gOHCkRQePDAfP', ':J`A?gPaGkaqE]XIGR', ':J`AC@paUS`feW{qDR', ':J`ACGbaKkbQE]XIDR',':J`AC@oEQHWedGYHdMb']
+
+Henneberg Example:
+	G = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2],[2,20],[2,21],[3,6],[3,20],[4,7],[4,8],[5,9],[5,21],[6,7],[6,10],[6,16],[7,17],[8,9],[8,18],[9,11],[9,19],[10,12],[10,13],[11,14],[11,15],[12,13],[12,16],[13,17],[14,15],[14,18],[15,19],[16,17],[16,20],[17,20],[18,19],[18,21],[19,21]])

@@ -28,7 +28,12 @@ def random_3_graph(nodes):
 	if G.vertex_connectivity() > 2:
 		return G
 	else:
-		return random_3_graph(nodes)	
+		return random_3_graph(node)
+
+def random_int_3_graph(nodes):
+	G = random_3_graph(nodes+1)
+	return give_one_internally_3_con_graphs_with_sus(G)
+
 
 def add_vertex_via_split(graph):
 	## Adds one vertex and one edge
@@ -117,3 +122,22 @@ def vertices_edge(list_of_vertices):
 	for i in range(n):
 		vertices_to_connect.append(list_of_vertices[index[i]])
 	return vertices_to_connect
+
+def give_one_internally_3_con_graphs_with_sus(graph):
+	vL = graph.vertices()
+	vL.shuffle()
+	for v in vL:
+		Nv = graph.neighbors(v)
+		Nv.shuffle()
+		sL = []
+		for j in Combinations(len(Nv),3):
+			suspensions = ( Nv[j[0]] , Nv[j[1]] , Nv[j[2]] )
+			sL.append(suspensions)
+		sL.shuffle()
+		for suspensions in sL:	
+			G = copy(graph)
+			G.delete_vertex(v)
+			if is_internally_3_connected(G,suspensions):
+				return G
+
+

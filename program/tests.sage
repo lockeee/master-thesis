@@ -1,44 +1,45 @@
 import time
 
-def run_iterator_test(nodes,print_info=True,sep_tri=False,just_one_face=True):
+def run_iterator_test(nodes,print_info=True):
+	just_one_face = False
 	start = time.time()
 	SLTR = [0]*500
 	FAA = [0]*500
 	No_FAA = [0]*500
+	Has_SLTR = []
 	Only_FAA = []
+	Nothing = []
 	Only_non_int_flow = []
 	i = 0
-	for G in graphs.planar_graphs(nodes, minimum_connectivity=3):
-		if print_info:
-			if mod(i,100) == 0:
-				print i
-		en =  len(G.edges())
-		# Check for vertex/edge ratio:
-		if check_vertex_edge_crit(nodes,en):
-				SLTR[en] = SLTR[en] + 1
+	j = 0
+	for graph in graphs.planar_graphs(nodes+1, minimum_connectivity=3):
+		if j < 394:
+			pass
 		else:
-			if has_faa(G):
-				if check_vertex_edge_crit_no_sltr(nodes,en):
-					Only_FAA.append(G.sparse6_string())
-					FAA[en] = FAA[en] + 1
+			for [G,suspensions,outer_face] in give_internally_3_con_graphs_with_sus(graph):
+				entry = G
+				if entry in Has_SLTR or entry in Only_FAA or entry in Nothing:
+					pass
 				else:
-					faces = G.faces()
-					faces.sort(key=len)
-					faces.reverse()
-					for face in faces:
-						sltr = has_sltr(G,outer_face=face,with_tri_check=sep_tri)
+					en =  len(G.edges())
+					if has_faa(G):
+						sltr = has_sltr(G,suspensions=suspensions,outer_face=outer_face)
 						if sltr:
 							SLTR[en] = SLTR[en] + 1
+							Has_SLTR.append(entry)
 						else:
-							Only_FAA.append(G.sparse6_string())
+							Only_FAA.append(entry)
 							FAA[en] = FAA[en] + 1
-						if just_one_face:
-							break
-			else:
-				No_FAA[en] = No_FAA[en] + 1
-		i = i+1
+					else:
+						No_FAA[en] = No_FAA[en] + 1
+						Nothing.append(entry)
+					i = i+1
+		j += 1
+		if print_info:
+					if mod(j,1) == 0:
+						print (j,i)
 	if print_info:
-		print "Finished checking all graphs on " + str(nodes) + " nodes."
+		print "Finished checking graphs on " + str(nodes) + " nodes."
 		str1 = ""
 		str2 = ""
 		str3 = ""
@@ -54,8 +55,48 @@ def run_iterator_test(nodes,print_info=True,sep_tri=False,just_one_face=True):
 		print "Neither:" + str3
 	end = time.time()
 	print "Took " + str(int(end-start)) + " seconds."
-	#print _test_sparse_graphs(Only_FAA,print_info=print_info)
-	return Only_FAA
+	return [Has_SLTR,Only_FAA,Nothing]
+
+def run_iterator_test_with_iso_check(nodes):
+	L = run_iterator_test(nodes)
+	gL = [[],[],[]]
+	for i in range(3):
+		for G in L[i]:
+			isnot = True
+			for H in gL[i]:
+				if G.is_isomorphic(H):
+					isnot = False
+					break
+			if isnot:
+				gL[i].append(G)
+	check_lists(gL)
+
+def check_lists(gL):
+	SLTR = [0]*500
+	FAA = [0]*500
+	No_FAA = [0]*500
+	for j in range(3):
+		for graph in gL[j]:
+			en = len(graph.edges())
+			if j == 0:
+				SLTR[en] = SLTR[en] + 1
+			if j == 1:
+				FAA[en] = FAA[en] + 1
+			if j == 2:
+				No_FAA[en] = No_FAA[en] + 1
+	str1 = ""
+	str2 = ""
+	str3 = ""
+	for i in range(500):
+		if SLTR[i] != 0:
+			str1 = str1 + " / " + str(i) + "-" + str(SLTR[i]) 
+		if FAA[i] != 0:
+			str2 = str2 + " / " + str(i) + "-" + str(FAA[i])
+		if No_FAA[i] != 0:
+			str3 = str3 + " / " + str(i) + "-" + str(No_FAA[i]) 
+	print "SLTR:" + str1
+	print "Only FAA:" + str2
+	print "Neither:" + str3
 
 
 def mini_test(nodes,number,print_info=True):
@@ -99,7 +140,6 @@ def mini_test(nodes,number,print_info=True):
 		print "SLTR:" + str1
 		print "Only FAA:" + str2
 		print "Neither:" + str3
-	#print _test_sparse_graphs(Only_FAA,print_info=print_info)
 	end = time.time()
 	print "Took " + str(int(end-start)) + " seconds."
 	return Has_SLTR
@@ -171,3 +211,43 @@ def get_dual(graph):
 	dual = graph.planar_dual()
 	dual.relabel()
 	return dual
+
+def give_internally_3_con_graphs_with_sus(graph):
+	glist = []
+	for v in graph.vertices():
+		Nv = graph.neighbors(v)
+		print "node: " + str(v) + "  neigh:  " + str(Nv)
+		print graph.edges()
+		for j in Combinations(len(Nv),3):
+			G = copy(graph)
+			suspensions = ( Nv[j[0]] , Nv[j[1]] , Nv[j[2]] )
+			for n in Nv:
+				if n not in suspensions:
+					G.delete_edge(n,v)
+			if G.vertex_connectivity(k=3):
+				G.delete_vertex(v)
+				outer_face = _give_resulting_outer_face(G,Nv)
+				print "moving"
+				print G.faces()
+				print outer_face
+				print suspensions
+				print ".."
+				glist.append([G,suspensions,outer_face])
+	return glist
+
+def _give_resulting_outer_face(graph,neighbors):
+	print "faces: " + str(graph.faces())
+	for face in graph.faces():
+		found = True
+		vertex_list = []
+		for edge in face:
+			vertex_list.append(edge[0])
+		print "v" + str(vertex_list)
+		print "n" + str(neighbors)
+		for n in neighbors:
+			if not n in vertex_list:
+				found = False
+		if found:
+			print "found"
+			return face
+	raise ValueError("No outer face found.")
