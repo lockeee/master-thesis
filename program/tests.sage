@@ -1,4 +1,5 @@
 import time
+import random
 
 def run_iterator_test(nodes,print_info=True):
 	just_one_face = False
@@ -110,21 +111,17 @@ def mini_test(nodes,number,print_info=True):
 		if print_info: 
 			if mod(i,5) == 0:
 				print i
-		G = random_3_graph(nodes)
+		[graph,suspensions,outer_face] = random_int_3_graph(nodes)
 		en = len(G.edges())
-		if check_vertex_edge_crit_sltr(nodes,en):
-			SLTR[en] = SLTR[en] + 1
-			Has_SLTR.append(G)
-		else:
-			if has_faa(G):
-				sltr = get_sltr(G)
-				if sltr == None:
-					FAA[en] = FAA[en] + 1
-				else:
-					SLTR[en] = SLTR[en] + 1
-					Has_SLTR.append(G)
+		if has_faa(G):
+			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,check_non_int_flow=True,check_just_non_int_flow = True)
+			if sltr == None:
+				FAA[en] = FAA[en] + 1
 			else:
-				No_FAA[en] = No_FAA[en] + 1
+				SLTR[en] = SLTR[en] + 1
+				Has_SLTR.append(G)
+		else:
+			No_FAA[en] = No_FAA[en] + 1
 	if print_info:
 		print "Finished checking some graphs on " + str(nodes) + " nodes."
 		str1 = ""

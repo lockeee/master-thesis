@@ -2,6 +2,9 @@
 \babel@toc {german}{}
 \babel@toc {german}{}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Geradlinige Dreiecks Darstellungen (SLTRs)}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}Schnyder Woods}{3}{section.1.2}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{5}{chapter*.7}
+\contentsline {chapter}{\numberline {2}Grundlagen zu planaren Graphen}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Geradlinige Dreiecks Darstellungen (SLTRs)}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Schnyder Woods}{5}{section.2.2}
+\contentsline {chapter}{\numberline {3}Hauptteil}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Notwendige und hinreichende Bedingungen}{7}{section.3.1}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{9}{chapter*.8}
