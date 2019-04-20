@@ -348,7 +348,7 @@ def plot_approximation_to_sltr(graph,sus=None,outer_face=None,plotting=True):
 			for outer_face in graph.faces():
 				if _is_outer_face(outer_face, sus):
 					break
-	[Plot,graph] = plot_problem_graph(graph,ultimate,sus,outer_face)
+	[Plot,graph] = plot_problem_graph(graph,ultimate,outer_face,sus)
 	if plotting:
 		Plot.show(axes = False)
 	if Plot != None:
@@ -357,14 +357,14 @@ def plot_approximation_to_sltr(graph,sus=None,outer_face=None,plotting=True):
 		print('No close drawing found with at most ' + str(ultimate) + ' triangulated faces.')
 
 
-def plot_problem_graph(graph,ultimate,sus=None,outer_face):
+def plot_problem_graph(graph,ultimate,outer_face,sus=None):
 	if outer_face == None:
 		raise ValueError("Needs outer face or suspensions to calculate approximation")
 	colors = ['lightskyblue','lightgoldenrodyellow','lightsalmon', 'lightcoral','lightgreen']
 	faces = copy(graph.faces())
 	faces.sort(key = len)
 	if sus != None:
-		[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,sus,outer_face)
+		[face_list,layout] = _plot_problem_graph_iteration([[graph,[]]],ultimate,0,outer_face,sus)
 		if layout != None:
 			G = copy(graph)
 			## plot ##

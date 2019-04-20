@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.13)  10 APR 2019 11:43
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  12 APR 2019 12:18
->>>>>>> d0c7e868301196ae9c77eed45d9ad0c115fb91a8
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  20 APR 2019 18:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1501,28 +1497,6 @@ Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
 . Defining command \xshowbibdriver with sig. 'm' on line 193.
 .................................................
 )
-<<<<<<< HEAD
-(./figure_float_parameters.tex) (./master_thesis.aux
-./master_thesis.aux:21: Undefined control sequence.
-l.21 \babel@aux
-               {english}{}
-? 
-./master_thesis.aux:21: Emergency stop.
-l.21 \babel@aux
-               {english}{}
-End of file on the terminal!
-
- 
-Here is how much of TeX's memory you used:
- 32078 strings out of 493089
- 614272 string characters out of 6134842
- 834574 words of memory out of 5000000
- 35102 multiletter control sequences out of 15000+600000
- 4709 words of font info for 16 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 71i,1n,82p,10449b,183s stack positions out of 5000i,500n,10000p,200000b,80000s
-./master_thesis.aux:21:  ==> Fatal error occurred, no output PDF file produced!
-=======
 (/usr/local/texlive/2018/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen308
 \WF@size=\dimen309
@@ -1532,6 +1506,12 @@ Here is how much of TeX's memory you used:
 Package: wrapfig 2003/01/31  v 3.6
 )
 (./figure_float_parameters.tex) (./master_thesis.aux
+
+LaTeX Warning: Label `10_example' multiply defined.
+
+
+LaTeX Warning: Label `10_example@cref' multiply defined.
+
 
 LaTeX Warning: Label `10_example' multiply defined.
 
@@ -1836,9 +1816,9 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 88
 
 (./master_thesis.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 6.
+(Font)              <10.95> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 6.
+(Font)              <8> on input line 5.
 )
 \tf@toc=\write6
 \openout6 = `master_thesis.toc'.
@@ -1871,7 +1851,7 @@ Package babel Info: Redefining german shorthand "~
  [2
 
 
-] (./introduction.tex
+] (./prerequisites.tex
 chapter 1.
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
@@ -1899,122 +1879,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./prerequisites.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+<topo_straight_convex.png, id=82, 977.6525pt x 210.7875pt>
+File: topo_straight_convex.png Graphic file (type png)
+<use topo_straight_convex.png>
+Package pdftex.def Info: topo_straight_convex.png  used on input line 11.
+(pdftex.def)             Requested size: 362.56389pt x 78.17026pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 22.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \chapter
-            {Grundlagen zu planaren Graphen}\label{prerequisites} [1
+l.22 
+      [1
 
 
-]
+ <./topo_straight_convex.png>] (./sltr.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1 \chapter
-            {Grundlagen zu planaren Graphen}\label{prerequisites} [2
-
-
-]
-chapter 2.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-<topo_straight_convex.png, id=98, 977.6525pt x 210.7875pt>
-File: topo_straight_convex.png Graphic file (type png)
-<use topo_straight_convex.png>
-Package pdftex.def Info: topo_straight_convex.png  used on input line 9.
-(pdftex.def)             Requested size: 362.56389pt x 78.17026pt.
-(./sltr.tex
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
- [3 <./topo_straight_convex.png>]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-<sltr-example.png, id=111, 581.17125pt x 83.31125pt>
+<sltr-example.png, id=99, 581.17125pt x 83.31125pt>
 File: sltr-example.png Graphic file (type png)
 <use sltr-example.png>
 Package pdftex.def Info: sltr-example.png  used on input line 15.
 (pdftex.def)             Requested size: 362.56389pt x 51.97404pt.
 
 
-Package caption Warning: \label without proper reference on input line 18.
+Package caption Warning: \label without proper reference on input line 52.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `10_example' on page 4 undefined on input line 19.
+LaTeX Warning: Reference `10_example' on page 2 undefined on input line 19.
 
-<10_example.png, id=113, 2653.915pt x 1240.635pt>
+<10_example.png, id=101, 2653.915pt x 1240.635pt>
 File: 10_example.png Graphic file (type png)
 <use 10_example.png>
 Package pdftex.def Info: 10_example.png  used on input line 23.
 (pdftex.def)             Requested size: 265.40704pt x 124.07076pt.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 30.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 30.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 30.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 30.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 30.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 30.
-[4 <./sltr-example.png> <./10_example.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-) (./schnyderwoods.tex
+)
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 24.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 24.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 24.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 24.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 24.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 24.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.24 
+      [2 <./sltr-example.png>] (./schnyderwoods.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -2027,42 +1970,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
  []
 
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 10.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 10.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 10.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 10.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 10.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 11.
-[5]
-<schnyder_wood_def.png, id=155, 4855.13875pt x 639.38875pt>
+(babel)             in language  on input line 10.
+[3 <./10_example.png>]
+<schnyder_wood_def.png, id=141, 440.64626pt x 87.32625pt>
 File: schnyder_wood_def.png Graphic file (type png)
 <use schnyder_wood_def.png>
-Package pdftex.def Info: schnyder_wood_def.png  used on input line 17.
-(pdftex.def)             Requested size: 394.79274pt x 51.99118pt.
+Package pdftex.def Info: schnyder_wood_def.png  used on input line 18.
+(pdftex.def)             Requested size: 322.28242pt x 63.87155pt.
+<schnyder_reg.png, id=145, 429.605pt x 102.3825pt>
+File: schnyder_reg.png Graphic file (type png)
+<use schnyder_reg.png>
+Package pdftex.def Info: schnyder_reg.png  used on input line 27.
+(pdftex.def)             Requested size: 322.28242pt x 76.80699pt.
 
 
-Package caption Warning: \label without proper reference on input line 34.
+LaTeX Warning: Reference `schnyder_tri' on page 4 undefined on input line 33.
+
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 35.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 35.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 35.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 35.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 35.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 35.
+[4 <./schnyder_wood_def.png> <./schnyder_reg.png>]
+<schnyder_label_def.png, id=154, 403.5075pt x 115.43124pt>
+File: schnyder_label_def.png Graphic file (type png)
+<use schnyder_label_def.png>
+Package pdftex.def Info: schnyder_label_def.png  used on input line 51.
+(pdftex.def)             Requested size: 322.28242pt x 92.19539pt.
+
+
+Package caption Warning: \label without proper reference on input line 61.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `schnyder_bij' on page 6 undefined on input line 19.
+LaTeX Warning: Reference `schnyder_bij' on page 5 undefined on input line 53.
 
 
-Package caption Warning: \label without proper reference on input line 34.
+Package caption Warning: \label without proper reference on input line 61.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `schnyder_bij' on page 6 undefined on input line 19.
+LaTeX Warning: Reference `schnyder_bij' on page 5 undefined on input line 53.
 
-<schnyder_bij.png, id=158, 629.35126pt x 125.46875pt>
+
+Package caption Warning: \label without proper reference on input line 61.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `schnyder_bij' on page 5 undefined on input line 56.
+
+<schnyder_bij.png, id=159, 629.35126pt x 125.46875pt>
 File: schnyder_bij.png Graphic file (type png)
 <use schnyder_bij.png>
-Package pdftex.def Info: schnyder_bij.png  used on input line 35.
+Package pdftex.def Info: schnyder_bij.png  used on input line 60.
 (pdftex.def)             Requested size: 362.56389pt x 72.2818pt.
 )) (./main1.tex
 Package babel Info: Redefining german shorthand "f
@@ -2077,8 +2054,24 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
- [6 <./schnyder_wood_def.png> <./schnyder_bij.png>]
-chapter 3.
+ [5 <./schnyder_label_def.png> <./schnyder_bij.png>]
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 1.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 1.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 1.
+ [6
+
+
+]
+chapter 2.
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -2105,10 +2098,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 8.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 8.
- [7
-
-
-]
+ [7]
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 8.
 Package babel Info: Redefining german shorthand "|
@@ -2152,7 +2142,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
 Package rerunfilecheck Info: File `master_thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 103AE36E34251835081F481A71258E52;445.
+(rerunfilecheck)             Checksum: BEB286326A7F314B12F996777F7D7E67;381.
 
 
 LaTeX Warning: There were undefined references.
@@ -2163,11 +2153,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
  ) 
 Here is how much of TeX's memory you used:
- 37673 strings out of 492649
- 725343 string characters out of 6129622
- 944586 words of memory out of 5000000
- 40785 multiletter control sequences out of 15000+600000
- 640370 words of font info for 135 fonts, out of 8000000 for 9000
+ 37699 strings out of 492649
+ 725724 string characters out of 6129622
+ 945586 words of memory out of 5000000
+ 40790 multiletter control sequences out of 15000+600000
+ 641324 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,11n,82p,10389b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
@@ -2177,9 +2167,9 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
-xlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2018
-/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2018/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/
+xlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2018/tex
+mf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2018/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/
 public/lm/lmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/
 lmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/loca
@@ -2195,11 +2185,10 @@ dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2018/texmf-dist/fonts/
 type1/public/lm/lmro9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
 c/lm/lmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy8
 .pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on master_thesis.pdf (17 pages, 622241 bytes).
+Output written on master_thesis.pdf (17 pages, 511580 bytes).
 PDF statistics:
- 257 PDF objects out of 1000 (max. 8388607)
- 211 compressed objects within 3 object streams
+ 262 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
  47 named destinations out of 1000 (max. 500000)
- 31326 words of extra memory for PDF output out of 35830 (max. 10000000)
->>>>>>> d0c7e868301196ae9c77eed45d9ad0c115fb91a8
+ 31328 words of extra memory for PDF output out of 35830 (max. 10000000)
 
