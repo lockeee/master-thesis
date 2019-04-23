@@ -1,59 +1,70 @@
 import sage.all
 attach("graph2ipe.sage")
 
-def has_sltr(graph,suspensions=None,outer_face=None,with_tri_check=True):
+def has_sltr(graph,suspensions=None,outer_face=None,with_tri_check=True,test=False):
 	if suspensions != None and outer_face == None:
 			raise ValueError("If the suspensions are given we also need an outer face")
 	else:
 		if with_tri_check:
 			return _has_sltr_with_tri(graph,suspensions=suspensions,outer_face=outer_face)
-		return get_sltr(graph,suspensions=suspensions,outer_face=outer_face) != None
+		return get_sltr(graph,suspensions=suspensions,outer_face=outer_face,test=test) != None
 
 
 	
-def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = True):
+def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = False,test=False):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if embedding != None:
 		graph.set_embedding(embedding)
 	if suspensions != None:
 		if outer_face == None:
 			raise ValueError("If the suspensions are given we also need an outer face")
-		return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+		return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow,test)
 	else:					
 		## We will check all posible triplets as suspensions ##
 		if outer_face != None:
 			## outer face is given
 			for suspensions in _give_suspension_list(graph,outer_face):
-				sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+				sltr = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow,test)
 				if sltr != None:
 					return sltr
 		else:
 			## Checking all outer faces:
 			for outer_face in graph.faces():
 				for suspensions in _give_suspension_list(graph,outer_face):
-					good_faa = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow)
+					good_faa = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow,test)
 					if good_faa != None:
 						return good_faa
 	return None
 
-def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
-	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
-	if check_just_non_int_flow:
-		if Flow != None and Flow[1] != None:
-			try:
-				return _get_good_faa(graph,Flow[1],outer_face,suspensions)
-			except EmptySetError:
-				print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
-				pass
-		else:
-			return
-	if has_sltr:
-		return _get_good_faa(graph,Flow[1],outer_face,suspensions)
+def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow,test=False):
+	if test:
+		Flow = _calculate_1_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+		return Flow
 	else:
-		if Flow != None:
-			print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow,embedding)
-			raise ValueError("Only non integer Flow found for G.")
-	return
+		[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+		if check_just_non_int_flow:
+			if Flow != None:
+				if Flow[1] != None:
+					try:
+						for e in Flow[1].edges():
+							if e[2] != int(e[2]):
+								print e
+								print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+								break
+						return _get_good_faa(graph,Flow[1],outer_face,suspensions)
+					except EmptySetError:
+						print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+						pass
+		else:
+			if Flow != None:
+				if has_sltr:
+					return _get_good_faa(graph,Flow[1],outer_face,suspensions)
+				for e in Flow[1].edges():
+					if e[2] != int(e[2]):
+						print e
+						print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
+						raise ValueError("Only non integer Flow found for G.")
+		return
 
 	
 def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
@@ -144,12 +155,12 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 	flow2 = _give_flow_2(graph,outer_face,suspensions)
 	if check_just_non_int_flow:
 		try:
-			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False) , False]
+			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0) , None]
 		except EmptySetError:
 			pass
 	else:
 		try:
-			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True) , True]
+			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = True) , True]
 		except EmptySetError:
 			pass
 		if check_non_int_flow:
@@ -161,6 +172,23 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 			except EmptySetError:
 				pass
 	return [None,False]
+
+def _calculate_1_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
+	H = _graph_2_flow(graph, outer_face, suspensions)
+	flow1 = _give_flow_1(graph,outer_face,suspensions)
+	flow2 = _give_flow_2(graph,outer_face,suspensions)
+	## Test one flow
+	H.add_edge('o2','sink',flow2)
+	H.add_edge('o1','sink',flow1)
+	H.add_edge('source','i1',flow1)
+	H.add_edge('source','i2',flow2)
+	flow = flow1+flow2
+	found = H.flow('source','sink', value_only=False, integer=True, use_edge_labels=True, algorithm=None)
+	#print (flow,found[0])
+	if flow == found[0]:	
+		return found[1]
+	else:
+		return None
 	
 def _graph_2_flow(G,outer_face,suspensions):
 	## G is a planar, suspended, internally 3-connected graph ##
@@ -203,7 +231,10 @@ def _interior_faces(G,oF = None, sus = None):
 						faces.remove(face)
 						return faces
 	except ValueError:
-		print (G.edges(),oF,sus)
+		print "Mistake in _interior_faces()"
+		print oF
+		for face in G.faces():
+			print face
 		print "Supposed outer_face not in faces"
 
 def _find_face(graph,this_face):
@@ -686,8 +717,9 @@ def _check_order(graph,vertices_one,vertices_two,triangle,outer_face,suspensions
 
 def print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow,embedding=None):
 	print "Graph  " + graph.sparse6_string()
-	print "Face and suspensions:  " + str(outer_face,suspensions)
+	print "Face:  " + str(outer_face)
+	print "Suspensions:  " + str(suspensions)
 	print "Check non int = " + str(check_non_int_flow)
-	print "Check just non int: " + str(check_non_int_flow)
+	print "Check just non int = " + str(check_non_int_flow)
 	if embedding != None:
 		print "Embedding = " + str(embedding)
