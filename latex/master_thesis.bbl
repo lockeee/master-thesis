@@ -1,0 +1,48 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{AF13b}
+
+\bibitem[AF13a]{af13h}
+Nieke Aerts and Stefan Felsner, \emph{Henneberg steps for triangle
+  representations}, The Seventh European Conference on Combinatorics, Graph
+  Theory and Applications, Springer, 2013, pp.~503--509.
+
+\bibitem[AF13b]{af13}
+\bysame, \emph{Straight line triangle representations}, International Symposium
+  on Graph Drawing, Springer, 2013, pp.~119--130.
+
+\bibitem[AF15]{af15}
+\bysame, \emph{Straight line triangle representations via schnyder labelings},
+  J. Graph Algorithms Appl. \textbf{19} (2015), no.~1, 467--505.
+
+\bibitem[F{\'a}r48]{fary48}
+Istv{\'a}n F{\'a}ry, \emph{On straight-line representation of planar graphs},
+  Acta Sci. Math. \textbf{11} (1948), 229--233.
+
+\bibitem[Fel01]{felsner01}
+Stefan Felsner, \emph{Convex drawings of planar graphs and the order dimension
+  of 3-polytopes}, Order \textbf{18} (2001), no.~1, pp. 19--37.
+
+\bibitem[Fel12]{felsner04}
+\bysame, \emph{Geometric graphs and arrangements: some chapters from
+  combinatorial geometry}, Springer Science \& Business Media, 2012.
+
+\bibitem[Sch89]{schnyder89}
+Walter Schnyder, \emph{Planar graphs and poset dimension}, Order \textbf{5}
+  (1989), no.~4, pp. 323--343.
+
+\bibitem[Sch90]{schnyder90}
+\bysame, \emph{Embedding planar graphs on the grid}, in Proceedings of the
+  first annual ACM-SIAM symposium on Disc. Algo., Phildadelphia, PA, USA
+  (1990), pp. 138--148.
+
+\bibitem[Tut63]{tutte63}
+William~Thomas Tutte, \emph{How to draw a graph}, Proceedings of the London
+  Mathematical Society \textbf{3} (1963), no.~1, 743--767.
+
+\end{thebibliography}
