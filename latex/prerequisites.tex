@@ -1,4 +1,4 @@
-\chapter{Grundlagen}\label{intro}
+\chapter{Grundlagen}\label{pre}
 
 Wir werden uns in dieser Arbeit hauptsächlich mit einfachen planeren Graphen beschäftigen, also solchen die keine Mehrfachkanten und Schleifen besitzen und für die kreuzungsfreie Zeichnungen, beziehungsweise Einbettungen, in der Ebene existieren. Sei $G = (V,E)$ ein Graph bestehend aus der Menge der Knoten $V$ und Kanten $E \subseteq ( \,V \times V ) \,$. Eine Kante $uv$ verbindet die beiden Knoten $u$ und $v$. Einen planeren Graphen zusammen mit einer möglichen kreuzungsfreien Einbettung in der Ebene bezeichnen wir als \textit{planen Graphen}. Sei Für einen planaren Graphen können wir, zusätzlich zu den Knoten und Kanten, auch die Menge der Gebiete (engl. faces) $F$ betrachten. Bei einem planen Graph wird das unbeschränkte als das \textit{äussere} Gebiet definiert. Für die weiteren Betrachtungen macht es oft Sinn drei Knoten $a_1,a_2,a_3$ im äusseren Gebiet gesondert zu betrachten und diese die \textit{Aufhängungen} von $G$ zu nennen.\\
 
@@ -10,7 +10,7 @@ Bei topologische Zeichnung eines planaren Graphen werden die Kanten als Kurven d
 	\centering
   \includegraphics[width=0.9\textwidth]{topo_straight_convex.png}
 	\caption{Planarer Graph mit einer topologischen, einer geradlinigen und einer konvexen Zeichnung.}
-	\label{cut_figure}
+	\label{topo_straight_convex}
 \end{figure}
 
 \begin{definition}[intern zusammenhängend]\label{int_3_con}
@@ -21,5 +21,4 @@ Sei $G$ plan mit den Aufhängungen $a_1,s_2,a_3$, weiter sei $a_\infty$ ein zus�
 In den Siebzigern betrachtete William Thomas Tutte die Unterklasse der drei-zusammenhängenden planaren Graphen und zeigte, dass für diese nicht nur geradlinige, sondern sogar \textit{konvexe} Zeichnungen existieren, bei denen alle Gebiete die konvexe Polygone umranden. \cite{tutte63}
 
 \input{sltr.tex}
-
 \input{schnyderwoods.tex}

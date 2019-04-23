@@ -58,6 +58,65 @@ def run_iterator_test(nodes,print_info=True):
 	print "Took " + str(int(end-start)) + " seconds."
 	return [Has_SLTR,Only_FAA,Nothing]
 
+
+def run_iterator_3_test(nodes,print_info=True):
+	just_one_face = False
+	start = time.time()
+	SLTR = [0]*500
+	FAA = [0]*500
+	No_FAA = [0]*500
+	Has_SLTR = []
+	Only_FAA = []
+	Nothing = []
+	Only_non_int_flow = []
+	i = 0
+	j = 0
+	for G in graphs.planar_graphs(nodes, minimum_connectivity=3):
+		if j < 0:
+			pass
+		else:
+			en =  len(G.edges())
+			if has_faa(G):
+				for face in G.faces():
+					found = False
+					for suspensions in _give_suspension_list(G,face):
+						sltr = has_sltr(G,suspensions=suspensions,outer_face=face)
+						if sltr:
+							found = True
+							break
+				if found:
+					SLTR[en] = SLTR[en] + 1
+					Has_SLTR.append(G)
+				else:
+					Only_FAA.append(G)
+					FAA[en] = FAA[en] + 1
+			else:
+				No_FAA[en] = No_FAA[en] + 1
+				Nothing.append(G)
+			i = i+1
+		j += 1
+		if print_info:
+			if mod(j,100) == 0:
+				print (j,i)
+	if print_info:
+		print "Finished checking graphs on " + str(nodes) + " nodes."
+		str1 = ""
+		str2 = ""
+		str3 = ""
+		for i in range(500):
+			if SLTR[i] != 0:
+				str1 = str1 + " / " + str(i) + "-" + str(SLTR[i]) 
+			if FAA[i] != 0:
+				str2 = str2 + " / " + str(i) + "-" + str(FAA[i])
+			if No_FAA[i] != 0:
+				str3 = str3 + " / " + str(i) + "-" + str(No_FAA[i]) 
+		print "SLTR:" + str1
+		print "Only FAA:" + str2
+		print "Neither:" + str3
+	end = time.time()
+	print "Took " + str(int(end-start)) + " seconds."
+	return [Has_SLTR,Only_FAA,Nothing]	
+
 def run_iterator_test_with_iso_check(nodes):
 	L = run_iterator_test(nodes)
 	gL = [[],[],[]]
@@ -111,12 +170,12 @@ def mini_test(nodes,number,print_info=True):
 	Only_non_int_flow = []
 	for i in range(number):
 		if print_info: 
-			if mod(i,20) == 0:
+			if mod(i,50) == 0:
 				print i
-		[graph,suspensions,outer_face,embedding] = random_int_3_graph(nodes)
+		[graph,suspensions,outer_face,embedding] = random_3_graph(nodes)
 		en = len(graph.edges())
-		if has_faa(graph):
-			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = True)
+		if has_faa(graph,suspensions=suspensions):
+			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = False)
 			if sltr == None:
 				FAA[en] = FAA[en] + 1
 				Just_FAA.append([graph,suspensions,outer_face,embedding])
@@ -143,7 +202,21 @@ def mini_test(nodes,number,print_info=True):
 		print "Neither:" + str3
 	end = time.time()
 	print "Took " + str(int(end-start)) + " seconds."
-	return [Has_SLTR,Just_FAA,Nothing]
+	found = _test_faa_for_non_int(Just_FAA+Nothing)
+	return [Has_SLTR,Just_FAA,Nothing,found]
+
+def _test_faa_for_non_int(Non_SLTR):
+	print "Starting to check " + str(len(Non_SLTR)) + " graphs for non_int solutions"
+	start = time.time()
+	List = []
+	for [graph,suspensions,outer_face,embedding] in Non_SLTR:
+		sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = True)
+		if sltr != None:
+			List.append([graph,suspensions,outer_face,embedding])
+	end = time.time()
+	print "Found " + str(len(List)) + " problematic graphs in " + str(int(end-start)) + " seconds."
+	return List
+			
 
 def _test_sparse_graphs(string_list,print_info=True):
 	Only_non_int_flow = []

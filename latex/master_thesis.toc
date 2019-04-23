@@ -1,9 +1,0 @@
-\babel@toc {english}{}
-\babel@toc {german}{}
-\babel@toc {german}{}
-\contentsline {chapter}{\numberline {1}Grundlagen}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Geradlinige Dreiecks Darstellungen (SLTRs)}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}Schnyder Woods}{3}{section.1.2}
-\contentsline {chapter}{\numberline {2}Hauptteil}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}Notwendige und hinreichende Bedingungen}{7}{section.2.1}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{9}{chapter*.10}

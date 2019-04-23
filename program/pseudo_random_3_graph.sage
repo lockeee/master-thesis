@@ -3,13 +3,16 @@ import random
 def choose_split_face_edge():
 	cut1 = 333 	## Adds one vertex and one edge
 	cut2 = 666 	## Adds one vertex and two edges
-				## Else triangulates random face --> >2 edges
+	cut3 = 960  ## Triangulates random face --> >2 edges
+	cut4 = 1000 ## Adds random edge in Graph
 	n = randint(0,1000)
 	if n < cut1:
 		return 1
 	if n < cut2:
 		return 2
-	return 3
+	if n < cut3:
+		return 3
+	return 4
 
 def random_3_graph(nodes):
 	## Starting with a K_4
@@ -25,21 +28,29 @@ def random_3_graph(nodes):
 			G = add_vertex_on_edge(G)
 		if index == 3:
 			G = add_vertex_in_face(G)
+		if index == 4:
+			G = add_enge_in_face(G)
 	if G.vertex_connectivity() > 2:
-		return G
-	else:
-		return random_3_graph(node)
-
-def random_int_3_graph(nodes):
-	if randint(0,100) < 30:
-		G = random_3_graph(nodes)
 		face = G.faces()[randint(0,len(G.faces())-1)]
-		l2 = _give_suspension_list(graph,face)
+		l2 = _give_suspension_list(G,face)
 		shuffle(l2)
 		suspensions = l2[0]
 		return [G,suspensions,face,None]
-	G = random_3_graph(nodes+1)
-	return _give_one_internally_3_con_graphs_with_sus(G)
+	else:
+		print "upsi"
+		return random_3_graph(node)
+
+def random_int_3_graph(nodes):
+	if randint(0,10) < 3:
+		G = random_3_graph(nodes)
+		face = G.faces()[randint(0,len(G.faces())-1)]
+		l2 = _give_suspension_list(G,face)
+		shuffle(l2)
+		suspensions = l2[0]
+		return [G,suspensions,face,None]
+	else:
+		G = random_3_graph(nodes+1)
+		return _give_one_internally_3_con_graphs_with_sus(G)
 
 
 def add_vertex_via_split(graph):
@@ -111,6 +122,17 @@ def add_vertex_in_face(graph):
 	for vertex in vertices_to_connect:
 		graph.add_edge(new_vertex,vertex)
 	return graph
+
+def add_edge_in_face(graph):
+	## adds one edge in face
+	fl = []
+	for face in graph.faces():
+		if len(face) > 3:
+			b = randint(0,len(face)-1)
+			n = randint(2,len(face)-2)
+			a = (b+n)%len(face)
+			graph.add_edge(face[b][0],face[a][0])
+	return graph	
 
 def vertices_face(list_of_vertices):
 	n = randint(3,len(list_of_vertices))
