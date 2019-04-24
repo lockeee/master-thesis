@@ -3,7 +3,7 @@ import random
 def choose_split_face_edge():
 	cut1 = 333 	## Adds one vertex and one edge
 	cut2 = 666 	## Adds one vertex and two edges
-	cut3 = 960  ## Triangulates random face --> >2 edges
+	cut3 = 995  ## Triangulates random face --> >2 edges
 	cut4 = 1000 ## Adds random edge in Graph
 	n = randint(0,1000)
 	if n < cut1:
@@ -29,7 +29,7 @@ def random_3_graph(nodes):
 		if index == 3:
 			G = add_vertex_in_face(G)
 		if index == 4:
-			G = add_enge_in_face(G)
+			G = add_edge_in_face(G)
 	if G.vertex_connectivity() > 2:
 		face = G.faces()[randint(0,len(G.faces())-1)]
 		l2 = _give_suspension_list(G,face)
