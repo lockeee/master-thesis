@@ -1,8 +1,42 @@
 \chapter{Ein algorithmischer Ansatz}
 
 
-\begin{theorem}
+\begin{remark}\label{tri_saturation}
 
-...
+.. //TODO
+
+\end{remark}
+
+\begin{theorem}[Integram Flow Theorem]\label{ift}
+
+Falls alle Kapazitäten in $F$ ganzzahlig sind, dann existiert auch ein maximaler Fluss, sodass der Fluss auf allen Kanten ganzzahlig ist.
 
 \end{theorem}
+
+\begin{theorem}
+
+Falls das oben konstruierte Zwei-Fluss-Problem auf dem Graphen $F$ eine nicht ganzzahlige Lösung zulässt, dann existiert auch eine ganzzahlige Lösung.
+
+\end{theorem}
+
+\begin{lemma}[Lemma 1]
+
+Sei $F = F_1 \cup F_2$ wie oben, mit maximalem Fluss $f = \(f_1,f_2\)$. Wenn wir nur $F_1$ betrachten und $|f_2|$ äussere Kanten aus den Winkeldreiecken löschen, dann existiert auf diesem Graphen $F^\tilde_1$ ein ganzzahliger Fluss mit $|f^\tilde_1| = |f_1|$.
+
+\end{lemma}
+
+\begin{proof}
+
+// TODO Lemma 1
+
+\end{proof}
+
+\begin{proof}
+
+Sei $F = F_1 \cup F_2$. Wie in Bemerkung \ref{tri_saturation} festgehalten sind die äusseren Kanten in einem Winkel-Dreieck immer ausgelastet und diese Kanten sind auch, per Konstruktion, die einzigen Kanten, die sowohl in $F_1$ als auch $F_2$ liegen und so von $f_1$ und $f_2$ genutzt werden können. Unser Ziel ist es aus einem beliebigen nicht ganzzahligen Fluss$f = \(f_1,f_2\)$ einen ganzzahligen Fluss zu konstruieren.\
+Sei zuerst $f = \(f_1,f_2\)$  eine Lösung, in der nur $f_1$ nicht ganzzahlig genutzte Kanten hat. Die Kanten können also nicht in $F_1 \cap F_2$ liegen, da sonst auch $f_2$ nicht ganzzahlig wäre. Wir betrachten $F^* = F_1$. Nun löschen wir alle Kanten aus $F^*$, die in der Lösung von $f_2$ genutzt wurden. Nach Theorem \ref{ift} existiert eine ganzzahlige Lösung $f^*_1$. Somit ist $f^* = \(f^*_1,f_2)$ auch eine ganzzahlige Lösung.\
+Sei nun $f = \(f_1,f_2\)$  eine Lösung, in der $f_2$ nicht ganzzahlig genutzte Kanten hat. Seien $e_1, e_2, ... e_m$, die Menge der Kanten mit nicht ganzzahligem Fluss 2 in $F_1 \cap F_2$. Dann muss nach Bemerkung \ref{tri_saturation} auch $f_1$ mindestens auf $e_1, e_2, ... e_m$ nicht ganzzahlig sein. Des weiteren gilt $$ 1 \leq \sum_{i = 1}^{m}{|f_2(e_i)|} \leq m - 1, $$ wobei diese genau wie die folgende Summe $$ \sum_{i = 1}^{m}{|f_1(e_i)|} = m - \sum_{i = 1}^{m}{|f_2(e_i)|},$$ eine ganzzahlige Lösung hat.\
+Wir konstruieren zuerst $f^\tilde_2$ auf $F^\tilde_2 \subset F_2$. Fülle hierzu alle Kanten, beginend mit $e_1$, und ihre Zu- und Abflüsse von $Q_2$ nach $S_2$ auf. Wir erhalten die volkommen mit Fluss 2 saturierten Kanten $e_1 , ... , e_j $. Die Kanten $e_{j+1} , ... , e_m$ bleiben leer. Somit haben wir mindestens eine leere Kante. Sei nun $f^\tilde_2$ dieser Fluss zusammen mit dem ganzzahligen Anteil von $f_2$. Somit ist $f^\tilde_2$ ganzzahlig und $|f^\tilde_2| = |f_2|$.
+Betrachten wir nun $F^\tilde_1$ den Teilgraphen von $F_1$ ohne alle Kanten die von $f^\tilde_2$ belegt sind, dann existiert nach Lemma 1 ein ganzzahliger Fluss $f^\tilde_1$ der unseren Bedarf erfüllt. $F^\tilde_1 \cap F^\tilde_2 = \emptyset $. Somit ist $f^\tilde = \(f^\tilde_1,f^\tilde_2\)$ ein ganzzahliger Zwei-Fluss auf $F$ der den Bedarf deckt und wir sind fertig.
+
+\end{proof}
