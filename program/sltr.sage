@@ -213,6 +213,45 @@ def _give_flow_2(G,outer_face,suspensions):
 		flow2 += ( len(face) - 3 )
 	return flow2
 
+def _interior_faces(G,oF = None, sus = None):
+	try:
+		faces = copy(G.faces())
+		if oF != None:
+			face = _find_face(G,oF)
+			faces.remove(face)
+			return faces
+		if sus != None:
+			for face in faces:
+				count = 0
+				for edge in face:
+					for i in sus:
+						if i == edge[0]:
+							count = count+1
+					if count == 3:
+						faces.remove(face)
+						return faces
+	except ValueError:
+		print "Mistake in _interior_faces()"
+		print oF
+		for face in G.faces():
+			print face
+		print "Supposed outer_face not in faces"
+
+def _find_face(graph,this_face):
+	length = len(this_face)
+	for face in graph.faces():
+		if len(face) == length:
+			for i in range(length):
+				cw_count = 0
+				ccw_count = 0
+				for j in range(length):
+					if this_face[(j+i)%length][0] == face[j][0]:
+						cw_count += 1
+					if this_face[(-j+i)%length][1] == face[j][0]:
+						ccw_count += 1
+				if ccw_count == length or cw_count == length:
+					return face
+
 def _face_2_flow(H,face):
 	## H is the new FlowGraph ##
 	name = _name_face_vertex(face)
@@ -254,45 +293,6 @@ def _add_vertices_2_sink_edges(H,G,suspensions):
 			H.add_edge(_name_vertex_vertex(vertices[i]), 'o1' , G.degree(vertices[i]) - 2 )
 		else:	
 			H.add_edge(_name_vertex_vertex(vertices[i]), 'o1' , G.degree(vertices[i]) - 3 )
-
-def _interior_faces(G,oF = None, sus = None):
-	try:
-		faces = copy(G.faces())
-		if oF != None:
-			face = _find_face(G,oF)
-			faces.remove(face)
-			return faces
-		if sus != None:
-			for face in faces:
-				count = 0
-				for edge in face:
-					for i in sus:
-						if i == edge[0]:
-							count = count+1
-					if count == 3:
-						faces.remove(face)
-						return faces
-	except ValueError:
-		print "Mistake in _interior_faces()"
-		print oF
-		for face in G.faces():
-			print face
-		print "Supposed outer_face not in faces"
-
-def _find_face(graph,this_face):
-	length = len(this_face)
-	for face in graph.faces():
-		if len(face) == length:
-			for i in range(length):
-				cw_count = 0
-				ccw_count = 0
-				for j in range(length):
-					if this_face[(j+i)%length][0] == face[j][0]:
-						cw_count += 1
-					if this_face[(-j+i)%length][1] == face[j][0]:
-						ccw_count += 1
-				if ccw_count == length or cw_count == length:
-					return face
 	
 def _face_2_ints(face):
 	nodes = face[0].split()
