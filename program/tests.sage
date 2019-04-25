@@ -202,8 +202,9 @@ def mini_test(nodes,number,print_info=True):
 		print "Neither:" + str3
 	end = time.time()
 	print "Took " + str(int(end-start)) + " seconds."
-	found = _test_faa_for_non_int(Just_FAA+Nothing)
-	return [Has_SLTR,Just_FAA,Nothing,found]
+	return
+	# found = _test_faa_for_non_int(Just_FAA+Nothing)
+	# return [Has_SLTR,Just_FAA,Nothing,found]
 
 def _test_faa_for_non_int(Non_SLTR):
 	print "Starting to check " + str(len(Non_SLTR)) + " graphs for non_int solutions"

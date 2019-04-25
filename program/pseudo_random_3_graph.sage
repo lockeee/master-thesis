@@ -3,7 +3,7 @@ import random
 def choose_split_face_edge():
 	cut1 = 333 	## Adds one vertex and one edge
 	cut2 = 666 	## Adds one vertex and two edges
-	cut3 = 995  ## Triangulates random face --> >2 edges
+	cut3 = 1000  ## Triangulates random face --> >2 edges
 	cut4 = 1000 ## Adds random edge in Graph
 	n = randint(0,1000)
 	if n < cut1:
