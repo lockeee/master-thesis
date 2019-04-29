@@ -172,10 +172,10 @@ def mini_test(nodes,number,print_info=True):
 		if print_info: 
 			if mod(i,50) == 0:
 				print i
-		[graph,suspensions,outer_face,embedding] = random_3_graph(nodes)
+		[graph,suspensions,outer_face,embedding] = random_int_3_graph(nodes)
 		en = len(graph.edges())
 		if has_faa(graph,suspensions=suspensions):
-			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = False)
+			sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=False,check_just_non_int_flow = True)
 			if sltr == None:
 				FAA[en] = FAA[en] + 1
 				Just_FAA.append([graph,suspensions,outer_face,embedding])

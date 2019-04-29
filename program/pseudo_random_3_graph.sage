@@ -30,27 +30,23 @@ def random_3_graph(nodes):
 			G = add_vertex_in_face(G)
 		if index == 4:
 			G = add_edge_in_face(G)
-	if G.vertex_connectivity() > 2:
-		face = G.faces()[randint(0,len(G.faces())-1)]
-		l2 = _give_suspension_list(G,face)
-		shuffle(l2)
-		suspensions = l2[0]
-		return [G,suspensions,face,None]
-	else:
-		print "upsi"
-		return random_3_graph(node)
+	face = G.faces()[randint(0,len(G.faces())-1)]
+	l2 = _give_suspension_list(G,face)
+	shuffle(l2)
+	suspensions = l2[0]
+	return [G,suspensions,face,None]
 
 def random_int_3_graph(nodes):
 	if randint(0,10) < 3:
-		G = random_3_graph(nodes)
+		[G,suspensions,face,embedding] = random_3_graph(nodes)
 		face = G.faces()[randint(0,len(G.faces())-1)]
 		l2 = _give_suspension_list(G,face)
 		shuffle(l2)
 		suspensions = l2[0]
 		return [G,suspensions,face,None]
 	else:
-		G = random_3_graph(nodes+1)
-		return _give_one_internally_3_con_graphs_with_sus(G)
+		[G,suspensions,face,embedding] = random_3_graph(nodes+1)
+		return _give_one_internally_3_con_graph_with_sus(G)
 
 
 def add_vertex_via_split(graph):
@@ -152,7 +148,7 @@ def vertices_edge(list_of_vertices):
 		vertices_to_connect.append(list_of_vertices[index[i]])
 	return vertices_to_connect
 
-def _give_one_internally_3_con_graphs_with_sus(graph):
+def _give_one_internally_3_con_graph_with_sus(graph):
 	vL = graph.vertices()	
 	iterator = range(len(vL))
 	shuffle(iterator)

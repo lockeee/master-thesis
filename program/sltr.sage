@@ -42,14 +42,9 @@ def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int
 		if Flow != None:
 			if Flow[1] != None:
 				try:
-					for e in Flow[1].edges():
-						if e[2] != int(e[2]):
-							print e
-							print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
-							break
+					#_check_non_int_flow(Flow,graph)
 					return _get_good_faa(graph,Flow[1],outer_face,suspensions)
 				except EmptySetError:
-					print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 					pass
 	else:
 		if Flow != None:
@@ -62,7 +57,48 @@ def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int
 					raise ValueError("Only non integer Flow found for G.")
 	return
 
-	
+## Just for research
+def _check_non_int_flow(Flow,graph):
+	E = _give_non_int_edges(Flow[0],graph)
+	if len(E) > 0:
+		print "Non-int-flow"
+	t3_t4 = False
+	for e in E:
+		if e[0][-2:] == 'T3' and e[1][-2:] == 'T4':
+			t3_t4 = True
+	if t3_t4:
+		print 'Flow1'
+		print E	
+
+
+def _check_cut(H,Flow,flow1,flow2):
+	F = copy(H)
+	aL = _give_angle_edges(H)
+	shuffle(aL)
+	vL = _give_dummy_vertices(Flow[0][1])
+	dL = []
+	for i in range(flow2):
+		v = vL[i]
+		string = v + ",T2"
+		l = len(string)
+		for a in aL:
+			a[-l:] == string
+			dL.append(a)
+			break
+	F.delete_edges(dL)
+	print "cut"
+	print flow1
+	print flow2
+	print F.edge_cut('i1', 'o1', value_only=False, use_edge_labels=True)
+
+def _give_dummy_vertices(Flow1):
+	vL = []
+	for v in Flow1.vertices():
+		if v[:1] == 'D':
+			vL.append(v)
+	shuffle(vL)
+	return vL
+
 def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 	gFAA = []
 	if len(Flow2.vertices()) == 0:
@@ -151,7 +187,10 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 	flow2 = _give_flow_2(graph,outer_face,suspensions)
 	if check_just_non_int_flow:
 		try:
-			return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0) , None]
+			Flow = [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0) , None]
+			_check_cut(H,Flow,flow1,flow2)
+			return Flow
+			#return [H.multicommodity_flow([['i1','o1',flow1],['Di2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0) , None]
 		except EmptySetError:
 			pass
 	else:
@@ -210,12 +249,34 @@ def _give_flow_2(G,outer_face,suspensions):
 		flow2 += ( len(face) - 3 )
 	return flow2
 
-def _give_angle_edges(H):
+def _give_angle_edges(H,non_int = False):
 	aL = []
 	for edge in H.edges():
 		if str(edge[0])[-2:] == 'T1':
-			aL.append(edge)
+			if non_int:
+				if 0.001 < edge[2] < 0.999:
+					aL.append(edge)
+			else:
+				aL.append(edge)
+
 	return aL
+
+def _give_edge_vertex_edges(H):
+	aL = []
+	for edge in H.edges():
+		if str(edge[0])[:1] == 'E':
+			if 0.001 < edge[2] < 0.999:
+				aL.append(edge)
+	return aL
+
+def _give_non_int_edges(H,graph):
+	aL = []
+	zero = False
+	for e in H.edges():
+		if 0.001 < e[2] < 0.999:
+			aL.append(e)
+	return aL
+
 	
 def _interior_faces(G,oF = None, sus = None):
 	try:
