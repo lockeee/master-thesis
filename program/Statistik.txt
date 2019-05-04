@@ -2,18 +2,18 @@ Stats for 3-Connected
 Sequence = [0,0,0,0,1,2,7,34,257,2606,32300,440564,6384634,
  96262938,1496225352,23833988129,387591510244,
  6415851530241,107854282197058]
-V(G)	Graphs		No-SLTR:	2app. N-Int	Min-Max			Cut --> ( 	SLTR 					Non-SLTR )	
+V(G)	Graphs		No-SLTR:  	Some SLTR 	Min-Max			Cut --> ( 	SLTR 					Non-SLTR )	
 3		0											
 4		1			0						()(6)		
 5		2 			0						()(7,9)	
 6		7			0						()(9,12)		
 7		34			0						()(11,15)
-8		257			2					0	(12)(13,18)		()													
-9		2606		9					0	(14(15)21)		(15)			(73)				(1)				
-10		32300		102			4		0	(15(17,18)24)	(17,18)			(615,2632)			(18,3)			
-11		440564		1182		40		0	(17(19,21)27)	(19,20,21)		(5845,25549,64429)	(289,77,10)	
-12		6384634		16253??					(18(21,24)30)	(21,22,23,24)	( , , , )			( , , ,24??)		
-13		96262938
+8		257			2						(12)(13,18)		()													
+9		2606		9						(14(15)21)		(15)			(73)				(1)				
+10		32300		102			1			(15(17,18)24)	(17,18)			(615,2632)			(18,3)			
+11		440564		1182		...			(17(19,21)27)	(19,20,21)		(5845,25549,64429)	(289,77,10)	
+12		6384634		16253??		...			(18(21,24)30)	(21,22,23,24)	( , , , )			( , , ,24??)		
+13		96262938				...
 14
 15										0	(22(27,33)39)
 
@@ -37,9 +37,6 @@ V(G)	Graphs		No-SLTR:	Non_FAA	Min-Max-Edges 		SLTR 						Only-FAA )
 
 22										(?(31,?)60)
 
-
-Smallest Graph no FAA : G = Graph(":MeEgypEYGgA_Q@SSQiPB^") on 14 vertices ??
-
 Graphs with some sltrs for only some outer faces :
 10:	G = Graph(':I`A?gPaGk`deQ`s^')
 11:	L = [':J`A?gPaUGaecKkqSOf', ':J`AC@pHCkhBNK`jgR', ':J`A?gOHCkRQePDAfP', ':J`A?gPaGkaqE]XIGR', ':J`AC@paUS`feW{qDR', ':J`ACGbaKkbQE]XIDR',':J`AC@oEQHWedGYHdMb',':J`A?gPaIPRQEUXIGR']
@@ -47,5 +44,6 @@ Graphs with some sltrs for only some outer faces :
 Henneberg Example:
 	G = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2],[2,20],[2,21],[3,6],[3,20],[4,7],[4,8],[5,9],[5,21],[6,7],[6,10],[6,16],[7,17],[8,9],[8,18],[9,11],[9,19],[10,12],[10,13],[11,14],[11,15],[12,13],[12,16],[13,17],[14,15],[14,18],[15,19],[16,17],[16,20],[17,20],[18,19],[18,21],[19,21]])
 
-Found Graph with non int solution?!
-	G = (':EgGChI@R') with embedding E = {0: [2, 5, 3], 1: [5, 4, 3], 2: [3, 4, 0], 3: [0, 1, 2], 4: [2, 1, 5], 5: [0, 4, 1]}
+Graph on 25 vertices with only maximal cut but no SLTR: G = Graph(':XbAd@`BCcEaBEFiH_@Ej`DHdHI_IM`JKeJK_BC`E`BHcaBTeKRfGT')
+
+
