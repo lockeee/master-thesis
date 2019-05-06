@@ -168,6 +168,111 @@ def check_lists(gL):
 	print "Neither:" + str3
 
 
+def one_flow_test(nodes,number,print_info=True):
+	start = time.time()
+	SLTR = [0]*500
+	FAA = [0]*500
+	No_FAA = [0]*500
+	Has_SLTR = []
+	Just_FAA = []
+	Nothing = []
+	Only_non_int_flow = []
+	for i in range(number):
+		if print_info: 
+			if mod(i,50) == 0:
+				print i
+		[graph,suspensions,outer_face,embedding] = random_3_graph(nodes)
+		en = len(graph.edges())
+		if has_faa(graph,suspensions=suspensions):
+			if one_flow_for_one(graph,outer_face,suspensions):
+				SLTR[en] = SLTR[en] + 1
+				Has_SLTR.append([graph,suspensions,outer_face,embedding])
+			else:
+				FAA[en] = FAA[en] + 1
+				print (flow1+flow2,H.edge_cut('i1', 'o1', value_only=False, use_edge_labels=True))
+				Just_FAA.append([graph,suspensions,outer_face,embedding])
+		else:
+			No_FAA[en] = No_FAA[en] + 1
+			Nothing.append([graph,suspensions,outer_face,embedding])
+	if print_info:
+		print "Finished checking some graphs on " + str(nodes) + " nodes."
+		str1 = ""
+		str2 = ""
+		str3 = ""
+		sum1 = 0
+		sum2 = 0
+		sum3 = 0
+		for i in range(500):
+			if SLTR[i] != 0:
+				str1 = str1 + " / " + str(i) + "-" + str(SLTR[i]) 
+				sum1 += SLTR[i]
+			if FAA[i] != 0:
+				str2 = str2 + " / " + str(i) + "-" + str(FAA[i])
+				sum2 += FAA[i]
+			if No_FAA[i] != 0:
+				str3 = str3 + " / " + str(i) + "-" + str(No_FAA[i])
+				sum3 += No_FAA[i]
+		print "SLTR(" + str(sum1) + "):" + str1
+		print "Only FAA("+str(sum2)+"):" + str2
+		print "Neither("+str(sum3)+"):" + str3
+	end = time.time()
+	print "Took " + str(int(end-start)) + " seconds so far."
+	print "Checking again"
+	for [graph,suspensions,outer_face,embedding] in Has_SLTR:
+		if not has_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_just_non_int_flow = True):
+			print graph.sparse6_string()
+			print (suspensions,outer_face)
+	print "Seems to work"
+	end2 = time.time()
+	print "Took " + str(int(end2-start)) + " seconds in total."
+	return [Has_SLTR,Just_FAA]
+
+def one_flow_for_one(graph,outer_face,suspensions):
+	H = _graph_2_flow(graph, outer_face, suspensions)
+	flow1 = _give_flow_1(graph,outer_face,suspensions)
+	flow2 = _give_flow_2(graph,outer_face,suspensions)
+	H.add_edges([['i1','i2',flow2],['o2','o1',flow2]])
+	(f,Flow1) = H.flow('i1','o1',value_only=False,use_edge_labels=True,integer = True)
+	if f == flow1+flow2:
+	###### Is already good FAA ?? ##################################################################################################
+		aL = _give_angle_edges(Flow1)
+		angles = []
+		is_good = True
+		cnt = 0
+		for edge in aL:
+			name = edge[0].split()[1]
+			dv_out = Flow1.neighbors_out(edge[1])
+			if dv_out[0][:1] == 'D':
+				angles.append(edge[1])
+		H = Graph()		
+		for face in graph.faces():
+			f_ang = []
+			if face != outer_face:
+				length = len(face)
+				length -= 3
+				l_cnt = 0
+				name = _name_face_vertex(face)
+				for angle in angles:
+					a = angle.split(",")[0]
+					dv = 'D'+angle.split(",")[1]
+					if name == a:
+						f_ang.append(angle)
+						H.add_edge(dv,name)
+						l_cnt += 1
+						cnt += 1
+				if l_cnt != length:
+					print(l_cnt,length)
+					print face,f_ang
+					is_good = False
+				if l_cnt == 0 and len(face) > 3:
+					H.add_vertex(name)
+		if is_good:
+			print "good"
+	##### NO ##########################################################################################################################################
+		return True
+	else:
+		return False
+
 def mini_test(nodes,number,print_info=True,just_non_int=True):
 	start = time.time()
 	SLTR = [0]*500

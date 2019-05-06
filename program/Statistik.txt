@@ -44,6 +44,6 @@ Graphs with some sltrs for only some outer faces :
 Henneberg Example:
 	G = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2],[2,20],[2,21],[3,6],[3,20],[4,7],[4,8],[5,9],[5,21],[6,7],[6,10],[6,16],[7,17],[8,9],[8,18],[9,11],[9,19],[10,12],[10,13],[11,14],[11,15],[12,13],[12,16],[13,17],[14,15],[14,18],[15,19],[16,17],[16,20],[17,20],[18,19],[18,21],[19,21]])
 
-Graph on 25 vertices with only maximal cut but no SLTR: G = Graph(':XbAd@`BCcEaBEFiH_@Ej`DHdHI_IM`JKeJK_BC`E`BHcaBTeKRfGT')
+Graph on 10 vertices with only maximal cut but no SLTR: G = Graph(':IcES@BbCXYe_K{@G')
 
 

@@ -1,7 +1,7 @@
 import sage.all
 attach("graph2ipe.sage")
 
-def has_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = False,with_tri_check=False):
+def has_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = True,with_tri_check=False):
 	if suspensions != None and outer_face == None:
 		raise ValueError("If the suspensions are given we also need an outer face")
 	else:
@@ -10,7 +10,6 @@ def has_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int
 		return get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,check_non_int_flow=check_non_int_flow,check_just_non_int_flow = check_just_non_int_flow , return_sltr = False)
 
 
-	
 def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int_flow=False,check_just_non_int_flow = False , return_sltr = True):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if embedding != None:
@@ -91,73 +90,69 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 		for e in Flow2.edges():
 			if 0.0001 < e[2] < 0.999:
 				non_int = True
-				break
-		if non_int:
-			print "Need to convert from non integer!!"
-			print Flow2.edges()
-			#print G.sparse6_string()
-			#print(outer_face,suspensions)
-			return
-		else:
-			## interior vertices to assign ##
-			gFAA = []
-			firstN = copy(Flow2.neighbors_in('o2'))
-			for v in firstN:
-				## IGNORE TOOO SMALL EDGES ---> NUMERICAL NOISE...
-				if Flow2.edge_label(v,'o2') > 0.00001:
-					name = Flow2.neighbors_in(v)[0][:-3]
-					names = name.split(',')
-					names = [names[0][2:],names[1][2:]]
-					name0 = _face_2_ints(names)
-					x = True
-					for j in range(len(gFAA)):
-						if  name0 == gFAA[j][0]:
-							x = False
-							gFAA[j][1].append(int(names[1]))
-							break
-					if x:
-						add = [name0]
-						add.append([int(names[1])])
-						gFAA.append(add)
+			break
+		## interior vertices to assign ##
+		gFAA = []
+		bags_out = Flow2.neighbors_in('o2')
+		firstN = []
+		for b in bags_out:
+			bag_in = copy(Flow2.neighbors_in(b))
+			for dv2 in bag_in:
+				dv = Flow2.neighbors_in(dv2)
+				firstN.append([dv[0],dv2])
+		for [v,b] in firstN:
+			## IGNORE TOOO SMALL EDGES ---> NUMERICAL NOISE...
+			if Flow2.edge_label(v,b) > 0.00001:
+				name = Flow2.neighbors_in(v)[0][:-3]
+				names = name.split(',')
+				names = [names[0][2:],names[1][2:]]
+				name0 = _face_2_ints(names)
+				x = True
+				for j in range(len(gFAA)):
+					if  name0 == gFAA[j][0]:
+						x = False
+						gFAA[j][1].append(int(names[1]))
+						break
+				if x:
+					add = [name0]
+					add.append([int(names[1])])
+					gFAA.append(add)
 
 			## Append vertices assigned to outer Face ##
 			name = _name_face_vertex(outer_face)[2:]
 			name = [_face_2_ints([name])]
 			add = []
-			for i in outer_face:
-				if i[0] not in suspensions:
-					add.append(i[0])
-			name.append(add)
-			gFAA.insert(0,name)	
-			## Append triangles ##
-			for i in _interior_faces(G,oF = outer_face):
-				if len(i) == 3:
-					gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
-			return gFAA
+		for i in outer_face:
+			if i[0] not in suspensions:
+				add.append(i[0])
+		name.append(add)
+		gFAA.insert(0,name)	
+		## Append triangles ##
+		for i in _interior_faces(G,oF = outer_face):
+			if len(i) == 3:
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+		return gFAA
 		  
 def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
 	H = _graph_2_flow(graph, outer_face, suspensions)
 	flow1 = _give_flow_1(graph,outer_face,suspensions)
 	flow2 = _give_flow_2(graph,outer_face,suspensions)
 	if check_just_non_int_flow:
-
 		try:
 			Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0) , None]
 			aL = _give_angle_edges(Flow[0][1])
-			#print aL
-			inte = len(aL)==flow2
-			if inte:
+			integral_flow = len(aL)==flow2
+			if integral_flow:
 				return Flow
-			while not inte:
+			while not integral_flow:
 				(faa,Flow2) = _get_faa_from_non_int_solution(aL,flow2)
-				H2 = copy(H)
-				H2.delete_edges(faa)
-				(f,Flow1) = H2.flow('i1','o1',value_only=False,use_edge_labels=True,integer = True)
+				H.delete_edges(faa)
+				(f,Flow1) = H.flow('i1','o1',value_only=False,use_edge_labels=True,integer = True)
 				if flow1 == f:
 					return [[Flow1,Flow2],True]
 				else:
-					print "nooooo"
 					print_info(graph, outer_face, suspensions, check_non_int_flow, check_just_non_int_flow)
+					raise ValueError("Counter Example Found :(")
 		except:
 			pass
 	else:	
@@ -165,18 +160,19 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 			return [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True) , True]
 		except EmptySetError:
 			H2 = copy(H)
-			H2.add_edges([['i2','i1',flow1],['o1','o2',flow1]])
-			[f1,sol] = H2.edge_cut('i2','o2', value_only=False, use_edge_labels=True)
-			print (flow1,flow2,f1)
-			if f1 >= flow1+flow2:
+			H2.add_edges([['i1','i2',flow2],['o2','o1',flow2]])
+			[f1,sol] = H2.edge_cut('i1','o1', value_only=False, use_edge_labels=True)
+			print "one_flow",(flow1,flow2,f1)
+			if f1 == flow1+flow2:
 				C = H.multiway_cut(['i1','i2','o1','o2'], value_only=False, use_edge_labels=True, solver=None, verbose=0)
 				c = 0
 				for edge in C:
 					c += edge[2]
-				print (flow1,flow2,c)
+				print C
+				print "cut",(flow1,flow2,c)
 				if flow1+flow2==c:
-					print graph.sparse6_string()
 					l = []
+					sol = Graph(sol)
 					for v in sol.vertices():
 						if v[:2] == 'DV':
 							if sol.edge_label(v,'o2') == 1:
@@ -193,10 +189,11 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 						if f1 == flow1:
 							print 'ups'
 			else:
-				print sol
-				print graph.sparse6_string()
-				print outer_face
-				print suspensions
+				#print sol
+				# print graph.sparse6_string()
+				# print outer_face
+				# print suspensions
+				pass
 		if check_non_int_flow:
 			try:
 				Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = False) , False]
@@ -214,7 +211,8 @@ def _graph_2_flow(G,outer_face,suspensions):
 		_face_2_flow(H,face)
 	## Fixing outer face	
 	for sV in outer_face:
-		H.delete_edge('D' + _name_vertex_vertex(sV[0]) , 'o2')
+		if H.has_vertex('D' + _name_vertex_vertex(sV[0])):
+			H.delete_vertex('D' + _name_vertex_vertex(sV[0]))
 	for oE in outer_face :
 		H.delete_edge('i1',_name_edge_vertex(oE))
 	return H
@@ -274,9 +272,12 @@ def _add_triangle(H,face,dummyEdge,node,nextNode):
 		( name + 'T4' , _name_face_vertex(face) + ',' + nextNode + ',T3', 1)])	
 	## Nodes for Source2 ##
 	dummyName = 'D' + node 
+	dummyName2 = 'D2' + node
 	H.add_edges([('i2',name + 'T1' , 1),
 		( name + 'T2' , dummyName , 1),
-		( dummyName , 'o2' , 1 )])
+		( dummyName , dummyName2 , 1 ),
+		( dummyName2 , 'D' + _name_face_vertex(face) , 1 ),
+		( 'D' + _name_face_vertex(face) , 'o2' , len(face) - 3 )])
 		
 def _add_vertices_2_sink_edges(H,G,suspensions):
 	for v in G.vertices():
@@ -317,13 +318,7 @@ def _give_suspension_list(graph,outer_face=None):
 				suspensions = ( n[j[0]] , n[j[1]] , n[j[2]] )
 				sus_list.append(suspensions)
 	return sus_list
-		
-
-##### TEST STUFF ###################################################################################################################################################
-####################################################################################################################################################################
-####################################################################################################################################################################
-####################################################################################################################################################################
-
+	
 def _get_faa_from_non_int_solution(aL,flow2):
 	faa = []
 	used_V_out = []
@@ -331,35 +326,43 @@ def _get_faa_from_non_int_solution(aL,flow2):
 	Flow2 = DiGraph()
 	all_V_out = []
 	for edge in aL:
+		name = edge[0].split()[1]
+		name1 = 'DV:'+name
 		if edge[2] > 0.999:
 			faa.append(edge)
-			name = edge[0].split()[1]
-			name = 'DV:'+name
-			used_V_out.append(name)
-			Flow2.add_edge(name,'o2',1)
+			name2 = 'D2V:' + name
+			name3 = 'D3V:' + name
+			used_V_out.append(name1)
+			Flow2.add_edge(name3,'o2',1)
+			Flow2.add_edge(name2,name3,1)
+			Flow2.add_edge(name1,name2,1)
 			Flow2.add_edge(edge[0],edge[1],1)
-			Flow2.add_edge(edge[1],name,1)
-		name = edge[0].split()[1]
-		name = 'DV:'+name
-		all_V_out.append(name)
+			Flow2.add_edge(edge[1],name1,1)
+		all_V_out.append(name1)
 	if len(all_V_out) == flow2:
 		print aL
 	for edge in aL:
-		if len(faa) > flow2:
+		if len(faa) >= flow2:
 			break
-		if 0.001  < edge[2] < 0.999:
+		if 0.001  < edge[2] <= 0.999:
 			name = edge[0].split()[1]
-			name = 'DV:'+name
-			if name not in used_V_out:
+			name1 = 'DV:'+name
+			if name1 not in used_V_out:
 				faa.append(edge)
+				name2 = 'D2V:'+name
+				name3 = 'D3V:'+name
 				used_V_out.append(name)
-				Flow2.add_edge(name,'o2',1)
+				Flow2.add_edge(name3,'o2',1)
+				Flow2.add_edge(name2,name3,1)
+				Flow2.add_edge(name1,name2,1)
 				Flow2.add_edge(edge[0],edge[1],1)
-				Flow2.add_edge(edge[1],name,1)
+				Flow2.add_edge(edge[1],name1,1)
+	return (faa,Flow2)		
 
-	return (faa,Flow2)
-
-
+##### TEST STUFF ###################################################################################################################################################
+####################################################################################################################################################################
+####################################################################################################################################################################
+####################################################################################################################################################################
 
 def _check_non_int_flow(Flow,graph):
 	E = _give_non_int_edges(Flow[0],graph)
