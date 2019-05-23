@@ -3,44 +3,46 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: amsalpha.bst
 Database file #1: bibliography.bib
+Warning--I didn't find a database entry for "felsner04"
 You've used 9 entries,
             2624 wiz_defined-function locations,
-            611 strings with 5482 characters,
-and the built_in function-call counts, 3473 in all, are:
-= -- 345
+            613 strings with 5466 characters,
+and the built_in function-call counts, 3503 in all, are:
+= -- 352
 > -- 85
 < -- 6
 + -- 25
 - -- 24
-* -- 281
-:= -- 509
+* -- 291
+:= -- 514
 add.period$ -- 9
 call.type$ -- 9
 change.case$ -- 48
 chr.to.int$ -- 8
 cite$ -- 9
-duplicate$ -- 155
-empty$ -- 310
+duplicate$ -- 154
+empty$ -- 309
 format.name$ -- 39
-if$ -- 731
+if$ -- 736
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 19
+missing$ -- 18
 newline$ -- 37
 num.names$ -- 23
-pop$ -- 55
+pop$ -- 51
 preamble$ -- 1
 purify$ -- 57
 quote$ -- 0
-skip$ -- 121
+skip$ -- 119
 stack$ -- 0
-substring$ -- 307
+substring$ -- 313
 swap$ -- 25
 text.length$ -- 6
 text.prefix$ -- 6
 top$ -- 0
-type$ -- 68
+type$ -- 72
 warning$ -- 0
-while$ -- 35
+while$ -- 36
 width$ -- 11
-write$ -- 107
+write$ -- 108
+(There was 1 warning)

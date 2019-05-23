@@ -1,47 +1,60 @@
-\chapter{Ein algorithmischer Ansatz}
+\chapter{Algorithmen zur Erkennung von SLTR}
 
+Im vorherigen Kapitel wurden Kriterien für die Existenz einer SLTR erarbeitet, die allerdings nicht sofort einen Algorithmus, sowohl zur Frage nach der Existenz, als auch zum erlangen einer spezifischen SLTR liefern. Diesem Thema wollen wir uns nun im folgenden Kapitel zuwenden und dafür zum Einstieg einen von Aerts und Felsner in \cite{af13} erarbeiteten Algorithmus betrachten.
 
-\begin{theorem}[Ganzzahliger Fluss]\label{ift}
+\section{SLTR via Zwei-Fluss}
 
-Falls alle Kapazitäten in $\mathcal{F}$ ganzzahlig sind, dann existiert auch ein maximaler Fluss, sodass der Fluss auf allen Kanten ganzzahlig ist.
+Wir betrachten im folgenden gerichtete Graphen. Das Ziel ist es, für einen gegebenen Graphen sowohl einen Schnyder Wood als auch ein FAA jeweils als Lösung eines Fluss-Problems zu erhalten und diese beiden dann in einem Zwei-Fluss-Problem zu kombinieren, sodass eine Lösung ein Ecken-Kompatibles-Paar gibt und wir somit eine SLTR erhalten. Wir beschäftigen uns also mit der folgenden Problemstellung.
 
-\end{theorem}
+\begin{definition}[Gerichtetes-Multi-Fluss-Problem]
+Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den Kapaziäten $c:E\mapsto\mathbb{R}_{+}$, Paaren von ausgezeichneten Knoten $\{(s_1,t_1), ... ,(s_n,t_n)\}$ und positiven Bedarfen $\{d_1, ... ,d_n\}$, dann ist $\varphi=(\varphi_1, ... ,\varphi_n)$ ein zulässiger Fluss, falls
+\begin{itemize}
+\item[F1] $\forall (u,v) \in E : \sum_{i=1}^{n}{\varphi_i(u,v)} \leq c(u,v) $
+\item[F2] $ \forall u \neq s_i,t_i : \sum_{w \in V} \varphi_i(u,w) - \sum_{w \in V} \varphi_i(w,u) $
+\item[F3] $ \forall s_i : \sum_{w \in V} \varphi_i(s_i,w) - \sum_{w \in V} \varphi_i(w,s_i) = d_i $
+\item[F4] $ \forall t_i : \sum_{w \in V} \varphi_i(w,s_i) - \sum_{w \in V} \varphi_i(s_i,w) = d_i $
+\end{itemize}
+\end{definition}
 
-\begin{theorem}[Max-Flow-Min-Cut]\label{mfmc}
+Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung. Für $n=2$ und wir ungerichtete Netzwerke zeigt \cite{hu} die selbe Eigenschaft. Dies gilt jedoch im Fall $n \geq 2$ für gerichtete Graphen nicht mehr.
 
-TODO
+\subsection{Schnyder Wald Fluss}
 
-\end{theorem}
+Um einen Schnyder Wood zu erhalten folgen wir \cite{felsner04lattice}.\
+Wir betrachten den Primal-Dual Graphen $G+G^*$ eines planen Graphen $G$. Hier ist $G^*$ der schwache duale Graph zusammen mit einer Halbkante ins äussere Gebiet von jeder inzidenten Kante aus. Die Menge der Knoten von $G+G^*$ besteht aus Knoten-Knoten, Kanten-Knoten und Gebiets-Knoten, mit Kanten in $G+G^*$, sowohl zwischen inzidenten Kanten und Knoten, als auch Kanten und Gebieten in $G$. Somit ist $G+G^*$ bipartit. Falls wir einen Knoten $f_\infty$ für das äussere Gebiet einsetzten und die Halbkanten verlängern sprechen wir vom Abschluss von $G+G^*$. Wir bezeichnen diesen mit $\tilde{G}$.\\
+Sei $G=(V,E)$ ein Graph und $\alpha:V\mapsto\mathbb{N}$ eine Funktion auf $G$. Eine $\alpha-Orientierung$ ist eine Orientierung auf $G$, sodass der Ausgrad eines jeden Knoten $\alpha(v)$ entspricht. Das folgende Theorem stammt ebenfalls aus \cite{felsner04lattice}.
 
 \begin{theorem}
-
-Falls das oben konstruierte Zwei-Fluss-Problem auf dem Graphen $\mathcal{N}_G$ eine nicht ganzzahlige Lösung zulässt, dann existiert auch mindestens eine ganzzahlige Lösung.
-
+Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$, dann sind die folgenden Strukturen in Bijektion:
+\begin{itemize}
+\item Die Schnyder Wälder auf $G$.
+\item Die Schnyder Wälder auf dem (schwachen) dualen Graph $G^*$.
+\item Die $\alpha_{s}-Orientierungen$ des Abschlusses von $G+G^+$ mit $\alpha_s(v) = 3$ für jeden Knoten- und Gebiets-Knoten,  $\alpha_s(e) = 1$ für jeden Kanten-Knoten und  $\alpha_s(f_\infty) = 0$.
+\end{itemize}
 \end{theorem}
 
-\begin{proof}
-Angenommen, es existiert ein Graph $G$ wie oben, für den das zugehörige Zwei-Fluss-Problem auf $\mathcal{N}_G$ nur eine nicht ganzzahlige Lösung $\phi = (\phi_1,\phi_2)$ mit $|\phi_1| = |E_{int}| + 3|F_{int}|$ und $|\phi_2| = \sum_{f \in F_{int}}{(|f|-3)}$ zulässt.\\
-Sei $E^*$ die Menge der äusseren Kanten in den Winkel-Dreiecken, die zumindest Teilweise Fluss 2 enthalten und $V^*$ die Menge aller Dummy-Knoten deren Kanten zu Senke 2 von $\phi_2$ mindestens teilweise saturiert sind. Jede Kante aus $E^*$ entlädt sich durch genau einen Knoten aus $V^*$. Es gilt somit
-$$|E^*| \geq |V^*| \geq \sum_{f \in F_{int}}{(|f|-3)} = |\phi_2|$$ 
-mit Gleichheit genau dann, wenn alle Kanten komplett saturiert sind. Wähle nun eine Teilmenge $\hat{E} \subseteq E^*$ wie folgt aus. Zuerst sei $\hat{E}$ die Menge aller Kanten aus $E^*$, die durch $\phi_2$ komplett saturiert sind. Betrachte nun die verbliebenen Kanten. Wir fügen solange jeweils maximal eine Kante hinzu, die zu einem der Knoten gehört, die noch keine passende Kante in $\hat{E}$ haben, bis $|\hat{E}| = |\phi_2|$ gilt.\\
+Fusy zeigt in \cite{fusy07} im Zuge der Untersuchung spezifischer $\alpha$-Funktionen, dass sich $\alpha_s$-Orientierungen von $G+G^*$ in linearer Zeit berechnen lassen.\\
+%%  TODO Do i need this??
 
-Betrachte nun $\mathcal{N}_G\backslash \hat{E}$ als Fluss-Graphen nur mit Quelle 1 und Senke 1. Es kann keine ganzzahlige Lösung $\hat{\phi}_1$ mit $|\hat{\phi}_1| = |E_{int}| + 3|F_{int}|$ existieren, da wir sonst auch eine ganzzahlige Lösung für unser Problem gefunden hätten. Wir könnten $\hat{\phi}_2$ durch die Kanten aus $\hat{E}$ schicken und erhalten mit $\hat{\phi} = (\hat{\phi}_1,\hat{\phi}_2)$ einen ganzzahligen Fluss der unsere Bedingungen erfüllt. Da $\mathcal{N}_G\backslash \hat{E}$ aber ganzzahlige Kapazitäten hat muss es nach Theorem \ref{ift} auch eine maximale ganzzahlige Lösung $\tilde{\phi}_1$, mit $|\tilde{\phi}_1| \leq |E_{int}| + 3|F_{int}| - 1$, geben. Es existiert also nach Theorem \ref{mfmc} ein minimaler Kanten-Schnitt $\mathcal{S}$ in $\mathcal{N}_G\backslash \hat{E}$ mit 
-$$|\mathcal{S}| = |\tilde{\phi}_1| \leq |E_{int}| + 3|F_{int}| - 1 < |\phi_1|.$$
+Machen wir uns also an die Konstruktion eines Netzwerks $\mathcal{N}$ mit einer Quelle und Senke, sodass eine zulässige Lösung $\varphi$ einer $\alpha_s-Orientierung$ von $\tilde{G}$ entspricht, und somit auch einen Schnyder Wald auf $G$ liefert. Besonderes Augenmerk ist hier auf die Möglichkeit einer späteren Kombination mit einem FAA Fluss gelegt, um ein Zwei-Fluss-Problem zu erstellen, und nicht unbedingt auf Effizienz.\
 
-Wie in Bemerkung \ref{outer_angle_sat} festgestellt müssen die äusseren Winkel-Kanten von jeder Lösung $\phi = (\phi_1,\phi_2)$ saturiert sein. Somit müssen in unserer Lösung auch mindestens $|\tilde{\phi}_1|$ der verbliebenen äusseren Winkel-Kanten saturiert sein. Angenommen es existiert eine 
+Wie oben schon erwähnt ist $\tilde{G}$ bipartit, Kanten-Knoten haben Grad 4, Knoten-Knoten Grad $deg(v)$ und Gebiets-Knoten Grad $deg(f)$. Für eine $\alpha_s$-Orientierung muss jeder Kanten-Knoten Ausgrad 1, jeder Knoten-Knoten Eingrad $deg(v)-3$ und jeder Gebiets-Knoten Eingrad $deg(f)-3$ haben. Die Kanten-Knoten am äusseren Gebiet sind in $\tilde{G}$ immer nach aussen orientiert. Somit müssen wir nur die inneren Kanten-Kanten $E_{in}$ betrachten. \
+
+Sei $\mathcal{N}$ ein Netzwerk mit jeweils einer Quelle $s$ und Senke $t$, Kanten von der Quelle zu jedem $e \in E_{in}$ mit Kapazität 1, Kanten von den Kanten-Knoten $e$ zu inzidenten Knoten-Knoten $v$ und (inneren) Gebiets-Knoten $f \in F_{in}$ in $G$ ebenfalls mit Kapazität 1, Kanten von $f \in F_{in}$ zur Senke mit Kapazitäten $deg(f)-3$, Kanten von den (inneren) Knoten-Knoten $v \in V_{in} = V \setminus \{a_1,a_2,a_3\}$ zur Senke mit Kapazitäten $deg(v)-3$ und Kanten von den Aufhängungen $a_i$ zur Senke mit Kapazitäten $deg(v)-2$. Die letzte Kapazität resultiert aus dem Fakt, dass die Halbkante in $G+G^*$ immer nach aussen orientiert ist und wir somit nur noch zwei andere Kanten nach aussen orientieren müssen.
+
+%% Bild!!
+
+Der Bedarf des Netzwerkes entspricht der Anzahl der inneren Kanten von $G$. Sei $\varphi$ eine zulässige ganzzahlige Lösung, dann hat jeder Kanten-Knoten $e$ Ausgrad 1. Der Fluss entlang einer Auskante von $e \in E_{in}$ in $\mathcal{N}$ entspricht dann genau der hin zu $e$ orientierten Kante in $G+G^*$. Somit entspricht $\varphi$ einem Schnyder Wald auf $G$.
+
+\subsection{FAA Fluss}
+
+Um ein FAA auf $G$ mit gegebenen Aufhängungen $\{a_1,a_2,a_3\}$ zu erhalten müssen wir jedem inneren Gebiet $f \in F_{in}$ genau drei Ecken und $deg(f)-3$ flache Winkel zuordnen und jeder innere Knoten darf maximal einem Gebiet zugeordnet, also in diesem flach, sein.\
 
 
-Sei $\mathcal{S}$ so gewählt, dass sich alle äusseren Winkel-Kanten entweder in $\hat{E}$ oder in $\mathcal{S}$ befinden. 
+Sei also wieder $\mathcal{N}$ ein Netzwerk mit einer Quelle und Senke, einem Knoten für jeden inneren Winkel $(f,v)$ für $v\in V, f \in F_{in}$, und Knoten für alle inneren Gebiete $f$ und alle Knoten $v$. Von der Quelle existiert eine Kante mit Kapazität 1 zu jedem inneren Winkel $(f,v)$, von jedem inneren Winkel $(f,v)$ jeweils eine Kante zu $f$ und zu $v$ mit Kapazität 1, von jedem inneren Gebiet $f$ eine Kante mit Kapazität 3 zur Senke und zuletzt noch eine Kante von jedem inneren Knoten $v$ zur Senke mit Kapazität 1.
 
-Sei nun $\mathcal{F}$ eine Kopie von $\mathcal{N}_G$. Wir fügen eine übergeordnete Quelle und Senke und Kanten von der Quelle zu Quelle 1 und 2 und von Senke 1 und 2 hin zur neuen Senke mit Kapazitäten $|\phi_1|$ respektive $|\phi_2|$ hinzu. Eine maximaler Fluss $\varphi$ auf $\mathcal{F}$ kann nicht $|\phi_1| + |\phi_2|$ überschreiten. Insbesondere ist $ \hat{\varphi} = \phi_1 + \phi_2 $ dann ein maximaler, wenn auch nicht ganzzahliger, Fluss auf $\mathcal{F}$.\\
+%% Bild!!
 
-Sei $\mathcal{C} = \mathcal{S} \cup \hat{E}$, dann ist $\mathcal{C}$ ein Schnitt in $\mathcal{F}$ zwischen der neuen Quelle und Senke mit $$|\mathcal{C}| = |\mathcal{S} \cup \hat{E}| < \sum_{f \in F_{int}}{(|f|-3)} +  |E_{int}| + 3|F_{int}|  = |\phi_1| + |\phi_2|.$$ 
-Nach Theorem \ref{mfmc} kann also kein Fluss auf $\mathcal{F}$ grösser als $|\phi_1| + |\phi_2| - 1$ sein. Somit kann auch $\phi_1 + \phi_2$ kein machbarer Fluss auf $\mathcal{F}$ sein. Dies gilt dann aber auch für $\phi = (\phi_1,\phi_2)$ auf $\mathcal{N}_G.$ Somit muss es zu jedem Graphen mit nicht ganzzahliger Lösung auch einen ganzzahligen Fluss geben.
+Der Bedarf des Netzwerks ist $\sum_{f \in F_{in}}{deg{f}}, die Anzahl der inneren Winkel von $G$. Sei $\varphi$ eine zulässige ganzzahlige Lösung, dann entspricht Fluss auf einer Kante ((f,v),f) einer Ecke von f und Fluss auf ((f,v),u) einem flachen Winkel. Die gegebenen Kapazitäten gewährleisten genau drei Ecken für jedes Gebiet und maximal einen flachen Winkel an jedem inneren Knoten.
 
-\end{proof}
 
-\begin{corollary}
-
-In P!!!!
-
-\end{corollary}

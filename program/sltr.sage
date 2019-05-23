@@ -47,6 +47,20 @@ def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,check_non_int
 	if not return_sltr:
 		return False
 
+# def _get_sltr_via_faa(graph,suspensions,outer_face):
+# 	fv_list = []
+# 	outer_nodes = []
+# 	for e in outer_face:
+# 		outer_nodes.append(e[0])
+# 	for f in graph.faces():
+# 		fv = []
+# 		for e in f:
+# 			if e[0] not in outer_nodes:
+# 				fv.append(e[0])
+# 		fv_list.append(fv)
+	
+
+
 def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow,return_sltr):
 	[Flow, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if check_just_non_int_flow:
@@ -72,7 +86,7 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 		if outer_face == None :
 			## Triangulation ##
 			for i in G.faces():
-				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]]),[]])
 			return gFAA
 		else:
 			## Only assigned vertices to outer face ##
@@ -83,7 +97,7 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 					add.append(i[0])
 			gFAA = [[name,add]]
 			for i in _interior_faces(G,oF = outer_face):
-				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]]),[]])
 			return gFAA
 	else:
 		non_int = False
@@ -130,7 +144,7 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 		## Append triangles ##
 		for i in _interior_faces(G,oF = outer_face):
 			if len(i) == 3:
-				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]])])
+				gFAA.append([_face_2_ints([_name_face_vertex(i)[2:]]),[]])
 		return gFAA
 		  
 def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
@@ -601,7 +615,6 @@ def plot_problem_graph(graph,ultimate,outer_face,sus=None):
 			for i in range(len(face_list)):
 				[face,v] = face_list[i]
 				P = P + polygon([layout[x[0]] for x in face], color=colors[i])
-			print [P,G]
 			return [P,G]
 	else:
 		## No suspensions given ##
@@ -693,59 +706,161 @@ def _get_good_faa_layout(graph,faa,suspensions = None):
 							faa_dict[node] = (n1,n2)
 							break			
 	G = copy(graph)
-	pos = _get_good_faa_layout_start(G,faa_dict,0,suspensions)
+	pos = _get_good_faa_layout_iteration(G,faa,faa_dict,0,suspensions,None)
 	return pos
-	
-def _get_good_faa_layout_start(G,faa_dict,j,suspensions):
+
+def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights):
 	constant = 1
 	V = G.vertices()
 	n = len(V)
-	sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict)
+	count += 1
+	sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
 	pos = {V[i]:sol[i] for i in range(n)}
 	G.set_pos(pos)
-	weights = _calculate_weights(G,faa_dict,suspensions,j)
-	return _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights)
-
-def _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights=None):
-	constant = 1
-	V = G.vertices()
-	n = len(V)
-	j += 1
-	sol2 = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
-	pos2 = {V[i]:sol2[i] for i in range(n)}
-	G.set_pos(pos2)
-	weights2 = _calculate_weights(G,faa_dict,suspensions,j)
-	M = weights-weights2
-	if M.norm() < constant or j == 50:
-		return pos2
-	else:
-		return _get_good_faa_layout_iteration(G,faa_dict,j,suspensions,weights2)	
+	weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count)
+	if weights != None:
+		M = weights-weights2
+		norm = M.norm()
+		if norm < constant or count == 50:
+			return pos
+	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2)	
 	
-def _calculate_weights(G,faa_dict,suspensions,j):
+	
+
+def _calculate_weights(G,faa,faa_dict,suspensions,count):
 	V = G.vertices()
 	n = len(V)
 	W = zero_matrix(RR,n,n)
 	pos = G.get_pos()
-	
+
 	##weights for edges ##
-	for E in G.edges():
-		q = _get_edge_length(E,pos)
-		## TODO: Find a better function q and p##
-		i0 = V.index(E[0])
-		i1 = V.index(E[1])
-		W[i0,i1] += q
-		W[i1,i0] += q
+
+	# for E in G.edges():
+	# 	print E
+	# 	[v1,v2,l] = _segment(E,faa_dict)
+	# 	q = _get_edge_length([v1,v2],pos)
+	# 	i0 = V.index(v1)
+	# 	i1 = V.index(v2)
+	# 	W[i0,i1] += q^5
+	# 	W[i1,i0] += q^5
+
+# weights for faces ##	
 		
-	## weights for faces ##
-	for F in G.faces():
-		p = _get_face_area(F,pos)
-		## TODO: Find a better function q and p##
-		for E in F:
+	for face in G.faces():
+		p = _get_face_area(face,pos)
+		for E in face:
+			[v1,v2,l] = _segment(E,face,faa)
+			q = _get_edge_length([v1,v2],pos)
 			i0 = V.index(E[0])
 			i1 = V.index(E[1])
-			W[i0,i1] += p
-			W[i1,i0] += p
+			W[i0,i1] += p 
+			W[i1,i0] += p 
+	
+# weights for assigned ##
+
+	# for v in V:
+	# 	if faa_dict.has_key(v):
+	# 		[v1,v2] = faa_dict[v]
+	# 		[e1,e2,l] = _segment([v,v1,None],faa_dict)
+	# 		q = _get_edge_length([e1,e2],pos)
+	# 		i0 = V.index(v)
+	# 		i1 = V.index(v1)
+	# 		i2 = V.index(v2)
+	# 		W[i0,i1] += q/l
+	# 		W[i1,i0] += q/l
+
+# # weights for not assigned ##
+# 	for [face,ass] in faa:
+# 		c = copy(face)
+# 		for a in ass:
+# 			c.remove(a)
+# 		x1 = pos[c[0]][0]
+# 		y1 = pos[c[0]][1]
+# 		x2 = pos[c[1]][0]
+# 		y2 = pos[c[1]][1]
+# 		x3 = pos[c[2]][0]
+# 		y3 = pos[c[2]][1]
+# 		area = x1*y2 - x2*y1 + x2*y3 - x3*y2 + x3*y1 - x1*y3
+# 		area = abs(area/2)
+# 		for i in range(len(face)):
+# 			if face[i] not in ass:
+# 				i0 = V.index(face[mod(i-1,len(face))])
+# 				i1 = V.index(face[i])
+# 				i2 = V.index(face[mod(i+1,len(face))])
+# 				W[i0,i1] += area^2
+# 				W[i1,i0] += area^2
+# 				W[i1,i2] += area^2
+# 				W[i2,i1] += area^2
 	return W
+
+def _quadrant_weigth(graph,vertex,face,pos)
+	n = len(face)
+	for i in range(n):
+		if face[i][0] == vertex:
+			v_l = face[mod(i-1,n)][0]
+			v_r = face[mod(i-1,n)][1]
+			break
+	x_v = pos[vertex][0]
+	y_v = pos[vertex][1]
+	x_l = pos[v_l][0]
+	y_l = pos[v_l][1]
+	x_r = pos[v_r][0]
+	y_r = pos[v_r][1]
+	l = [[],[],[]]
+	for v in G.vertices():
+		if 
+
+
+def _segment(edge,face,faa):
+	[e1,e2] = [edge[0],edge[1]]
+	[d1,d2] = [e1,e2]
+	[b1,b2] = [True,True]
+	l = 1
+	node_face = []
+	for e in face:
+		node_face.append(e[0])
+	for [f,a] in faa:
+		if f == node_face:
+			n = len(f)
+			f = f+f+f
+			for i in range(n,2*n):
+				if f[i] == e1:
+					if f[i-1] == e2:
+						j1 = i
+						j2 = i-1
+						while b1:
+							if f[j1] in a:
+								j1 += 1
+								d1 = f[j1]
+								l += 1
+							else:
+								b1 = False
+						while b2:
+							if f[j2] in a:
+								j2 -= 1
+								d2 = f[j2]
+								l += 1
+							else:
+								b2 = False
+					else:
+						if f[i+1] == e2:
+							j1 = i
+							j2 = i+1
+							while b1:
+								if f[j1] in a:
+									j1 -= 1
+									d1 = f[j1]
+									l += 1
+								else:
+									b1 = False
+							while b2:
+								if f[j2] in a:
+									j2 += 1
+									d2 = f[j2]
+									l += 1
+								else:
+									b2 = False
+	return [d1,d2,l]
 	
 def _get_face_area(F,pos):
 	p = 0
@@ -767,21 +882,19 @@ def _get_edge_length(E,pos):
 	return q
 	
 def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
-	## True gives flat triangle for pictures
-	flat_triangle = False
-
+	
 	pos = dict()
 	V = G.vertices()
-
 	## set outer positions on triangle ##
 	a0 = pi/2
 	a1 = pi/2 + pi*2/3
 	a2 = pi/2 + pi*4/3
-	
 	pos[suspensions[0]] = (100*cos(a0),100*sin(a0))
 	pos[suspensions[1]] = (100*cos(a1),100*sin(a1))
 	pos[suspensions[2]] = (100*cos(a2),100*sin(a2))
 
+## True gives flat triangle for pictures
+	flat_triangle = False
 	if flat_triangle:
 		pos[suspensions[0]] = (100*cos(a1),100*sin(a0))
 
@@ -796,7 +909,7 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 			b[i,0] = pos[v][0]
 			b[i,1] = pos[v][1]
 		else:
-			if v in faa_dict:
+			if faa_dict.has_key(v):
 				j1 = V.index(faa_dict[v][0])
 				j2 = V.index(faa_dict[v][1])
 				if weights != None :
@@ -822,6 +935,8 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 					M[i,j] = -wu
 				M[i,i] = s
 	return M.pseudoinverse()*b
+
+
 
 ## Ways to make the algorithm faster...	
 

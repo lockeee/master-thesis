@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.26)  30 APR 2019 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.26)  23 MAY 2019 15:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1872,7 +1872,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-<topo_straight_convex.png, id=82, 977.6525pt x 210.7875pt>
+<topo_straight_convex.png, id=91, 977.6525pt x 210.7875pt>
 File: topo_straight_convex.png Graphic file (type png)
 <use topo_straight_convex.png>
 Package pdftex.def Info: topo_straight_convex.png  used on input line 11.
@@ -1904,7 +1904,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-<sltr-example.png, id=99, 581.17125pt x 83.31125pt>
+<sltr-example.png, id=108, 581.17125pt x 83.31125pt>
 File: sltr-example.png Graphic file (type png)
 <use sltr-example.png>
 Package pdftex.def Info: sltr-example.png  used on input line 15.
@@ -1917,7 +1917,7 @@ See the caption package documentation for explanation.
 
 LaTeX Warning: Reference `10_example' on page 2 undefined on input line 19.
 
-<10_example.png, id=101, 2653.915pt x 1240.635pt>
+<10_example.png, id=110, 2653.915pt x 1240.635pt>
 File: 10_example.png Graphic file (type png)
 <use 10_example.png>
 Package pdftex.def Info: 10_example.png  used on input line 23.
@@ -1953,6 +1953,10 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
 
+
+LaTeX Warning: Citation `felsner04' on page 3 undefined on input line 2.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -1970,16 +1974,25 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 10.
 [3 <./10_example.png>]
-<schnyder_wood_def.png, id=140, 440.64626pt x 87.32625pt>
+<schnyder_wood_def.png, id=147, 440.64626pt x 87.32625pt>
 File: schnyder_wood_def.png Graphic file (type png)
 <use schnyder_wood_def.png>
 Package pdftex.def Info: schnyder_wood_def.png  used on input line 18.
 (pdftex.def)             Requested size: 322.28242pt x 63.87155pt.
-<schnyder_reg.png, id=144, 429.605pt x 102.3825pt>
+
+
+LaTeX Warning: Citation `felsner04' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation `felsner04' on page 4 undefined on input line 23.
+
+<schnyder_reg.png, id=149, 429.605pt x 102.3825pt>
 File: schnyder_reg.png Graphic file (type png)
 <use schnyder_reg.png>
 Package pdftex.def Info: schnyder_reg.png  used on input line 27.
 (pdftex.def)             Requested size: 322.28242pt x 76.80699pt.
+
+LaTeX Warning: Citation `felsner04' on page 4 undefined on input line 33.
 
 
 LaTeX Warning: Reference `schnyder_tri' on page 4 undefined on input line 33.
@@ -1997,12 +2010,14 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 34.
 [4 <./schnyder_wood_def.png> <./schnyder_reg.png>]
-<schnyder_label_def.png, id=153, 403.5075pt x 115.43124pt>
+
+LaTeX Warning: Citation `felsner04' on page 5 undefined on input line 37.
+
+<schnyder_label_def.png, id=156, 403.5075pt x 115.43124pt>
 File: schnyder_label_def.png Graphic file (type png)
 <use schnyder_label_def.png>
 Package pdftex.def Info: schnyder_label_def.png  used on input line 50.
 (pdftex.def)             Requested size: 322.28242pt x 92.19539pt.
-
 
 Package caption Warning: \label without proper reference on input line 61.
 See the caption package documentation for explanation.
@@ -2010,7 +2025,10 @@ See the caption package documentation for explanation.
 
 LaTeX Warning: Reference `schnyder_bij' on page 5 undefined on input line 56.
 
-<schnyder_bij.png, id=156, 629.35126pt x 125.46875pt>
+
+LaTeX Warning: Citation `felsner04' on page 5 undefined on input line 56.
+
+<schnyder_bij.png, id=158, 629.35126pt x 125.46875pt>
 File: schnyder_bij.png Graphic file (type png)
 <use schnyder_bij.png>
 Package pdftex.def Info: schnyder_bij.png  used on input line 60.
@@ -2090,123 +2108,75 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 5.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 5.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--27
-
- []
-
-
-LaTeX Warning: Reference `outer_angle_sat' on page 9 undefined on input line 31
-.
+LaTeX Warning: Citation `hu' on page 9 undefined on input line 19.
 
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 26.
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 30.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+
+LaTeX Warning: Citation `fusy07' on page 10 undefined on input line 36.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
  []
 
-) (./thesis.bbl
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 8.
- [10]
-chapter without number
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 8.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 8.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 8.
-)
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 96.
- [11
+(babel)             in language  on input line 52.
+[10]
+./main_algorithm.tex:58: Missing $ inserted.
+<inserted text> 
+                $
+l.58 ...l der inneren Winkel von $G$. Sei $\varphi
+                                                  $ eine zulässige ganzzahl...
 
+? 
+./main_algorithm.tex:58: Emergency stop.
+<inserted text> 
+                $
+l.58 ...l der inneren Winkel von $G$. Sei $\varphi
+                                                  $ eine zulässige ganzzahl...
+End of file on the terminal!
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
- (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 50529D96E8A7B714284493CE456618F8;357.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 37726 strings out of 492649
- 725948 string characters out of 6129622
+ 37747 strings out of 492649
+ 726809 string characters out of 6129622
  945551 words of memory out of 5000000
- 40799 multiletter control sequences out of 15000+600000
- 641822 words of font info for 152 fonts, out of 8000000 for 9000
+ 40821 multiletter control sequences out of 15000+600000
+ 644819 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,11n,82p,10382b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/loca
-l/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/
-2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dv
-ips/lm/lm-mathsy.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/
-lmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts
-/type1/public/lm/lmmi9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
-ic/lm/lmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr12
-.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/
-type1/public/lm/lmri10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
-ic/lm/lmri12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri
-8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmro9.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on thesis.pdf (19 pages, 531778 bytes).
-PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 236 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 31328 words of extra memory for PDF output out of 35830 (max. 10000000)
-
+./main_algorithm.tex:58:  ==> Fatal error occurred, no output PDF file produced
+!

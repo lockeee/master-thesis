@@ -28,9 +28,9 @@ Istv{\'a}n F{\'a}ry, \emph{On straight-line representation of planar graphs},
 Stefan Felsner, \emph{Convex drawings of planar graphs and the order dimension
   of 3-polytopes}, Order \textbf{18} (2001), no.~1, pp. 19--37.
 
-\bibitem[Fel12]{felsner04}
-\bysame, \emph{Geometric graphs and arrangements: some chapters from
-  combinatorial geometry}, Springer Science \& Business Media, 2012.
+\bibitem[Fel04]{felsner04lattice}
+\bysame, \emph{Lattice structures from planar graphs}, the electronic journal
+  of combinatorics \textbf{11} (2004), no.~1, 15.
 
 \bibitem[Sch89]{schnyder89}
 Walter Schnyder, \emph{Planar graphs and poset dimension}, Order \textbf{5}
