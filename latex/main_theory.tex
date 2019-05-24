@@ -1,5 +1,24 @@
 \chapter{Hauptteil}
 
-Wir haben in Kapitel \ref{pre} die Geradlinige Dreiecks Darstellung von planeren Graphen kennen gelernt. In diesem Kapitel wollen wir uns jetzt mit notwendigen und hinreichenden Bedingungen für ihre Existenz auseinandersetzten. Wenn wir zu einem Graphen $G$ eine SLTR gefunden haben ordnen wir jedem Gebiet drei Kanten zu
+In diesem Kapitel wollen wir uns mit notwendigen und hinreichenden Bedingungen für die Existenz von SLTRs auseinandersetzten. Hierzu führen wir zuerst eine in gewisser Weise schwächere Bedingung für planare Graphen ein.
 
-Damit ein Graph eine SLTR besitzt muss als notwendige Bedingung 
+\begin{definition}[FAA]
+Sei $G=(V,E,F)$ ein planer Graph, dann ist eine Flache Winkel Zuordnung, im weiteren (nach dem englischen \textit{flat angle assignment}) mit FAA bezeichnet, ein Matching zwischen Knoten und Gebieten, sodass:
+\begin{itemize}
+\item [A1] Jedem Gebiet $f$ sind genau $deg(f)-3$ Knoten zugeordnet.
+\item [A2] Jeder Knoten $v$ ist höchstens einem Gebiet zugeordnet.
+\end{itemize}
+Für den Fall das wir einen Graph mit Aufhängungen betrachten, dann fordern wir zusätzlich:
+\begin{itemize}
+\item [A3] Die inzidenten Knoten am äusseren Gebiet, die keine Aufhängungen sind, müssen dem äusseren Gebiet zugeordnet werden.
+\end{itemize}
+\end{definition}
+
+Somit gibt uns ein SLTR auch ein FAA, in die andere Richtung gilt dies aber im allgemeinen nicht.
+
+%% Bild
+
+\section{Harmonische Funktionen}
+
+
+\section{Ecken kompatible Paare}
