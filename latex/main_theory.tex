@@ -1,6 +1,6 @@
 \chapter{Hauptteil}
 
-In diesem Kapitel wollen wir uns mit notwendigen und hinreichenden Bedingungen für die Existenz von SLTRs auseinandersetzten. Hierzu führen wir zuerst eine in gewisser Weise schwächere Bedingung für planare Graphen ein.
+Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon ein SLTR für $G$ gefunden haben, dann hat jeder Knoten $v$ in maximal einen inzidenten Gebiet $f$ einen falchen Winkel, mit $(v,f)$ bezeichnet, und liegt auf einer Geraden. Jedes Gebiet $f$ hat genau drei Ecken, also $deg(f)-3$ flache Winkel. Dies liefert im Umkehrschluss eine notwendige Bedingung für die Existent einer SLTR, indem wir die Knoten den Gebieten zuordnen.
 
 \begin{definition}[FAA]
 Sei $G=(V,E,F)$ ein planer Graph, dann ist eine Flache Winkel Zuordnung, im weiteren (nach dem englischen \textit{flat angle assignment}) mit FAA bezeichnet, ein Matching zwischen Knoten und Gebieten, sodass:
@@ -14,9 +14,9 @@ Für den Fall das wir einen Graph mit Aufhängungen betrachten, dann fordern wir
 \end{itemize}
 \end{definition}
 
-Somit gibt uns ein SLTR auch ein FAA, in die andere Richtung gilt dies aber im allgemeinen nicht.
+%% Bild FAA mit und ohne SLTR!!
 
-%% Bild
+Ein planer Graph kann also nur dann eine SLTR besitzen, falls mindestens ein FAA existiert, jedoch liefert nicht jedes FAA sofort ein SLTR. Ein FAA, dass zu einer SLTR korrespondiert, wenn also die zugeordneten Winkel des FAA genau die flachen Winkel der SLTR sind, nennen wir von nun an \texit{Gutes-FAA} oder kurz \textit{GFAA}. Unser Ziel wird es sein solche Guten-FAA, und somit auch SLTRs, zu finden.
 
 \section{Harmonische Funktionen}
 
