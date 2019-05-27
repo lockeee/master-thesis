@@ -103,7 +103,7 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \theoremstyle{definition}%
 \newtheorem{definition}[theorem]{Definition}%
 \newtheorem{example}[theorem]{Example}%
-\newtheorem*{remark}{Remark}%
+\newtheorem*{remark}{Bemerkung}%
 }%
 
 %

@@ -793,22 +793,22 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count):
 # 				W[i2,i1] += area^2
 	return W
 
-def _quadrant_weigth(graph,vertex,face,pos)
-	n = len(face)
-	for i in range(n):
-		if face[i][0] == vertex:
-			v_l = face[mod(i-1,n)][0]
-			v_r = face[mod(i-1,n)][1]
-			break
-	x_v = pos[vertex][0]
-	y_v = pos[vertex][1]
-	x_l = pos[v_l][0]
-	y_l = pos[v_l][1]
-	x_r = pos[v_r][0]
-	y_r = pos[v_r][1]
-	l = [[],[],[]]
-	for v in G.vertices():
-		if 
+# def _quadrant_weigth(graph,vertex,face,pos)
+# 	n = len(face)
+# 	for i in range(n):
+# 		if face[i][0] == vertex:
+# 			v_l = face[mod(i-1,n)][0]
+# 			v_r = face[mod(i-1,n)][1]
+# 			break
+# 	x_v = pos[vertex][0]
+# 	y_v = pos[vertex][1]
+# 	x_l = pos[v_l][0]
+# 	y_l = pos[v_l][1]
+# 	x_r = pos[v_r][0]
+# 	y_r = pos[v_r][1]
+# 	l = [[],[],[]]
+# 	for v in G.vertices():
+# 		if 
 
 
 def _segment(edge,face,faa):

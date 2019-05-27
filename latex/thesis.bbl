@@ -28,13 +28,17 @@ Istv{\'a}n F{\'a}ry, \emph{On straight-line representation of planar graphs},
 Stefan Felsner, \emph{Convex drawings of planar graphs and the order dimension
   of 3-polytopes}, Order \textbf{18} (2001), no.~1, pp. 19--37.
 
-\bibitem[Fel04]{felsner04lattice}
+\bibitem[Fel04]{felsner04}
 \bysame, \emph{Lattice structures from planar graphs}, the electronic journal
   of combinatorics \textbf{11} (2004), no.~1, 15.
 
 \bibitem[Fus07]{fusy07}
 {\'E}ric Fusy, \emph{Combinatoire des cartes planaires et applications
   algorithmiques}, Ph.D. thesis, Citeseer, 2007.
+
+\bibitem[Hu63]{hu}
+T~Chiang Hu, \emph{Multi-commodity network flows}, Operations research
+  \textbf{11} (1963), no.~3, 344--360.
 
 \bibitem[Sch89]{schnyder89}
 Walter Schnyder, \emph{Planar graphs and poset dimension}, Order \textbf{5}

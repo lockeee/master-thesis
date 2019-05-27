@@ -16,13 +16,22 @@ Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den 
 \end{itemize}
 \end{definition}
 
-Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung. Für $n=2$ und wir ungerichtete Netzwerke zeigt \cite{hu} die selbe Eigenschaft. Dies gilt jedoch im Fall $n \geq 2$ für gerichtete Graphen nicht mehr.\\
+\begin{remark}
+Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen, und diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für uns im Folgenden interessant wäre jedoch, wie wir sehen werden, der Fall $n=2$ für gerichtete Graphen. Leider ist hier im Allgemeinen die Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$.
+\end{remark}
 
 \input{one_flows.tex}
 
-%% Graphs with exponentially many Schnyder Woods and/or FAAs exist....
+\subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
-\subsection{Das Zwei-Fluss Netzwerk}
+Nachdem wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet haben, für das eine ganzzahlige Lösung eine einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert, wollen wir jetzt eine Kombination aus beiden erstellen um somit ein Gutes-FAA bzw. eine SLTR für $G$ zu finden, falls mindestens ein Paar existiert.Für eine einfachere Argumentation in der späteren Analyse des Algorithmus werden wir hier zuerst ein Drei-Fluss-Problem erstellen und dann argumentieren, dass sich dieses, ohne das Netzwerk zu verändern, zu einem Zwei-Fluss-Problem abwandeln lässt. \\
 
-Nachdem wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet haben, für das eine ganzzahlige Lösung eine einen Schnyder Wood bzw. ein FAA auf $G$ liefert, wollen wir jetzt eine Kombination aus beiden erstellen...
+Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Unser Ziel ist es nun diese drei Flüsse, also Schnyder Wood-, Ecken- und Zuteilungs-Fluss, zu kombinieren.\
+Bei diesem neuen Netzwerk $\mathcal{N}$ muss sicher gestellt werden, dass eine ganzzahlige Lösung ein Ecken-Kompatibles-Paar aus FAA und Schnyder Wood kodiert. ... 
 
+
+\begin{figure}[h]
+	\centering
+  	\includegraphics[width=0.7\textwidth]{combined_face_flow_basic.png}
+  	\caption{Basis Skizze für das kombinierte Netzwerk.}
+\end{figure}
