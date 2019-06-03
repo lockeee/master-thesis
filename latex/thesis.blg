@@ -4,45 +4,47 @@ The top-level auxiliary file: thesis.aux
 The style file: amsalpha.bst
 Database file #1: bibliography.bib
 Warning--I didn't find a database entry for "felsner04lattice"
+Warning--missing journal name in schnyder90
+Warning--missing journal, volume, and year in schnyder90
 You've used 11 entries,
             2624 wiz_defined-function locations,
             624 strings with 5639 characters,
 and the built_in function-call counts, 4117 in all, are:
-= -- 411
+= -- 410
 > -- 101
 < -- 8
 + -- 29
 - -- 28
-* -- 339
-:= -- 613
+* -- 341
+:= -- 612
 add.period$ -- 11
 call.type$ -- 11
 change.case$ -- 58
 chr.to.int$ -- 10
-cite$ -- 11
+cite$ -- 13
 duplicate$ -- 185
-empty$ -- 362
+empty$ -- 360
 format.name$ -- 47
-if$ -- 859
+if$ -- 856
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 21
 newline$ -- 43
 num.names$ -- 29
-pop$ -- 63
+pop$ -- 64
 preamble$ -- 1
 purify$ -- 69
 quote$ -- 0
-skip$ -- 138
+skip$ -- 137
 stack$ -- 0
 substring$ -- 352
-swap$ -- 27
+swap$ -- 29
 text.length$ -- 8
 text.prefix$ -- 8
 top$ -- 0
 type$ -- 88
-warning$ -- 0
+warning$ -- 2
 while$ -- 42
 width$ -- 13
-write$ -- 130
-(There was 1 warning)
+write$ -- 129
+(There were 3 warnings)

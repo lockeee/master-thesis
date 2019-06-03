@@ -24,14 +24,15 @@ Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz ei
 
 \subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
-Nachdem wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet haben, für das eine ganzzahlige Lösung eine einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert, wollen wir jetzt eine Kombination aus beiden erstellen um somit ein Gutes-FAA bzw. eine SLTR für $G$ zu finden, falls mindestens ein Paar existiert.Für eine einfachere Argumentation in der späteren Analyse des Algorithmus werden wir hier zuerst ein Drei-Fluss-Problem erstellen und dann argumentieren, dass sich dieses, ohne das Netzwerk zu verändern, zu einem Zwei-Fluss-Problem abwandeln lässt. \\
+Nachdem wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet haben, für das eine ganzzahlige Lösung eine einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert, wollen wir jetzt eine Kombination aus beiden erstellen die ein Ecken-Kompatibles-Paar kodiert, um ein Gutes-FAA bzw. eine SLTR für $G$ zu finden. Wir konstruieren nun ein 3-Fluss Netzwerk, nur leicht abgewandelt zu demjenigen aus \cite{af15}, um danach zu zeigen, dass jede beliebige 2-1 Kombination auch ein mögliches 2-Fluss Problem für unsere Zwecke wäre.\
 
-Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Unser Ziel ist es nun diese drei Flüsse, also Schnyder Wood-, Ecken- und Zuteilungs-Fluss, zu kombinieren.\
+Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wi müssen jetzt diese drei Flüsse, also Schnyder Wood-, Ecken- und Zuteilungs-Fluss in einem Netzwerk kombinieren. Eine erste Skizze ist in Abbildung \ref{combined_face_flow_basic} zu sehen. Wir können zu weiten Teilen die beiden Netzwerke 
 Bei diesem neuen Netzwerk $\mathcal{N}$ muss sicher gestellt werden, dass eine ganzzahlige Lösung ein Ecken-Kompatibles-Paar aus FAA und Schnyder Wood kodiert. ... 
 
+TODO 
 
 \begin{figure}[h]
 	\centering
-  	\includegraphics[width=0.7\textwidth]{combined_face_flow_basic.png}
-  	\caption{Basis Skizze für das kombinierte Netzwerk.}
+  	\includegraphics[width=0.7\textwidth]{combined_face_sketch.png}
+  	\caption{Skizze für das kombinierte Netzwerk auf einem inneren Gebiet mit $|f| \geq 4$.}
 \end{figure}
