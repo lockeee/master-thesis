@@ -22,6 +22,10 @@ Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz ei
 
 \input{one_flows.tex}
 
+\begin{remark}
+Für Graphen mit wenigen FAAs oder wenigen Schnyder Woods, womit hier maximal polynominell viel gemeint sind, liefern die Ansätze oben jeweils Wege in polynomineller Zeit zu verifizieren, ob SLTRs existieren und ein Gutes-FAA zu erhalten. Die Graphen mit nur genau einen Schnyder Wood wurden von Felsner und ... TODO 
+\end{remark}
+
 \subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
 Nachdem wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet haben, für das eine ganzzahlige Lösung eine einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert, wollen wir jetzt eine Kombination aus beiden erstellen die ein Ecken-Kompatibles-Paar kodiert, um ein Gutes-FAA bzw. eine SLTR für $G$ zu finden. Wir konstruieren nun ein 3-Fluss Netzwerk, nur leicht abgewandelt zu demjenigen aus \cite{af15}, um danach zu zeigen, dass jede beliebige 2-1 Kombination auch ein mögliches 2-Fluss Problem für unsere Zwecke wäre.\
