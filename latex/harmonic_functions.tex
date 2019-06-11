@@ -55,30 +55,56 @@ Sei $\Sigma$ ein Kontaktfamilie von Pseudosegmenten und $S\subseteq\Sigma$. Wir 
 \end{itemize} 
 \end{definition}
 
-\begin{lemma}\cite[Lemma 2.8]{af13}
+\begin{lemma}\cite[Lemma 2.8]{af13}\label{lemma_af13}
 Sei $\phi$ ein Gutes-FAA auf einem planen und intern 3-zusammenhängenden Graphen. Dann hat gilt: 
 \begin{itemize}
 \item [E5] jede Teilmenge $S \subseteq \Sigma_{\phi}$ mit $|S| \geq 2$ hat mindestens 3 freie Punkte.
 \end{itemize}
 \end{lemma}
 
-Betrachten wir also einen planen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem GFAA $\phi$. Wenn wir die von $\phi$ induzierte Kontaktfamilie $\Sigma_{\phi}$ mit geradlinigen Segmenten darstellen können, dann haben wir eine zu $\phi$ passende SLTR für G gefunden. Für den Fall, dass eine solche Darstellung existiert, können wir für die resultierenden Koordinaten der Segmente und somit auch der Knoten von G Gleichungen aufstellen, die diese erfüllen müssten.
+Betrachten wir also einen planen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem GFAA $\phi$. Wenn wir die von $\phi$ induzierte Kontaktfamilie $\Sigma_{\phi}$ mit geradlinigen Segmenten darstellen können, dann haben wir eine zu $\phi$ passende SLTR für $G$ gefunden. Für den Fall, dass eine solche Darstellung $f:G\to\mathbb{R}^2$ existiert, können wir für die Koordinaten der Segmente und somit auch der Knoten $f(v)$ von $G$ Gleichungen aufstellen, die diese erfüllen müssen. Das resultierende Gleichungssystem beinhaltet harmonische Funktionen, über die wir hier einen (sehr) kurzen Überblick geben. 
 
 \subsection{Harmonische Funktionen auf planaren Graphen}
 
-Das resultierende Gleichungssystem beinhaltet harmonische Funktionen, über die wir hier einen kurzen Überblick nach \cite{lov99} geben. Beginnen wir mit der Definition.
+Die Theorie zu harmonischen Funktionen auf planaren Graphen und ihre Anwendung werden in \cite{lov99} ausführlich behandelt.\
+
+Wir beginnen mit der Definition.
 
 \begin{definition}[Harmonische Funktionen]
-Sei $G=(V,E)$ ein planarer Graph und $S \supseteq V$. Eine Funktion $f:V \to \mathbb{R}$ nennen wir am Knoten $v \in V$ \textit{harmonsich}, falls gilt:
-$$ \text{H1} & \frac{1}{d_v} \sum_{u \in N(v)}(f(u) - f(v)) = 0 & \forall v \in V \backslash S$$
+Sei $G=(V,E)$ ein planarer zusammenhängender Graph und $S \subseteq V$. Eine Funktion $f:V \to \mathbb{R}$ nennen wir am Knoten $v \in V$ \textit{harmonsich}, falls gilt:
+$$ \text{H1} \quad \frac{1}{d_v} \sum_{u \in N(v)}(f(u) - f(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad\quad\:\,\:$$
 Wir können H1 durch das hinzufügen einer nichtnegativen Gewichtsfunktion $\lambda:E\to\mathbb{R}_+$ verallgemeinern:
-$$ \text{H2}\quad\frac{1}{d_v} \sum_{u \in N(v)}\lambda_{uv}(f(u) - f(v)) = 0 \qquad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad\quad$$
+$$ \text{H2}\quad\frac{1}{d_v} \sum_{u \in N(v)}\lambda_{uv}(f(u) - f(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad$$
+Ein Knoten für den $f$ nicht harmonisch ist nennt man \textit{Pol}.
 \end{definition}
 
+\begin{theorem}\cite[Theorem 3.1.2]{lov99}\label{harmonic_uni}
+Für jede nichtleere Teilmenge $S \subseteq V$ und jede Funktion $f_S:S\to\mathbb{R}$ existiert genau eine Funktion $f:V\to\mathbb{R}$, die $f_S$ auf $V$ fortsetzt, sodass $f$ in jedem Knoten $v\in V \backslash S$ harmonisch ist. Wir nennen sie die \textup{harmonische Fortsetzung}.
+\end{theorem}
 
+Ein bekanntes Resultat, dass sich in Form harmonischer Funktionen darstellen Lässt, ist Tuttes \textit{rubber-band-representation} aus \cite{tutte63}, die konvexe Zeichnungen für planare Graphen liefert. Man stelle sich einen planaren Graphen vor bei dem jede Kante duch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Nun wählen wir ein äusseres Gebiet und fixieren die dieses Gebiet umrandenden Knoten $S\subseteq$ in zyklischer Reihenfolge auf einem gleichmäßigen Polygon $f_S:S \to \mathbb{R}^2$. Das resultierende Gleichgewicht auf den restlichen Knoten, dass genau dann entsteht, wenn H1 erfüllt ist, entspricht der harmonischen Fortsetzung von $f_S$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Das folgende Theorem ist das Hauptresultat aus \cite{tutte63}.
 
+\begin{theorem}
+Sei $G$ ein planarer Graph, dann ist eine \textit{Gummiband-Representation (rubber-band-representation)} von $G$ eine planare Einbettung in der Ebene.
+\end{theorem}
 
+Hiermit beenden wir den kurzen Exkurs und kommen zurück zu unserer Problemstellung. Nehmen wir für den Moment an, dass wir eine Darstellung gefunden haben. Wir haben also eine geradlinige Darstellung $f$ der von $\phi$ induzierten Segmente. Dann gilt für jeden Knoten $v$ im inneren eines Segmentes, also für jeden zugewiesenen Knoten, dass er auf einer Gerade zwischen seinen beiden benachbarten Knoten $u,w$ auf dem Segment liegen muss. Diese Eigenschaft liefert
+\begin{equation}\label{harm_1}
+f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).
+\end{equation}
+Für die nicht zugewiesenen Knoten aus $G$ muss in einer SLTR gelten, dass sie sich in der konvexen Hülle ihrer Nachbarn befinden. Wir bilden einen (gewichteten) Schwerpunkt und erhalten
+\begin{equation}\label{harm_2}
+f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0.
+\end{equation}
 
+Somit erfüllt die so gegebene Funktion $f:V\to\mathbb{R}^2$ mit einem passend Gewählten $\lambda$ wegen \ref{harm_1} und \ref{harm_2} H2. Es handelt sich somit um eine harmonische Funktion, mit den Polen $\{a_1,a_2,a_3\}$. Nach Theorem \ref{harmonic_uni}, existiert für jede den Beschränkungen entsprechende Wahl von $\lambda$ genau eine Funktion $f$, die die Gleichungen erfüllt.\\
+Die führt uns zum Hauptresultat aus \cite{af13}:
+\begin{theorem}
+Sei $G$ ein intern 3-zusammenhängender, planarer Graph und $\Sigma$ eine Familie von Pseudosegmenten, induziert von einem FAA, sodass jede Teilfamilie $S \subset \Sigma$ entweder mindestens drei freie Punkte, oder Kardinalität kleiner gleich eins hat. Die eindeutige Lösung des aus $\Sigma$ folgenden Gleichungssystems ist eine SLTR.
+\end{theorem}
 
-Nehmen wir für den Moment an, dass wir eine Darstellung gefunden haben, dann gilt für jeden inneren Knoten $v$ auf einem Segment, dass er auf einer Gerade zwischen seinen beiden benachbarten Knoten $u,w$ auf dem Segment liegen muss. Diese Eigenschaft liefert 
+\begin{remark}
+Dies bedeutet, dass die weiter oben in Lemma \ref{lemma_af13} festgehaltene notwendige Bedingung auch eine hinreichende ist. Falls wir schon ein Gutes-FAA gefunden haben, dann können wir mit Hilfe des obrigen Ansatzes auch eine Einbettung in der Ebene erhalten, jedoch gibt es Graphen mit polynominell vielen FAA und es dauert polynominell lange um E4 zu überprüfen. Wir erlangen also auf diesem Weg keinen Algorithmus in $\mathcal{P}$.\\
+Aerts und Felsner werfen die Frage nach einer "guten" Wahl der $\lambda$ auf, und wie diese die resultierenden Einbettungen beeinflussen. Mit diesem Thema, wollen wir uns am Ende des nächsten Kapitels kurz beschäftigen.
+\end{remark}
 
