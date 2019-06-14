@@ -3,50 +3,49 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: amsalpha.bst
 Database file #1: bibliography.bib
-Warning--I didn't find a database entry for "hu"
 Warning--I didn't find a database entry for "felsner04lattice"
 Warning--missing pages in lov99
 Warning--missing journal name in schnyder90
 Warning--missing journal, volume, and year in schnyder90
-You've used 11 entries,
+You've used 12 entries,
             2624 wiz_defined-function locations,
-            624 strings with 5690 characters,
-and the built_in function-call counts, 4090 in all, are:
-= -- 403
-> -- 112
-< -- 7
-+ -- 33
-- -- 32
-* -- 336
-:= -- 613
-add.period$ -- 11
-call.type$ -- 11
-change.case$ -- 59
-chr.to.int$ -- 10
-cite$ -- 14
-duplicate$ -- 184
-empty$ -- 352
-format.name$ -- 50
-if$ -- 848
+            629 strings with 5765 characters,
+and the built_in function-call counts, 4441 in all, are:
+= -- 438
+> -- 120
+< -- 8
++ -- 35
+- -- 34
+* -- 368
+:= -- 667
+add.period$ -- 12
+call.type$ -- 12
+change.case$ -- 64
+chr.to.int$ -- 11
+cite$ -- 15
+duplicate$ -- 199
+empty$ -- 383
+format.name$ -- 54
+if$ -- 919
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 21
-newline$ -- 43
-num.names$ -- 29
-pop$ -- 66
+missing$ -- 23
+newline$ -- 46
+num.names$ -- 32
+pop$ -- 71
 preamble$ -- 1
-purify$ -- 70
+purify$ -- 76
 quote$ -- 0
-skip$ -- 140
+skip$ -- 149
 stack$ -- 0
-substring$ -- 327
-swap$ -- 30
-text.length$ -- 7
-text.prefix$ -- 7
+substring$ -- 359
+swap$ -- 31
+text.length$ -- 8
+text.prefix$ -- 8
 top$ -- 0
-type$ -- 88
+type$ -- 96
 warning$ -- 3
-while$ -- 41
-width$ -- 13
-write$ -- 127
-(There were 5 warnings)
+while$ -- 45
+width$ -- 14
+write$ -- 138
+(There were 4 warnings)
