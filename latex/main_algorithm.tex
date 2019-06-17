@@ -1,8 +1,8 @@
-\chapter{Algorithmen zur Erkennung von SLTRs}
+\chapter{Algorithmen zur Erkennung von SLTRs}\label{main_algo}
 
-Im vorherigen Kapitel wurden Kriterien für die Existenz einer SLTR erarbeitet, die allerdings nicht sofort einen Algorithmus, sowohl zur Frage nach der Existenz, als auch zum erlangen einer spezifischen SLTR liefern. Diesem Thema wollen wir uns nun im folgenden Kapitel zuwenden und dafür zum Einstieg einen von Aerts und Felsner in \cite{af13} erarbeiteten Algorithmus betrachten.
+Im vorherigen Kapitel wurden Kriterien für die Existenz einer SLTR erarbeitet, die allerdings nicht sofort einen Algorithmus, sowohl zur Frage nach der Existenz, als auch zum Erlangen einer spezifischen SLTR liefern. Diesem Thema wollen wir uns nun in diesem Kapitel zuwenden und dafür zum Einstieg einen von Aerts und Felsner in \cite{af15} erarbeiteten Algorithmus betrachten.
 
-\section{SLTR via Zwei-Fluss}
+\section{SLTRs via Zwei-Fluss}
 
 Wir betrachten im folgenden gerichtete Graphen. Das Ziel ist es, für einen gegebenen Graphen sowohl einen Schnyder Wood als auch ein FAA jeweils als Lösung eines Fluss-Problems zu erhalten und diese beiden dann in einem Zwei-Fluss-Problem zu kombinieren, sodass eine Lösung ein Ecken-Kompatibles-Paar gibt und wir somit eine SLTR erhalten. Wir beschäftigen uns also mit der folgenden Problemstellung.
 
@@ -22,21 +22,73 @@ Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz ei
 
 \input{one_flows.tex}
 
-\begin{remark}
-Für Graphen mit wenigen FAAs oder wenigen Schnyder Woods, womit hier maximal polynominell viel gemeint sind, liefern die Ansätze oben jeweils Wege in polynomineller Zeit zu verifizieren, ob SLTRs existieren und ein Gutes-FAA zu erhalten. Die Graphen mit nur genau einen Schnyder Wood wurden von Felsner und ... TODO 
-\end{remark}
+\subsection{Graphen mit wenigen FAAs oder Schnyder Woods}
+
+Wir wollen in diesem Abschnitt kurz betrachten, wie wir 
+Sei $G$ ein intern-3-zusammenhängender Graph 
+Für Graphen mit wenigen FAAs oder wenigen Schnyder Woods\footnote{Es sind hier maximal polynominell viele gemeint.} liefern die Ansätze oben jeweils Wege in polynomineller Zeit zu verifizieren, ob SLTRs existieren und ein Gutes-FAA zu erhalten. Die Graphen mit nur genau einen Schnyder Wood wurden von Felsner und ... TODO 
 
 \subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
-Nachdem wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet haben, für das eine ganzzahlige Lösung eine einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert, wollen wir jetzt eine Kombination aus beiden erstellen die ein Ecken-Kompatibles-Paar kodiert, um ein Gutes-FAA bzw. eine SLTR für $G$ zu finden. Wir konstruieren nun ein 3-Fluss Netzwerk, nur leicht abgewandelt zu demjenigen aus \cite{af15}, um danach zu zeigen, dass jede beliebige 2-1 Kombination auch ein mögliches 2-Fluss Problem für unsere Zwecke wäre.\
+Im Verlauf des Kapitels haben wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet, für das eine ganzzahlige Lösung einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert. Wir wollen jetzt eine Kombination aus beiden erstellen die ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$  kodiert.\
 
-Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wi müssen jetzt diese drei Flüsse, also Schnyder Wood-, Ecken- und Zuteilungs-Fluss in einem Netzwerk kombinieren. Eine erste Skizze ist in Abbildung \ref{combined_face_flow_basic} zu sehen. Wir können zu weiten Teilen die beiden Netzwerke 
-Bei diesem neuen Netzwerk $\mathcal{N}$ muss sicher gestellt werden, dass eine ganzzahlige Lösung ein Ecken-Kompatibles-Paar aus FAA und Schnyder Wood kodiert. ... 
+Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt, für das eine ganzzahlige Lösung ein Ecken kompatibles Paar kodiert und somit nach Theorem \ref{theo_coco} eine SLTR für $G$ existiert. Leider handelt es sich hierbei um ein 2-Fluss-Netzwerk, aber darauf wollen wir später genauer eingehen.\\
 
-TODO 
+Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wir müssen jetzt diese drei Flüsse, also Schnyder-, Ecken- und Zuweisungs-Fluss in einem Netzwerk kombinieren. In \cite{af15} ergeben Schnyder- und Ecken-Fluss zusammen Fluss von Typ 1 und der Zuweisungs-Fluss Typ 2. Wir wollen hier analog ein Netzwerk konstruieren in dem wir FAA und Schnyder-Wood Fluss nicht trennen. Der Verständlichkeit halber werden wir Pfade, die in einer Lösung von einem der drei Flussarten genutzt werden, \textit{Schnyder-Pfad, Ecken-Pfad} und \textit{Zuweisungs-Pfad} nennen.\\
+
+Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und $\mathcal{N}_F$ zu $\mathcal{N}_G$ müssen wir die Ecken Kompatibilität gewährleisten. K1 zu erfüllen, also die Nutzung der gleichen Aufhängungen von $\sigma$ und $\phi$, ist kein Problem. Allerdings müssen wir für K2 das Netzwerk etwas komplizierter machen. Betrachten wir als Basis $\mathcal{N}_S \cup \mathcal{N}_F$ und fürs erste nur ein inneres Gebiet $f$, dann sehen wir, dass es $|f|-3$ Schnyder-Fluss aufnimmt, aber $|f|$ Einkanten in $\mathcal{N}_S$ hat, es sind also genau die drei nötigen Kanten für den Ecken-Fluss aus $\mathcal{N}_F$ übrig. Wir müssen gewährleisten, dass jede Ecke im Schnyder Labeling ein anderes Label hat. Betrachten wir also den von $\varphi_S$ induzierten Schnyder Wood auf $G^*$. Nach \cite{felsner12} können wir diesen aus der $\alpha_S$-Orientierung ablesen. 
 
 \begin{figure}[h]
 	\centering
-  	\includegraphics[width=0.7\textwidth]{combined_face_sketch.png}
-  	\caption{Skizze für das kombinierte Netzwerk auf einem inneren Gebiet mit $|f| \geq 4$.}
+  	\includegraphics[width=0.7\textwidth]{alpha_bij.png}
+  	\caption{a) Eine $\alpha_s$-Orientierung um eine innere Kante von $G$. b) Teile der korrespondierenden Schnyder Woods auf $G$ und $G^*$. c) Die induzierten Label, die für $G$ und $G^*$ gleich sind.}
+	\label{alpha_bij}
 \end{figure}
+
+Es gilt außerdem, wie in Abbildung \ref{alpha_bij} skizziert, dass die Label der Ecke eines Gebietes in $G$ und das ihr in $G+G^*$ gegenüberliegenden Label der Ecke eines Gebiets um einen Knoten in $G^*$ gleich sind. Für eine zu $v$ in $G^*$ hin orientierte Kante folgt aus der Bijektion zwischen Schnyder Labelings und Schnyder Woods aus Abschnitt \ref{sw}, dass die Label links und rechts am Ende dieser Kante gleich sind. Somit sind auch die Label in $G$ gleich und wir können die folgende Eigenschaft festhalten.
+\begin{itemize}
+\item [A1] Die Label, des von $\alpha_s$ induzierten Schnyder Wood auf $G$, sind zwischen zwei aufeinander folgenden zu $f$ orientierten Kanten sind gleich.
+\end{itemize}
+Da es genau drei zu $f$ orientierte Kanten gibt müssen wir also dafür sorgen, dass für jedes Paar dieser Kanten eine Ecke zwischen ihnen liegt. Um dies zu erlangen implementieren wir eine zyklische Struktur um jedes innere Gebiet, wie in Abbildung \ref{comb_face_sketch} skizziert.\\
+
+\begin{figure}[h]
+	\centering
+  	\includegraphics[width=0.9\textwidth]{combined_face_sketch.png}
+  	\caption{Eine Skizze des kombinierten Netzwerkes auf einem inneren Gebiet mit $|f| = 4$. Beispielhaft sind Schnyder-Fluss (rot), Ecken-Fluss (blau) und Zuweisungs-Fluss (grün) eingezeichnet. }
+	\label{comb_face_sketch}
+\end{figure}
+
+Betrachten wir zuerst den Schnyder-Fluss. Dieser wird Fluss von Typ 1, also von Quelle 1 zu Senke eins sein. Für einen Schnyder-Pfad der $\mathcal{N}_G$ durch einen Knoten $v$ verlässt hat sich nichts geändert. Der in der Skizze eingezeichnete Schnyder-Pfad der durch $f$ führt passiert davor einen extra Knoten, wir nennen ihn \textit{kleines Quadrat} der gewährleisten soll, dass von jeder Kante des Gebietes aus entweder ein Schnyder-Pfad oder ein Ecken-Pfad in $f$ mündet. Somit kodiert hier eine ganzzahlige Lösung weiterhin einen Schnyder Wood auf $G$.\
+
+Kommen wir nun zum FAA-Fluss, also Fluss von Typ 2. Von Quelle 2 geht genau wie in Abbildung \ref{faa_flow} eine Kante zu jedem inneren Winkel $(f,v)$. Ein Zuweisungs-Pfad verlässt diesen Winkel über einen zusätzlich zu $v$ eingefügten Dummy-Knoten $v^*$. Von jedem $v^*$ geht eine Kante mit Kapazität 1 zu einer Dummy-Senke und von dieser eine Kante mit Kapazität $\sum_{f \in F_{in}} |f|-3$ zu Senke 2, wie in Abbildung \ref{dummy_sink} illustriert.
+
+Die Dummy-Knoten sorgen dafür, dass jeder Knoten im FAA nur einmal zugewiesen werden kann, ohne in Konflikt mit dem Schnyder Wood-Fluss zu kommen, und die eingeschobene Dummy-Senke beschränkt die Anzahl der zugewiesenen Knoten, genau wie im zuvor konstruierten FAA-Fluss, auf $\sum_{f \in F_{in}} |f|-3$.
+\begin{figure}[h]
+	\centering
+  	\includegraphics[width=0.7\textwidth]{dummy_sink.png}
+  	\caption{Der Zuweisungsfluss durch die Winkel, Dummy-Knoten und die zusätzliche Kante vor Senke 2. Die Kante rechts hat Kapazität $\sum_{f \in F_{in}} |f|-3$ und alle anderen Kapazität 1.}
+	\label{dummy_sink}
+\end{figure}
+Es bleibt der Ecken-Fluss. Hier betritt der Pfad wieder durch einen Winkel das Gebiet $f$ und muss es über ein ungenutztes kleines Quadrat verlassen. Die zweite und dritte Kante in jedem Winkeldreck gewährleisten, dass nicht immer das nächste kleine Quadrat genutzt werden muss. Falls dies von Schnyder-Fluss besetzt ist und der nächste Winkel zugewiesen wird, dann kann der Ecken-Pfad den nächsten Winkel passieren. Weiter sorgt die erste Kante, die von sowohl Schnyder-, als auch Winkel-Pfaden genutzt werden kann für eine eindeutige Beschriftung im Falle einer ganzzahligen Lösung.\\
+
+Betrachten wir die Bedarfe der beiden Flüsse von Typ 1 und Typ 2, $\varphi_1$ bzw. $\varphi_2$. Beide entsprechen jeweils den Bedarfen der oben konstruierten $\mathcal{N}_S$ und $\mathcal{N}_F$, da nur so, mit den gleichen Argumenten wie zuvor, ein Schnyder Wood und ein FAA kodiert werden können. Jedes Gebiet benötigt genau drei Ecken und $|f|-3$ zugewiesene Knoten und der je ein Schnyder-Pfad führt durch jede innere Kante, $|E_{in}|$. Hier seien wieder $E_{in}$ die inneren Kanten und $F_{in}$ die inneren Gebiete von $G$. Es gilt also:
+
+\begin{itemize}
+\item Bedarf$(\varphi_1) = $ Bedarf$(\varphi_S) = |E_{in}|$
+\item Bedarf$(\varphi_2) = $ Bedarf$(\varphi_F) =  \sum_{f \in F_{in}}(|f|-3) + 3|F_{in}| = \sum_{f \in F_{in}} |f|$
+\end{itemize}
+
+Bevor wir in Theorem \ref{theo_algo} zeigen, dass eine ganzzahlige Lösung $\varphi=(\varphi_1,\varphi_2)$ auch wirklich ein Ecken kompatibles Paar kodiert wollen wir noch ein Paar weitere Beobachtungen festhalten. Nehmen wir also an wir haben eine ganzzahlige Lösung $\varphi$ gefunden, dann gilt für diese:
+\begin{itemize}
+\item [A2] Jede äussere Kante in einem Winkel-Dreieck ist ausgelastet, sie wird entweder von einem Ecken- oder Zuweisungspfad genutzt.
+\item [A3] Jede Kante von einem kleinen Quadrat zu einem inneren Gebiet $f$ ist ausgelastet, sie wird entweder von einem Schnyder- oder Ecken-Pfad genutzt.
+\item [A4] Ein inneres Gebiet $f$ mit $|f|=3$ kann nicht von Zuweisungs- bzw. Schnyder-Pfaden genutzt werden.
+\end{itemize}
+
+Wir wollen diese Beobachtungen kurz begründen. Für jede mögliche ganzzahlige Lösung $\varphi$ gilt $$|\varphi|=|\varphi_1|+|\varphi_2| = |E_{in}| + \sum_{f \in F_{in}} |f|.$$
+Da es genau $\sum_{f \in F_{in}} |f|$ innere Winkel gibt und der FAA-Fluss $\mathcal{N}_G$ nur durch diese betreten kann ergibt sich A2. Weiterhin führen $|f|-3$ Schnyder-Pfade durch jedes innere Gebiet, die $|f|-3$ der kleinen Quadrate nutzen, und die übrig gebliebenen werden von Ecken-Pfaden gebraucht, somit folgt A3. Durch ein inneres Gebiet $f$ müssen drei Ecken-Pfade führen und im Fall $|f|=3$ führt dies zu A4, da kein Platz in den Winkeln für Zuweisungs-Pfade und keine freien kleinen Quadrate für Schnyder-Pfade existieren.
+
+\begin{theorem}
+Sei $G$ ein intern-3-zusammenhängender Graph mit gegebenen Aufhängungen $\{a_1,a_2,a_3\}$, dann existiert eine SLTR von $G$, genau dann wenn ein ganzzahliger zulässiger Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ existiert.
+\end{theorem}
+

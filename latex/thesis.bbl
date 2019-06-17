@@ -5,7 +5,7 @@
   \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
 }
 \providecommand{\href}[2]{#2}
-\begin{thebibliography}{AF13b}
+\begin{thebibliography}{BFM07}
 
 \bibitem[AF13a]{af13h}
 Nieke Aerts and Stefan Felsner, \emph{Henneberg steps for triangle
@@ -20,6 +20,10 @@ Nieke Aerts and Stefan Felsner, \emph{Henneberg steps for triangle
 \bysame, \emph{Straight line triangle representations via schnyder labelings},
   J. Graph Algorithms Appl. \textbf{19} (2015), no.~1, 467--505.
 
+\bibitem[BFM07]{bfm07}
+Nicolas Bonichon, Stefan Felsner, and Mohamed Mosbah, \emph{Convex drawings of
+  3-connected plane graphs}, Algorithmica \textbf{47} (2007), no.~4, 399--420.
+
 \bibitem[F{\'a}r48]{fary48}
 Istv{\'a}n F{\'a}ry, \emph{On straight-line representation of planar graphs},
   Acta Sci. Math. \textbf{11} (1948), 229--233.
@@ -31,6 +35,10 @@ Stefan Felsner, \emph{Convex drawings of planar graphs and the order dimension
 \bibitem[Fel04]{felsner04}
 \bysame, \emph{Lattice structures from planar graphs}, the electronic journal
   of combinatorics \textbf{11} (2004), no.~1, 15.
+
+\bibitem[Fel12]{felsner12}
+\bysame, \emph{Geometric graphs and arrangements: some chapters from
+  combinatorial geometry}, Springer Science \& Business Media, 2012.
 
 \bibitem[Fus07]{fusy07}
 {\'E}ric Fusy, \emph{Combinatoire des cartes planaires et applications

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190527180651" modified="D:20190617172425"/>
+<info created="D:20190527180651" modified="D:20190617174218"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -256,73 +256,30 @@ h
 <view layers="alpha" active="alpha"/>
 <text layer="alpha" matrix="1 0 0 1 -8 0" transformations="translations" pos="96 672" stroke="black" type="label" width="50.726" height="9.962" depth="2.79" halign="center" valign="center" size="Large">Quelle 2</text>
 <text matrix="1 0 0 1 16 0" transformations="translations" pos="528 672" stroke="black" type="label" width="46.824" height="9.963" depth="0" halign="center" valign="center" size="Large">Senke 2</text>
-<path matrix="1 0 0 1 -48 40" stroke="black" pen="heavier">
-208 704 m
-240 640 l
-272 704 l
-208 704 l
-</path>
-<text matrix="1 0 0 1 -48 40" transformations="translations" pos="240 688" stroke="black" type="label" width="32.2" height="10.756" depth="3.59" halign="center" valign="center" size="Large" style="math">(f,v)</text>
-<path matrix="1 0 0 1 -48 -40" stroke="black" pen="heavier">
-208 704 m
-240 640 l
-272 704 l
-208 704 l
-</path>
-<text matrix="1 0 0 1 -48 -40" transformations="translations" pos="240 688" stroke="black" type="label" width="32.2" height="10.756" depth="3.59" halign="center" valign="center" size="Large" style="math">(f,v)</text>
-<text matrix="1 0 0 1 -112 56" transformations="translations" pos="384 656" stroke="black" type="label" width="7.306" height="6.177" depth="0" halign="center" valign="center" size="Large" style="math">v</text>
-<path matrix="1 0 0 1 -112 56" stroke="black" pen="heavier">
+<text matrix="1 0 0 1 -48 40" transformations="translations" pos="240 688" stroke="black" type="label" width="39.34" height="10.756" depth="3.59" halign="center" valign="center" size="Large" style="math">(f&apos;,w)</text>
+<text matrix="1 0 0 1 -48 -64" transformations="translations" pos="240 688" stroke="black" type="label" width="32.2" height="10.756" depth="3.59" halign="center" valign="center" size="Large" style="math">(f,v)</text>
+<text matrix="1 0 0 1 -112 72" transformations="translations" pos="384 656" stroke="black" type="label" width="15.907" height="9.842" depth="0" halign="center" valign="center" size="Large" style="math">w^*</text>
+<path matrix="1 0 0 1 -112 72" stroke="black" pen="heavier">
 352 668 m
 352 644 l
 416 644 l
 416 668 l
 h
 </path>
-<text matrix="1 0 0 1 -112 -24" transformations="translations" pos="384 656" stroke="black" type="label" width="7.306" height="6.177" depth="0" halign="center" valign="center" size="Large" style="math">v</text>
-<path matrix="1 0 0 1 -112 -24" stroke="black" pen="heavier">
+<text matrix="1 0 0 1 -112 -16" transformations="translations" pos="384 656" stroke="black" type="label" width="12.785" height="9.842" depth="0" halign="center" valign="center" size="Large" style="math">v^*</text>
+<path matrix="1 0 0 1 -112 -16" stroke="black" pen="heavier">
 352 668 m
 352 644 l
 416 644 l
 416 668 l
 h
 </path>
-<text matrix="1 0 0 1 -128 0" transformations="translations" pos="528 672" stroke="black" type="label" width="46.824" height="9.963" depth="0" halign="center" valign="center" size="Large">Senke 2</text>
-<path stroke="black" arrow="normal/normal">
-128 688 m
-176 712 l
-</path>
-<path stroke="black" arrow="normal/normal">
-128 656 m
-176 632 l
-</path>
-<path stroke="black" arrow="normal/normal">
-208 632 m
-240 632 l
-</path>
-<path stroke="black" arrow="normal/normal">
-208 712 m
-240 712 l
-</path>
-<path stroke="black" arrow="normal/normal">
-304 712 m
-360 680 l
-</path>
-<path stroke="black" arrow="normal/normal">
-304 632 m
-360 664 l
-</path>
+<text matrix="1 0 0 1 -120 0" transformations="translations" pos="528 672" stroke="black" type="label" width="88.768" height="9.962" depth="2.79" halign="center" valign="center" size="Large">Dummy-Senke</text>
 <path stroke="black" pen="heavier">
 128 688 m
 128 656 l
 48 656 l
 48 688 l
-h
-</path>
-<path stroke="black" pen="heavier">
-360 688 m
-360 656 l
-440 656 l
-440 688 l
 h
 </path>
 <path stroke="black" pen="heavier">
@@ -332,13 +289,73 @@ h
 584 688 l
 h
 </path>
-<path stroke="black">
-440 672 m
-448 672 l
+<path stroke="black" cap="1">
+192 728 m
+192 728 l
 </path>
-<path stroke="black" arrow="normal/normal">
-440 672 m
+<path stroke="black" pen="heavier">
+360 688 m
+360 656 l
+456 656 l
+456 688 l
+h
+</path>
+<path stroke="black" pen="fat" arrow="normal/normal">
+456 672 m
 504 672 l
 </path>
+<path stroke="black" arrow="normal/normal">
+128 680 m
+152 680
+144 744
+152 744
+160 744 c
+</path>
+<path stroke="black" arrow="normal/normal">
+128 664 m
+144 664
+144 640
+152 640
+160 640 c
+</path>
+<path stroke="black" pen="heavier" arrow="normal/normal">
+160 640 m
+224 640 l
+</path>
+<path stroke="black" arrow="normal/normal">
+224 640 m
+240 640 l
+</path>
+<path stroke="black" arrow="normal/normal">
+224 744 m
+240 728 l
+</path>
+<path stroke="black" arrow="normal/normal">
+304 728 m
+360 680 l
+</path>
+<path stroke="black" arrow="normal/normal">
+304 640 m
+360 664 l
+</path>
+<path stroke="black" pen="heavier" arrow="normal/normal">
+160 744 m
+224 744 l
+</path>
+<path stroke="black" dash="dashed" pen="heavier">
+160 640 m
+192 576 l
+224 640 l
+224 640 l
+</path>
+<path stroke="black" dash="dashed" pen="heavier">
+160 744 m
+192 680 l
+224 744 l
+</path>
+<text transformations="translations" pos="192 672" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
+<text transformations="translations" pos="192 664" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
+<text transformations="translations" pos="192 656" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
+<text transformations="translations" pos="192 648" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
 </page>
 </ipe>
