@@ -104,6 +104,8 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \newtheorem{definition}[theorem]{Definition}%
 \newtheorem{example}[theorem]{Example}%
 \newtheorem*{remark}{Bemerkung}%
+\theoremstyle{dotless_theorem}%
+\newtheorem{claim}{Behauptung}%
 }%
 
 %

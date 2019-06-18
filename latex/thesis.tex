@@ -60,6 +60,9 @@
 \usepackage{cleveref}
 \usetikzlibrary{arrows}
 
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+
+
 %%%%proof: instead of proof.
 \usepackage{xpatch}
 \makeatletter
@@ -85,6 +88,9 @@
  %For better figure placement
 \usepackage{wrapfig}
 \input{figure_float_parameters.tex}
+
+% For analysis
+\usepackage{tikz,pgfplots}
 
 \begin{document}
 

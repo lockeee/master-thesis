@@ -1,3 +1,4 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
 \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
 \providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
 % \MRhref is called by the amsart/book/proc definition of \MR.
@@ -5,7 +6,7 @@
   \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
 }
 \providecommand{\href}[2]{#2}
-\begin{thebibliography}{BFM07}
+\begin{thebibliography}{AF13b}
 
 \bibitem[AF13a]{af13h}
 Nieke Aerts and Stefan Felsner, \emph{Henneberg steps for triangle
@@ -19,10 +20,6 @@ Nieke Aerts and Stefan Felsner, \emph{Henneberg steps for triangle
 \bibitem[AF15]{af15}
 \bysame, \emph{Straight line triangle representations via schnyder labelings},
   J. Graph Algorithms Appl. \textbf{19} (2015), no.~1, 467--505.
-
-\bibitem[BFM07]{bfm07}
-Nicolas Bonichon, Stefan Felsner, and Mohamed Mosbah, \emph{Convex drawings of
-  3-connected plane graphs}, Algorithmica \textbf{47} (2007), no.~4, 399--420.
 
 \bibitem[F{\'a}r48]{fary48}
 Istv{\'a}n F{\'a}ry, \emph{On straight-line representation of planar graphs},
@@ -44,6 +41,10 @@ Stefan Felsner, \emph{Convex drawings of planar graphs and the order dimension
 {\'E}ric Fusy, \emph{Combinatoire des cartes planaires et applications
   algorithmiques}, Ph.D. thesis, Citeseer, 2007.
 
+\bibitem[Glp12]{glpk}
+\emph{{G}nu {L}inear {P}rogramming {K}it ({V}ersion 8.3)}, 2012,
+  http://www.gnu.org/software/glpk/.
+
 \bibitem[Hu63]{hu}
 T~Chiang Hu, \emph{Multi-commodity network flows}, Operations research
   \textbf{11} (1963), no.~3, 344--360.
@@ -51,6 +52,10 @@ T~Chiang Hu, \emph{Multi-commodity network flows}, Operations research
 \bibitem[LV99]{lov99}
 L{\'a}szl{\'o} Lov{\'a}sz and Katalin Vesztergombi, \emph{Geometric
   representations of graphs}, Paul Erdos and his Mathematics (1999).
+
+\bibitem[S{\etalchar{+}}18]{sage}
+W.\thinspace{}A. Stein et~al., \emph{{S}age {M}athematics {S}oftware ({V}ersion
+  8.3)}, The Sage Development Team, 2018, http://www.sagemath.org.
 
 \bibitem[Sch89]{schnyder89}
 Walter Schnyder, \emph{Planar graphs and poset dimension}, Order \textbf{5}

@@ -1,9 +1,9 @@
 import random
 
 def choose_split_face_edge():
-	cut1 = 400 	## Adds one vertex and one edge
-	cut2 = 800 	## Adds one vertex and two edges
-	cut3 = 1000  ## Triangulates random face --> >2 edges
+	cut1 = 200 	## Adds one vertex and one edge
+	cut2 = 400 	## Adds one vertex and two edges
+	cut3 = 998  ## Triangulates random face --> >2 edges
 	cut4 = 1000 ## Adds random edge in Graph
 	n = randint(0,1000)
 	if n < cut1:
@@ -32,8 +32,7 @@ def random_3_graph(nodes):
 			G = add_edge_in_face(G)
 	face = G.faces()[randint(0,len(G.faces())-1)]
 	l2 = _give_suspension_list(G,face)
-	shuffle(l2)
-	suspensions = l2[0]
+	suspensions = l2[randint(0,len(l2)-1)]
 	return [G,suspensions,face,None]
 
 def random_int_3_graph(nodes):

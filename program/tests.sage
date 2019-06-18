@@ -1,5 +1,27 @@
 import time
 import random
+import csv
+
+
+def write_statistics(s,t,amount):
+	with open('analysis.csv', mode='a') as file:
+		for v in range(s,t+1):
+			for j in range(amount):
+				[G,sus,oF,emb] = random_3_graph(v)
+				e = len(G.edges())
+				f = len(G.faces())
+				text = str(v) + " " + str(e) + " "
+				if has_faa(G):
+					sltr = has_sltr(G,suspensions=sus,outer_face=oF)
+					if sltr:
+						file.write(text + "s"+ '\n')
+					else:
+						file.write(text + "f"+ '\n')
+				else:
+					file.write(text + "n" + '\n')
+			print v
+	file.close()
+
 
 def run_iterator_test(nodes,print_info=True):
 	just_one_face = False
