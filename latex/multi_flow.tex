@@ -1,0 +1,27 @@
+\section{Flüsse auf Graphen}
+
+Wir werden in Kapitel \ref{main_algo} einen gerichteten Graphen $\mathcal{N}$ konstruieren um auf diesem einen maximalen Fluss zu finden. Wir beschäftigen uns allgemein also mit der folgenden Problematik.
+
+\begin{definition}[Gerichtetes-Multi-Fluss-Problem]\label{def_multi_flow}
+Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den Kapaziäten $c:E\mapsto\mathbb{R}_{+}$, Paaren von ausgezeichneten Knoten $\{(s_1,t_1), ... ,(s_n,t_n)\}$ und positiven Bedarfen $\{d_1, ... ,d_n\}$, dann ist $\varphi=(\varphi_1, ... ,\varphi_n)$ ein zulässiger Fluss, falls
+\begin{itemize}
+\item[F1] $\forall (u,v) \in E : \sum_{i=1}^{n}{\varphi_i(u,v)} \leq c(u,v) $
+\item[F2] $ \forall u \neq s_i,t_i : \sum_{w \in V} \varphi_i(u,w) - \sum_{w \in V} \varphi_i(w,u) $
+\item[F3] $ \forall s_i : \sum_{w \in V} \varphi_i(s_i,w) - \sum_{w \in V} \varphi_i(w,s_i) = d_i $
+\item[F4] $ \forall t_i : \sum_{w \in V} \varphi_i(w,s_i) - \sum_{w \in V} \varphi_i(s_i,w) = d_i $
+\end{itemize}
+\end{definition}
+
+Wir wollen hier noch ein paar bekannte Resultate für den Fall $n=1$ festhalten, die wir später nutzen werden.
+
+\begin{theorem}[Max-Flow Min-Cut]
+$\varphi$ ist ein maximale Fluss in $\mathcal{N}$, genau dann, wenn für mindestens einen Schnitt $\mathcal{S} \subset E$ gilt $c(\mathcal{S}) = |\varphi|$. Die Kapazität eines minimalen Schnittes entspricht dem maximalen Fluss.
+\end{theorem}
+
+\begin{theorem}[Ganzzahliger Fluss]\label{theo_int_flow}
+Sei $\mathcal{N}$ ein Netzwerk mit einer Quelle und einer Senke und alle Kapazitäten seien ganzzahlig, dann existiert auch ein maximaler Fluss $\varphi$, sodass der Fluss auf allen Kanten ganzzahlig ist. Es gilt also $|\varphi(e)| \in \mathcal{N}$ für alle $e\in E$.
+\end{theorem}
+
+\begin{remark}
+Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses also Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen, und diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für uns im Folgenden interessant wäre jedoch, wie wir sehen werden, der Fall $n=2$ für gerichtete Graphen. Leider ist hier im Allgemeinen die Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$.
+\end{remark}

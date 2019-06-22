@@ -173,41 +173,36 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 		try:
 			return [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True) , True]
 		except EmptySetError:
-			H2 = copy(H)
-			H2.add_edges([['i1','i2',flow2],['o2','o1',flow2]])
-			[f1,sol] = H2.edge_cut('i1','o1', value_only=False, use_edge_labels=True)
-			print "one_flow",(flow1,flow2,f1)
-			if f1 == flow1+flow2:
-				C = H.multiway_cut(['i1','i2','o1','o2'], value_only=False, use_edge_labels=True, solver=None, verbose=0)
-				c = 0
-				for edge in C:
-					c += edge[2]
-				print C
-				print "cut",(flow1,flow2,c)
-				if flow1+flow2==c:
-					l = []
-					sol = Graph(sol)
-					for v in sol.vertices():
-						if v[:2] == 'DV':
-							if sol.edge_label(v,'o2') == 1:
-								l.append(v)
-					print (len(l),flow2)
-					aL = _give_angle_edges(H)
-					for i in range(100):
-						(faa,Flow2) = _get_faa_from_non_int_solution(aL,flow2)
-						H2 = copy(H)
-						H2.delete_edges(faa)
-						[f1,sol] = H2.flow('i1','o1', value_only=False, integer=True, use_edge_labels=True)
-						if mod(i,10) == 0:
-							print i
-						if f1 == flow1:
-							print 'ups'
-			else:
-				#print sol
-				# print graph.sparse6_string()
-				# print outer_face
-				# print suspensions
-				pass
+			# H2 = copy(H)
+			# H2.add_edges([['i1','i2',flow2],['o2','o1',flow2]])
+			# [f1,sol] = H2.edge_cut('i1','o1', value_only=False, use_edge_labels=True)
+			# print "one_flow",(flow1,flow2,f1)
+			# if f1 == flow1+flow2:
+			# 	C = H.multiway_cut(['i1','i2','o1','o2'], value_only=False, use_edge_labels=True, solver=None, verbose=0)
+			# 	c = 0
+			# 	for edge in C:
+			# 		c += edge[2]
+			# 	print C
+			# 	print "cut",(flow1,flow2,c)
+			# 	if flow1+flow2==c:
+			# 		l = []
+			# 		sol = Graph(sol)
+			# 		for v in sol.vertices():
+			# 			if v[:2] == 'DV':
+			# 				if sol.edge_label(v,'o2') == 1:
+			# 					l.append(v)
+			# 		print (len(l),flow2)
+			# 		aL = _give_angle_edges(H)
+			# 		for i in range(100):
+			# 			(faa,Flow2) = _get_faa_from_non_int_solution(aL,flow2)
+			# 			H2 = copy(H)
+			# 			H2.delete_edges(faa)
+			# 			[f1,sol] = H2.flow('i1','o1', value_only=False, integer=True, use_edge_labels=True)
+			# 			if mod(i,10) == 0:
+			# 				print i
+			# 			if f1 == flow1:
+			# 				print 'ups
+			pass
 		if check_non_int_flow:
 			try:
 				Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = False) , False]
@@ -735,26 +730,24 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count):
 
 	##weights for edges ##
 
-	# for E in G.edges():
-	# 	print E
-	# 	[v1,v2,l] = _segment(E,faa_dict)
-	# 	q = _get_edge_length([v1,v2],pos)
-	# 	i0 = V.index(v1)
-	# 	i1 = V.index(v2)
-	# 	W[i0,i1] += q^5
-	# 	W[i1,i0] += q^5
+	for edge in G.edges():
+		q = _get_edge_length(edge,pos)
+	 	i0 = V.index(v1)
+	 	i1 = V.index(v2)
+		W[i0,i1] += (q/j)^2
+	 	W[i1,i0] += (q/j)^2
 
-# weights for faces ##	
-		
+	# weights for faces ##	
+	## Here a vertex only gets a value, iff it is a corner in this face.
+	## Every interior vertex is a corner in some face.
 	for face in G.faces():
 		p = _get_face_area(face,pos)
 		for E in face:
 			[v1,v2,l] = _segment(E,face,faa)
-			q = _get_edge_length([v1,v2],pos)
 			i0 = V.index(E[0])
 			i1 = V.index(E[1])
-			W[i0,i1] += p 
-			W[i1,i0] += p 
+			W[i0,i1] += p^4
+			W[i1,i0] += p^4
 	
 # weights for assigned ##
 

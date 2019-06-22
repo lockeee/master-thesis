@@ -2,9 +2,16 @@ import time
 import random
 import csv
 
+# def test_visualisation():
+# 	G1 = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2],[2,20],[2,21],[3,6],[3,20],[4,7],[4,8],[5,9],[5,21],[6,7],[6,10],[6,16],[7,17],[8,9],[8,18],[9,11],[9,19],[10,12],[10,13],[11,14],[11,15],[12,13],[12,16],[13,17],[14,15],[14,18],[15,19],[16,17],[16,20],[17,20],[18,19],[18,21],[19,21]])
+# 	G2 = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2]
+
+# 	L = [G1]
+# 	for graph in L:
+# 		planar_graphs
 
 def write_statistics(s,t,amount):
-	with open('analysis.csv', mode='a') as file:
+	with open('analysis2.csv', mode='a') as file:
 		for v in range(s,t+1):
 			for j in range(amount):
 				[G,sus,oF,emb] = random_3_graph(v)

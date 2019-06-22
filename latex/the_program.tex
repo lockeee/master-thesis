@@ -1,15 +1,47 @@
-\section{Das Programm}
+\chapter{Das Programm}\label{the_program}
 
-Wir wollen in diesem Abschnitt eine Implementierung des Algorithmus analysieren und 
+Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich. Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird hier, mithilfe des in Sage enthaltenen Solvers \textit{Glpk} \cite{glpk} für Lineare Programmierung gelöst, welches ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt.
 
-Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich. Ein Multi-Fluss wird hier mit Hilfe des in Sage enthaltenen Solvers Glpk \cite{glpk}, für Lineare Programmierung gelößt. Bevor wir uns mit der Analyse von Daten auseinandersetzten aber zuvor noch ein paar Worte zu möglichen und nicht möglichen Vereinfachungen.
+\input{pseudocode1.tex}
 
+Wir können ein Gutes-FAA $\phi$ aus $\varphi_2$ extrahieren indem wir die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgen. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$. 
 
+Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Somit spart sie im Falle, der nicht Existenz eines FAA Zeit.
 
+\section{Visualisierung}
 
-\subsection{1-Fluss}
+Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ erhalten. Es um eine SLTR zu erhalten müssen wir eine zu $\phi$ passende Einbettung von $G$ finden.  Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz nutzen um eine SLTR von $G$ zu erhalten.
 
-Wenn wir die Quellen und Senken vereinigen, würden wir ein 1-Fluss Netzwerk erhalten. Somit würde eine nicht ganzzahlige Lösung auch die  Existenz einer ganzzahlige Lösung und
+Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$, ähnlich der Gummibad-Repräsentation, berechnen die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Abschnitt \ref{harmonic_approach} gelten die folgenden Gleichungen für nicht zugewiesene (1) und zugewiesene (2) Knoten.
+$$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1) $$
+$$ f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0 $$
+Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden können wir diese Gleichungen, nach der Ergänzung von Gleichungen für die Aufhängungen, zusammenfassen.
+\[ M_{\lambda}(\vec{v_y},\vec{v_x}) = \big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big) \text{, mit } (M_{\lambda})_{vw} =
+	\begin{dcases}
+	-\lambda_{vw} & \text{falls } (v,v) \in E \\
+	\textstyle\sum_{q \in N(v)} \lambda_{qv} & \text{falls } v = w \\
+	0 & \text{sonst} \\
+	\end{dcases}
+\]
+Wenn wir nun die Pseudo-Inverse berechnen erhalten wir die Lösung
+$$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big).$$
+Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen.\\
 
+Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine "schönere" Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv, in absteigender Reihenfolge, als Bewertungsmaßstab für eine "schöne" Einbettung berücksichtigen.
+\begin{itemize}
+\item Alle inneren Gebiete haben eine ähnliche Größe.
+\item Es existieren keine zu langen oder kurzen Kanten.
+\item Es existieren keine Ecken mit zu kleinen oder großen Winkeln.
+\end{itemize}
+
+TODO
+
+\section{Statistische Betrachtung}
+
+Für eine statistische Betrachtung der Häufigkeit von Graphen mit SLTRs haben wir den Algorithmus für pseudo-zufällige Graphen laufen lassen. Hier wäre eine gleichmäßige Wahl von 3-zusammenhängenden Graphen besser. Ein uniformer Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy07} erstellen, da hier, als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen, auch 3-zusammenhängende planare Graphen erzeugt werden, und dies ebenfalls mit bleichverteilter Wahrscheinlichkeit. Die Implementierung ist jedoch, Aufgrund der Auswertung von Erzeugendenfunktionen, nicht trivial und wir haben uns somit auf pseudo-zufällig erzeugte Graphen beschränkt. \\
+
+In Abbildung \ref{table} sind die Ergebnisse für Graphen von vier bis TODO Knoten dargestellt, mit jeweils TODO Graphen für jede Knotenzahl. Wir übergeben dem Programm einen Graphen mit Aufhängungen $\{a_1.,a_2,a_3\}$, was im falle 3-zusammenhängender planer Graphen mit mehr als drei Knoten ein äusseres Gebiet induziert. Ein Punkt in der Abbildung entspricht einem Graphen und die Farben stehen für ein SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün).
 
 \input{table.tex}
+
+

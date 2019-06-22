@@ -1,4 +1,4 @@
-\section{SLTRs durch harmonische Funktionen}
+\section{SLTRs durch harmonische Funktionen}\label{harmonic_approach}
 
 Wir werden die Beweise zu den in diesem Abschnitt aufgestellten Präpositionen und Theoremen übergehen. Der interessierte Leser sei, sofern nicht anders angegeben auf \cite{af13} verwiesen. Zum Einstieg formulieren wir eine weitere Definition um dann eine Beobachtung zu SLTRs festzuhalten.
 
@@ -66,9 +66,9 @@ Betrachten wir also einen planen, intern 3-zusammenhängenden Graphen $G$ mit Au
 
 \subsection{Harmonische Funktionen auf planaren Graphen}
 
-Die Theorie zu harmonischen Funktionen auf planaren Graphen und ihre Anwendung werden in \cite{lov99} ausführlich behandelt.\
+Die Theorie zu (diskreten) harmonischen Funktionen auf planaren Graphen und ihre Anwendung werden in \cite{lov99} ausführlich behandelt. Es handelt sich um eine Diskretisierung von allgemeinen harmonischen Funktionen, also glatten Funktionen $f:G\subseteq \mathbb{R}^n \to \mathbb{R}$, mit $\Delta f = 0$. Für diese Funktionen gilt, dass der Funktionswert an einem Punkt $x$, dem Durchschnitt der Funktionswerte auf einem Ball um $x$ entspricht. 
 
-Wir beginnen mit der Definition.
+Dies führt zu der folgenden Definition.
 
 \begin{definition}[Harmonische Funktionen]
 Sei $G=(V,E)$ ein planarer zusammenhängender Graph und $S \subseteq V$. Eine Funktion $g:V \to \mathbb{R}$ nennen wir am Knoten $v \in V$ \textit{harmonisch}, falls gilt:
@@ -82,22 +82,22 @@ Ein Knoten für den $g$ nicht harmonisch ist nennt man \textit{Pol}.
 Für jede nichtleere Teilmenge $S \subseteq V$ und jede Funktion $g_S:S\to\mathbb{R}$ existiert genau eine Funktion $g:V\to\mathbb{R}$, die $f_S$ auf $V$ fortsetzt, sodass $g$ in jedem Knoten $v\in V \backslash S$ harmonisch ist. Wir nennen sie die \textup{harmonische Fortsetzung}.
 \end{theorem}
 
-Ein bekanntes Resultat, dass sich in Form harmonischer Funktionen darstellen lässt, ist Tuttes \textit{rubber-band-representation} aus \cite{tutte63}, die konvexe Zeichnungen für planare Graphen liefert. Man stelle sich einen planaren Graphen vor bei dem jede Kante durch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Nun wählen wir ein äusseres Gebiet und fixieren die dieses Gebiet umrandenden Knoten $S\subseteq V$ in zyklischer Reihenfolge und in gleichen Abständen auf einem Kreis. Dies gibt uns $f_S:S \to \mathbb{R}^2$. Das resultierende Gleichgewicht auf den restlichen Knoten, dass genau dann entsteht, wenn H1 erfüllt ist, entspricht der harmonischen Fortsetzung von $f_S$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Das folgende Theorem ist das Hauptresultat aus \cite{tutte63}.
+Ein bekanntes Resultat, dass sich in Form harmonischer Funktionen darstellen lässt, ist Tuttes \textit{rubber-band-representation} aus \cite{tutte63}, die konvexe Zeichnungen für planare Graphen liefert. Man stelle sich einen planaren Graphen vor bei dem jede Kante durch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Nun wählen wir ein äusseres Gebiet und fixieren die dieses Gebiet umrandenden Knoten $S\subseteq V$ in zyklischer Reihenfolge und in gleichen Abständen auf einem Kreis. Dies gibt uns $f_S:S \to \mathbb{R}^2$. Das resultierende Gleichgewicht auf den restlichen Knoten, dass genau dann entsteht, wenn H1 erfüllt ist, entspricht der harmonischen Fortsetzung von $f_S$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Wir können die Kanten zusätzlich noch mit nicht negativen Gewichten $\lambda_{vw}$ versehen um die Einbettung zu verändern. Das folgende Theorem ist das Hauptresultat aus \cite{tutte63}.
 
-\begin{theorem}
+\begin{theorem}\label{theo_rubber}
 Sei $G$ ein planarer Graph, dann ist eine \textit{Gummiband-Representation (rubber-band-representation)} von $G$ eine planare Einbettung in der Ebene.
 \end{theorem}
 
-Hiermit beenden wir den kurzen Exkurs zu harmonischen Funktionen und kommen zurück zu unserer Problemstellung. Nehmen wir für den Moment an, dass wir eine Darstellung gefunden haben. Wir haben also eine geradlinige Einbettung $f$ der von $\phi$ induzierten Segmente. Dann gilt für jeden Knoten $v$ im inneren eines Segmentes, also für jeden zugewiesenen Knoten, dass er auf einer Gerade zwischen seinen beiden benachbarten Knoten $u,w$ auf dem Segment liegen muss. Diese Eigenschaft liefert
+Kommen wir nun zurück zu unserer Problemstellung. Nehmen wir für den Moment an, dass wir eine Darstellung gefunden haben. Wir haben also eine geradlinige Einbettung $f$ der von $\phi$ induzierten Segmente. Dann gilt für jeden Knoten $v$ im inneren eines Segmentes, also für jeden zugewiesenen Knoten, dass er auf einer Gerade zwischen seinen beiden benachbarten Knoten $u,w$ auf dem Segment liegen muss. Diese Eigenschaft liefert
 \begin{equation}\label{harm_1}
 f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).
 \end{equation}
 Für die nicht zugewiesenen Knoten aus $G$ muss in einer SLTR gelten, dass sie sich in der konvexen Hülle ihrer Nachbarn befinden. Wir bilden einen (gewichteten) Schwerpunkt und erhalten
 \begin{equation}\label{harm_2}
-f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0.
+f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} \geq 0.
 \end{equation}
 
-Somit erfüllt die so gegebene Funktion $f:V\to\mathbb{R}^2$ mit einem passend gewählten $\lambda$ wegen (\ref{harm_1}) und (\ref{harm_2}) in beiden Komponenten H2. Es handelt sich somit um eine harmonische Funktion, mit den Polen $\{a_1,a_2,a_3\}$. Nach Theorem \ref{harmonic_uni}, existiert für jede den Beschränkungen entsprechende Wahl von $\lambda$ genau eine Funktion $f$, welche die Gleichungen erfüllt.\\
+Somit erfüllt die so gegebene Funktion $f:V\to\mathbb{R}^2$ mit einem passend gewählten $\lambda$ wegen (\ref{harm_1}) und (\ref{harm_2}) in beiden Komponenten H2. Es handelt sich somit bei $f_1$ und $f_2$ um harmonische Funktionen, mit den Polen $\{a_1,a_2,a_3\}$. Nach Theorem \ref{harmonic_uni}, existiert für jede den Beschränkungen entsprechende Wahl von $\lambda$ jeweils genau eine Funktion $f_1,f_2$, welche die Gleichungen erfüllen.\\
 Dies führt uns zum Hauptresultat aus \cite[Theorem 2.10]{af13}:
 
 \begin{theorem}\label{com_theo}
@@ -108,4 +108,5 @@ Sei $G$ ein intern 3-zusammenhängender, planarer Graph und $\Sigma$ eine Famili
 Dies bedeutet, dass die weiter oben in Lemma \ref{lemma_af13} festgehaltene notwendige Bedingung auch eine hinreichende ist. Falls wir schon ein Gutes-FAA gefunden haben, dann können wir mit Hilfe des obrigen Ansatzes auch eine Einbettung in der Ebene erhalten, jedoch gibt es Graphen mit polynominell vielen FAA und es dauert polynominell lange um E4 zu überprüfen. Wir erlangen also auf diesem Weg keinen Algorithmus in $\mathcal{P}$.\\
 Aerts und Felsner werfen am Ende des Papers die Frage nach einer \textit{guten} Wahl von $\lambda$ auf, und wie dies die resultierenden Einbettungen beeinflussen kann. Mit diesem Thema, wollen wir uns am Ende des nächsten Kapitels kurz beschäftigen.
 \end{remark}
+
 

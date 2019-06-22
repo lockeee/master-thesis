@@ -1,32 +1,18 @@
-\chapter{Algorithmen zur Erkennung von SLTRs}
+\chapter{Algorithmen zur Erkennung von SLTRs}\label{main_algo}
 
 Im vorherigen Kapitel wurden Kriterien für die Existenz einer SLTR erarbeitet, die allerdings nicht sofort einen Algorithmus, sowohl zur Frage nach der Existenz, als auch zum Erlangen einer spezifischen SLTR liefern. Diesem Thema wollen wir uns nun in diesem Kapitel zuwenden und dafür zum Einstieg einen von Aerts und Felsner in \cite{af15} erarbeiteten Algorithmus betrachten.
 
 \section{SLTRs via Zwei-Fluss}
 
-Wir betrachten im folgenden gerichtete Graphen. Das Ziel ist es, für einen gegebenen Graphen sowohl einen Schnyder Wood als auch ein FAA jeweils als Lösung eines Fluss-Problems zu erhalten und diese beiden dann in einem Zwei-Fluss-Problem zu kombinieren, sodass eine Lösung ein Ecken-Kompatibles-Paar gibt und wir somit eine SLTR erhalten. Wir beschäftigen uns also mit der folgenden Problemstellung.
-
-\begin{definition}[Gerichtetes-Multi-Fluss-Problem]
-Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den Kapaziäten $c:E\mapsto\mathbb{R}_{+}$, Paaren von ausgezeichneten Knoten $\{(s_1,t_1), ... ,(s_n,t_n)\}$ und positiven Bedarfen $\{d_1, ... ,d_n\}$, dann ist $\varphi=(\varphi_1, ... ,\varphi_n)$ ein zulässiger Fluss, falls
-\begin{itemize}
-\item[F1] $\forall (u,v) \in E : \sum_{i=1}^{n}{\varphi_i(u,v)} \leq c(u,v) $
-\item[F2] $ \forall u \neq s_i,t_i : \sum_{w \in V} \varphi_i(u,w) - \sum_{w \in V} \varphi_i(w,u) $
-\item[F3] $ \forall s_i : \sum_{w \in V} \varphi_i(s_i,w) - \sum_{w \in V} \varphi_i(w,s_i) = d_i $
-\item[F4] $ \forall t_i : \sum_{w \in V} \varphi_i(w,s_i) - \sum_{w \in V} \varphi_i(s_i,w) = d_i $
-\end{itemize}
-\end{definition}
-
-\begin{remark}
-Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen, und diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für uns im Folgenden interessant wäre jedoch, wie wir sehen werden, der Fall $n=2$ für gerichtete Graphen. Leider ist hier im Allgemeinen die Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$.
-\end{remark}
+Wir betrachten im folgenden gerichtete Graphen. Das Ziel ist es, für einen gegebenen Graphen sowohl einen Schnyder Wood als auch ein FAA jeweils als Lösung eines Fluss-Problems zu erhalten und diese beiden dann in einem Zwei-Fluss-Problem zu kombinieren, sodass eine Lösung ein Ecken-Kompatibles-Paar gibt und wir somit eine SLTR erhalten. Wir beschäftigen uns also den in Definition \ref{def_multi_flow} eingeführten Gerichteten-Multi-Fluss-Problemen.
 
 \input{one_flows.tex}
 
-\subsection{Graphen mit wenigen FAAs oder Schnyder Woods}
+\begin{remark}
 
-Wir wollen in diesem Abschnitt kurz betrachten, wie wir 
-Sei $G$ ein intern-3-zusammenhängender Graph 
-Für Graphen mit wenigen FAAs oder wenigen Schnyder Woods\footnote{Es sind hier maximal polynominell viele gemeint.} liefern die Ansätze oben jeweils Wege in polynomineller Zeit zu verifizieren, ob SLTRs existieren und ein Gutes-FAA zu erhalten. Die Graphen mit nur genau einen Schnyder Wood wurden von Felsner und ... TODO 
+Nach \cite{af15} lässt sich für Graphen mit wenigen Schnyder Woods ein Algorithmus erstellen indem wir einen bipartiten Karo erstellen und ein einseitiges perfektes Matching auf diesem finden. TODO
+
+\end{remark}
 
 \subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
@@ -138,8 +124,7 @@ Als nächsten fügen wir den, die $\alpha_s$-Orientierung kodierenden Fluss, hin
 
 Zuletzt müssen wir den Ecken-Fluss einfügen. Ein Ecken-Pfad $p$ entspringt in Quelle 1, nutzt das zugehörige Winkeldreieck (diese sind noch frei) und verlässt über das im Uhrzeigersinn nächste verfügbare kleine Quadrat, das Gebiet wieder. 
 
-Somit sind alle Kanten hin zu den Senken ausgelastet. Ebenso wird an keiner Kante die Kapazität überschritten. Somit haben wir einen zulässigen ganzzahligen Fluss, der eine SLTR kodiert, konstruiert, was den Beweis abschließt.
+Es sind alle Kanten hin zu den Senken ausgelastet. Ebenso kann man sehen, dass an keiner Kante die Kapazität überschritten wird. Somit haben wir einen zulässigen ganzzahligen Fluss, der eine SLTR kodiert, konstruiert, was den Beweis abschließt.
 
 \end{proof}
 
-\input{the_program.tex}

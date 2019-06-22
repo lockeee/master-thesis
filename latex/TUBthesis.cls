@@ -106,6 +106,10 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \newtheorem*{remark}{Bemerkung}%
 \theoremstyle{dotless_theorem}%
 \newtheorem{claim}{Behauptung}%
+\theoremstyle{dotless_theorem}%
+\newtheorem{conjecture}{Vermutung}
+\theoremstyle{dotless_theorem}%
+\newtheorem{oberservation}{Beobachtung}
 }%
 
 %
