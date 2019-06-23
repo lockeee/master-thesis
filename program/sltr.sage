@@ -548,9 +548,10 @@ def plot_planar_graph(graph):
 	P = graph.layout(layout='planar',set_embedding = True)
 	show(graph.plot(pos=P))	
 
-def plot_sltr_or_approximation(G,sus=None,outer_face=None, ipe = None):
+def plot_sltr_or_approximation(G,sus=None,outer_face=None, faa = None, ipe = None):
 	graph=copy(G)
-	faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
+	if faa == None:
+		faa = get_sltr(graph,suspensions=sus,outer_face=outer_face)
 	if faa != None:
 		[Plot,G] = plot_sltr(graph,faa=faa,plotting = False)
 	else:
@@ -560,15 +561,15 @@ def plot_sltr_or_approximation(G,sus=None,outer_face=None, ipe = None):
 	if Plot != None:
 		Plot.show(axes = False)
 
-def plot_sltr(graph,suspensions=None,outer_face = None, faa = None,plotting=True):
+def plot_sltr(graph,suspensions=None,outer_face = None, faa = None, plotting=True):
 	if faa == None:
 		faa = get_sltr(graph,suspensions=suspensions,outer_face=outer_face)
-	if faa[0] != None:
+	if faa != None:
 		layout = _get_good_faa_layout(graph,faa,suspensions=suspensions)
 		graph.set_pos(layout)
 		Plot = graph.plot(axes = False)
 		if plotting:
-			show(Plot)
+			Plot.show()
 		return [Plot,graph]
 	else:
 		print "No SLTR found for given parameters"
@@ -699,7 +700,8 @@ def _get_good_faa_layout(graph,faa,suspensions = None):
 							n1 = face[0][(j-1)%l]
 							n2 = face[0][(j+1)%l]
 							faa_dict[node] = (n1,n2)
-							break			
+							break	
+	print faa_dict		
 	G = copy(graph)
 	pos = _get_good_faa_layout_iteration(G,faa,faa_dict,0,suspensions,None)
 	return pos
@@ -730,24 +732,27 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count):
 
 	##weights for edges ##
 
-	for edge in G.edges():
-		q = _get_edge_length(edge,pos)
-	 	i0 = V.index(v1)
-	 	i1 = V.index(v2)
-		W[i0,i1] += (q/j)^2
-	 	W[i1,i0] += (q/j)^2
+	# for edge in G.edges():
+	# 	q = _get_edge_length(edge,pos)
+	# 	q = q**2
+	#  	i0 = V.index(edge[0])
+	#  	i1 = V.index(edge[1])
+	# 	W[i0,i1] += q
+	#  	W[i1,i0] += q
 
-	# weights for faces ##	
-	## Here a vertex only gets a value, iff it is a corner in this face.
-	## Every interior vertex is a corner in some face.
-	for face in G.faces():
+	##weights for inner faces ##	
+	for i in range(len(faa)):
+		nodes = faa[i][0]
+		face = [[nodes[0],nodes[len(nodes)-1]]]
+		for j in range(len(nodes)-1):
+			face.append([nodes[j],nodes[j+1]])
 		p = _get_face_area(face,pos)
+		p = p^(1/8)
 		for E in face:
-			[v1,v2,l] = _segment(E,face,faa)
 			i0 = V.index(E[0])
 			i1 = V.index(E[1])
-			W[i0,i1] += p^4
-			W[i1,i0] += p^4
+			W[i0,i1] += p
+			W[i1,i0] += p
 	
 # weights for assigned ##
 
@@ -784,30 +789,70 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count):
 # 				W[i1,i0] += area^2
 # 				W[i1,i2] += area^2
 # 				W[i2,i1] += area^2
+
+## weights for pseudo segments
 	return W
 
-# def _quadrant_weigth(graph,vertex,face,pos)
-# 	n = len(face)
-# 	for i in range(n):
-# 		if face[i][0] == vertex:
-# 			v_l = face[mod(i-1,n)][0]
-# 			v_r = face[mod(i-1,n)][1]
-# 			break
-# 	x_v = pos[vertex][0]
-# 	y_v = pos[vertex][1]
-# 	x_l = pos[v_l][0]
-# 	y_l = pos[v_l][1]
-# 	x_r = pos[v_r][0]
-# 	y_r = pos[v_r][1]
-# 	l = [[],[],[]]
-# 	for v in G.vertices():
-# 		if 
+
+def _nodes_on_left(G,segment):
+	V = copy(G.vertices())
+	pos = copy(G.get_pos())
+	v0 = segment[0]
+	v1 = segment[1]
+	i0 = V.index(v0)
+	i1 = V.index(v1)
+	x1 = pos[i0][0]
+ 	y1 = pos[i0][1]
+ 	x1 = pos[i1][0]
+ 	y1 = pos[i1][1]
+ 	x = x1-x0
+ 	y = y1-y0
+
+
+def _list_pseudo_segments(G,faa,faa_dict):
+	D = copy(faa_dict)
+	segments = []
+	while len(D) > 0:
+		(v,(e1,e2)) = D.popitem()
+		[d1,d2] = [v,v]
+		segment = [e1,v,e2]
+		while D.has_key(e1):
+			(n1,n2) = D[e1]
+			if n1 != d1 and n2 == d1:
+				d1 = e1
+				e1 = n1
+				segment = [e1] + segment
+				D.pop(d1)
+			elif n2 != d1 and n1 == d1:
+				d1 = e1
+				e1 = n2
+				segment = [e1] + segment
+				D.pop(d1)
+			else:
+				break
+		while D.has_key(e2):
+			(n1,n2) = D[e2]
+			if n1 != d2 and n2 == d2:
+				d2 = e2
+				e2 = n1
+				segment = segment + [e2]
+				D.pop(d2)
+			elif n2 != d2 and n1 == d2:
+				d2 = e2
+				e2 = n2
+				segment = segment + [e2]
+				D.pop(d2)
+			else:
+				break
+		segments.append(segment)
+	return segments
 
 
 def _segment(edge,face,faa):
 	[e1,e2] = [edge[0],edge[1]]
 	[d1,d2] = [e1,e2]
 	[b1,b2] = [True,True]
+	nodes=[e1,e2]
 	l = 1
 	node_face = []
 	for e in face:
@@ -826,6 +871,7 @@ def _segment(edge,face,faa):
 								j1 += 1
 								d1 = f[j1]
 								l += 1
+								nodes.append(d1)
 							else:
 								b1 = False
 						while b2:
@@ -833,6 +879,7 @@ def _segment(edge,face,faa):
 								j2 -= 1
 								d2 = f[j2]
 								l += 1
+								nodes.append(d2)
 							else:
 								b2 = False
 					else:
@@ -844,6 +891,7 @@ def _segment(edge,face,faa):
 									j1 -= 1
 									d1 = f[j1]
 									l += 1
+									nodes.append(d1)
 								else:
 									b1 = False
 							while b2:
@@ -851,9 +899,10 @@ def _segment(edge,face,faa):
 									j2 += 1
 									d2 = f[j2]
 									l += 1
+									nodes.append(d2)
 								else:
 									b2 = False
-	return [d1,d2,l]
+	return [d1,d2,l,nodes]
 	
 def _get_face_area(F,pos):
 	p = 0
@@ -911,10 +960,9 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 				else:
 					wn1 = 1
 					wn2 = 1
-				s = wn1 + wn2
 				M[i,j1] = -wn1
 				M[i,j2] = -wn2
-				M[i,i] = s
+				M[i,i] = wn1 + wn2
 			else:
 				nv = G.neighbors(v)
 				s = 0

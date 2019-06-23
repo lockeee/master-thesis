@@ -2,13 +2,14 @@ import time
 import random
 import csv
 
-# def test_visualisation():
-# 	G1 = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2],[2,20],[2,21],[3,6],[3,20],[4,7],[4,8],[5,9],[5,21],[6,7],[6,10],[6,16],[7,17],[8,9],[8,18],[9,11],[9,19],[10,12],[10,13],[11,14],[11,15],[12,13],[12,16],[13,17],[14,15],[14,18],[15,19],[16,17],[16,20],[17,20],[18,19],[18,21],[19,21]])
-# 	G2 = Graph([[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,2]
+def test_visualisation():
+	G1 = [Graph(':I`A?gPaGk`deQ`s^'),[(0, 3), (3, 2), (2, 0)],(0,2,3)]
+	#G2 = [Graph([[0, 1],[0, 2],[0, 3],[1, 2],[1, 4],[2, 5],[3, 4],[3, 5],[4,5]]),[(0, 1), (1, 2), (2, 0)],(0,1,2)]
 
-# 	L = [G1]
-# 	for graph in L:
-# 		planar_graphs
+	L = [G1]
+	for [G,face,sus] in L:
+		plot_sltr(G,outer_face=face,suspensions=sus)
+
 
 def write_statistics(s,t,amount):
 	with open('analysis2.csv', mode='a') as file:
