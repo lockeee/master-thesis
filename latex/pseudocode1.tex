@@ -2,14 +2,14 @@
 \begin{algorithm}
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
-	\underline{Good-FAA} $(G,f_{aus},sus)$\;
-	\Input{$G$, a planar, internally-3-connected Graph, $f_{aus}$, the outer face and $sus = \{a_1,a_2,a_3\}$ the suspensions.}
-	\Output{A Good-FAA for G if possible}
-	\If{$G_{sus}$ has FAA}
+	\underline{Good-FAA} $(G,f_{aus},\{a_1,a_2,a_3\})$\;
+	\Input{$G$, a planar, internally-3-connected Graph, $f_{aus}$, the outer face and the suspensions $\{a_1,a_2,a_3\}$.}
+	\Output{A Good-FAA for G, if possible.}
+	\If{$G$ has FAA}
 		{
+		$(d_1,d_2) \longleftarrow$ Demands for $\mathcal{N}_G$ \;
         		Initialize $\mathcal{N}_G$ \;
-        		$(d_1,d_2) \longleftarrow$ Demands for $\mathcal{N}_G$ \;
-        		$\varphi = (\varphi_1,\varphi_2) \longleftarrow$ Multicomodity-Flow($\mathcal{N}_G$) \;
+        		$\varphi = (\varphi_1,\varphi_2) \longleftarrow$ Integral-Multicomodity-Flow($\mathcal{N}_G$) \;
         		\If{$|\varphi_1| = d_1$ and $|\varphi_2| = d_2$}
         			{
         			$\phi \longleftarrow$ Good-FAA from $\varphi_2$ \;

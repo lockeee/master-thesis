@@ -6,45 +6,45 @@ Database file #1: bibliography.bib
 Warning--missing pages in lov99
 Warning--missing journal name in schnyder90
 Warning--missing journal, volume, and year in schnyder90
-You've used 15 entries,
+You've used 16 entries,
             2624 wiz_defined-function locations,
-            643 strings with 6103 characters,
-and the built_in function-call counts, 5200 in all, are:
-= -- 505
-> -- 145
+            649 strings with 6276 characters,
+and the built_in function-call counts, 5719 in all, are:
+= -- 559
+> -- 164
 < -- 9
-+ -- 42
-- -- 41
-* -- 418
-:= -- 781
-add.period$ -- 15
-call.type$ -- 15
-change.case$ -- 79
-chr.to.int$ -- 14
-cite$ -- 18
-duplicate$ -- 242
-empty$ -- 458
-format.name$ -- 63
-if$ -- 1081
++ -- 48
+- -- 47
+* -- 451
+:= -- 854
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 85
+chr.to.int$ -- 15
+cite$ -- 19
+duplicate$ -- 267
+empty$ -- 501
+format.name$ -- 70
+if$ -- 1199
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 56
-num.names$ -- 37
-pop$ -- 89
+missing$ -- 30
+newline$ -- 59
+num.names$ -- 40
+pop$ -- 96
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 101
 quote$ -- 0
-skip$ -- 180
+skip$ -- 208
 stack$ -- 0
-substring$ -- 380
-swap$ -- 34
+substring$ -- 419
+swap$ -- 43
 text.length$ -- 9
 text.prefix$ -- 10
 top$ -- 0
-type$ -- 116
+type$ -- 124
 warning$ -- 3
-while$ -- 49
-width$ -- 17
-write$ -- 169
+while$ -- 55
+width$ -- 18
+write$ -- 181
 (There were 3 warnings)

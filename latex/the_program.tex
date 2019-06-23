@@ -4,30 +4,32 @@ Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Absch
 
 \input{pseudocode1.tex}
 
-Wir können ein Gutes-FAA $\phi$ aus $\varphi_2$ extrahieren indem wir die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgen. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$. 
+Wir können ein Gutes-FAA $\phi$ aus $\varphi_2$ extrahieren indem wir die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgen. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
 
+\begin{remark}
 Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Somit spart sie im Falle, der nicht Existenz eines FAA Zeit.
+\end{remark}
 
 \section{Visualisierung}
 
 Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ erhalten. Es um eine SLTR zu erhalten müssen wir eine zu $\phi$ passende Einbettung von $G$ finden.  Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz nutzen um eine SLTR von $G$ zu erhalten.
 
-Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$, ähnlich der Gummibad-Repräsentation, berechnen die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Abschnitt \ref{harmonic_approach} gelten die folgenden Gleichungen für nicht zugewiesene (1) und zugewiesene (2) Knoten.
+Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$, ähnlich der Gummibad-Repräsentation, berechnen die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden Gleichungen für zugewiesene (oben) und nicht zugewiesene (unten) Knoten.
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1) $$
 $$ f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0 $$
-Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden können wir diese Gleichungen, nach der Ergänzung von Gleichungen für die Aufhängungen, zusammenfassen.
-\[ M_{\lambda}(\vec{v_y},\vec{v_x}) = \big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big) \text{, mit } (M_{\lambda})_{vw} =
+Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden können wir diese Gleichungen, nach der Ergänzung von Gleichungen für die Aufhängungen, in Matrixschreibweise zusammenfassen.
+\[ M_{\lambda}(\vec{v_x},\vec{v_y}) = \big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big) \text{, mit } (M_{\lambda})_{vw} =
 	\begin{dcases}
-	-\lambda_{vw} & \text{falls } (v,v) \in E \\
-	\textstyle\sum_{q \in N(v)} \lambda_{qv} & \text{falls } v = w \\
-	0 & \text{sonst} \\
+	-\lambda_{vw} & \text{falls } (v,w) \in E, \\
+	\textstyle\sum_{q \in N(v)} \lambda_{qv} & \text{falls } v = w, \\
+	0 & \text{sonst.} \\
 	\end{dcases}
 \]
-Wenn wir nun die Pseudo-Inverse berechnen erhalten wir die Lösung
+Wenn wir nun die Pseudo-Inverse (TODO) berechnen erhalten wir die Lösung
 $$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big).$$
-Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen.\\
+Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen.\\
 
-Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine "schönere" Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv, in absteigender Reihenfolge, als Bewertungsmaßstab für eine "schöne" Einbettung berücksichtigen.
+Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv, in absteigender Reihenfolge, als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen wollen.
 \begin{itemize}
 \item Alle inneren Gebiete haben eine ähnliche Größe.
 \item Es existieren keine zu langen oder kurzen Kanten.
