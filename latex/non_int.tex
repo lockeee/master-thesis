@@ -1,16 +1,16 @@
 \chapter{Nicht ganzzahlige Flüsse}
 
-Wie in Kapitel \ref{main_algo} erwähnt, impliziert eine nicht ganzzahlige Lösung für ein Multi-Fluss-Problem auf einem gerichteten Graphen mit $n\geq 2$ Paaren von Quellen und Senken, im Allgemeinen nicht die Existenz einer ganzzahligen Lösung. Die Ergebnisse aus Kapitel \ref{the_program}, lassen jedoch die Möglichkeit offen, dass das man in unserem Fall die folgende Aussage beweisen kann.
+Wie in Kapitel \ref{main_algo} erwähnt, impliziert eine nicht ganzzahlige Lösung für ein Multi-Fluss-Problem auf einem gerichteten Graphen mit $n\geq 2$ Paaren von Quellen und Senken, im Allgemeinen nicht die Existenz einer ganzzahligen Lösung. Die Ergebnisse aus Kapitel \ref{the_program}, lassen jedoch die Möglichkeit offen, dass das man in unserem Fall die folgende Vermutung beweisen kann. Wir wollen uns deswegen in diesem Kapitel mit der von Aerts und Felsner offen gelassenen Frage beschäftigen, ob die Erkennung von Graphen mit einer SLTR in $\mathcal{P}$ liegt.
 
 \begin{conjecture}\label{int_conj}
-Sei $\tilde{\varphi}=(\tilde{\varphi_1},\tilde{\varphi_2})$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$, dann existiert auch eine ganzzahlige Lösung $\varphi$ und wir können in konstanter Zeit ein Gutes-FAA aus $\tilde{\varphi_2}$ extrahieren, ohne eine ganzzahlige Lösung zu berechnen.
+Sei $\tilde{\varphi}=(\tilde{\varphi_1},\tilde{\varphi_2})$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$, dann existiert auch eine ganzzahlige Lösung $\varphi$ und wir können in linearer Zeit ein Gutes-FAA aus $\tilde{\varphi_2}$ extrahieren, ohne eine ganzzahlige Lösung zu berechnen.
 \end{conjecture}
 
 \begin{remark}
 Wenn wir nicht darauf bestehen, dass unsere Lösung ganzzahlig ist, dann lässt sich eine Lösung nach TODO durch lineare Programmierung in polynomineller Zeit finden und das Entscheidungsproblem, ob ein Graph eine SLTR hat läge so in $\mathcal{P}$.
 \end{remark}
 
-Um die Argumentation einfacher zu gestalten, werden wir unser 2-Fluss Problem manchmal als 3-Fluss Problem mit einer Lösung $\varphi=(\varphi_s,\varphi_e,\varphi_z)$ behandeln. Wir erstellen also $\mathcal{N}_G^*$, wie zuvor $\mathcal{N}_G$, nur mit drei Quellen und Senken und weisen Schnyder-, Zuweisungs- und Ecken-Fluss eigene Typen zu. Man kann leicht sehen, dass Theorem \ref{theo_algo} in angepasster Form hier ebenfalls gilt und ein zulässiger  Fluss $(\varphi_s,\varphi_e,\varphi_z)$ auf $\mathcal{N}_G^*$ genau dann existiert, wenn auch ein zulässiger Fluss $(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ existiert. Die Hinrichtung ist klar. Nehmen wir an $(\varphi_1,\varphi_2)$ ist eine ganzzahlige Lösung. Nach Beobachtung A2 gilt, dass die äusseren Kanten eines Winkel-Dreiecks entweder von einem Ecken- oder einem Zuweisungs-Pfad genutzt werden. Diese Kanten sind, zusammen mit den Kanten von Quelle 2 zu den Winkeldreiecken, die einzigen in $\mathcal{N}_G$ die von beiden Flüssen genutzt werden. Wir können also $\varphi_2$ in $|\varphi_2|$ ganzzahlige Pfade aufteilen und jeden Pfad entweder $\varphi_e$ oder $\varphi_z$ zuweisen, je nachdem ob er über die Dummy-Senke führt, oder nicht. Insbesondere folgt mit der gleichen Argumentation:  
+Um die Argumentation einfacher zu gestalten, werden wir unser 2-Fluss Problem manchmal als 3-Fluss Problem, mit einer Lösung $\varphi=(\varphi_s,\varphi_e,\varphi_z)$, betrachten. Wir erstellen also $\mathcal{N}_G^*$, wie zuvor $\mathcal{N}_G$, nur mit drei Quellen und Senken und weisen Schnyder-, Zuweisungs- und Ecken-Fluss eigene Typen zu. Man kann leicht sehen, dass Theorem \ref{theo_algo} in angepasster Form hier ebenfalls gilt und ein zulässiger  Fluss $(\varphi_s,\varphi_e,\varphi_z)$ auf $\mathcal{N}_G^*$ genau dann existiert, wenn auch ein zulässiger Fluss $(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ existiert. Die Hinrichtung ist klar. Nehmen wir an $(\varphi_1,\varphi_2)$ ist eine ganzzahlige Lösung. Nach Beobachtung A2 gilt, dass die äusseren Kanten eines Winkel-Dreiecks entweder von einem Ecken- oder einem Zuweisungs-Pfad genutzt werden. Diese Kanten sind, zusammen mit den Kanten von Quelle 2 zu den Winkeldreiecken, die einzigen in $\mathcal{N}_G$ die von beiden Flüssen genutzt werden. Wir können also $\varphi_2$ in $|\varphi_2|$ ganzzahlige Pfade aufteilen und jeden Pfad entweder $\varphi_e$ oder $\varphi_z$ zuweisen, je nachdem ob er über die Dummy-Senke führt, oder nicht. Insbesondere folgt mit der gleichen Argumentation:  
 
 \begin{itemize}
 \item [O1] Jede beliebige Kombination von $\varphi_s,\varphi_e$ und $\varphi_z$ zu zwei Flüssen, führt zu einem zu unserem Ansatz analogen Netzwerk $\mathcal{N}_G$, und eine zulässige ganzzahlige Lösung existiert entweder für alle, oder für keines.
@@ -32,33 +32,41 @@ Wenn wir zeigen können, dass die so erhaltenen $\phi$ Gute-FAAs sind, folgt Ver
 
 Nehmen wir an wir haben einen Graphen $G$ gefunden für den nur eine nicht ganzzahlige Lösung existiert. Sei $\tilde{\varphi}$ dieser nicht ganzzahlige zulässige Fluss auf $\mathcal{N}_G$, und $\phi$ ein wie in Lemma \ref{lem_faa} aus $\tilde{\varphi}$ konstruiertes FAA für $G$. Sei $\overline{\varphi_z}$ ein Zuweisungs-Fluss der dieses FAA auf $\mathcal{N}_G$ kodiert. Betrachte nun $\overline{\mathcal{N}_G}$, ein Teilnetzwerk von $\mathcal{N}_G$, aus welchem alle Kanten, die von $\overline{\varphi_z}$ genutzt werden gelöscht wurden. Wir wollen nun analysieren unter welchen Bedingungen eine ganzzahlige Lösung $(\varphi_s,\varphi_e)$ auf $\overline{\mathcal{N}_G}$ existiert.
 
-Nach der in O1 festgehaltenen Beobachtung können wir, wie in \cite{af15}, $\varphi_s$ und $\varphi_e$ zusammenfassen und als $\varphi_1$ betrachten. Nach Theorem \ref{theo_int_flow} impliziert eine nicht ganzzahlige auch eine ganzzahlige Lösung $\varphi_1=\varphi_s+\varphi_e$. Und eine solche Lösung ist nach \textit{Max-Flow Min-Cut} maximal, genau dann, wenn ein minimaler Schnitt mit der entsprechenden Kapazität existiert. Da keine ganzzahlige Lösung existiert, kann es also keinen minimalen Schnitt $\mathcal{S} \subset E_{\overline{\mathcal{N}_G}}$ in $\overline{\mathcal{N}_G}$, mit $c(\mathcal{S}) = |\tilde{\varphi_s}+\tilde{\varphi_e}| = |E_{in}| + 3|F_{in}|$, geben, da wir sonst zu einem Widerspruch gelangen.\\
-
-Bevor wir fortfahren wollen wir ein paar Kantentypen aus $\mathcal{N}_G$ benennen, und einige Beobachtungen zu ihnen festhalten.
+Nach der in O1 festgehaltenen Beobachtung können wir, wie in \cite{af15}, $\varphi_s$ und $\varphi_e$ zusammenfassen und mit $\varphi_1$ bezeichnen. Die Bevor wir fortfahren wollen wir ein paar Kantentypen aus $\mathcal{N}_G$ benennen.
 
 \begin{itemize}
 \item $E_\triangle = $ Die äusseren Kanten in den Winkeldreiecken.
-\item $E_\triangledown= $ Die inneren Kanten in den Winkeldreiecken.
+\item $P_* =$ Die Kanten von den Dummy-Knoten zur Dummy-Senke.
+\item $V_{*} = $ Die Kanten von den Winkeldreiecken zu den Dummy-Knoten.
+\item $E_{\to} = $ Die Kanten von Quelle 1 zu den Kanten-Knoten.
 \item $F_\square = $ Die Kanten von den kleinen Quadraten zu inneren Gebieten $f$.
-\item $V_{*} = $ Die Kanten von den Knoten-Knoten zu Senke 1.
-\item $E_{*} = $ Die Kanten von Quelle 1 zu den Kanten-Knoten.
+\item $V_{\to} = $ Die Kanten von den Knoten-Knoten zu Senke 1.
 \end{itemize}
 
-Wenn wir nur von den Kanten aus $E_\triangle$, die in $\overline{\mathcal{N}_G}$ übrig sind, sprechen, schreiben wir $\overline{E_\triangle}$. Für die, zu diesen korrespondierenden Kanten im inneren dieser Winkeldreiecke, schreiben wir $\overline{E_\triangledown}$. Sei $e_{d}$ die Kante von der Dummy-Senke zu Senke 2, dann sind sowohl $\mathcal{S}_1 = E_\triangle \cup E_{*}$, als auch $\mathcal{S}_2 = F_\square \cup V_{*} \cup \{e_{d}\}$ minimale Schnitte in $\mathcal{N}_G$.
+Sei $e_{d}$ die Kante von der Dummy-Senke zu Senke 2, dann sind sowohl $\mathcal{S}_1 = E_\triangle \cup E_{\to}$, als auch $\mathcal{S}_2 = F_\square \cup V_{\to} \cup \{e_{d}\}$ minimale Schnitte in $\mathcal{N}_G$.
 
-Sei $E_z$ die Menge der Kanten, die wir aus $\mathcal{N}_G$ entfernen. Dann folgt $|\mathcal{S}_1 \cap E_z| = |E_\triangle \cap E_z| = |\varphi_z|$ und $\overline{\mathcal{S}_1} = \mathcal{S}_1 \backslash E_z = \overline{E_\triangle} \cup E_*$ ist ein Schnitt in $\overline{\mathcal{N}_G}$. Für die Kapazität dieses Schnittes können wir folgern 
-$$ c(\overline{\mathcal{S}_1}) = c(\overline{E_\triangle}) + c(E_*) = c(E_\triangle) - |\varphi_z| + c(E_*) = 3|F_{in}| + |E_{in}|.$$
+\begin{lemma}
+Sei $\tilde{\varphi}$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$, dann existiert auch mindestens ein ganzzahliger zulässiger Fluss $\varphi$ auf $\mathcal{N}_G$ und somit auch eine SLTR von $G$.
+\end{lemma}
 
-Falls es sich hierbei um einen minimalen Schnitt handelt, dann würde dies bedeuten, dass eine ganzzahlige Lösung für $\overline{\mathcal{N}_G}$ existiert, mit deren Hilfe wir, zusammen mit $\varphi_z$, eine ganzzahlige zulässige Lösung für $\mathcal{N}_G$ konstruieren könnten, was wiederum ein Widerspruch zu unserer Annahme wäre. Es muss also einen kleineren Schnitt $\mathcal{S}_{min}$, mit $|\mathcal{S}_{min}| < |\overline{\mathcal{S}_1}|$, geben. Wir nehmen für die folgende Aussage  ohne Beschränkung der Allgemeinheit an, dass wir in einem Schnitt $\mathcal{S}_{min}$ Kanten aus $E_\triangle$ mit den korrespondierenden Kanten aus $E_\triangledown$ ersetzten können.
+\begin{proof}
+Sei $\tilde{\varphi}$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$ und seien $\overline{P}_*$ und $\overline{V}_*$ die nicht von $\tilde{\varphi}$, also genauer von $\tilde{\varphi}_z$, genutzten Kanten aus $P_*$ und $V_*$. Sei nun $\tilde{\mathcal{N}}_G \subseteq \mathcal{N}_G$ ein Netzwerk, bei dem alle Kanten $e \in \overline{P}_*\cup\overline{V}_*$ aus $\mathcal{N}_G$ gelöscht werden. $\tilde{\varphi}$ ist also weiterhin eine zulässige, nicht ganzzahlige Lösung für $\tilde{\mathcal{N}}_G$.
 
-\begin{claim}
+Betrachten wir für einen Moment das Netzwerk $\tilde{\mathcal{F}}_G$, welches entsteht, wenn wir die Quellen und Senken von $\tilde{\mathcal{N}}_G$ vereinen und nur einen Fluss zwischen der Super-Quelle $s$ und der Super-Senke $t$ betrachten. Dann sind $\mathcal{S}_1$ un $\mathcal{S}_2$ weiterhin minimale Schnitte in $\tilde{\mathcal{F}}_G$ und $\tilde{\psi} = \tilde{\varphi}_1+ \tilde{\varphi}_2$ ein zulässiger, nicht ganzzahliger Fluss auf $\tilde{\mathcal{F}}_G$. Nach Theorem \ref{theo_int_flow} existiert somit ein zulässiger und ganzzahliger $s$-$t$-Fluss $\psi$ mit $|\psi| = |\tilde{\psi}| = |\tilde{\varphi}|.$ Der Fluss $\psi$ saturiert, da $\mathcal{S}_2$ ein minimaler Schnitt ist, die Kante $e_d$ zwischen der Dummy-Senke und der Senke $t$ und wir können diesen Teil des Flusses $\psi_z$ in $\sum_{f \in F_{in}}(|f|-3)=n$ Pfade $\{p_1, ... ,p_n\} = P$ mit Flussstärke 1 aufteilen. Jeder dieser Pfade $p_i$ führt nun genau durch einen Knoten $v_i^*$ und einen zugehörigen Winkel $(f_i,v_i)$. Die Menge der genutzten Winkel $\phi$ kodiert nach Lemma \ref{lem_faa} ein FAA von $G$, da es sich um eine Teilmenge der von $\tilde{\varphi}_z$ genutzten Winkel handeln muss. Alle anderen, in $\mathcal{N}_G$ möglichen, Pfade zur Dummy-Senke durch die restlichen Winkel wurden, um $\tilde{\mathcal{F}}_G$ zu erhalten, durch die Entfernung von $\overline{P}_*$ und $\overline{V}_*$ getrennt und stehen für $\psi$ und somit für $\psi_z$ nicht zur Verfügung.
 
-Der minimale Schnitt $\mathcal{S}_{min}$ in $\mathcal{N}_G$ muss aus jeder der Mengen $\overline{E_\triangledown}, F_\square, V_*$ und $E_*$ mindestens eine, aber aus keiner der Mengen alle Kanten enthalten.
+Wir können $\psi$ in $\psi_z$ und $\psi_r$ aufteilen. $\psi_r$ ist, ebenso wie $\psi_z$, ganzzahlig. Da wir, um $\tilde{\mathcal{N}}_G$ zu erhalten, nur Kanten gelöscht haben, welche weder von $\psi_z$, noch von $\psi_r$ genutzt werden, bildet $\varphi_\psi = (\psi_r,\psi_z)$ einen ganzzahligen Zwei-Fluss auf $\tilde{\mathcal{N}}_G$ und somit auch auf $\mathcal{N}_G$. Für diesen Fluss gilt
+$$ |\varphi_\psi| = |\psi_r|+|\psi_z| = |\psi| = |\tilde{\varphi}|. $$
+Somit handelt es sich bei $\varphi_\psi$ um eine zulässige ganzzahlige Lösung auf $\mathcal{N}_G$ und nach Theorem \ref{theo_algo} existiert somit eine SLTR für $G$.
+\end{proof}
 
-\end{claim}
+Wir haben somit gezeigt, dass mindestens eine Auswahl der Winkel ein Gutes-FAA kodiert. Dies schließt den Beweis von Vermutung \ref{int_conj} fast ab. Der einzige Punkt, der zu zeigen bleibt ist, dass eine beliebige Auswahl der Winkel aus $W$ uns ein Gutes-FAA gibt.
 
-Angenommen  TODO
+\begin{lemma}\label{lem_min_cut}
+Sei $\mathcal{N}$ ein gerichtetes Netzwerk mit einer Quelle $s$ und einer Senke $t$. Sei $\mathcal{S}_{min}$ ein minimaler Kantenschnitt zwischen $s$ und $t$ und sei $\mathcal{T} \subseteq \mathcal{S}_{min}$. Dann ist $\tilde{\mathcal{S}}_{min} = \mathcal{S}_{min} \backslash \mathcal{T}$ ein minimaler Kantenschnitt zwischen $s$ und $t$ in $\tilde{\mathcal{N}} = \mathcal{N}\backslash \mathcal{T}$.
+\end{lemma}
 
+\begin{proof}
+Nehmen wir ohne Beschränkung der Allgemeinheit an, dass $\mathcal{N}$ nur Kanten mit Kapazität 1 enthält. Nach dem \textit{Max-Flow Min-Cut} Theorem existiert ein $s$-$t$-Fluss $\varphi$ mit $|\varphi| = c(\mathcal{S}_{min})$. Nach Theorem \ref{theo_int_flow} können wir annehmen, dass wir es sich um einen ganzzahligen Fluss handelt. Wir können diesen Fluss somit in Pfade (TODO) $p$ mit Flussstärke 1 aufteilen. Betrachten wir nun $\tilde{\mathcal{N}} = \mathcal{N} \backslash \mathcal{T}$, dann trennt die Entnahme von $\mathcal{T}$ genau $c(\mathcal{T})$ Pfade $p \in P$. Die restlichen Pfade, nennen wir sie $\tilde{p} \in \tilde{P}$, bleiben intakt. Somit existiert ein $s$-$t$-Fluss $\tilde{\varphi}$ mit $|\tilde{\varphi}| = c(\mathcal{S}_{min}) - c(\mathcal{T})$. $\tilde{\mathcal{S}}_{min} = \mathcal{S}_{min} \backslash \mathcal{T}$ muss somit ein minimaler Schnitt in $\tilde{\mathcal{N}}$ sein, da jedes $p \in \tilde{P}$ genau eine Kante aus $\tilde{\mathcal{S}}_{min}$ nutzt und die Entnahme dieser Kanten, nach Voraussetzung, $s$ und $t$ trennt.
+\end{proof}
 
-
-
+Betrachten wir für einen Moment das Netzwerk $\tilde{\mathcal{N}}_G$, welches entsteht, wenn wir die Quellen und Senken von $\mathcal{N}_G$ vereinen und nur einen Fluss zwischen der Super-Quelle $s$ und der Super-Senke $t$ betrachten. Dann ist $\mathcal{S}_1$ weiterhin ein minimaler Schnitt in $\tilde{\mathcal{N}}_G$. Es gilt $E_z \subseteq \mathcal{S}_1$ und somit folgt nach Lemma \ref{lem_min_cut}, dass 
