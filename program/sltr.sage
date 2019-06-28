@@ -700,25 +700,24 @@ def _get_good_faa_layout(graph,faa,suspensions = None):
 							n1 = face[0][(j-1)%l]
 							n2 = face[0][(j+1)%l]
 							faa_dict[node] = (n1,n2)
-							break	
-	print faa_dict		
-	G = copy(graph)
-	pos = _get_good_faa_layout_iteration(G,faa,faa_dict,0,suspensions,None)
+							break		
+	pos = _get_good_faa_layout_iteration(graph,faa,faa_dict,0,suspensions,None)
 	return pos
 
 def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights):
-	constant = 1
+	const = 1
 	V = G.vertices()
 	n = len(V)
 	count += 1
-	sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights)
+	sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
 	pos = {V[i]:sol[i] for i in range(n)}
 	G.set_pos(pos)
+	show(G)
 	weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count)
 	if weights != None:
 		M = weights-weights2
 		norm = M.norm()
-		if norm < constant or count == 50:
+		if norm < const or count == 5:
 			return pos
 	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2)	
 	
@@ -729,31 +728,73 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count):
 	n = len(V)
 	W = zero_matrix(RR,n,n)
 	pos = G.get_pos()
+	max_face = 0
+	min_face = oo
+	min_edge = oo
 
-	##weights for edges ##
-
-	# for edge in G.edges():
-	# 	q = _get_edge_length(edge,pos)
-	# 	q = q**2
-	#  	i0 = V.index(edge[0])
-	#  	i1 = V.index(edge[1])
-	# 	W[i0,i1] += q
-	#  	W[i1,i0] += q
-
-	##weights for inner faces ##	
-	for i in range(len(faa)):
+	##max\min face and edges##
+	for i in range(1,len(faa)):
 		nodes = faa[i][0]
 		face = [[nodes[0],nodes[len(nodes)-1]]]
 		for j in range(len(nodes)-1):
 			face.append([nodes[j],nodes[j+1]])
 		p = _get_face_area(face,pos)
-		p = p^(1/8)
+		if p > max_face:
+			max_face = p
+		if p > min_face:
+			min_face = p##weights fo
+	for edge in G.edges():
+		q = _get_edge_length(edge,pos)
+		if q < min_edge:
+			min_edge = q
+
+	## weight for edges
+	for edge in G.edges():
+		q = _get_edge_length(edge,pos)
+		q = q^2
+	 	i0 = V.index(edge[0])
+	 	i1 = V.index(edge[1])
+		W[i0,i1] += q
+	 	W[i1,i0] += q
+
+	##weights for inner faces ##	
+	for i in range(1,len(faa)):
+		nodes = faa[i][0]
+		face = [[nodes[0],nodes[len(nodes)-1]]]
+		for j in range(len(nodes)-1):
+			face.append([nodes[j],nodes[j+1]])
+		p = _get_face_area(face,pos)
+		p = (p/2)^2
 		for E in face:
 			i0 = V.index(E[0])
 			i1 = V.index(E[1])
 			W[i0,i1] += p
 			W[i1,i0] += p
-	
+
+	## weights for angles
+	# for i in range(1,len(faa)):
+	# 	nodes = faa[i][0]
+	# 	face = [[nodes[0],nodes[len(nodes)-1]]]
+	# 	for j in range(len(nodes)-1):
+	# 		face.append([nodes[j],nodes[j+1]])
+	# 	n = len(face)
+	# 	p = _get_face_area(face,pos)*n
+	# 	face = face+face+face
+	# 	for k in range(n,2*n):
+	# 		ab = vector([face[k-1][0]-face[k][0],face[k-1][1]-face[k][1]])
+	# 		ab = ab/norm(ab)
+	# 		bc = vector([face[k+1][0]-face[k][0],face[k+1][1]-face[k][1]])
+	# 		bc = bc/norm(bc)
+	# 		angle = arccos(ab[0]*bc[0]+ab[1]*bc[1])
+	# 		angle = (2*pi - angle)^2
+	# 		for l in range(2):
+	# 			E = face[k+l]
+	# 			i0 = V.index(E[0])
+	# 			i1 = V.index(E[1])
+	# 			W[i0,i1] += angle*p
+	# 			W[i1,i0] += angle*p
+
+
 # weights for assigned ##
 
 	# for v in V:
@@ -790,30 +831,84 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count):
 # 				W[i1,i2] += area^2
 # 				W[i2,i1] += area^2
 
-## weights for pseudo segments
+# weights for pseudo segments
+	for seg in _list_pseudo_segments(G,faa,faa_dict):
+		print "seg" , seg
+		L = _nodes_on_left_right(G,seg,pos)
+		left = seg[0]
+		right = seg[len(seg)-1]
+		max_left = 0
+		max_right = 0
+		for i in range(len(seg)):
+			v = seg[i]
+			for face in faa:
+				if v in face[0]:
+					A_face = _get_face_area_nodes(face[0],pos)
+					cut = [x for x in face[0] if x in L[0]]
+					if len(cut) > 0:
+						## left
+						if A_face > max_left:
+							max_left = A_face
+					cut = [x for x in face[0] if x in L[1]]
+					if len(cut) > 0:
+						## right
+						if A_face > max_right:
+							max_right = A_face
+		#for v in [seg[0],seg[len(seg)-1]]:
+		for v in seg:
+			i = V.index(v)
+			if max_left > max_right:
+				for w in L[0]:
+					j = V.index(w)
+					q = 1.0*max_left/max_face + 1.
+					W[i,j] *= q
+		 			W[j,i] *= q
+		 	if max_right > max_left:
+		 		for w in L[1]:
+					j = V.index(w)
+					q = (1.*max_right/max_face) + 1.
+					W[i,j] *= q
+		 			W[j,i] *= q
+	print W
 	return W
 
 
-def _nodes_on_left(G,segment):
+def _nodes_on_left_right(G,segment,pos):
 	V = copy(G.vertices())
 	pos = copy(G.get_pos())
 	v0 = segment[0]
 	v1 = segment[1]
 	i0 = V.index(v0)
 	i1 = V.index(v1)
-	x1 = pos[i0][0]
- 	y1 = pos[i0][1]
+	x0 = pos[i0][0]
+ 	y0 = pos[i0][1]
+ 	vec0 = vector([x0,y0])
  	x1 = pos[i1][0]
  	y1 = pos[i1][1]
  	x = x1-x0
  	y = y1-y0
-
+ 	norm = sqrt(x**2+y**2)
+ 	x = x/norm
+ 	y = y/norm
+ 	A = Matrix([[x,y],[-y,x]])
+ 	L = [[],[]]
+ 	for v in V:
+ 		if v not in segment:
+ 			i = V.index(v)
+ 			vec = A*(vector([pos[i][0],pos[i][1]])-vec0)
+ 			if vec[1] > 0:
+ 				L[1].append(v)
+ 			else:
+ 				L[0].append(v)
+ 	return L
 
 def _list_pseudo_segments(G,faa,faa_dict):
 	D = copy(faa_dict)
+	H = copy(G)
 	segments = []
 	while len(D) > 0:
 		(v,(e1,e2)) = D.popitem()
+		H.delete_edges([[v,e1],[v,e2]])
 		[d1,d2] = [v,v]
 		segment = [e1,v,e2]
 		while D.has_key(e1):
@@ -823,11 +918,13 @@ def _list_pseudo_segments(G,faa,faa_dict):
 				e1 = n1
 				segment = [e1] + segment
 				D.pop(d1)
+				H.delete_edge([e1,d1])
 			elif n2 != d1 and n1 == d1:
 				d1 = e1
 				e1 = n2
 				segment = [e1] + segment
 				D.pop(d1)
+				H.delete_edge([e1,d1])
 			else:
 				break
 		while D.has_key(e2):
@@ -837,72 +934,19 @@ def _list_pseudo_segments(G,faa,faa_dict):
 				e2 = n1
 				segment = segment + [e2]
 				D.pop(d2)
+				H.delete_edge([e2,d2])
 			elif n2 != d2 and n1 == d2:
 				d2 = e2
 				e2 = n2
 				segment = segment + [e2]
 				D.pop(d2)
+				H.delete_edge([e2,d2])
 			else:
 				break
 		segments.append(segment)
+	for e in H.edges():
+		segments.append([e[0],e[1]])
 	return segments
-
-
-def _segment(edge,face,faa):
-	[e1,e2] = [edge[0],edge[1]]
-	[d1,d2] = [e1,e2]
-	[b1,b2] = [True,True]
-	nodes=[e1,e2]
-	l = 1
-	node_face = []
-	for e in face:
-		node_face.append(e[0])
-	for [f,a] in faa:
-		if f == node_face:
-			n = len(f)
-			f = f+f+f
-			for i in range(n,2*n):
-				if f[i] == e1:
-					if f[i-1] == e2:
-						j1 = i
-						j2 = i-1
-						while b1:
-							if f[j1] in a:
-								j1 += 1
-								d1 = f[j1]
-								l += 1
-								nodes.append(d1)
-							else:
-								b1 = False
-						while b2:
-							if f[j2] in a:
-								j2 -= 1
-								d2 = f[j2]
-								l += 1
-								nodes.append(d2)
-							else:
-								b2 = False
-					else:
-						if f[i+1] == e2:
-							j1 = i
-							j2 = i+1
-							while b1:
-								if f[j1] in a:
-									j1 -= 1
-									d1 = f[j1]
-									l += 1
-									nodes.append(d1)
-								else:
-									b1 = False
-							while b2:
-								if f[j2] in a:
-									j2 += 1
-									d2 = f[j2]
-									l += 1
-									nodes.append(d2)
-								else:
-									b2 = False
-	return [d1,d2,l,nodes]
 	
 def _get_face_area(F,pos):
 	p = 0
@@ -914,6 +958,12 @@ def _get_face_area(F,pos):
 		p += x1*y2 - x2*y1
 	p = abs(p/2)
 	return p
+
+def _get_face_area_nodes(nodes,pos):
+	face = [[nodes[len(nodes)-1],nodes[0]]]
+	for j in range(len(nodes)-1):
+		face.append([nodes[j],nodes[j+1]])
+	return _get_face_area(face,pos)
 	
 def _get_edge_length(E,pos):
 	p0 = pos[E[0]]
@@ -923,17 +973,21 @@ def _get_edge_length(E,pos):
 	q = sqrt(l0+l1)
 	return q
 	
-def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
+def _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights=None):
 	
 	pos = dict()
 	V = G.vertices()
+	scale = 10
 	## set outer positions on triangle ##
 	a0 = pi/2
 	a1 = pi/2 + pi*2/3
 	a2 = pi/2 + pi*4/3
-	pos[suspensions[0]] = (100*cos(a0),100*sin(a0))
-	pos[suspensions[1]] = (100*cos(a1),100*sin(a1))
-	pos[suspensions[2]] = (100*cos(a2),100*sin(a2))
+	pos[suspensions[0]] = (scale*cos(a0),scale*sin(a0))
+	pos[suspensions[1]] = (scale*cos(a1),scale*sin(a1))
+	pos[suspensions[2]] = (scale*cos(a2),scale*sin(a2))
+	# pos[suspensions[0]] = (0,scale)
+	# pos[suspensions[1]] = (0,0)
+	# pos[suspensions[2]] = (scale,0)
 
 ## True gives flat triangle for pictures
 	flat_triangle = False
@@ -952,6 +1006,7 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 			b[i,1] = pos[v][1]
 		else:
 			if faa_dict.has_key(v):
+				## SLTR part
 				j1 = V.index(faa_dict[v][0])
 				j2 = V.index(faa_dict[v][1])
 				if weights != None :
@@ -963,6 +1018,18 @@ def _get_plotting_matrix_iteration(G,suspensions,faa_dict,weights=None):
 				M[i,j1] = -wn1
 				M[i,j2] = -wn2
 				M[i,i] = wn1 + wn2
+				## normal rubber part
+				# nv = G.neighbors(v)
+				# s = 0
+				# for u in nv:
+				# 	j = V.index(u)
+				# 	if weights != None :
+				# 		wu = weights[j,i]
+				# 	else:
+				# 		wu = 1
+				# 	s += wu
+				# 	M[i,j] += -wu
+				# M[i,i] += s
 			else:
 				nv = G.neighbors(v)
 				s = 0
