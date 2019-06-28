@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190527180651" modified="D:20190625104555"/>
+<info created="D:20190527180651" modified="D:20190625191943"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -254,64 +254,117 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 -8 0" transformations="translations" pos="96 672" stroke="black" type="label" width="50.726" height="9.962" depth="2.79" halign="center" valign="center" size="Large">Quelle 2</text>
-<text matrix="1 0 0 1 16 0" transformations="translations" pos="528 672" stroke="black" type="label" width="46.824" height="9.963" depth="0" halign="center" valign="center" size="Large">Senke 2</text>
-<text matrix="1 0 0 1 96 40" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 96 -48" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 32 56" transformations="translations" pos="384 656" stroke="black" type="label" width="9.767" height="6.863" depth="2.47" halign="center" valign="center" style="math">v^*_2</text>
-<path stroke="black" arrow="normal/normal">
-128 688 m
-176 712 l
+<text layer="alpha" matrix="1 0 0 1 16 0" transformations="translations" pos="208 672" stroke="black" type="label" width="49.239" height="15.477" depth="5.15" halign="center" valign="center" size="huge" style="math">(v,w)</text>
+<text matrix="1 0 0 1 -8 16" transformations="translations" pos="328 704" stroke="black" type="label" width="17.842" height="11.761" depth="3.35" halign="center" valign="center" size="LARGE" style="math">Q_i</text>
+<text matrix="1 0 0 1 -8 0" transformations="translations" pos="328 688" stroke="black" type="label" width="19.364" height="12.89" depth="6.58" halign="center" valign="center" size="LARGE" style="math">Q&apos;_j</text>
+<text matrix="1 0 0 1 -8 -16" transformations="translations" pos="328 672" stroke="black" type="label" width="8.767" height="7.412" depth="0" halign="center" valign="center" size="LARGE" style="math">v</text>
+<text matrix="1 0 0 1 -8 -32" transformations="translations" pos="328 656" stroke="black" type="label" width="12.513" height="7.412" depth="0" halign="center" valign="center" size="LARGE" style="math">w</text>
+<path stroke="black">
+192 688 m
+192 656 l
+256 656 l
+256 688 l
+h
+</path>
+<path stroke="black">
+308 732 m
+308 708 l
+332 708 l
+332 732 l
+h
+</path>
+<path stroke="black">
+308 700 m
+308 676 l
+332 676 l
+332 700 l
+h
+</path>
+<path stroke="black">
+308 668 m
+308 644 l
+332 644 l
+332 668 l
+h
+</path>
+<path stroke="black">
+308 636 m
+308 612 l
+332 612 l
+332 636 l
+h
+</path>
+<text matrix="1 0 0 1 8 0" transformations="translations" pos="400 704" stroke="black" type="label" width="56.343" height="12.915" depth="4.3" halign="center" valign="center" size="LARGE" style="math">|Q_i|-3</text>
+<text matrix="1 0 0 1 8 0" transformations="translations" pos="400 684" stroke="black" type="label" width="57.865" height="12.912" depth="6.58" halign="center" valign="center" size="LARGE" style="math">|Q&apos;_j|-3</text>
+<text matrix="1 0 0 1 8 4" transformations="translations" pos="400 656" stroke="black" type="label" width="75.157" height="12.896" depth="4.29" halign="center" valign="center" size="LARGE" style="math">deg(v)-3</text>
+<text matrix="1 0 0 1 4 8" transformations="translations" pos="404 632" stroke="black" type="label" width="78.903" height="12.896" depth="4.29" halign="center" valign="center" size="LARGE" style="math">deg(w)-3</text>
+<path stroke="black">
+332 720 m
+379.856 709.692 l
 </path>
 <path stroke="black" arrow="normal/normal">
-128 656 m
-176 632 l
+435.902 697.519 m
+479.617 688.066 l
 </path>
-<path matrix="1 0 0 1 144 0" stroke="black" arrow="normal/normal">
-208 632 m
-240 632 l
+<path stroke="black">
+381.778 685.279 m
+332.033 688.03 l
 </path>
-<path matrix="1 0 0 1 144 0" stroke="black" arrow="normal/normal">
-208 712 m
-240 712 l
+<path stroke="black" arrow="normal/normal">
+434.247 682.474 m
+479.545 680.005 l
 </path>
-<path matrix="1 0 0 1 144 0" stroke="black" arrow="normal/normal">
-304 712 m
-360 680 l
+<path stroke="black">
+332.054 655.954 m
+370.4 658.074 l
 </path>
-<path matrix="1 0 0 1 144 0" stroke="black" arrow="normal/normal">
-304 632 m
-360 664 l
+<path stroke="black" arrow="normal/normal">
+445.586 662.138 m
+479.665 663.975 l
 </path>
-<path stroke="black" pen="heavier">
-128 688 m
+<path stroke="black">
+332 624 m
+368.649 631.81 l
+</path>
+<path stroke="black" arrow="normal/normal">
+445.138 648.43 m
+480 656 l
+</path>
+<path stroke="black" arrow="normal/normal">
+256 684 m
+308 720 l
+</path>
+<path stroke="black" arrow="normal/normal">
+256 676 m
+308 688 l
+</path>
+<path stroke="black" arrow="normal/normal">
+256 668 m
+308 656 l
+</path>
+<path stroke="black" arrow="normal/normal">
+256 660 m
+308 624 l
+</path>
+<path stroke="black" arrow="normal/normal">
+160 672 m
+192 672 l
+</path>
+<path stroke="black">
+480 688 m
+480 656 l
+512 656 l
+512 688 l
+h
+</path>
+<path stroke="black">
+160 688 m
+160 656 l
 128 656 l
-48 656 l
-48 688 l
+128 688 l
 h
 </path>
-<path stroke="black" pen="heavier">
-504 688 m
-504 656 l
-584 656 l
-584 688 l
-h
-</path>
-<text matrix="1 0 0 1 96 24" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 96 8" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 96 -32" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 96 -64" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 96 -80" transformations="translations" pos="240 688" stroke="black" type="label" width="22.76" height="7.473" depth="2.49" halign="center" valign="center" style="math">(f,v)</text>
-<text matrix="1 0 0 1 144 20" transformations="translations" pos="192 664" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
-<text matrix="1 0 0 1 144 20" transformations="translations" pos="192 656" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
-<text matrix="1 0 0 1 144 20" transformations="translations" pos="192 648" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
-<text matrix="1 0 0 1 224 20" transformations="translations" pos="192 664" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
-<text matrix="1 0 0 1 224 20" transformations="translations" pos="192 656" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
-<text matrix="1 0 0 1 224 20" transformations="translations" pos="192 648" stroke="black" type="label" width="3.902" height="1.395" depth="0" halign="center" valign="center" size="Large">.</text>
-<text matrix="1 0 0 1 32 72" transformations="translations" pos="384 656" stroke="black" type="label" width="9.767" height="6.863" depth="2.47" halign="center" valign="center" style="math">v^*_1</text>
-<text matrix="1 0 0 1 32 40" transformations="translations" pos="384 656" stroke="black" type="label" width="9.767" height="6.863" depth="2.47" halign="center" valign="center" style="math">v^*_3</text>
-<text matrix="1 0 0 1 32 -16" transformations="translations" pos="384 656" stroke="black" type="label" halign="center" valign="center" style="math">v^*_3</text>
-<text matrix="1 0 0 1 32 -32" transformations="translations" pos="384 656" stroke="black" type="label" halign="center" valign="center" style="math">v^*_3</text>
-<text matrix="1 0 0 1 32 -48" transformations="translations" pos="384 656" stroke="black" type="label" halign="center" valign="center" style="math">v^*_3</text>
+<text matrix="1 0 0 1 -64 0" transformations="translations" pos="208 672" stroke="black" type="label" width="9.53" height="8.896" depth="0" halign="center" valign="center" size="huge" style="math">s</text>
+<text matrix="1 0 0 1 288 0" transformations="translations" pos="208 672" stroke="black" type="label" width="7.306" height="12.709" depth="0" halign="center" valign="center" size="huge" style="math">t</text>
 </page>
 </ipe>

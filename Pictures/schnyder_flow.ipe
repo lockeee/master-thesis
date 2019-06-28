@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190527180651" modified="D:20190527185002"/>
+<info created="D:20190527180651" modified="D:20190625173152"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -271,8 +271,8 @@ h
 </path>
 <text transformations="translations" pos="528 672" stroke="black" type="label" width="63.095" height="14.349" depth="0" halign="center" valign="center" size="huge">Senke 1</text>
 <text matrix="1 0 0 1 16 0" transformations="translations" pos="208 672" stroke="black" type="label" width="49.239" height="15.477" depth="5.15" halign="center" valign="center" size="huge" style="math">(v,w)</text>
-<text matrix="1 0 0 1 -8 16" transformations="translations" pos="328 704" stroke="black" type="label" width="17.22" height="12.887" depth="3.35" halign="center" valign="center" size="LARGE" style="math">f&apos;&apos;</text>
-<text matrix="1 0 0 1 -8 0" transformations="translations" pos="328 688" stroke="black" type="label" width="13.933" height="12.887" depth="3.35" halign="center" valign="center" size="LARGE" style="math">f&apos;</text>
+<text matrix="1 0 0 1 -8 16" transformations="translations" pos="328 704" stroke="black" type="label" width="17.842" height="11.761" depth="3.35" halign="center" valign="center" size="LARGE" style="math">Q_i</text>
+<text matrix="1 0 0 1 -8 0" transformations="translations" pos="328 688" stroke="black" type="label" width="19.364" height="12.89" depth="6.58" halign="center" valign="center" size="LARGE" style="math">Q&apos;_j</text>
 <text matrix="1 0 0 1 -8 -16" transformations="translations" pos="328 672" stroke="black" type="label" width="8.767" height="7.412" depth="0" halign="center" valign="center" size="LARGE" style="math">v</text>
 <text matrix="1 0 0 1 -8 -32" transformations="translations" pos="328 656" stroke="black" type="label" width="12.513" height="7.412" depth="0" halign="center" valign="center" size="LARGE" style="math">w</text>
 <path stroke="black" pen="fat">
@@ -310,8 +310,8 @@ h
 332 636 l
 h
 </path>
-<text matrix="1 0 0 1 8 0" transformations="translations" pos="400 704" stroke="black" type="label" width="55.721" height="12.915" depth="4.3" halign="center" valign="center" size="LARGE" style="math">|f&apos;&apos;|-3</text>
-<text matrix="1 0 0 1 8 0" transformations="translations" pos="400 684" stroke="black" type="label" width="52.433" height="12.915" depth="4.3" halign="center" valign="center" size="LARGE" style="math">|f&apos;|-3</text>
+<text matrix="1 0 0 1 8 0" transformations="translations" pos="400 704" stroke="black" type="label" width="56.343" height="12.915" depth="4.3" halign="center" valign="center" size="LARGE" style="math">|Q_i|-3</text>
+<text matrix="1 0 0 1 8 0" transformations="translations" pos="400 684" stroke="black" type="label" width="57.865" height="12.912" depth="6.58" halign="center" valign="center" size="LARGE" style="math">|Q&apos;_j|-3</text>
 <text matrix="1 0 0 1 8 4" transformations="translations" pos="400 656" stroke="black" type="label" width="75.157" height="12.896" depth="4.29" halign="center" valign="center" size="LARGE" style="math">deg(v)-3</text>
 <text matrix="1 0 0 1 4 8" transformations="translations" pos="404 632" stroke="black" type="label" width="78.903" height="12.896" depth="4.29" halign="center" valign="center" size="LARGE" style="math">deg(w)-3</text>
 <path stroke="black" pen="fat">

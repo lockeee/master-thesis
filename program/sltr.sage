@@ -102,7 +102,7 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None):
 	else:
 		non_int = False
 		for e in Flow2.edges():
-			if 0.0001 < e[2] < 0.999:
+			if 0.00001 < e[2] < 0.99999:
 				non_int = True
 			break
 		## interior vertices to assign ##

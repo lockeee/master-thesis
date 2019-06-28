@@ -33,3 +33,13 @@ Angenommen es existieren nur Gebiete in denen entweder alle oder keine Kanten au
   	\includegraphics[width=0.7\textwidth]{face_cut_example.png}
   	\caption{}
 \end{figure}
+
+
+
+\begin{proof}
+Da $\tilde{\varphi}$ ein zulässiger Fluss ist, muss $|\tilde{\varphi}_z| = \sum_{f \in F_{in}}(|f|-3)$ gelten. Seien $P_z$ die (nicht ganzzahligen) Pfade die zusammen $\tilde{\varphi}_z$ ergeben, dann gilt $|\tilde{\varphi}_z(p)| \in (0,1]$ für $p \in P_z$, wobei $|\tilde{\varphi}_z(p)|$ die Menge des Zuweisungsflusses entlang $p$ beschreibt. Es gilt $|P_z| \geq \sum_{f \in F_{in}}(|f|-3)$ und ebenso $|W| \geq \sum_{f \in F_{in}}(|f|-3)$.
+
+Sei $\phi$ die Menge der zugewiesenen Winkel $(f_{aus},v)$ im äusseren Gebiet. Betrachte ein inneres Gebiet $f$. Dann führen mindestens $|f|-3$ Pfade $p \in P$ durch $f$. Wähle nun $|f|-3$ dieser Pfade $\{p_1, \dotsc , p_{|f|-3}\} = P_f$ aus und füge die zugehörigen Winkel $\{(f,v_1), \dotsc , (f,v_{|f|-3})\} = W_f \subseteq W$, zu $\phi$ hinzu. Lösche nun alle Winkel $(f',v)\in \tilde{W}_f$ aus $W$ die Knoten $\{v_1, \dotsc , v_{|f|-3}\}$ enthalten und alle Pfade $\tilde{P}_f$ aus $P$ die durch ihre Dummy-Knoten $\{v^*_1, \dotsc , v^*_{|f|-3}\}$ laufen. Dann gilt $|\varphi_z(\tilde{P}_f)| \leq |f|-3$ und somit $|\varphi_z(P\backslash P_v)| \geq |\varphi_z(P)| - |f| + 3$. Für $W \backslash \tilde{W}_f$ folgt ebenfalls $|W \backslash \tilde{W}_f| \geq |\varphi_z(P)| - |f| + 3$, da an jedem anderen von $\varphi_z$ genutzten $v^*$ noch mindestens ein Winkel aus $W\backslash \tilde{W}_f$ liegt. 
+Es bleibt zu zeigen, dass für jedes andere Gebiet $f'$ mindestens $|f'|-3$ Winkel in $W\backslash \tilde{W}_f$ übrig sind. zwei Innere gebiete haben nur eine gemeinsame Kante und somit nur zwei gemeinsame Dummy-Knoten $v^*_1,v^*_2$.  
+Wir können diesen Schritt somit insgesamt $|F_{in}|$ mal durchführen und jeder Knoten ist nur in einem Winkel aus $\phi$ enthalten. Es folgt $|\phi| = \sum_{f \in F_{in}}(|f|-3) + |f_{aus}| - 3 = \sum_{f \in F}(|f|-3)$. Die so erhaltene Menge $\phi$ entspricht also einem FAA von $G$.
+\end{proof}
