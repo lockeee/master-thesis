@@ -1,7 +1,7 @@
 \section{Schnyder Woods}\label{sw}
-Schnyder Wälder, im weiteren \textit{Schnyder Woods}, wurden zuerst von Walter Schnyder zur Betrachtung der Ordnungs-Dimension planarer Graphen, als eine Färbung und Orientierung auf den inneren Kanten einer Triangulierung, betrachtet \cite{schnyder89}. In einem weiteren Resultat dienten sie zur Erlangung einer planaren Einbettung auf einem $(n-2)\times(n-2)$ Gitter \cite{schnyder90}. Im Folgenden wollen wir die Verallgemeinerung auf 3-zusammenhängende plane Graphen durch Felsner \cite{felsner01} und die zu ihnen in Bijektion stehenden Schnyder Labelings einführen und werden uns dabei an \cite{felsner04} orientieren.\
+Schnyder Wälder, im weiteren \textit{Schnyder Woods}, wurden zuerst von Walter Schnyder zur Betrachtung der Ordnungs-Dimension planarer Graphen, als eine Färbung und Orientierung auf den inneren Kanten einer Triangulierung, betrachtet \cite{schnyder89}. In einem weiteren Resultat dienten sie zur Erlangung einer planaren Einbettung auf einem $(n-2)\times(n-2)$ Gitter \cite{schnyder90}. Dieser Abschnitt führt die Verallgemeinerung auf 3-zusammenhängende plane Graphen durch Felsner \cite{felsner01} und die zu ihnen in Bijektion stehenden Schnyder Labelings ein und orientiert sich an \cite{felsner04}.\
 
-Für den Rest dieses Kapitels meinen wir mit $G$, wenn nicht weiter spezifiziert, einen 3-zusammenhängenden planen Graphen mit Aufhängungen $\{a_1,a_2,a_3\}$.
+Für den Rest dieses Kapitels sei $G$, wenn nicht weiter spezifiziert, ein 3-zusammenhängenden planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$.
 
 \begin{definition}[Schnyder Woods]
 Ein Schnyder Wood ist eine Orientierung und Beschriftung der Kanten von $G$ mit den Labeln 1, 2 und 3\footnote{Alternativ wird hier auch anschaulicher von rot, grün und blau als Platzhalter für 1, 2 und 3 gesprochen. Es wird davon ausgegangen, dass die Label zyklisch sortiert sind, sodass $i+1$ und $i-1$ immer definiert sind.}, unter Berücksichtigung der folgenden Regeln:
@@ -49,10 +49,11 @@ In Abbildung \ref{schnyder_bij} wird eine Verbindung zwischen Schnyder Woods und
 	\caption{Ein Schnyder Wood und das zugehörige Schnyder Labeling.}
 \end{figure}
 
-Als nächstes werden wir uns mit Resultaten im Bezug auf Einbettungen befassen und hier kurz, das \textit{face-counting} \cite{felsner01} erläutern. Betrachten wir $G$ zusammen mit einem Schnyder Wood $T_1,T_2,T_3$. Nach \cite[Korollar 2.5]{felsner04} handelt es sich bei den $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$. Von jedem Knoten $v$ aus existierten also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Die Pfade von $v$ zu den Aufhängungen treffen sich nach \cite[Lemma 2.4]{felsner04} nur in $v$. Somit können wir zu jedem Knoten $v$ die von den Pfaden $P_{i-i}(v)$ und $P_{i+1}(v)$ und dem äusseren Gebiet begrenzte Region $R_i$ betrachten. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich nun eine konvexe Zeichnung von $G$ erzeugen. \
+Es existieren einige Anwendungen von Schnyder Woods im Bezug auf Einbettungen. Eine ist das im Folgenden skizzierte \textit{face-counting} \cite{felsner01}. Betrachte $G$ mit einem Schnyder Wood $T_1,T_2,T_3$. Nach \cite[Korollar 2.5]{felsner04} handelt es sich bei den $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$. Von jedem Knoten $v$ aus existierten also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Die Pfade von $v$ zu den Aufhängungen treffen sich nach \cite[Lemma 2.4]{felsner04} nur in $v$. Somit können wir zu jedem Knoten $v$ die von den Pfaden $P_{i-i}(v)$ und $P_{i+1}(v)$ und dem äusseren Gebiet begrenzte Region $R_i$ betrachten. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich nun eine konvexe Zeichnung von $G$ erzeugen. \
 
 Hierzu ordnet man jedem Knoten $v$ seien Gebiets Vektor $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. Nun gilt für jeden Knoten $v_1+v_2+v_3 = |F|-1$. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äusseren Ecken unserer Zeichnung, dann erhalten wir die Position der inneren Knoten durch die Funktion 
 $$\mu:v\to v_1\alpha_1 + v_2\alpha_2+v_3\alpha_3.$$ 
+
 Nach \cite[Theorem 2.7]{felsner04} ist die mit diesen Koordinaten erzeugte Zeichnung planar und konvex und passt auf ein $(|F|-1)\times(|F|-1)$-Gitter. Sie hat noch eine weitere schöne Eigenschaft:
 
 \begin{itemize}

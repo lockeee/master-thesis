@@ -12,7 +12,7 @@ Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den 
 \end{itemize}
 \end{definition}
 
-Wir wollen hier noch ein paar bekannte Resultate für den Fall $n=1$ festhalten, die wir später nutzen werden.
+Es folgen zwei bekannte Resultate für den Fall $n=1$, die später Anwendung finden werden.
 
 \begin{theorem}[Max-Flow Min-Cut]
 $\varphi$ ist ein maximale Fluss in $\mathcal{N}$, genau dann, wenn für mindestens einen Schnitt $\mathcal{S} \subset E$ gilt $c(\mathcal{S}) = |\varphi|$. Die Kapazität eines minimalen Schnittes entspricht dem maximalen Fluss.
@@ -23,5 +23,5 @@ Sei $\mathcal{N}$ ein Netzwerk mit einer Quelle und einer Senke und alle Kapazit
 \end{theorem}
 
 \begin{remark}
-Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses also Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen, und diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für uns im Folgenden interessant wäre jedoch, wie wir sehen werden, der Fall $n=2$ für gerichtete Graphen. Leider ist hier im Allgemeinen die Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$.
+Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen. Diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für diese Arbeit wäre jedoch der Fall $n=2$ für gerichtete Graphen interessant. Leider ist hier im Allgemeinen die Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$.
 \end{remark}

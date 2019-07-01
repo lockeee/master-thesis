@@ -1,9 +1,9 @@
 \section{SLTRs durch harmonische Funktionen}\label{harmonic_approach}
 
-Wir werden die Beweise zu den in diesem Abschnitt aufgestellten Präpositionen und Theoremen übergehen. Der interessierte Leser sei, sofern nicht anders angegeben auf \cite{af13} verwiesen. Zum Einstieg formulieren wir eine weitere Definition um dann eine Beobachtung zu SLTRs festzuhalten.
+Die Beweise zu den in diesem Kapitel aufgestellten Präpositionen und Theoremen werden ausgelassen. Sie befinden sich, wenn nicht anders angegeben, in \cite{af13} . Zum Einstieg eine weitere Definition, die es ermöglicht eine Beobachtung zu SLTRs festzuhalten.
 
 \begin{definition}[Begrenzende Zykel und kombinatorisch konvexe Ecken]
-Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$ der H umrandende Weg in G, also die Kanten und Knoten des äusseren Gebiets von H, wobei hier Knoten und Kanten mehrfach vorkommen können. Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. $int(\gamma)$ sei die Menge aller Knoten, Kanten und Gebiete aus G die im inneren von $\gamma$ oder auf $\gamma$ liegen. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
+Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$, der H umrandende Weg in G. Bei $\gamma$ handelt es sich um die Kanten und Knoten des äusseren Gebiets von H. Knoten und Kanten können mehrfach vorkommen. Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. $int(\gamma)$ sei die Menge aller Knoten, Kanten und Gebiete aus G die im Inneren von $\gamma$ oder auf $\gamma$ liegen. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
 \begin{itemize}
 \item [E1] $v$ ist eine Aufhängung, oder
 \item [E2] $v$ ist nicht durch $\phi$ zugeordnet und es existiert eine Kante $e = (v,w)$ mit $e \notin int(\gamma)$, oder
@@ -28,7 +28,7 @@ Sei $G$ ein planer Graph der eine SLTR $\Gamma$ zulässt. Sei weiter $\phi$ das 
 
 \end{proposition}
 
-Proposition \ref{com_prop} liefert also eine notwendige Bedingung damit ein FAA von einer SLTR induziert sein kann. Dies ist sogar eine hinreichende Bedingung wie im Verlauf des Abschnittes in Theorem \ref{com_theo} gezeigt werden wird. Wir nennen ein FAA das E4 erfüllt im Weiteren \textit{Gutes-FAA} oder kurz \textit{GFAA}. Aerts und Felsner zeigen, dass ein Gutes-FAA eine \textit{Kontaktfamilie von Pseudosegmenten} induziert die \textit{dehnbar} ist und sich somit geradlinig darstellen lässt.
+Proposition \ref{com_prop} liefert also eine notwendige Bedingung damit ein FAA von einer SLTR induziert sein kann. Dies ist sogar eine hinreichende Bedingung, wie im Verlauf des Kapitels in Theorem \ref{com_theo} gezeigt wird. Wir nennen ein FAA, das E4 erfüllt, im Weiteren \textit{Gutes-FAA} oder kurz \textit{GFAA}. Aerts und Felsner zeigen, dass ein Gutes-FAA eine \textit{Kontaktfamilie von Pseudosegmenten} induziert die \textit{dehnbar} ist und sich somit geradlinig darstellen lässt.
 
 \begin{definition}[Kontaktfamilie von Pseudosegmenten]
 
@@ -36,7 +36,7 @@ Eine \textit{Kontaktfamilie von Pseudosegmenten} ist eine Familie $\Sigma = \{c_
 
 \end{definition}
 
-Ein GFAA $\phi$ liefert eine Relation $\rho$ auf den Kanten von G. Zwei Kanten $(v,w)$ und $(v,u)$, beide adjazent zu $f$, stehen genau dann in Relation, falls $\phi(v)=f$, wenn also $(v,w)$ und $(v,u)$ auf der selben Seite von $f$ in der SLTR liegen. Der transitive Abschluss dieser Relation liefert eine Äquivalenzrelation $\rho$. Die Aquivalenzklassen von $\rho$ bilden eine Kontaktfamilie von Pseudosegmenten. Nennen wir die Äquivalenzklassen von $\rho$ Kurven, dann gilt nach F2, dass jeder Knoten nur im inneren von einer Kurve liegt und sich die Kurven nicht kreuzen. Weiter hat jede Kurve unterschiedliche Anfangs- und Endpunkte und kann sich nicht selbst berühren, da dann der resultierende begrenzende Zykel $\gamma$ nur eine beziehungsweise zwei kombinatorisch konvexe Ecken hätte, was ein Widerspruch zu E4 wäre. Analog können zwei Kurven nicht ihre Anfangs- und Endpunkte teilen.\
+Ein GFAA $\phi$ liefert eine Relation $\rho$ auf den Kanten von G. Zwei Kanten $(v,w)$ und $(v,u)$, beide adjazent zu $f$, stehen genau dann in Relation, wenn $\phi(v)=f$. $(v,w)$ und $(v,u)$ müssen also auf der selben Seite  des Dreiecks $f$ in der SLTR liegen. Der transitive Abschluss dieser Relation liefert eine Äquivalenzrelation $\rho$. Die Aquivalenzklassen von $\rho$ bilden eine Kontaktfamilie von Pseudosegmenten. Nennen wir die Äquivalenzklassen von $\rho$ Kurven, dann gilt nach F2, dass jeder Knoten nur im Inneren von einer Kurve liegt und sich die Kurven nicht kreuzen. Weiter hat jede Kurve unterschiedliche Anfangs- und Endpunkte und kann sich nicht selbst berühren, da dann der resultierende begrenzende Zykel $\gamma$ nur eine beziehungsweise zwei kombinatorisch konvexe Ecken hätte, was ein Widerspruch zu E4 wäre. Analog können zwei Kurven nicht ihre Anfangs- und Endpunkte teilen.\
 Für eine von einem FAA $\phi$ induzierte Kontaktfamilie schreiben wir auch $\Sigma_{\phi}$.
 
 \begin{figure}[h]
@@ -51,7 +51,7 @@ Sei $\Sigma$ ein Kontaktfamilie von Pseudosegmenten und $S\subseteq\Sigma$. Wir 
 \item p ist ein Endpunkt eines Pseudosegmentes aus S.
 \item p liegt nicht im Inneren eines Pseudosegmentes aus S.
 \item p liegt am äusseren Rand von S.
-\item p ist entweder eine Aufhängung von G, oder berührt ein Pseudosegment, welches nicht zu S gehört.
+\item p ist entweder eine Aufhängung von G oder berührt ein Pseudosegment, welches nicht zu S gehört.
 \end{itemize} 
 \end{definition}
 
@@ -62,7 +62,7 @@ Sei $\phi$ ein Gutes-FAA auf einem planen und intern 3-zusammenhängenden Graphe
 \end{itemize}
 \end{lemma}
 
-Betrachten wir also einen planen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem GFAA $\phi$. Wenn wir die von $\phi$ induzierte Kontaktfamilie $\Sigma_{\phi}$ mit geradlinigen Segmenten darstellen können, dann haben wir eine zu $\phi$ passende SLTR für $G$ gefunden. Für den Fall, dass eine solche Darstellung $f:G\to\mathbb{R}^2$ existiert, können wir für die Koordinaten der Segmente und somit auch der Knoten $v$ von $G$, oder genauer für deren Positionen in der Einbettung $f(v)$, Gleichungen aufstellen, die diese erfüllen müssen. Das resultierende Gleichungssystem beinhaltet harmonische Funktionen, über die wir einen kurzen Überblick geben. 
+Betrachte einen planen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem GFAA $\phi$. Wenn die von $\phi$ induzierte Kontaktfamilie $\Sigma_{\phi}$ mit geradlinigen Segmenten darstellbar ist, dann ist diese Darstellung eine zu $\phi$ passende SLTR für $G$. Für den Fall, dass eine solche Darstellung $f:G\to\mathbb{R}^2$ existiert, können für die Koordinaten der Segmente und somit auch der Knoten $v$ von $G$ Gleichungen aufgestellt werden. Die Positionen der Knoten $v$ in der Einbettung $f(v)$ müssen diese Gleichungen erfüllen. Das resultierende Gleichungssystem beinhaltet harmonische Funktionen. Zu diesen folgt ein kurzer Überblick.
 
 \subsection{Harmonische Funktionen auf planaren Graphen}
 
@@ -75,20 +75,20 @@ Sei $G=(V,E)$ ein planarer zusammenhängender Graph und $S \subseteq V$. Eine Fu
 $$ \text{H1} \quad \frac{1}{deg(v)} \sum_{u \in N(v)}(g(u) - g(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad\quad\:\,\:$$
 Wir können H1 durch das hinzufügen einer nichtnegativen Gewichtsfunktion $\lambda:E\to\mathbb{R}_+$ verallgemeinern. Es gilt $\lambda((v,w)) = \lambda_{vw}$.
 $$ \text{H2}\quad\frac{1}{deg(v)} \sum_{u \in N(v)}\lambda_{uv}(g(u) - g(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad$$
-Ein Knoten für den $g$ nicht harmonisch ist nennt man \textit{Pol}.
+Ein Knoten für den $g$ nicht harmonisch ist, nennt man \textit{Pol}.
 \end{definition}
 
 \begin{theorem}\cite[Theorem 3.1.2]{lov99}\label{harmonic_uni}
 Für jede nichtleere Teilmenge $S \subseteq V$ und jede Funktion $g_S:S\to\mathbb{R}$ existiert genau eine Funktion $g:V\to\mathbb{R}$, die $f_S$ auf $V$ fortsetzt, sodass $g$ in jedem Knoten $v\in V \backslash S$ harmonisch ist. Wir nennen sie die \textup{harmonische Fortsetzung}.
 \end{theorem}
 
-Ein bekanntes Resultat, dass sich in Form harmonischer Funktionen darstellen lässt, ist Tuttes \textit{rubber-band-representation} aus \cite{tutte63}, die konvexe Zeichnungen für planare Graphen liefert. Man stelle sich einen planaren Graphen vor bei dem jede Kante durch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Nun wählen wir ein äusseres Gebiet und fixieren die dieses Gebiet umrandenden Knoten $S\subseteq V$ in zyklischer Reihenfolge und in gleichen Abständen auf einem Kreis. Dies gibt uns $f_S:S \to \mathbb{R}^2$. Das resultierende Gleichgewicht auf den restlichen Knoten, dass genau dann entsteht, wenn H1 erfüllt ist, entspricht der harmonischen Fortsetzung von $f_S$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Wir können die Kanten zusätzlich noch mit nicht negativen Gewichten $\lambda_{vw}$ versehen um die Einbettung zu verändern. Das folgende Theorem ist das Hauptresultat aus \cite{tutte63}.
+Ein bekanntes Resultat, dass sich in Form harmonischer Funktionen darstellen lässt, ist Tuttes \textit{rubber-band-representation} aus \cite{tutte63}, die konvexe Zeichnungen für planare Graphen liefert. Man stelle sich einen planaren Graphen vor, bei dem jede Kante durch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Wähle nun ein äusseres Gebiet und fixiere die Knoten $S\subseteq V$, die in an diesem Gebiet liegen, in zyklischer Reihenfolge und in gleichen Abständen auf einem Kreis in der Ebene. Dies definiert $f_S:S \to \mathbb{R}^2$. Die restlichen Knoten werden nun von den Bändern in eine neue Position gezogen. Das resultierende Gleichgewicht, das genau dann entsteht, wenn H1 erfüllt ist, entspricht der harmonischen Fortsetzung von $f_S$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Wir können die Kanten zusätzlich noch mit nicht negativen Gewichten $\lambda_{vw}$, versehen um die Einbettung zu verändern. Das folgende Theorem ist das Hauptresultat aus \cite{tutte63}.
 
 \begin{theorem}\label{theo_rubber}
 Sei $G$ ein planarer Graph, dann ist eine \textit{Gummiband-Representation (rubber-band-representation)} von $G$ eine planare Einbettung in der Ebene.
 \end{theorem}
 
-Kommen wir nun zurück zu unserer Problemstellung. Nehmen wir für den Moment an, dass wir eine Darstellung gefunden haben. Wir haben also eine geradlinige Einbettung $f$ der von $\phi$ induzierten Segmente. Dann gilt für jeden Knoten $v$ im inneren eines Segmentes, also für jeden zugewiesenen Knoten, dass er auf einer Gerade zwischen seinen beiden benachbarten Knoten $u,w$ auf dem Segment liegen muss. Diese Eigenschaft liefert
+Die Theorie zu harmonischen Funktionen lässt sich auf SLTRs anwenden. Nehme für den Moment an, dass es existiert eine geradlinige Darstellung der Pseudosegmente. Wir haben also eine geradlinige Einbettung $f$ der von $\phi$ induzierten Segmente. Dann gilt für jeden Knoten $v$ im Inneren eines Segmentes, also für jeden zugewiesenen Knoten, dass er auf einer Gerade zwischen seinen beiden benachbarten Knoten $u,w$ auf dem Segment liegen muss. Diese Eigenschaft liefert
 \begin{equation}\label{harm_1}
 f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).
 \end{equation}
@@ -105,8 +105,8 @@ Sei $G$ ein intern 3-zusammenhängender, planarer Graph und $\Sigma$ eine Famili
 \end{theorem}
 
 \begin{remark}
-Dies bedeutet, dass die weiter oben in Lemma \ref{lemma_af13} festgehaltene notwendige Bedingung auch eine hinreichende ist. Falls wir schon ein Gutes-FAA gefunden haben, dann können wir mit Hilfe des obrigen Ansatzes auch eine Einbettung in der Ebene erhalten, jedoch gibt es Graphen mit polynominell vielen FAA und es dauert polynominell lange um E4 zu überprüfen. Wir erlangen also auf diesem Weg keinen Algorithmus in $\mathcal{P}$.\\
-Aerts und Felsner werfen am Ende des Papers die Frage nach einer \textit{guten} Wahl von $\lambda$ auf, und wie dies die resultierenden Einbettungen beeinflussen kann. Mit diesem Thema, wollen wir uns am Ende des nächsten Kapitels kurz beschäftigen.
+Dies bedeutet, dass die weiter oben in Lemma \ref{lemma_af13} festgehaltene notwendige Bedingung auch eine hinreichende ist. Falls wir schon ein Gutes-FAA gefunden haben, dann können wir mit Hilfe des obrigen Ansatzes auch eine Einbettung in der Ebene erhalten. Jedoch gibt es Graphen mit polynominell vielen FAA und es dauert polynominell lange, um E4 zu überprüfen. Wir erreichen also auf diesem Weg keinen Algorithmus in $\mathcal{P}$.\\
+Aerts und Felsner werfen am Ende des Papers die Frage nach einer \textit{guten} Wahl von $\lambda$ auf und wie dies die resultierenden Einbettungen beeinflussen kann. Dieses Thema wir in Kapitel \ref{the_program} angegangen.
 \end{remark}
 
 

@@ -1,14 +1,14 @@
 \chapter{Hauptteil}
 
-Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon ein SLTR für $G$ gefunden haben, dann hat jeder Knoten $v$ in maximal einem inzidenten Gebiet $f$ einen flachen Winkel, den wir mit $(f,v)$ bezeichnen, und liegt auf einer Geraden. Jedes Gebiet $f$ hat genau drei Ecken, also $|f|-3$ flache Winkel. Dies liefert im Umkehrschluss eine notwendige Bedingung für die Existent einer SLTR, indem wir einen Teil der inneren Knoten den Gebieten zuordnen.
+Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon ein SLTR für $G$ gefunden haben, dann hat jeder Knoten $v$ in maximal einem inzidenten Gebiet $f$ einen flachen Winkel, den wir mit $(f,v)$ bezeichnen, und liegt auf einer Geraden. Jedes Gebiet $f$ hat genau drei Ecken, also $|f|-3$ flache Winkel. Dies liefert im Umkehrschluss eine notwendige Bedingung für die Existent einer SLTR. Diese ist in der nächsten Definition festgehalten.
 
 \begin{definition}[FAA]\label{def_faa}
-Sei $G=(V,E,F)$ ein planer Graph, dann ist eine Flache Winkel Zuordnung, im weiteren (nach dem englischen \textit{flat-angle-assignment}) mit FAA bezeichnet, ein Matching zwischen Knoten und Gebieten, sodass:
+Sei $G=(V,E,F)$ ein planer Graph. Eine Flache Winkel Zuordnung, im weiteren (nach dem englischen \textit{flat-angle-assignment}) mit FAA bezeichnet, ein Matching zwischen Knoten und Gebieten. Es muss gelten:
 \begin{itemize}
 \item [F1] Jedem Gebiet $f$ sind genau $|f|-3$ Knoten zugeordnet.
 \item [F2] Jeder Knoten $v$ ist höchstens einem Gebiet zugeordnet.
 \end{itemize}
-Für den Fall, dass Aufhängungen gegeben sind fordern wir zusätzlich:
+Für den Fall, dass Aufhängungen gegeben sind, fordern wir zusätzlich:
 \begin{itemize}
 \item [F3] Die inzidenten Knoten des äusseren Gebietes, die keine Aufhängungen sind, müssen dem äusseren Gebiet zugeordnet werden.
 \end{itemize}
@@ -21,7 +21,7 @@ Für den Fall, dass Aufhängungen gegeben sind fordern wir zusätzlich:
 
 \end{definition}
 
-Ein planer Graph kann also nur dann eine SLTR besitzen, falls mindestens ein FAA existiert, jedoch liefert nicht jedes FAA sofort eine SLTR. Um hinreichende Bedingungen für SLTRs zu erhalten werden wir uns in den nächsten beiden Abschnitten mit zwei Ansätzen nach Aerts und Felsner beschäftigen. Der erste Ansatz aus \cite{af13} liefert ein System aus harmonischen Gleichungen dessen Lösung eine SLTR liefert. In Teilen darauf basierend, stellt der zweite Ansatz aus \cite{af15} einen Zusammenhang zwischen Schnyder Woods und FAAs her und die Existenz passender Paare impliziert wieder die Existenz von SLTRs.
+Ein planer Graph kann also nur dann eine SLTR besitzen, wenn mindestens ein FAA existiert. Jedoch liefert nicht jedes FAA sofort eine SLTR. Um hinreichende Bedingungen für SLTRs zu erhalten, werden sich die nächsten beiden Abschnitten mit zwei Ansätzen nach Aerts und Felsner beschäftigen. Der erste Ansatz aus \cite{af13} liefert ein System aus harmonischen Gleichungen aus dessen Lösung eine SLTR folgt. In Teilen darauf basierend, stellt der zweite Ansatz aus \cite{af15} einen Zusammenhang zwischen Schnyder Woods und FAAs her und die Existenz passender Paare impliziert wieder die Existenz von SLTRs.
 
 \input{harmonic_functions.tex}
 \input{corner_compatible_pairs.tex}

@@ -12,12 +12,12 @@ Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, z
 
 \section{Visualisierung}
 
-Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ erhalten. Es um eine SLTR zu erhalten müssen wir eine zu $\phi$ passende Einbettung von $G$ finden.  Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz nutzen um eine SLTR von $G$ zu erhalten.
+Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR, müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz nutzen, um eine SLTR von $G$ zu erhalten.
 
-Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$, ähnlich der Gummibad-Repräsentation, berechnen die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden Gleichungen für zugewiesene (oben) und nicht zugewiesene (unten) Knoten.
+Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummibad-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden Gleichungen für zugewiesene (oben) und nicht zugewiesene (unten) Knoten.
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1) $$
 $$ f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0 $$
-Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden können wir diese Gleichungen, nach der Ergänzung von Gleichungen für die Aufhängungen, in Matrixschreibweise zusammenfassen.
+Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können wir diese Gleichungen nach der Ergänzung um Gleichungen für die Aufhängungen in einer Matrix zusammenfassen.
 \[ M_{\lambda}(\vec{v_x},\vec{v_y}) = \big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big) \text{, mit } (M_{\lambda})_{vw} =
 	\begin{dcases}
 	-\lambda_{vw} & \text{falls } (v,w) \in E, \\
@@ -25,7 +25,7 @@ Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden können 
 	0 & \text{sonst.} \\
 	\end{dcases}
 \]
-Wenn wir nun die Pseudo-Inverse (TODO) berechnen erhalten wir die Lösung
+Wenn wir nun die Pseudo-Inverse (TODO) berechnen, erhalten wir die Lösung
 $$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big).$$
 Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen.\\
 
@@ -40,10 +40,10 @@ TODO
 
 \section{Statistische Betrachtung}
 
-Für eine statistische Betrachtung der Häufigkeit von Graphen mit SLTRs haben wir den Algorithmus für pseudo-zufällige Graphen laufen lassen. Hier wäre eine gleichmäßige Wahl von 3-zusammenhängenden Graphen besser. Ein uniformer Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy07} erstellen, da hier, als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen, auch 3-zusammenhängende planare Graphen erzeugt werden, und dies ebenfalls mit bleichverteilter Wahrscheinlichkeit. Die Implementierung ist jedoch, Aufgrund der Auswertung von Erzeugendenfunktionen, nicht trivial und wir haben uns somit auf pseudo-zufällig erzeugte Graphen beschränkt. \\
+Für eine statistische Betrachtung der Häufigkeit von Graphen mit SLTRs wurde das Programm auf pseudo-zufällige Graphen laufen lassen. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen unter Umständen andere Ergebnisse liefern. Ein uniformer Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy07} erstellen. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen, nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. \\
 
-In Abbildung \ref{table} sind die Ergebnisse für Graphen von vier bis TODO Knoten dargestellt, mit jeweils TODO Graphen für jede Knotenzahl. Wir übergeben dem Programm einen Graphen mit Aufhängungen $\{a_1.,a_2,a_3\}$, was im falle 3-zusammenhängender planer Graphen mit mehr als drei Knoten ein äusseres Gebiet induziert. Ein Punkt in der Abbildung entspricht einem Graphen und die Farben stehen für ein SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün).
+In Abbildung \ref{table} sind die Ergebnisse für Graphen von vier bis TODO Knoten dargestellt, mit jeweils TODO Graphen für jede Knotenzahl. Wir übergeben dem Programm einen Graphen mit Aufhängungen $\{a_1.,a_2,a_3\}$, was im Falle 3-zusammenhängender planer Graphen mit mehr als drei Knoten ein äusseres Gebiet induziert. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
 
 \input{table.tex}
 
-
+TODO
