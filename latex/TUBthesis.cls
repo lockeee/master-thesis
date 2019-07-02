@@ -110,6 +110,7 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \newtheorem{conjecture}{Vermutung}
 \theoremstyle{dotless_theorem}%
 \newtheorem{observation}{Beobachtung}
+\newtheorem*{invariant}{Invariante}
 }%
 
 %
