@@ -109,7 +109,7 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \theoremstyle{dotless_theorem}%
 \newtheorem{conjecture}{Vermutung}
 \theoremstyle{dotless_theorem}%
-\newtheorem{oberservation}{Beobachtung}
+\newtheorem{observation}{Beobachtung}
 }%
 
 %
