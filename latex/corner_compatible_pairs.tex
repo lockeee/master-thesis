@@ -12,7 +12,8 @@ Ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\ph
 
 Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem SLTR (mindestens ein) Ecken kompatibles Paar existiert und das anders herum jedes Ecken kompatible Paar eine SLTR induziert.
 
-\begin{theorem}\label{theo_ccc}
+\begin{theorem}
+\label{theo_ccc}
 Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt eine SLTR, genau dann wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{theorem}
 
@@ -233,31 +234,44 @@ Da $G'$ die gleiche Anzahl an Knoten und weniger Kanten als $G$ kann er kein Geg
 
 Das Schnyder Labeling $\sigma'$ ist eindeutig für Gebiete (TODO) mit $a_1$ oder $a_2$ als Ecken und einer geflippten Kante auf dem Rand (siehe Abbildung \ref{pic_lem6_3}, b)). In einem ersten Schritt müssen wir $(a_2,p_k)$ wieder einfügen und $\sigma'$ eindeutig erweitern (wie in Abbildung \ref{pic_lem6_3} b) zu sehen).
 
-Die Flips wurden entlang $q,p_1,\ldots,p_k$ durchgeführt und nach unserer Annahme haben die Knoten $p_1,\ldots,p_{k-1}$ von $\phi'$ zugewiesene Winkel in $G'$. Sei $p_0$=$q$. Zwei Knoten $p_{i-1}$ und $p_i$, mit $i \in \{1,\ldots,k\}$ in dieser Folge sind nicht zwangsläufig Nachbarn, aber sie sind die Ecken des (dreieckigen) Gebietes $a_2,p_{i-1},p_{i}$ und alle Knoten auf dem Rand zwischen $p_{i-1}$ und $p_{i}$ sind diesem Gebiet zugewiesen (siehe Abbildung \ref{pic_lem6_4}, a)). Wir führen nun Schritt für Schritt, beginnend mit $i=k$, einen \textit{rückwärts flip} durch. Hierfür entfernen wir die Kante $(p_{i},a_2)$ wieder und setzen die Kante $(p_{i},a_1)$ wieder ein. Merke, dass $p_{i}$ vor dem Schritt $i$ einen zusätzlichen Nachbarn in $G_{i}$ (im Verhältnis zu $G$) hat und somit gilt $deg(p_{i}) \geq 4$, weil $G$ intern-3-zusammenhängend ist. Sei $\alpha_{i}$ der gegen den Uhrzeigersinn auf die Kante zu $a_1$ folgende Winkel und $\beta_{i}$ der im Uhrzeigersinn auf die Kante zu $p_{i-1}$ folgende Winkel (jeweils an $p_{i}$). Dann sind diese Winkel, wegen $deg(p_i) \geq 4$, nicht gleich. Bei jedem Schritt wird die folgende Invariante eingehalten.
+Die Flips wurden entlang $q,p_1,\ldots,p_k$ durchgeführt und nach unserer Annahme haben die Knoten $p_1,\ldots,p_{k-1}$ von $\phi'$ zugewiesene Winkel in $G'$. Sei $p_0$=$q$. Zwei Knoten $p_{i-1}$ und $p_i$, mit $i \in \{1,\ldots,k\}$ in dieser Folge sind nicht zwangsläufig Nachbarn, aber sie sind die Ecken des (dreieckigen) Gebietes $a_2,p_{i-1},p_{i}$ und alle Knoten auf dem Rand zwischen $p_{i-1}$ und $p_{i}$ sind diesem Gebiet zugewiesen (siehe Abbildung \ref{pic_lem6_4}, a)). Wir führen nun Schritt für Schritt, beginnend mit $i=k$, einen \textit{rückwärts flip} durch. Hierfür entfernen wir die Kante $(p_{i},a_2)$ wieder und setzen die Kante $(p_{i},a_1)$ wieder ein. Merke, dass $p_{i}$ vor dem Schritt $i$ einen zusätzlichen Nachbarn in $G_{i}$ (im Verhältnis zu $G$) hat und somit gilt $deg(p_{i}) \geq 4$, weil $G$ intern-3-zusammenhängend ist. Sei $\alpha_{i}$ der gegen den Uhrzeigersinn auf die Kante zu $a_1$ folgende Winkel und $\beta_{i}$ der im Uhrzeigersinn auf die Kante zu $p_{i-1}$ folgende Winkel (jeweils an $p_{i}$). Dann handelt es sich bei diesen Winkeln, wegen $deg(p_i) \geq 4$, nicht um den Selben. Bei jedem Schritt wird die folgende Invariante eingehalten.
 
 \begin{invariant}
-Im Schritt $i$ hat der Knoten $p_i$ die Label 2,3,1,1 im Uhrzeigersinn beginnend mit den Winkel $\alpha_i$ und Enden mit $\beta_i$ (siehe Abbildung \ref{pic_lem6_4}, a)). Zusätzlich bilden das Schnyder Labeling $\sigma'_k$ und das FAA $\phi'_k$ ein Ecken kompatibles Paar auf $G'_i$.
+Vor dem Schritt $i$ hat der Knoten $p_i$ die Label 2,3,1,1 im Uhrzeigersinn beginnend mit den Winkel $\alpha_i$ und Enden mit $\beta_i$ (siehe Abbildung \ref{pic_lem6_4}, a)). Zusätzlich bilden das Schnyder Labeling $\sigma'_i$ und das FAA $\phi'_i$ ein Ecken kompatibles Paar auf $G'_i$.
 \end{invariant}
 
-Beginnen wir mit $G'$. Hier sind die in Abbildung \ref{pic_lem6_3} b) gewählten Label der Winkel um $p_k$ die einzig mögliche Kombination. Genauso verhält es sich nach dem Einfügen der Kante $(a_2,p_k)$. Wir erhalten $G'_{k}, \sigma'_{k}$ und $\phi'_{k}$, wobei $\sigma'_{k}$ und $\phi'_{k}$ ein Ecken kompatibles Paar bilden. Somit gilt die Invariante vor dem ersten Schritt $i=k$.
+Beginnen wir mit $G'$. Hier sind die in Abbildung \ref{pic_lem6_3} b) gewählten Label der Winkel um $p_k$ die einzig mögliche Kombination. Genauso verhält es sich nach dem Einfügen der Kante $(a_2,p_k)$. Wir erhalten den Graphen $G'_{k}, das Schnyder Labeling \sigma'_{k}$ und das FAA $\phi'_{k}$, wobei $\sigma'_{k}$ und $\phi'_{k}$ ein Ecken kompatibles Paar bilden. Somit gilt die Invariante vor dem ersten Schritt.
 
-In Schritt $i$ entfernen wir die Kante $(a_2,p_i)$ und fügen die Kante $(a_1,p_{i-1})$ wieder in den Graphen ein. Vor dem \textit{rückwärts flip}, erfüllen die Label um $p_i$ die Invariante und $\sigma'_{i}$ und $\phi'_{i}$ sind ein Ecken kompatibles Paar. Die Winkel an $p_{i-1}$ links und rechts der Kante zu $p_i$ haben die Label 2 und 3 (siehe Abbildung \ref{pic_lem6_4}, b)). Der Winkel zwischen $p_i$ und $a_2$ kann nur Label zwei haben, da er an einer Kante zu $a_2$ liegt. Der andere Winkel muss Label 2 haben, da er entweder an einer Kante mit zwei 3ern auf der anderen Seite liegt (vergleiche Abbildung \ref{pic_lem6_4}, a)) oder die Kante $(p_i,p_{i-1})$ existiert mit zwei 1en an $p_i$ (vergleiche Abbildung \ref{pic_lem6_4} Mitte). Das zugrunde liegende Argument findet sich jeweils in Lemma TODO
+Die Invariante gelte vor Schritt $i$. In Schritt $i$ entfernen wir die Kante $(a_2,p_i)$ und fügen die Kante $(a_1,p_{i-1})$ wieder in den Graphen ein. Vor dem \textit{rückwärts flip}, erfüllen die Label um $p_i$ die Invariante und $\sigma'_{i}$ und $\phi'_{i}$ sind ein Ecken kompatibles Paar. Die folgende Argumentation basiert auf Lemma \ref{lem_sl} -- die Kanten Regel besagt, dass alle drei Label im Uhrzeigersinn an jeder Kante vorkommen -- und der Ecken Kompatibilität von $(\sigma'_{i},\phi'_{i})$. Die Winkel an $p_{i-1}$ links und rechts der Kante zu $p_i$ haben die Label 2 und 3 (siehe Abbildung \ref{pic_lem6_4}, b)). Der Winkel zwischen $p_i$ und $a_2$ kann nur Label 3 haben, da er an einer Kante zu $a_2$ liegt, an deren anderem Ende somit nur Label 2 vorkommt. Der andere Winkel muss Label 2 haben, da er entweder an einer Kante mit zwei 3ern auf der anderen Seite liegt (vergleiche Abbildung \ref{pic_lem6_4}, a)) oder er an der Kante $(p_i,p_{i-1})$ liegt, nur mir Label 1 an $p_i$ (vergleiche Abbildung \ref{pic_lem6_4} Mitte). 
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	  \includegraphics[width=0.9\textwidth]{lem6_4.png}
     	\caption{a) Schnyder Labeling zwischen $p_{i-1}$ und $p_{i}$. b) Änderung des Labelings beim rückwärts Flippen.}
     	\label{pic_lem6_4}
 \end{figure}
 
+Führen wir den \textit{rückwärts flip} durch. Wir löschen also die Kante $(a_2,p_i)$ und fügen die Kante $(a_1,p_{i-1})$ ein, wie in Abbildung \ref{pic_lem6_4} b). Für fast alle Winkel folgt die Wahl des Labels eindeutig, da $\sigma'_{i-1}$ ein Schnyder Labeling sein muss. Um die Invariante zu erfüllen müssen wir zeigen, dass wir dem mit ? markierte Winkel Label 1 geben können. Wenn er diese Label schon vor dem Schritt hatte ändert sich nichts und wir sind fertig. Angenommen er hatte nicht Label 1. Da es sich um ein Schnyder Labeling handelt ist die einzig andere Möglichkeit Label 2. Es muss sich bei diesem Winkel, um den an $p_{i-1}$ zugewiesenen handeln. Dies folgt aus der Ecken Kompatibilität, da ein zugewiesener Winkel und seine beiden Nachbarn um einen Knoten nicht alle die gleichen Label haben können. Sonst kommt es, wie in Abbildung \ref{pic_lem6_5} a), zu einem Widerspruch, weil alle weiteren Winkel an $p_{i-1}$ Label 2 haben und so ein Gebiet keine Ecke mit diesem Label hätte.
 
+\begin{figure}[h]
+	\centering
+	  \includegraphics[width=0.8\textwidth]{lem6_5.png}
+    	\caption{a) Das Gebiet links kann keine Ecke mit Label 1 haben.}
+    	\label{pic_lem6_5}
+\end{figure}
+
+Betrachte Abbildung \ref{pic_lem6_5} b). Wenn wir $j$=2 setzten, dann folgen sofort die Label in c). $j$=2 folgt aus der Kanten Regel (Lemma \ref{lem_sl}). Nun muss $l$=2 sein, weil sonst das Gebiet auf der linken Seite keine Ecke mit Label 2 haben könnte. Wir können also das Label auf 1 setzten und erhalten ein Schnyder Labeling $\sigma'_{i-1}$ (siehe Abbildung \ref{pic_lem6_5}, c)), das Ecken kompatibel mit dem induzierten FAA $\phi'_{i-1}$ ist, da wir nur das Label eines zugewiesen Winkels verändert haben.
+
+Wir haben also Schritt $i$ durchgeführt und die Invariante hat bestand. Per Induktion erhalten wir ein Ecken kompatibles Paar aus einem Schnyder Labeling $\sigma'_0$ und einem FAA $\phi'_0$ von $G$. Somit kann $G$ kein Gegenbeispiel sein. Es folgt die Rückrichtung des Theorems.
 \end{proof}
 
+Wir haben nun alle nötigen Hilfsmittel um Theorem \ref{theo_ccc} zu beweisen. 
 
+\begin{proof}[Beweis von Theorem \ref{theo_ccc}]
+Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Angenommen $G$ besitzt ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$. Nach Lemma \ref{lem1} existiert dann eine SLTR von $G$. 
 
-
-
-
+Angenommen $G$ besitzt eine SLTR, dann existert nach Lemma \ref{lem6} ein Schnyder Labeling, das Ecken kompatibel mit dem von der SLTR induzierten FAA ist.
+\end{proof}
 
 
 

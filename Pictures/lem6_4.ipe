@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190702125549" modified="D:20190702165124"/>
+<info created="D:20190702125549" modified="D:20190703093959"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -495,7 +495,6 @@ h
 <use matrix="1 0 0 1 288 0" name="mark/disk(sx)" pos="108 312" size="normal" stroke="black"/>
 <text matrix="1 0 0 1 120 -88" transformations="translations" pos="264 432" stroke="blue" type="label" width="5.853" height="7.704" depth="0" halign="center" valign="center" size="large" style="math">3</text>
 <text matrix="1 0 0 1 120 -32" transformations="translations" pos="264 432" stroke="blue" type="label" width="5.853" height="7.704" depth="0" halign="center" valign="center" size="large" style="math">3</text>
-<text matrix="1 0 0 1 116 -40" transformations="translations" pos="264 432" stroke="red" type="label" width="5.853" height="7.704" depth="0" halign="center" valign="center" size="large" style="math">1</text>
 <text matrix="1 0 0 1 128 -104" transformations="translations" pos="264 432" stroke="red" type="label" width="5.853" height="7.704" depth="0" halign="center" valign="center" size="large" style="math">1</text>
 <text matrix="1 0 0 1 108 -36" transformations="translations" pos="264 432" stroke="red" type="label" width="5.853" height="7.704" depth="0" halign="center" valign="center" size="large" style="math">1</text>
 <text matrix="1 0 0 1 108 -88" transformations="translations" pos="264 432" stroke="green" type="label" width="5.853" height="7.704" depth="0" halign="center" valign="center" size="large" style="math">2</text>

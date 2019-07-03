@@ -113,6 +113,7 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \newtheorem*{invariant}{Invariante}
 }%
 
+
 %
 %equation numbering
 \numberwithin{equation}{chapter}%
