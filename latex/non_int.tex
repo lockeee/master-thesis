@@ -1,16 +1,16 @@
-\chapter{Nicht ganzzahlige Flüsse}
+\section{Nicht ganzzahlige Lösungen}
 
-Wie in Kapitel \ref{main_algo} erwähnt, impliziert eine nicht ganzzahlige Lösung für ein Multi-Fluss-Problem auf einem gerichteten Graphen mit $n\geq 2$ Paaren von Quellen und Senken, im Allgemeinen nicht die Existenz einer ganzzahligen Lösung. Die Ergebnisse aus Kapitel \ref{the_program} lassen jedoch die Möglichkeit offen, dass das man für das betrachtete Netzwerk $\mathcal{N}_G$ die folgende Vermutung beweisen kann. Diess Kapitel wird sich mit der von Aerts und Felsner offen gelassenen Frage beschäftigen, ob die Erkennung von Graphen mit einer SLTR in $\mathcal{P}$ liegt.
+Dieses Kapitel wird sich mit der von Aerts und Felsner offen gelassenen Frage beschäftigen, ob die Erkennung von Graphen mit einer SLTR in $\mathcal{P}$ liegt. Wie in Kapitel \ref{pre} erwähnt, impliziert eine nicht ganzzahlige Lösung für ein Multi-Fluss-Problem auf einem gerichteten Graphen mit $n\geq 2$ Paaren von Quellen und Senken, im Allgemeinen nicht die Existenz einer ganzzahligen Lösung. Die Ergebnisse aus Kapitel \ref{the_program} lassen jedoch die Möglichkeit offen, dass das man für das betrachtete Netzwerk $\mathcal{N}_G$ die folgende Vermutung beweisen kann.
 
 \begin{conjecture}\label{int_conj}
-Sei $\tilde{\varphi}=(\tilde{\varphi_1},\tilde{\varphi_2})$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$, dann existiert auch eine ganzzahlige Lösung $\varphi$ und wir können in linearer Zeit ein Gutes-FAA aus $\tilde{\varphi_2}$ extrahieren, ohne eine ganzzahlige Lösung zu berechnen.
+Sei $\tilde{\varphi}=(\tilde{\varphi_1},\tilde{\varphi_2})$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$, dann existiert auch ein ganzzahliger zulässiger Fluss $\varphi$ und wir können in polynomieller Zeit ein Gutes-FAA aus $\tilde{\varphi_2}$ extrahieren, ohne eine ganzzahlige Lösung zu berechnen.
 \end{conjecture}
 
 \begin{remark}
 Wenn wir nicht darauf bestehen, dass unsere Lösung ganzzahlig ist, dann lässt sich eine Lösung nach TODO durch lineare Programmierung in polynomineller Zeit finden und das Entscheidungsproblem, ob ein Graph eine SLTR hat läge so in $\mathcal{P}$.
 \end{remark}
 
-Um die Argumentation einfacher zu gestalten, werden wir unser 2-Fluss Problem manchmal als 3-Fluss Problem, mit einer Lösung $\varphi=(\varphi_s,\varphi_e,\varphi_z)$, betrachten. Wir erstellen also $\mathcal{N}_G^*$, wie zuvor $\mathcal{N}_G$, nur mit drei Quellen und Senken und weisen Schnyder-, Zuweisungs- und Ecken-Fluss eigene Typen zu. Man kann leicht sehen, dass Theorem \ref{theo_algo} in angepasster Form hier ebenfalls gilt und ein zulässiger  Fluss $(\varphi_s,\varphi_e,\varphi_z)$ auf $\mathcal{N}_G^*$ genau dann existiert, wenn auch ein zulässiger Fluss $(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ möglich ist. Die Hinrichtung ist klar. Nehmen wir an $(\varphi_1,\varphi_2)$ ist eine ganzzahlige Lösung. Nach Beobachtung A2 gilt, dass die äusseren Kanten eines Winkel-Dreiecks entweder von einem Ecken- oder einem Zuweisungs-Pfad genutzt werden. Diese Kanten sind zusammen mit den Kanten von Quelle 2 zu den Winkeldreiecken die einzigen in $\mathcal{N}_G$, die von beiden Flüssen genutzt werden. Wir können also $\varphi_2$ in $|\varphi_2|$ ganzzahlige Pfade aufteilen und jeden Pfad entweder $\varphi_e$ oder $\varphi_z$ zuweisen -- je nachdem ob er über die Dummy-Senke führt, oder nicht. Insbesondere folgt mit der gleichen Argumentation:
+Um die Argumentation einfacher zu gestalten, werden wir unser 2-Fluss Problem manchmal als 3-Fluss Problem, mit einer Lösung $\varphi=(\varphi_s,\varphi_e,\varphi_z)$, betrachten. Wir erstellen $\mathcal{N}^*_G$ wie zuvor $\mathcal{N}_G$, nur mit drei Quellen und Senken und weisen {Schnyder-,} Ecken-, und Zuweisungs-Fluss eigene Typen zu. Man kann leicht sehen, dass Theorem \ref{theo_algo} in angepasster Form hier ebenfalls gilt und ein zulässiger  Fluss $(\varphi_s,\varphi_z,\varphi_e)$ auf $\mathcal{N}_G^*$ genau dann existiert, wenn auch ein zulässiger Fluss $(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ möglich ist. Die Hinrichtung ist klar. Nehmen wir an $(\varphi_1,\varphi_2)$ ist eine ganzzahlige Lösung. Nach Beobachtung A2 gilt, dass die äusseren Kanten eines Winkel-Dreiecks entweder von einem Ecken- oder einem Zuweisungs-Pfad genutzt werden. Diese Kanten sind zusammen mit den Kanten von Quelle 2 zu den Winkeldreiecken die einzigen in $\mathcal{N}_G$, die von beiden Flüssen genutzt werden. Wir können also $\varphi_2$ in $|\varphi_2|$ ganzzahlige Pfade aufteilen und jeden Pfad entweder $\varphi_e$ oder $\varphi_z$ zuweisen -- je nachdem ob er über die Dummy-Senke führt, oder nicht. Insbesondere folgt mit der gleichen Argumentation:
 
 \begin{itemize}
 \item [O1] Jede beliebige Kombination von $\varphi_s,\varphi_e$ und $\varphi_z$ zu zwei Flüssen und ein zu $\mathcal{N}_G$ analoges Netzwerk hat eine zulässige ganzzahlige Lösung genau dann, wenn eine Lösung für das 3-Fluss-Netzwerk existiert.
@@ -31,31 +31,16 @@ Wir betrachten das gerichtete Netzwerk $\mathcal{F}_z$ mit einer Quelle $s$ und 
   	\caption{Skizze des Netzwerkes $\mathcal{F}_z$. Die Kanten von der Quelle zu einem Beutel $B_f$ hat Kapazität $|f|-3$ und alle anderen haben Kapazität 1.}
 \end{figure}
 
-$\phi$ weißt nun jedem inneren Gebiet $f$ genau $|f|-3$ Winkel zu und nach Konstruktion kann jeder Knoten $v$ nur einmal zugewiesen werden. Wenn wir noch die per Konstruktion von $\mathcal{N}_G$ zugewiesenen Knoten am äusseren Gebiet hinzunehmen, dann kodiert $\phi$ ein FAA von $G$.
+$\phi$ weißt nun jedem inneren Gebiet $f$ genau $|f|-3$ Winkel zu und jeder Knoten $v$ kann nur einmal zugewiesen werden. Wenn wir noch die per Konstruktion von $\mathcal{N}_G$ zugewiesenen Knoten am äusseren Gebiet hinzunehmen, dann kodiert $\phi$ ein FAA von $G$.
 \end{proof}
 
-Wenn wir zeigen können, dass das so erhaltene $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert. Ein Weg, zu zeigen 
+Wenn wir zeigen können, dass ein so erhaltenes $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert.
 
-\begin{lemma}\label{lem_schnyder}
-Sei $\tilde{\varphi}$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$ und sei $C$ die Menge der vom Eckensfluss $\tilde{\varphi}_e$ genutzten inneren Winkel von $G$. Dann existiert eine Teilmenge $\phi\subseteq W$, sodass aus jedem Gebiet $f$ genau $|f|-3$ Winkel in $\phi$ enthalten sind und in der jeder Knoten $v$ höchstens einmal vorkommt. $\phi$ kodiert also ein FAA von $G$.
-\end{lemma}
-
-\begin{figure}
-\centering
-\begin{subfigure}{.4\textwidth}
-  \centering
-  \includegraphics[width=0.9\linewidth]{6_face.png}
-\end{subfigure}%
-\begin{subfigure}{.6\textwidth}
-  \centering
-  \includegraphics[width=0.9\linewidth]{schnyder_flow_non_int.png}
-\end{subfigure}
-\caption{Auf der linken Seite eine Illustration von $\overline{\varphi}_s$ mit den von $\overline{\varphi}_z$ zugeordneten Winkeln in grau. Auf der rechten Seite das resultierende Netzwerk.}
-\end{figure}
+\subsection{Minimale Schnitte in $\mathcal{N}_G$}
 
 Angenommen, es existiert ein Graph $G$, für den nur eine nicht ganzzahlige Lösung existiert. Sei $\tilde{\varphi}$ dieser nicht ganzzahlige zulässige Fluss auf $\mathcal{N}_G$, und $\phi$ ein wie in Lemma \ref{lem_faa} aus $\tilde{\varphi}$ konstruiertes FAA für $G$. Sei $\overline{\varphi}_z$ der eindeutige Zuweisungs-Fluss der dieses FAA auf $\mathcal{N}_G$ kodiert. Sei $\overline{\mathcal{N}}_G$, ein Teilnetzwerk von $\mathcal{N}_G$, aus welchem alle Kanten, die von $\overline{\varphi}_z$ genutzt werden gelöscht wurden. Die Bedarfe sind weiterhin $|E_{in}|$ und $3|F_{in}|$ für den Schnyder- und Ecken-Fluss. Nach der in O1 festgehaltenen Beobachtung können wir, wie in \cite{af15}, $\varphi_s$ und $\varphi_e$ zusammenfassen und mit $\varphi_1$ bezeichnen. Wir suchen also nach einem zulässigem ganzzahligem Fluss $\varphi_1 = \varphi_s + \varphi_e$ auf $\overline{\mathcal{N}}_G$ mit Bedarf $|E_{in}| + 3|F_{in}|$, da dann auch eine ganzzahlige Lösung $(\varphi_s,\varphi_e)$ folgt.
 
-Bevor wir fortfahren wollen wir einige Kantentypen aus $\mathcal{N}_G$ benennen.
+Nach dem Max-Flow Min-Cut Theorem existiert ein zulässiger Fluss auf $\overline{\mathcal{N}}_G$ genau dann, wenn es keinen (Kanten-)Schnitt in $\overline{\mathcal{N}}_G$ mit Kapazität kleiner als $|E_{in}| + 3|F_{in}|$ gibt. Bevor wir fortfahren wollen wir einige Kantentypen aus $\mathcal{N}_G$ benennen.
 
 \begin{itemize}
 \item $E_\triangle = $ Die äusseren Kanten in den Winkeldreiecken.
@@ -118,24 +103,17 @@ Sei $\mathcal{N}$ ein gerichtetes Netzwerk mit einer Quelle $s$ und einer Senke 
 Nehmen wir ohne Beschränkung der Allgemeinheit an, dass $\mathcal{N}$ nur Kanten mit Kapazität 1 enthält. Nach dem \textit{Max-Flow Min-Cut} Theorem existiert ein $s$-$t$-Fluss $\varphi$ mit $|\varphi| = c(\mathcal{S}_{min})$. Nach Theorem \ref{theo_int_flow} können wir annehmen, dass wir es sich um einen ganzzahligen Fluss handelt. Wir können diesen Fluss somit in Pfade (TODO) $p$ mit Flussstärke 1 aufteilen. Betrachten wir nun $\tilde{\mathcal{N}} = \mathcal{N} \backslash \mathcal{T}$, dann trennt die Entnahme von $\mathcal{T}$ genau $c(\mathcal{T})$ Pfade $p \in P$. Die restlichen Pfade, nennen wir sie $\tilde{p} \in \tilde{P}$, bleiben intakt. Somit existiert ein $s$-$t$-Fluss $\tilde{\varphi}$ mit $|\tilde{\varphi}| = c(\mathcal{S}_{min}) - c(\mathcal{T})$. $\tilde{\mathcal{S}}_{min} = \mathcal{S}_{min} \backslash \mathcal{T}$ muss somit ein minimaler Schnitt in $\tilde{\mathcal{N}}$ sein, da jedes $p \in \tilde{P}$ genau eine Kante aus $\tilde{\mathcal{S}}_{min}$ nutzt und die Entnahme dieser Kanten, nach Voraussetzung, $s$ und $t$ trennt.
 \end{proof}
 
-\begin{lemma}
-Sei $\tilde{\varphi}$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$, dann existiert auch mindestens ein ganzzahliger zulässiger Fluss $\varphi$ auf $\mathcal{N}_G$ und somit auch eine SLTR von $G$.
-\end{lemma}
 
-\begin{proof}
-Sei $\tilde{\varphi}$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$ und seien $\overline{P}_*$ und $\overline{V}_*$ die nicht von $\tilde{\varphi}$, also genauer von $\tilde{\varphi}_z$, genutzten Kanten aus $P_*$ und $V_*$. Sei nun $\tilde{\mathcal{N}}_G \subseteq \mathcal{N}_G$ ein Netzwerk, bei dem alle Kanten $e \in \overline{P}_*\cup\overline{V}_*$ aus $\mathcal{N}_G$ gelöscht werden. $\tilde{\varphi}$ ist also weiterhin eine zulässige, nicht ganzzahlige Lösung für $\tilde{\mathcal{N}}_G$.
-
-Betrachten wir für einen Moment das Netzwerk $\tilde{\mathcal{F}}_G$, welches entsteht, wenn wir die Quellen und Senken von $\tilde{\mathcal{N}}_G$ vereinen und nur einen Fluss zwischen der Super-Quelle $s$ und der Super-Senke $t$ betrachten. $\mathcal{S}_1$ und $\mathcal{S}_2$ sind weiterhin minimale Schnitte in $\tilde{\mathcal{F}}_G$ und nach Lemma \ref{lem_min_cut} gilt für jede Teilende $\tilde{\mathcal{S}} \subseteq \mathcal{S}_1$
-
-
-und $\tilde{\psi} = \tilde{\varphi}_1+ \tilde{\varphi}_2$ ein zulässiger, nicht ganzzahliger Fluss auf $\tilde{\mathcal{F}}_G$. Nach Theorem \ref{theo_int_flow} existiert somit ein zulässiger und ganzzahliger $s$-$t$-Fluss $\psi$ mit $|\psi| = |\tilde{\psi}| = |\tilde{\varphi}|.$ Der Fluss $\psi$ saturiert, da $\mathcal{S}_2$ ein minimaler Schnitt ist, die Kante $e_d$ zwischen der Dummy-Senke und der Senke $t$ und wir können diesen Teil des Flusses $\psi_z$ in $\sum_{f \in F_{in}}(|f|-3)=n$ Pfade $\{p_1, ... ,p_n\} = P$ mit Flussstärke 1 aufteilen. Jeder dieser Pfade $p_i$ führt nun genau durch einen Knoten $v_i^*$ und einen zugehörigen Winkel $(f_i,v_i)$. Es bleibt zu zeigen, dass durch jedes innere Gebiet $f_i$ in $\tilde{\mathcal{F}}_G$ genau $|f_i|-3$ Pfade aus $P$ führen.
-
-Die Menge der genutzten Winkel $\phi$ kodiert nach Lemma \ref{lem_faa} ein FAA von $G$, da es sich um eine Teilmenge der von $\tilde{\varphi}_z$ genutzten Winkel handeln muss. Alle anderen, in $\mathcal{N}_G$ möglichen, Pfade zur Dummy-Senke durch die restlichen Winkel wurden, um $\tilde{\mathcal{F}}_G$ zu erhalten, durch die Entfernung von $\overline{P}_*$ und $\overline{V}_*$ getrennt und stehen für $\psi$ und somit für $\psi_z$ nicht zur Verfügung.
-
-Wir können $\psi$ in $\psi_z$ und $\psi_1$ aufteilen. $\psi_1$ ist, ebenso wie $\psi_z$, ganzzahlig. Da wir, um $\tilde{\mathcal{N}}_G$ zu erhalten, nur Kanten gelöscht haben, welche weder von $\psi_z$, noch von $\psi_1$ genutzt werden, bildet $\varphi_\psi = (\psi_1,\psi_z)$ einen ganzzahligen Zwei-Fluss auf $\tilde{\mathcal{N}}_G$ und somit auch auf $\mathcal{N}_G$. Für diesen Fluss gilt
-$$ |\varphi_\psi| = |\psi_1|+|\psi_z| = |\psi| = |\tilde{\varphi}|. $$
-Somit handelt es sich bei $\varphi_\psi$ um eine zulässige ganzzahlige Lösung auf $\mathcal{N}_G$ und nach Theorem \ref{theo_algo} existiert somit eine SLTR für $G$.
-\end{proof}
-
-Wir haben somit gezeigt, dass mindestens eine Auswahl der Winkel ein Gutes-FAA kodiert. Dies schließt den Beweis von Vermutung \ref{int_conj} fast ab. Der einzige Punkt, der zu zeigen bleibt ist, dass eine beliebige Auswahl der Winkel aus $W$ uns ein Gutes-FAA gibt.
+\begin{figure}
+\centering
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{6_face.png}
+\end{subfigure}%
+\begin{subfigure}{.6\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{schnyder_flow_non_int.png}
+\end{subfigure}
+\caption{Auf der linken Seite eine Illustration von $\overline{\varphi}_s$ mit den von $\overline{\varphi}_z$ zugeordneten Winkeln in grau. Auf der rechten Seite das resultierende Netzwerk.}
+\end{figure}
 

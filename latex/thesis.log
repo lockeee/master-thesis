@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  3 JUL 2019 11:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.26)  3 JUL 2019 19:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2015,18 +2015,9 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
 
-LaTeX Warning: Citation `tutte63' on page 1 undefined on input line 7.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
-
-
-LaTeX Warning: Citation `fary48' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `tutte63' on page 1 undefined on input line 16.
 
 
 Overfull \hbox (50.96844pt too wide) in paragraph at lines 16--17
@@ -2034,7 +2025,7 @@ Overfull \hbox (50.96844pt too wide) in paragraph at lines 16--17
 ut-te die Un-ter-klas-se der 3-zusammenhängenden
  []
 
-<topo_straight_convex.png, id=129, 977.6525pt x 210.7875pt>
+<topo_straight_convex.png, id=141, 977.6525pt x 210.7875pt>
 File: topo_straight_convex.png Graphic file (type png)
 <use topo_straight_convex.png>
 Package pdftex.def Info: topo_straight_convex.png  used on input line 20.
@@ -2067,21 +2058,11 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-
-
-LaTeX Warning: Citation `af13' on page 2 undefined on input line 3.
-
-
-LaTeX Warning: Citation `af15' on page 2 undefined on input line 3.
-
-<sltr-example.png, id=139, 581.17125pt x 83.31125pt>
+<sltr-example.png, id=154, 581.17125pt x 83.31125pt>
 File: sltr-example.png Graphic file (type png)
 <use sltr-example.png>
 Package pdftex.def Info: sltr-example.png  used on input line 15.
 (pdftex.def)             Requested size: 362.56389pt x 51.97404pt.
-
-LaTeX Warning: Citation `af13' on page 2 undefined on input line 21.
-
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 27.
 Package babel Info: Redefining german shorthand "|
@@ -2100,41 +2081,19 @@ been already used, duplicate ignored
                    \relax 
 l.27 \end{remark}
                   [2 <./topo_straight_convex.png> <./sltr-example.png>]
-<10_example.png, id=150, 2653.915pt x 1240.635pt>
+<10_example.png, id=168, 2653.915pt x 1240.635pt>
 File: 10_example.png Graphic file (type png)
 <use 10_example.png>
 Package pdftex.def Info: 10_example.png  used on input line 31.
 (pdftex.def)             Requested size: 265.40704pt x 124.07076pt.
-
-
-LaTeX Warning: Citation `af13' on page 3 undefined on input line 36.
-
-
-LaTeX Warning: Citation `af13h' on page 3 undefined on input line 36.
-
-
-LaTeX Warning: Citation `af15' on page 3 undefined on input line 36.
-
-) (./schnyderwoods.tex
+)
+(./schnyderwoods.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-
-
-LaTeX Warning: Citation `schnyder89' on page 3 undefined on input line 2.
-
-
-LaTeX Warning: Citation `schnyder90' on page 3 undefined on input line 2.
-
-
-LaTeX Warning: Citation `felsner01' on page 3 undefined on input line 2.
-
-
-LaTeX Warning: Citation `felsner04' on page 3 undefined on input line 2.
-
 
 Overfull \hbox (31.5918pt too wide) in paragraph at lines 4--5
 []\T1/lmr/m/n/10.95 (-20) Für den Rest die-ses Ka-pi-tels sei $\OML/lmm/m/it/10
@@ -2155,12 +2114,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 10.
 [3 <./10_example.png>]
-<schnyder_wood_def.png, id=160, 618.31pt x 119.44624pt>
+<schnyder_wood_def.png, id=191, 618.31pt x 119.44624pt>
 File: schnyder_wood_def.png Graphic file (type png)
 <use schnyder_wood_def.png>
 Package pdftex.def Info: schnyder_wood_def.png  used on input line 18.
 (pdftex.def)             Requested size: 322.28242pt x 62.26003pt.
-<schnyder_label_def.png, id=161, 3662.68375pt x 766.865pt>
+<schnyder_label_def.png, id=192, 3662.68375pt x 766.865pt>
 File: schnyder_label_def.png Graphic file (type png)
 <use schnyder_label_def.png>
 Package pdftex.def Info: schnyder_label_def.png  used on input line 32.
@@ -2178,32 +2137,17 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 40.
  [4 <./schnyder_wood_def.png> <./schnyder_label_def.png>]
-<schnyder_bij.png, id=178, 629.35126pt x 125.46875pt>
+<schnyder_bij.png, id=207, 629.35126pt x 125.46875pt>
 File: schnyder_bij.png Graphic file (type png)
 <use schnyder_bij.png>
 Package pdftex.def Info: schnyder_bij.png  used on input line 44.
 (pdftex.def)             Requested size: 281.99481pt x 56.21918pt.
 
-LaTeX Warning: Citation `felsner04' on page 5 undefined on input line 49.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-
-LaTeX Warning: Citation `felsner01' on page 5 undefined on input line 51.
-
-
-LaTeX Warning: Citation `felsner04' on page 5 undefined on input line 51.
-
-
-LaTeX Warning: Citation `felsner04' on page 5 undefined on input line 51.
-
-
-LaTeX Warning: Citation `felsner04' on page 5 undefined on input line 56.
-
-<face_counting.png, id=179, 1241.63875pt x 467.7475pt>
+<face_counting.png, id=213, 1241.63875pt x 467.7475pt>
 File: face_counting.png Graphic file (type png)
 <use face_counting.png>
 Package pdftex.def Info: face_counting.png  used on input line 64.
@@ -2250,9 +2194,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
-
-LaTeX Warning: Citation `felsner04' on page 6 undefined on input line 3.
-
 LaTeX Font Info:    Try loading font information for TS1+lmr on input line 12.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -2270,7 +2211,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 15.
  [6 <./face_counting.png>]
-<alpha_ex.png, id=199, 432.61626pt x 100.375pt>
+<alpha_ex.png, id=234, 432.61626pt x 100.375pt>
 File: alpha_ex.png Graphic file (type png)
 <use alpha_ex.png>
 Package pdftex.def Info: alpha_ex.png  used on input line 20.
@@ -2282,10 +2223,6 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-
-
-LaTeX Warning: Citation `hu' on page 7 undefined on input line 26.
-
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 27.
 Package babel Info: Redefining german shorthand "|
@@ -2298,7 +2235,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 27.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 27.
-[7 <./alpha_ex.png>])) (./main_theory.tex
+ [7 <./alpha_ex.png>])) (./main_theory.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -2319,17 +2256,11 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-<faa_def.png, id=214, 1285.80376pt x 316.18124pt>
+<faa_def.png, id=251, 1285.80376pt x 316.18124pt>
 File: faa_def.png Graphic file (type png)
 <use faa_def.png>
 Package pdftex.def Info: faa_def.png  used on input line 18.
 (pdftex.def)             Requested size: 362.56389pt x 89.1525pt.
-
-LaTeX Warning: Citation `af13' on page 9 undefined on input line 24.
-
-
-LaTeX Warning: Citation `af15' on page 9 undefined on input line 24.
-
 (./harmonic_functions.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
@@ -2337,10 +2268,6 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-
-
-LaTeX Warning: Citation `af13' on page 9 undefined on input line 3.
-
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 4.
 Package babel Info: Redefining german shorthand "|
@@ -2353,19 +2280,15 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 4.
-[9
+ [9
 
 
  <./faa_def.png>]
-<corner_def.png, id=221, 1102.1175pt x 214.8025pt>
+<corner_def.png, id=261, 1102.1175pt x 214.8025pt>
 File: corner_def.png Graphic file (type png)
 <use corner_def.png>
 Package pdftex.def Info: corner_def.png  used on input line 17.
 (pdftex.def)             Requested size: 362.56389pt x 70.66216pt.
-
-
-LaTeX Warning: Citation `af13' on page 10 undefined on input line 21.
-
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 32.
 Package babel Info: Redefining german shorthand "|
@@ -2378,40 +2301,25 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 32.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 32.
-[10 <./corner_def.png>]
-<pseudo_seg.png, id=231, 1007.765pt x 247.92625pt>
+ [10 <./corner_def.png>]
+<pseudo_seg.png, id=272, 1007.765pt x 247.92625pt>
 File: pseudo_seg.png Graphic file (type png)
 <use pseudo_seg.png>
 Package pdftex.def Info: pseudo_seg.png  used on input line 44.
 (pdftex.def)             Requested size: 362.56389pt x 89.19662pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
  [11 <./pseudo_seg.png>]
-
-LaTeX Warning: Citation `af13' on page 12 undefined on input line 58.
-
-
-LaTeX Warning: Citation `lov99' on page 12 undefined on input line 69.
-
-
-LaTeX Warning: Citation `lov99' on page 12 undefined on input line 81.
-
-
-LaTeX Warning: Citation `tutte63' on page 12 undefined on input line 85.
-
-
-LaTeX Warning: Citation `tutte63' on page 12 undefined on input line 85.
-
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 86.
 Package babel Info: Redefining german shorthand "|
@@ -2424,10 +2332,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 86.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 86.
-[12]
-
-LaTeX Warning: Citation `af13' on page 13 undefined on input line 101.
-
+ [12]
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 110.
 Package babel Info: Redefining german shorthand "|
@@ -2440,36 +2345,32 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 110.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 110.
-[13]) (./corner_compatible_pairs.tex
+ [13]) (./corner_compatible_pairs.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-
-
-LaTeX Warning: Citation `af15' on page 14 undefined on input line 3.
-
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 31.
-[14]
-<sweeplines1.png, id=277, 634.37pt x 634.37pt>
+(babel)             in language  on input line 29.
+ [14]
+<sweeplines1.png, id=325, 634.37pt x 634.37pt>
 File: sweeplines1.png Graphic file (type png)
 <use sweeplines1.png>
 Package pdftex.def Info: sweeplines1.png  used on input line 41.
 (pdftex.def)             Requested size: 145.02333pt x 145.02116pt.
-<sweeplines2.png, id=278, 1165.35374pt x 1165.35374pt>
+<sweeplines2.png, id=326, 1165.35374pt x 1165.35374pt>
 File: sweeplines2.png Graphic file (type png)
 <use sweeplines2.png>
 Package pdftex.def Info: sweeplines2.png  used on input line 48.
@@ -2480,19 +2381,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--58
  []
 
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 66.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 66.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 66.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 66.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 66.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 66.
+(babel)             in language  on input line 60.
 [15 <./sweeplines1.png> <./sweeplines2.png>]
-<subdividing_ex.png, id=289, 1032.85875pt x 243.91125pt>
+<subdividing_ex.png, id=337, 1032.85875pt x 243.91125pt>
 File: subdividing_ex.png Graphic file (type png)
 <use subdividing_ex.png>
 Package pdftex.def Info: subdividing_ex.png  used on input line 82.
@@ -2520,23 +2421,23 @@ LaTeX Warning: Reference `pic_lem3_1' on page 17 undefined on input line 113.
 
 LaTeX Warning: Reference `pic_lem3_1' on page 17 undefined on input line 113.
 
-
-LaTeX Warning: Reference `pic_lem3_1' on page 17 undefined on input line 115.
-
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 114.
 [17]
-<lem3_1.png, id=311, 853.1875pt x 208.78pt>
+
+LaTeX Warning: Reference `pic_lem3_1' on page 18 undefined on input line 115.
+
+<lem3_1.png, id=360, 853.1875pt x 208.78pt>
 File: lem3_1.png Graphic file (type png)
 <use lem3_1.png>
 Package pdftex.def Info: lem3_1.png  used on input line 119.
@@ -2546,25 +2447,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
-<lem3_2.png, id=313, 853.1875pt x 208.78pt>
+<lem3_2.png, id=362, 853.1875pt x 208.78pt>
 File: lem3_2.png Graphic file (type png)
 <use lem3_2.png>
 Package pdftex.def Info: lem3_2.png  used on input line 130.
 (pdftex.def)             Requested size: 362.56389pt x 88.72235pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 136.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 136.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 136.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 136.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 136.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 136.
-[18 <./lem3_1.png> <./lem3_2.png>]
-<lem4.png, id=321, 194.7275pt x 152.57pt>
+(babel)             in language  on input line 140.
+[18 <./lem3_1.png>]
+<lem4.png, id=370, 194.7275pt x 152.57pt>
 File: lem4.png Graphic file (type png)
 <use lem4.png>
 Package pdftex.def Info: lem4.png  used on input line 150.
@@ -2575,19 +2479,19 @@ Overfull \hbox (0.48686pt too wide) in paragraph at lines 148--158
  []
 
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 176.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 176.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 176.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 176.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 176.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 181.
-[19 <./lem4.png>]
-<lem6_1.png, id=334, 1505.625pt x 268.00125pt>
+(babel)             in language  on input line 176.
+[19 <./lem3_2.png> <./lem4.png>]
+<lem6_1.png, id=383, 1505.625pt x 268.00125pt>
 File: lem6_1.png Graphic file (type png)
 <use lem6_1.png>
 Package pdftex.def Info: lem6_1.png  used on input line 198.
@@ -2604,42 +2508,42 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 204.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 204.
- [20 <./lem6_1.png>]
-<lem6_2.png, id=349, 878.28125pt x 318.18875pt>
+ [20]
+<lem6_2.png, id=398, 878.28125pt x 318.18875pt>
 File: lem6_2.png Graphic file (type png)
 <use lem6_2.png>
 Package pdftex.def Info: lem6_2.png  used on input line 213.
 (pdftex.def)             Requested size: 362.56389pt x 131.35158pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 221.
- [21]
-<lem6_3.png, id=360, 965.6075pt x 350.30875pt>
+(babel)             in language  on input line 219.
+ [21 <./lem6_1.png>]
+<lem6_3.png, id=409, 965.6075pt x 350.30875pt>
 File: lem6_3.png Graphic file (type png)
 <use lem6_3.png>
 Package pdftex.def Info: lem6_3.png  used on input line 230.
 (pdftex.def)             Requested size: 362.56389pt x 131.53116pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 236.
  [22 <./lem6_2.png>]
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 246.
@@ -2653,29 +2557,30 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 246.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 246.
- [23 <./lem6_3.png>]
-<lem6_4.png, id=381, 1285.80376pt x 465.74pt>
+
+[23 <./lem6_3.png>]
+<lem6_4.png, id=430, 1285.80376pt x 465.74pt>
 File: lem6_4.png Graphic file (type png)
 <use lem6_4.png>
 Package pdftex.def Info: lem6_4.png  used on input line 249.
 (pdftex.def)             Requested size: 362.56389pt x 131.32306pt.
-<lem6_5.png, id=384, 1154.3125pt x 340.27126pt>
+<lem6_5.png, id=433, 1154.3125pt x 340.27126pt>
 File: lem6_5.png Graphic file (type png)
 <use lem6_5.png>
 Package pdftex.def Info: lem6_5.png  used on input line 258.
 (pdftex.def)             Requested size: 322.28242pt x 95.00531pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 264.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 264.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 264.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 264.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 264.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 264.
  [24 <./lem6_4.png> <./lem6_5.png>])) (./main_algorithm.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
@@ -2689,7 +2594,8 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
- [25]
+
+[25]
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -2713,9 +2619,6 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-
-LaTeX Warning: Citation `af15' on page 27 undefined on input line 3.
-
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 5.
 Package babel Info: Redefining german shorthand "|
@@ -2723,15 +2626,11 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 5.
 (./one_flows.tex
-
-LaTeX Warning: Citation `fusy07' on page 27 undefined on input line 3.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-<schnyder_flow.png, id=407, 1122.1925pt x 256.96pt>
+<schnyder_flow.png, id=459, 1122.1925pt x 256.96pt>
 File: schnyder_flow.png Graphic file (type png)
 <use schnyder_flow.png>
 Package pdftex.def Info: schnyder_flow.png  used on input line 11.
@@ -2752,7 +2651,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 17.
 [27]
-<faa_flow.png, id=412, 1234.6125pt x 152.57pt>
+<faa_flow.png, id=465, 1234.6125pt x 152.57pt>
 File: faa_flow.png Graphic file (type png)
 <use faa_flow.png>
 Package pdftex.def Info: faa_flow.png  used on input line 28.
@@ -2774,15 +2673,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 35.
 [28 <./schnyder_flow.png>]
-<faa_2_flow.png, id=419, 696.6025pt x 86.3225pt>
+<faa_2_flow.png, id=472, 696.6025pt x 86.3225pt>
 File: faa_2_flow.png Graphic file (type png)
 <use faa_2_flow.png>
 Package pdftex.def Info: faa_2_flow.png  used on input line 42.
 (pdftex.def)             Requested size: 322.28242pt x 39.93669pt.
 )
-
-LaTeX Warning: Citation `af15' on page 29 undefined on input line 13.
-
 
 LaTeX Warning: Reference `theo_coco' on page 29 undefined on input line 21.
 
@@ -2790,9 +2686,6 @@ LaTeX Warning: Reference `theo_coco' on page 29 undefined on input line 21.
 Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
-
-
-LaTeX Warning: Citation `af15' on page 29 undefined on input line 23.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 23--24
@@ -2812,14 +2705,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 24.
 [29 <./faa_flow.png> <./faa_2_flow.png>]
-
-LaTeX Warning: Citation `felsner12' on page 30 undefined on input line 25.
-
-<alpha_bij.png, id=429, 1269.74374pt x 407.5225pt>
+<alpha_bij.png, id=485, 1269.74374pt x 407.5225pt>
 File: alpha_bij.png Graphic file (type png)
 <use alpha_bij.png>
 Package pdftex.def Info: alpha_bij.png  used on input line 29.
 (pdftex.def)             Requested size: 281.99481pt x 90.50713pt.
+
 
 LaTeX Warning: Reference `comb_face_sketch' on page 30 undefined on input line 
 38.
@@ -2829,7 +2720,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-<combined_face_sketch.png, id=432, 671.50874pt x 477.785pt>
+<combined_face_sketch.png, id=488, 671.50874pt x 477.785pt>
 File: combined_face_sketch.png Graphic file (type png)
 <use combined_face_sketch.png>
 Package pdftex.def Info: combined_face_sketch.png  used on input line 42.
@@ -2850,7 +2741,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 48.
 [30 <./alpha_bij.png>]
-<dummy_sink.png, id=441, 5750.48375pt x 1833.85126pt>
+<dummy_sink.png, id=497, 5750.48375pt x 1833.85126pt>
 File: dummy_sink.png Graphic file (type png)
 <use dummy_sink.png>
 Package pdftex.def Info: dummy_sink.png  used on input line 55.
@@ -2954,7 +2845,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
 LaTeX Warning: Reference `theo_coco' on page 35 undefined on input line 119.
 
-) (./non_int.tex
+(./non_int.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -2962,13 +2853,112 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 4.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 4.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 4.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 4.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 4.
  [35]
 Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 27.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 27.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 27.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 27.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 27.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 27.
+ [36]
+<lem_faa_choice.png, id=542, 1157.32375pt x 383.4325pt>
+File: lem_faa_choice.png Graphic file (type png)
+<use lem_faa_choice.png>
+Package pdftex.def Info: lem_faa_choice.png  used on input line 30.
+(pdftex.def)             Requested size: 281.99481pt x 93.424pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 39.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 48.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 48.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 48.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 48.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 48.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 48.
+ [37 <./lem_faa_choice.png>]
+<face_cut.png, id=552, 1130.2225pt x 804.00375pt>
+File: face_cut.png Graphic file (type png)
+<use face_cut.png>
+Package pdftex.def Info: face_cut.png  used on input line 73.
+(pdftex.def)             Requested size: 281.99481pt x 200.5956pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+ []
+
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 84.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 84.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 84.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 84.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 84.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 84.
+[38]
+<sketch_cut.png, id=568, 546.04pt x 203.76125pt>
+File: sketch_cut.png Graphic file (type png)
+<use sketch_cut.png>
+Package pdftex.def Info: sketch_cut.png  used on input line 93.
+(pdftex.def)             Requested size: 402.8515pt x 150.33012pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 104.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 104.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 104.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 104.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 104.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 104.
+[39 <./face_cut.png>]
+<6_face.png, id=578, 294.09875pt x 334.24875pt>
+File: 6_face.png Graphic file (type png)
+<use 6_face.png>
+Package pdftex.def Info: 6_face.png  used on input line 111.
+(pdftex.def)             Requested size: 145.02333pt x 164.82376pt.
+<schnyder_flow_non_int.png, id=579, 286.06876pt x 90.3375pt>
+File: schnyder_flow_non_int.png Graphic file (type png)
+<use schnyder_flow_non_int.png>
+Package pdftex.def Info: schnyder_flow_non_int.png  used on input line 115.
+(pdftex.def)             Requested size: 217.54053pt x 68.69717pt.
+)) (./the_program.tex
+Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
@@ -2980,10 +2970,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
- [36
-
-
-]
+ [40 <./sketch_cut.png> <./6_face.png> <./schnyder_flow_non_int.png>]
 chapter 4.
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
@@ -2991,173 +2978,31 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 23.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 23.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 23.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 23.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 23.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 23.
-[37]
-<lem_faa_choice.png, id=490, 1157.32375pt x 383.4325pt>
-File: lem_faa_choice.png Graphic file (type png)
-<use lem_faa_choice.png>
-Package pdftex.def Info: lem_faa_choice.png  used on input line 30.
-(pdftex.def)             Requested size: 281.99481pt x 93.424pt.
-<6_face.png, id=493, 294.09875pt x 334.24875pt>
-File: 6_face.png Graphic file (type png)
-<use 6_face.png>
-Package pdftex.def Info: 6_face.png  used on input line 47.
-(pdftex.def)             Requested size: 145.02333pt x 164.82376pt.
-<schnyder_flow_non_int.png, id=494, 286.06876pt x 90.3375pt>
-File: schnyder_flow_non_int.png Graphic file (type png)
-<use schnyder_flow_non_int.png>
-Package pdftex.def Info: schnyder_flow_non_int.png  used on input line 51.
-(pdftex.def)             Requested size: 217.54053pt x 68.69717pt.
-
-
-LaTeX Warning: Citation `af15' on page 38 undefined on input line 56.
-
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 57.
-[38 <./lem_faa_choice.png>]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 76.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 76.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 76.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 76.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 76.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 76.
- [39 <./6_face.png> <./schnyder_flow_non_int.png>]
-<face_cut.png, id=508, 1130.2225pt x 804.00375pt>
-File: face_cut.png Graphic file (type png)
-<use face_cut.png>
-Package pdftex.def Info: face_cut.png  used on input line 88.
-(pdftex.def)             Requested size: 281.99481pt x 200.5956pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
-
- []
-
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 99.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 99.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 99.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 99.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 99.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 99.
-[40 <./face_cut.png>]
-<sketch_cut.png, id=524, 546.04pt x 203.76125pt>
-File: sketch_cut.png Graphic file (type png)
-<use sketch_cut.png>
-Package pdftex.def Info: sketch_cut.png  used on input line 108.
-(pdftex.def)             Requested size: 402.8515pt x 150.33012pt.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 119.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 119.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 119.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 119.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 119.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 119.
- [41 <./sketch_cut.png>]) (./the_program.tex
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
- [42]
-chapter 5.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-
-LaTeX Warning: Citation `sage' on page 43 undefined on input line 3.
-
-
-LaTeX Warning: Citation `glpk' on page 43 undefined on input line 3.
-
 (./pseudocode1.tex)
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 13.
+(babel)             in language  on input line 14.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 13.
+(babel)             in language  on input line 14.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 13.
+(babel)             in language  on input line 14.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 18.
+(babel)             in language  on input line 14.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 18.
+(babel)             in language  on input line 14.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 18.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 18.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 18.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 18.
- [43
+(babel)             in language  on input line 14.
+ [41
 
 
 ]
-
-LaTeX Warning: Citation `fs17' on page 44 undefined on input line 30.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
-
- []
-
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 16.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 16.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 16.
 
-LaTeX Warning: Citation `fusy07' on page 44 undefined on input line 43.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
 
  []
 
@@ -3173,8 +3018,20 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 44.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 44.
-[44]
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[42]
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 44.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 44.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 44.
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
@@ -3184,28 +3041,82 @@ Underfull \hbox (badness 3396) in paragraph at lines 1955--1955
  pla-na-re, 3-
  []
 
-))
-No file thesis.bbl.
+)) (./thesis.bbl
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 106.
-[45]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 106.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
+(babel)             in language  on input line 9.
+ [43]
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 9.
+ [44]
+chapter without number
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 9.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+[]\T1/lmr/m/it/10.95 (+20) Gnu Li-ne-ar Pro-gram-ming Kit (Ver-si-on 8.3)\T1/lm
+r/m/n/10.95 (+20) , 2012,
+ []
+
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 72.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 72.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 72.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 72.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 72.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 72.
+[45
+
+
+])
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 105.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 105.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 105.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 105.
+ [46]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 105.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 105.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 106.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 105.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 105.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: ADA7E05AF4CDB4535CAE175AE8728A5B;895.
+(rerunfilecheck)             Checksum: 0D31FC132247F3404267CF45F8CB6815;966.
 
 
 LaTeX Warning: There were undefined references.
@@ -3213,14 +3124,14 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 105.
  ) 
 Here is how much of TeX's memory you used:
- 49025 strings out of 492649
- 1088923 string characters out of 6129622
- 1967821 words of memory out of 5000000
- 51657 multiletter control sequences out of 15000+600000
- 673948 words of font info for 245 fonts, out of 8000000 for 9000
+ 49095 strings out of 492649
+ 1089775 string characters out of 6129622
+ 1969155 words of memory out of 5000000
+ 51696 multiletter control sequences out of 15000+600000
+ 682382 words of font info for 260 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,23n,100p,10382b,2050s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exi
@@ -3274,10 +3185,10 @@ ublic/lm/lmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lm
 sy9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on thesis.pdf (53 pages, 1625234 bytes).
+Output written on thesis.pdf (54 pages, 1626539 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
- 581 compressed objects within 6 object streams
- 169 named destinations out of 1000 (max. 500000)
- 37666 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 766 PDF objects out of 1000 (max. 8388607)
+ 644 compressed objects within 7 object streams
+ 186 named destinations out of 1000 (max. 500000)
+ 40234 words of extra memory for PDF output out of 42996 (max. 10000000)
 

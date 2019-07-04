@@ -15,7 +15,9 @@
 \contentsline {subsection}{\numberline {3.1.1}Schnyder-Wood-Fluss}{27}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}FAA-Fluss}{28}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}{29}{subsection.3.1.3}
-\contentsline {chapter}{\numberline {4}Nicht ganzzahlige Fl\IeC {\"u}sse}{37}{chapter.4}
-\contentsline {chapter}{\numberline {5}Das Programm}{43}{chapter.5}
-\contentsline {section}{\numberline {5.1}Visualisierung}{43}{section.5.1}
-\contentsline {section}{\numberline {5.2}Statistische Betrachtung}{44}{section.5.2}
+\contentsline {section}{\numberline {3.2}Nicht ganzzahlige L\IeC {\"o}sungen}{36}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Minimale Schnitte in $\mathcal {N}_G$}{37}{subsection.3.2.1}
+\contentsline {chapter}{\numberline {4}Das Programm}{41}{chapter.4}
+\contentsline {section}{\numberline {4.1}Visualisierung}{42}{section.4.1}
+\contentsline {section}{\numberline {4.2}Statistische Betrachtung}{43}{section.4.2}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{45}{chapter*.35}

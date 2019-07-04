@@ -1,32 +1,37 @@
 \chapter{Das Programm}\label{the_program}
 
-Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich. Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird hier, mithilfe des in Sage enthaltenen Solvers \textit{Glpk} \cite{glpk} für Lineare Programmierung gelöst, welches ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt.
+Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich. Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird hier, mithilfe des in Sage enthaltenen Solvers \textit{Glpk} \cite{glpk} für Lineare Programmierung gelöst, welcher ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt, falls eine zulässige Lösung existiert und sonst nichts.
 
 \input{pseudocode1.tex}
 
-Wir können ein Gutes-FAA $\phi$ aus $\varphi_2$ extrahieren indem wir die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgen. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
+Aus einer ganzzahligen Lösung kann man ein Gutes-FAA $\phi$ aus $\varphi_2$ extrahieren indem man die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgt. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
 
-\begin{remark}
-Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Somit spart sie im Falle, der nicht Existenz eines FAA Zeit.
-\end{remark}
+\section{Dokumentation}
+
+
+\begin{itemize}
+\item Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Somit spart sie im Falle, der nicht Existenz eines FAA Zeit. 
+\item Bei der Inizialisierung von $\mathcal{N}_G$ wird das innere Netzwerk in Gebieten $f$ mit $|f|=3$ weggelassen, da in jeder zulässigen Lösung der Fluss aus den Ecken die kleinen Quadrate voll ausfüllt. Der Bedarf muss dementsprechend angepasst werden.
+\item  Optional 
+\end{itemize}
 
 \section{Visualisierung}
 
-Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR, müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz nutzen, um eine SLTR von $G$ zu erhalten.
+Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR, müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz über harmonische Funktionen nutzen, um eine SLTR von $G$ zu erhalten.
 
-Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummibad-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden Gleichungen für zugewiesene (oben) und nicht zugewiesene (unten) Knoten.
+Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummibad-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden harmonischen Gleichungen für zugewiesene (oben) und nicht zugewiesene (unten) Knoten.
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1) $$
 $$ f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0 $$
-Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können wir diese Gleichungen nach der Ergänzung um Gleichungen für die Aufhängungen in einer Matrix zusammenfassen.
-\[ M_{\lambda}(\vec{v_x},\vec{v_y}) = \big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big) \text{, mit } (M_{\lambda})_{vw} =
+Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können wir diese Gleichungen, um die Aufhängungen $A = \{a_1,a_2,a_3\}$ erweitern und als Matrix schreiben.
+\[ M_{\lambda}(\vec{v_x},\vec{v_y}) = \big( \begin{smallmatrix}f(A)_x&f(A)_y\\ 0&0\end{smallmatrix} \big) \text{, mit } (M_{\lambda})_{vw} =
 	\begin{dcases}
 	-\lambda_{vw} & \text{falls } (v,w) \in E, \\
-	\textstyle\sum_{q \in N(v)} \lambda_{qv} & \text{falls } v = w, \\
+	\textstyle\sum_{u \in N(v)} \lambda_{uv} & \text{falls } v = w, \\
 	0 & \text{sonst.} \\
 	\end{dcases}
 \]
 Wenn wir nun die Pseudo-Inverse (TODO) berechnen, erhalten wir die Lösung
-$$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(S)_x&f(S)_y\\ 0&0\end{smallmatrix} \big).$$
+$$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(A)_x&f(A)_y\\ 0&0\end{smallmatrix} \big).$$
 Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen.\\
 
 Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv, in absteigender Reihenfolge, als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen wollen.
