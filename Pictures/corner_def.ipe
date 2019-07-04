@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190606130513" modified="D:20190606131431"/>
+<info created="D:20190606130513" modified="D:20190704194555"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -487,13 +487,60 @@ h
 272 768 m
 288 784 l
 </path>
-<path matrix="1 0 0 1 16 0" stroke="lightgray" fill="lightgray" pen="heavier">
+<text transformations="translations" pos="332 756" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
+<text transformations="translations" pos="140 716" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
+<path fill="lightgray">
+464 784 m
+464 688 l
+488 688 l
+520 736 l
+520 784 l
+464 784 l
+</path>
+<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier" cap="1">
+400 768 m
+400 768 l
+</path>
+<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier">
+400 784 m
+400 736 l
+</path>
+<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier">
+400 736 m
+368 688 l
+</path>
+<use matrix="1 0 0 1 112 0" name="mark/disk(sx)" pos="400 736" size="large" stroke="black"/>
+<path stroke="black" fill="lightgray" pen="heavier">
+512 736 m
+464 784 l
+</path>
+<text matrix="1 0 0 1 0 -8" transformations="translations" pos="524 780" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
+<text transformations="translations" pos="468 728" stroke="black" type="label" width="26.47" height="7.473" depth="2.49" valign="baseline" style="math">int(\gamma)</text>
+<path stroke="red" dash="dashed" pen="heavier" arrow="normal/normal">
+520 784 m
+520 752 l
+</path>
+<path stroke="red" dash="dashed" pen="heavier">
+520 752 m
+520 736 l
+488 688 l
+</path>
+<path stroke="black" pen="heavier">
+512 736 m
+512 688 l
+</path>
+<path stroke="black" pen="heavier" arrow="normal/normal">
+544 736 m
+524 736 l
+</path>
+<path fill="lightgray">
 368 784 m
 368 688 l
-432 688 l
-432 700 l
-408 736 l
-408 784 l
+392 688 l
+448 688 l
+448 700 l
+416 748 l
+376 784 l
 368 784 l
 </path>
 <path matrix="1 0 0 1 16 0" stroke="black" pen="heavier" cap="1">
@@ -517,89 +564,20 @@ h
 432 688 l
 </path>
 <use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="400 736" size="large" stroke="black"/>
-<path matrix="1 0 0 1 16 0" stroke="red" dash="dashed" pen="heavier" arrow="normal/normal">
-408 784 m
-408 748 l
-</path>
-<path matrix="1 0 0 1 16 0" stroke="red" dash="dashed" pen="heavier">
-408 748 m
-408 736 l
-</path>
 <path matrix="1 0 0 1 16 0" stroke="red" dash="dashed" pen="heavier">
 408 736 m
 432 700 l
-</path>
-<path matrix="1 0 0 1 112 0" stroke="lightgray" fill="lightgray" pen="heavier">
-368 784 m
-368 688 l
-432 688 l
-432 700 l
-408 736 l
-408 784 l
-368 784 l
-</path>
-<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier" cap="1">
-400 768 m
-400 768 l
-</path>
-<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier">
-400 784 m
-400 736 l
-</path>
-<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier">
-400 736 m
-368 688 l
-</path>
-<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier">
-400 736 m
-432 736 l
-</path>
-<path matrix="1 0 0 1 112 0" stroke="black" pen="heavier">
-400 736 m
-432 688 l
-</path>
-<use matrix="1 0 0 1 112 0" name="mark/disk(sx)" pos="400 736" size="large" stroke="black"/>
-<path matrix="1 0 0 1 16 0" stroke="red" dash="dashed" pen="heavier">
-528 700 m
-504 736 l
-504 764 l
-504 764 l
-</path>
-<path matrix="1 0 0 1 16 0" stroke="red" fill="white" dash="dashed" pen="heavier" arrow="normal/normal">
-504 784 m
-504 764 l
-</path>
-<path matrix="1 0 0 1 16 0" stroke="black" fill="white" pen="heavier" arrow="normal/small">
-512 752 m
-500 740 l
-</path>
-<path stroke="lightgray" fill="lightgray" pen="heavier">
-368 784 m
-368 688 l
-384 688 l
-384 784 l
-h
 </path>
 <path stroke="black" fill="lightgray" pen="heavier">
 416 736 m
 368 784 l
 </path>
-<path stroke="lightgray" fill="lightgray" pen="heavier">
-464 784 m
-464 688 l
-480 688 l
-480 784 l
-h
-</path>
-<path stroke="black" fill="lightgray" pen="heavier">
-512 736 m
-464 784 l
-</path>
-<text matrix="1 0 0 1 0 -8" transformations="translations" pos="524 780" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
 <text transformations="translations" pos="428 772" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
-<text transformations="translations" pos="332 756" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
-<text transformations="translations" pos="140 716" stroke="black" type="label" width="6.722" height="5.152" depth="2.32" valign="baseline" size="large" style="math">\gamma</text>
 <text matrix="1 0 0 1 -4 8" transformations="translations" pos="376 720" stroke="black" type="label" width="26.47" height="7.473" depth="2.49" valign="baseline" style="math">int(\gamma)</text>
-<text transformations="translations" pos="468 728" stroke="black" type="label" width="26.47" height="7.473" depth="2.49" valign="baseline" style="math">int(\gamma)</text>
+<path stroke="red" dash="dashed" pen="heavier" arrow="normal/normal">
+376 784 m
+416 748 l
+424 736 l
+</path>
 </page>
 </ipe>

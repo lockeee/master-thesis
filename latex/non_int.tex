@@ -25,7 +25,7 @@ Sei $\tilde{\varphi}$ ein nicht ganzzahliger zulässiger Fluss auf $\mathcal{N}_
 \begin{proof}
 Wir betrachten das gerichtete Netzwerk $\mathcal{F}_z$ mit einer Quelle $s$ und Senke $t$, einem Beutel $B_f$ für jedes innere Gebiet $f$, einem Knoten $(f,v)$ für jeden inneren Winkel und einem Knoten für jeden Dummy-Knoten. Zuerst fügen Kanten mit Kapazität $|f|-3$ von der Quelle zu jedem Beutel ein. Dann folgen Kanten von den Beuteln $B_f$ zu den Winkeln von $f$, von den Winkeln $(f,v)$ zu den Dummy-Knoten $v^*$ und zuletzt eine Kante von jedem Dummy-Knoten zu Senke mit Kapazität 1, jeweils mit Kapazität 1. Der maximal mögliche $s$-$t$-Fluss in $\mathcal{F}_z$ ist $\sum_{f \in F_{in}}(|f|-3)$, da die Kanten zu den Beuteln einen Schnitt bilden und wir  aus $\tilde{\varphi}_z$ sofort eine zulässige nicht ganzzahlige Lösung $\tilde{\phi}$ für $\mathcal{F}_z$ konstruieren können. Nach Theorem \ref{theo_int_flow} existiert somit ein ganzzahliger Fluss $\phi$ auf $\mathcal{F}_z$, mit $|\phi| = |\tilde{\phi}| = |\tilde{\varphi}_z| = \sum_{f \in F_{in}}(|f|-3).$
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
   	\includegraphics[width=0.7\textwidth]{lem_faa_choice.png}
   	\caption{Skizze des Netzwerkes $\mathcal{F}_z$. Die Kanten von der Quelle zu einem Beutel $B_f$ hat Kapazität $|f|-3$ und alle anderen haben Kapazität 1.}
@@ -34,7 +34,17 @@ Wir betrachten das gerichtete Netzwerk $\mathcal{F}_z$ mit einer Quelle $s$ und 
 $\phi$ weißt nun jedem inneren Gebiet $f$ genau $|f|-3$ Winkel zu und jeder Knoten $v$ kann nur einmal zugewiesen werden. Wenn wir noch die per Konstruktion von $\mathcal{N}_G$ zugewiesenen Knoten am äusseren Gebiet hinzunehmen, dann kodiert $\phi$ ein FAA von $G$.
 \end{proof}
 
-Wenn wir zeigen können, dass ein so erhaltenes $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert.
+\begin{remark}
+Es ist uns nicht möglich mit beliebigen Winkeln aus $W$ zu beginnen und Schritt für Schritt für jedes Gebiet $|f|-3$ Winkel wählen, wie in Abbildung \ref{lem_faa_choice_ex} illustriert ist.
+\end{remark}
+\begin{figure}[h]
+	\centering
+  	\includegraphics[width=0.9\textwidth]{lem_faa_choice_ex.png}
+  	\caption{Die ganzzahligen Flüsse $\varphi$ und $\varphi'$ zusammen bilden den zulässigen Fluss $\frac{\varphi+\varphi'}{2}$, aber wir können nicht anfangen beliebige Winkel aus $\frac{\varphi_z+\varphi'_z}{2}$ zu wählen, um ein FAA zu erhalten. Rechts bleibt kein Knoten für das blaue Gebiet übrig.}
+	\label{lem_faa_choice_ex}
+\end{figure}
+
+Wenn wir zeigen können, dass ein wie Lemma \ref{lem_faa} konstruiertes $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert.
 
 \subsection{Minimale Schnitte in $\mathcal{N}_G$}
 

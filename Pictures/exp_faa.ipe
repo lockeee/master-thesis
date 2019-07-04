@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190603102250" modified="D:20190603102250"/>
+<info created="D:20190603102250" modified="D:20190704201406"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -303,8 +303,7 @@ h
 <text matrix="1 0 0 1 112 -48" transformations="translations" pos="40 776" stroke="black" type="label" width="7.895" height="11.097" depth="0" halign="center" valign="center" size="LARGE" style="math">1</text>
 <text matrix="1 0 0 1 112 -48" transformations="translations" pos="88 776" stroke="black" type="label" width="7.895" height="11.097" depth="0" halign="center" valign="center" size="LARGE" style="math">2</text>
 <text matrix="1 0 0 1 112 -48" transformations="translations" pos="136 776" stroke="black" type="label" width="7.895" height="11.097" depth="0" halign="center" valign="center" size="LARGE" style="math">3</text>
-<text matrix="1 0 0 1 64 -48" transformations="translations" pos="280 776" stroke="black" type="label" width="10.062" height="7.412" depth="0" halign="center" valign="center" size="LARGE" style="math">n
-</text>
+<text matrix="1 0 0 1 64 -48" transformations="translations" pos="280 776" stroke="black" type="label" width="10.062" height="7.412" depth="0" halign="center" valign="center" size="LARGE" style="math">n</text>
 <path matrix="1 0 0 1 112 -48" stroke="black" arrow="normal/tiny">
 28 756 m
 20 764 l

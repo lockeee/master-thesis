@@ -1,6 +1,6 @@
 \section{Flüsse auf Graphen}
 
-Wir werden in Kapitel \ref{main_algo} einen gerichteten Graphen $\mathcal{N}$ konstruieren um auf diesem einen maximalen Fluss zu finden. Wir beschäftigen uns allgemein also mit der folgenden Problematik.
+Wir werden in Kapitel \ref{main_algo} einen gerichteten Graphen $\mathcal{N}$ konstruieren um auf diesem einen maximalen Fluss $\varphi$ zu finden. Es gibt sehr viele unterschiedliche Arten von Flussproblemen. So kann man zum Beispiel Graphen mit nur einem Paar von Quellen und Senken oder mehreren betrachten und die Kanten können gerichtet oder unterrichtet sein. Im Fall mit mehreren Quellen und Senken werden diese normalerweise als Paare $s_i,t_i$ gehandhabt und es wird gefordert, dass insgesamt Fluss $\varphi_i$ mit Stärke $d_i \in \mathbb{R}_+$ von $s_i$ zu $t_i$ fließt. Als zusätzliche Einschränkung haben die Kanten $e$ maximale Kapazitäten $c(e) \in \mathbb{R}_+$ die nicht überschritten werden können. Für jede Kante muss also gelten $\varphi(e) \leq c(e)$. Wir werden uns in Kapitel \ref{main_algo} mit einem Fluss der folgenden Form befassen.
 
 \begin{definition}[Gerichtetes-Multi-Fluss-Problem]\label{def_multi_flow}
 Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den Kapaziäten $c:E\mapsto\mathbb{R}_{+}$, Paaren von ausgezeichneten Knoten $\{(s_1,t_1), ... ,(s_n,t_n)\}$ und positiven Bedarfen $\{d_1, ... ,d_n\}$, dann ist $\varphi=(\varphi_1, ... ,\varphi_n)$ ein zulässiger Fluss, falls
@@ -23,5 +23,5 @@ Sei $\mathcal{N}$ ein Netzwerk mit einer Quelle und einer Senke und alle Kapazit
 \end{theorem}
 
 \begin{remark}
-Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen. Diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für diese Arbeit wäre jedoch der Fall $n=2$ für gerichtete Graphen interessant. Leider ist hier im Allgemeinen die Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$.
+Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen. Diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für diese Arbeit wäre jedoch der Fall $n=2$ für gerichtete Graphen interessant. Leider ist hier im Allgemeinen die Suche nach einer ganzzahligen Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$. Es existieren ebenfalls keine analogen Aussagen zum Max-Flow Min-Cut Theorem für gerichtete Netzwerke mit mehr als einer Quelle und Senke, sondern nur Schranken und Annäherungen \cite{leighton99}.
 \end{remark}

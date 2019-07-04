@@ -96,6 +96,17 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \newtheorem*{remark}{Remark}%
 }
 {%
+%restate Theorem
+\makeatletter
+\newtheorem*{rep@theorem}{\rep@title}
+\newcommand{\newreptheorem}[2]{%
+\newenvironment{rep#1}[1]{%
+ \def\rep@title{#2 \ref{##1}}%
+ \begin{rep@theorem}}%
+ {\end{rep@theorem}}}
+\makeatother
+
+
 \newtheorem{theorem}{Theorem}[chapter]%
 \newtheorem{lemma}[theorem]{Lemma}%
 \newtheorem{proposition}[theorem]{Proposition}%
@@ -111,6 +122,9 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \theoremstyle{dotless_theorem}%
 \newtheorem{observation}{Beobachtung}
 \newtheorem*{invariant}{Invariante}
+
+
+\newreptheorem{theorem}{Theorem}
 }%
 
 
