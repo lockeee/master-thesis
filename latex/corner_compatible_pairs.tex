@@ -5,8 +5,8 @@ In diesem Abschnitt werden wir uns mit einer zweiten Charakterisierung von SLTRs
 \begin{definition}[Ecken Kompatibilität]\label{def_ccc}
 Ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ nenne wir \textit{Ecken kompatibel}, falls:
 \begin{itemize}
-\item [C1] Das Schnyder Labeling $\sigma$ und das FAA $\phi$ nutzen die selben Aufhängungen.
-\item [C2] In jedem inneren Gebiet haben die drei Ecken aus $\phi$ drei unterschiedliche Label in $\sigma$.
+\item [K1] Das Schnyder Labeling $\sigma$ und das FAA $\phi$ nutzen die selben Aufhängungen.
+\item [K2] In jedem inneren Gebiet haben die drei Ecken aus $\phi$ drei unterschiedliche Label in $\sigma$.
 \end{itemize}
 \end{definition}
 
@@ -14,7 +14,7 @@ Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem S
 
 \begin{theorem}
 \label{theo_ccc}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt eine SLTR, genau dann wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
+Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt genau dann eine SLTR, wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{theorem}
 
 Wir beweisen zuerst die (deutlich einfachere) Rückrichtung des Theorems. Hier können wir die durch das in Abschnitt \ref{sw} erklärte \textit{face counting} erhaltene Einbettung nutzen, um zu zeigen, dass jeder begrenzende Zykel $\gamma$ genau drei kombinatorisch konvexe Ecken besitzt. 
@@ -209,10 +209,10 @@ Um nun den Graphen $G'$ zu erhalten löschen wir die im letzten \textit{flip} hi
 
 Betrachten wir einen beliebigen begrenzenden Zykel $\gamma'$ in $G'$ und sei $\gamma_k$ der korrespondierende Zykel in $G_k$ Wir müssen wieder zeigen, dass jeder Zykel mindestens drei kombinatorisch konvexe Ecken hat. Im Fall, dass $p_k$ nicht auf dem Rand von $\gamma'$ liegt, folgt sofort, dass beide Zykel die selben kombinatorisch konvexen Ecken haben (und somit beide mindestens drei). Betrachten wir also den Fall, dass $p_k$ auf dem Rand von $\gamma'$ liegt. Im Fall, dass $\gamma'$ nur einen Teil der Nachbarn von $p_k$ beinhaltet und nicht den zugewiesenen Winkel einschließt ist $p_k$ sowohl eine kombinatorisch konvexe Ecke von $\gamma_k$ und somit auch von $\gamma'$. Sei also $p_k$ keine kombinatorisch konvexe Ecke von $\gamma'$. Falls der zugewiesene Winkel an $p_k$ im Inneren von $\gamma'$ liegt, aber $\gamma'$ nicht alle Nachbarn von $p_k$ enthält, muss $\gamma_k$ mindestens vier kombinatorisch konvexe Ecken besitzen. Die ersten drei sind $a_1,a_2$ und $p_k$ und die vierte befindet sich auf dem Teil des Randes $R$ vom $\gamma'$ zwischen $p_k$ und $a_2$\footnote{Diese Ecke muss existieren, da der begrenzende Zykel $\tilde{\gamma}$, der sich aus $R$ und der Kante $(a_2,p_k)$ bildet, mindestens drei kombinatorisch konvexe Ecken in $G_k$ hat.}. Somit hat $\gamma'$ mindestens drei kombinatorisch konvexe Ecken. Betrachte den Fall, dass $\gamma'$ alle Nachbarn von $p_k$ beinhaltet, aber der zugewiesene Winkel nicht im Inneren von $\gamma'$ liegt. In der SLTR $\Delta_k$ ist der Aussenwinkel von $\gamma_k$ am Knoten $p_k$ somit nicht grösser als $\pi$ und $\gamma_k$ muss drei andere (kombinatorisch konvexe) Ecken haben. Diese sind auch kombinatorisch konvexe) Ecken von $\gamma'$. Somit hat jeder begrenzende Zykel $\gamma'$ in $G'$ mindestens drei kombinatorisch konvexe Ecken und es folgt, dass $\phi'$ ein Gutes-FAA ist.
 
-Da $G'$ die gleiche Anzahl an Knoten und weniger Kanten als $G$ kann er kein Gegenbeispiel sein. Es existiert also ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist. Es bleibt zu zeigen, dass wir aus $\sigma'$ ein Labeling für $G$ erstellen können, welches dann Ecken kompatibel zu $\phi$ ist. Wir stützen uns hierfür auf die folgende Eigenschaft, die aus C2 folgt.
+Da $G'$ die gleiche Anzahl an Knoten und weniger Kanten als $G$ kann er kein Gegenbeispiel sein. Es existiert also ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist. Es bleibt zu zeigen, dass wir aus $\sigma'$ ein Labeling für $G$ erstellen können, welches dann Ecken kompatibel zu $\phi$ ist. Wir stützen uns hierfür auf die folgende Eigenschaft, die aus K2 folgt.
 
 \begin{itemize} 
-\item [C3] In einem Ecken kompatiblen Paar $(\sigma,\phi)$ hat jeder zugewiesene Winkel in diesem Gebiet (mindestens) einen benachbarten Winkel mit dem selben Label.
+\item [K3] In einem Ecken kompatiblen Paar $(\sigma,\phi)$ hat jeder zugewiesene Winkel in diesem Gebiet (mindestens) einen benachbarten Winkel mit dem selben Label.
 \end{itemize}
 
 \begin{figure}

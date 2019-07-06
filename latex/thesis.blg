@@ -3,48 +3,49 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: amsalpha.bst
 Database file #1: bibliography.bib
+Warning--I didn't find a database entry for "af13n"
 Warning--missing pages in lov99
 Warning--missing journal name in schnyder90
 Warning--missing journal, volume, and year in schnyder90
-You've used 17 entries,
+You've used 16 entries,
             2624 wiz_defined-function locations,
-            657 strings with 6446 characters,
-and the built_in function-call counts, 6128 in all, are:
-= -- 600
-> -- 183
-< -- 9
-+ -- 54
-- -- 53
-* -- 489
-:= -- 920
-add.period$ -- 17
-call.type$ -- 17
-change.case$ -- 91
-chr.to.int$ -- 16
-cite$ -- 20
-duplicate$ -- 281
-empty$ -- 532
-format.name$ -- 77
-if$ -- 1281
+            655 strings with 6332 characters,
+and the built_in function-call counts, 5884 in all, are:
+= -- 582
+> -- 178
+< -- 8
++ -- 53
+- -- 52
+* -- 473
+:= -- 885
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 86
+chr.to.int$ -- 15
+cite$ -- 19
+duplicate$ -- 265
+empty$ -- 505
+format.name$ -- 74
+if$ -- 1229
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 32
-newline$ -- 62
-num.names$ -- 43
-pop$ -- 101
+missing$ -- 29
+newline$ -- 59
+num.names$ -- 41
+pop$ -- 92
 preamble$ -- 1
-purify$ -- 108
+purify$ -- 102
 quote$ -- 0
-skip$ -- 219
+skip$ -- 208
 stack$ -- 0
-substring$ -- 451
-swap$ -- 44
-text.length$ -- 9
-text.prefix$ -- 10
+substring$ -- 444
+swap$ -- 43
+text.length$ -- 8
+text.prefix$ -- 9
 top$ -- 0
-type$ -- 132
+type$ -- 128
 warning$ -- 3
-while$ -- 60
-width$ -- 19
-write$ -- 192
-(There were 3 warnings)
+while$ -- 59
+width$ -- 18
+write$ -- 182
+(There were 4 warnings)

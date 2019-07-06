@@ -1,28 +1,22 @@
 \chapter{Algorithmen zur Erkennung von SLTRs}\label{main_algo}
 
-Im vorherigen Kapitel wurden Kriterien für die Existenz einer SLTR für $G$ erarbeitet. Diese liefern allerdings nicht sofort einen Algorithmus, weder zur Frage nach der Existenz, noch für das Erlangung einer spezifischen SLTR. Dieses Kapitel wird sich diesem Thema zuwenden und einen von Aerts und Felsner in \cite{af15} erarbeiteten Algorithmus erläutern und analysieren.
+Im vorherigen Kapitel wurden Kriterien für die Existenz einer SLTR für $G$ erarbeitet. Diese liefern allerdings nicht sofort einen Algorithmus, weder zur Frage nach der Existenz, noch für das Erlangen einer spezifischen SLTR. Dieses Kapitel wird sich diesem Thema zuwenden und einen von Aerts und Felsner in \cite{af15} erarbeiteten Algorithmus erläutern und analysieren.
 
 \section{SLTRs via Zwei-Fluss}
 
-Das Ziel ist es, für einen gegebenen Graphen, sowohl einen Schnyder Wood als auch ein FAA jeweils als Lösung eines Fluss-Problems zu erhalten. Diese beiden werden dann in einem Zwei-Fluss-Problem kombiniert, sodass eine Lösung ein Ecken-Kompatibles-Paar kodiert und somit eine SLTR resultiert. Wir beschäftigen uns also den in Definition \ref{def_multi_flow} eingeführten Gerichteten-Multi-Fluss-Problemen auf gerichteten Graphen.
+Das Ziel ist es, für einen gegebenen Graphen, sowohl einen Schnyder Wood als auch ein FAA jeweils als Lösung eines Fluss-Problems mit einer Quelle und Senke zu erhalten. Diese beiden werden dann in einem Zwei-Fluss-Problem kombiniert, sodass eine zulässige ganzzahlige Lösung ein Ecken-Kompatibles-Paar kodiert und somit eine SLTR resultiert. Wir beschäftigen uns also mit Gerichteten-Multi-Fluss-Problemen auf gerichteten Graphen, die in Definition \ref{def_multi_flow} eingeführt wurden.
 
 \input{one_flows.tex}
-
-\begin{remark}
-
-Nach \cite{af15} lässt sich für Graphen mit wenigen Schnyder Woods ein Algorithmus erstellen indem wir einen bipartiten Karo erstellen und ein einseitiges perfektes Matching auf diesem finden. TODO
-
-\end{remark}
 
 \subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
 Im Verlauf des Kapitels haben wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet, für das eine ganzzahlige Lösung einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert. Wir wollen jetzt eine Kombination aus beiden erstellen die ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$  kodiert.\
 
-Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt, für das eine ganzzahlige Lösung ein Ecken kompatibles Paar kodiert und somit nach Theorem \ref{theo_coco} eine SLTR für $G$ existiert. Leider handelt es sich hierbei um ein 2-Fluss-Netzwerk, aber darauf wollen wir später genauer eingehen.\\
+Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt. Ein ganzzahliger Fluss $\varphi$ kodiert dann ein Ecken kompatibles Paar und impliziert somit nach Theorem \ref{theo_coco} eine SLTR für $G$. Es handelt sich hierbei um ein 2-Fluss-Netzwerk.
 
 Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wir müssen jetzt diese drei Flüsse, also Schnyder-, Ecken- und Zuweisungs-Fluss in einem Netzwerk kombinieren. In \cite{af15} ergeben Schnyder- und Ecken-Fluss zusammen Fluss von Typ 1 und der Zuweisungs-Fluss Typ 2. Wir wollen hier analog ein Netzwerk konstruieren in dem wir FAA und Schnyder-Wood Fluss nicht trennen. Der Verständlichkeit wegen werden wir Pfade, die in einer Lösung von einem der drei Flussarten genutzt werden, \textit{Schnyder-Pfad, Ecken-Pfad} und \textit{Zuweisungs-Pfad} nennen.\\
 
-Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und $\mathcal{N}_F$ zu $\mathcal{N}_G$ müssen die Ecken Kompatibilität von Schnyder Labeling und FAA gewährleistet werden. K1 zu erfüllen, also die Nutzung der gleichen Aufhängungen von $\sigma$ und $\phi$, ist kein Problem. Allerdings müssen wir für K2 das Netzwerk etwas komplizierter machen. Betrachten wir als Basis $\mathcal{N}_S \cup \mathcal{N}_F$ und fürs erste nur ein inneres Gebiet $f$, dann sehen wir, dass es $|f|-3$ Schnyder-Fluss aufnimmt, aber $|f|$ Einkanten in $\mathcal{N}_S$ hat, es sind also genau die drei nötigen Kanten für den Ecken-Fluss aus $\mathcal{N}_F$ übrig. Wir müssen gewährleisten, dass jede Ecke im Schnyder Labeling ein anderes Label hat. Betrachten wir also den von $\varphi_S$ induzierten Schnyder Wood auf $G^*$. Nach \cite{felsner12} können wir diesen aus der $\alpha_S$-Orientierung ablesen. 
+Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und $\mathcal{N}_F$ zu $\mathcal{N}_G$ müssen die Ecken Kompatibilität von Schnyder Labeling und FAA gewährleistet werden. K1 zu erfüllen, also die Nutzung der gleichen Aufhängungen von $\sigma$ und $\phi$, ist kein Problem. Allerdings müssen wir für die zweite Bedingung das Netzwerk etwas komplizierter machen. Betrachten wir als Basis $\mathcal{N}_S \cup \mathcal{N}_F$ und fürs erste nur das Teilnetzwerk um ein inneres Gebiet $f$, dann sehen wir, dass $f$ in $\mathcal{N}_S$ $|f|-3$ Schnyder-Fluss aufnimmt, aber $|f|$ Einkanten in $\mathcal{N}_S$ hat. Wir können die drei leeren Kanten für den Ecken-Fluss aus $\mathcal{N}_F$ nutzen. Um K2 zu erfüllen, müssen gewährleisten, dass jede Ecke im Schnyder Labeling ein anderes Label hat. Betrachten wir also die von $\varphi_S$ induzierte $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Nach Theorem \ref{alpa_bij} erhalten wir in Bijektion stehende Schnyder Labelings auf $G$ und $G^*$.
 
 \begin{figure}[h]
 	\centering
@@ -31,7 +25,7 @@ Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und 
 	\label{alpha_bij}
 \end{figure}
 
-Es gilt außerdem, wie in Abbildung \ref{alpha_bij} skizziert, dass die Label der Ecke eines Gebietes in $G$ und das ihr in $G+G^*$ gegenüberliegenden Label der Ecke eines Gebiets um einen Knoten in $G^*$ gleich sind. Für eine zu $v$ in $G^*$ hin orientierte Kante folgt aus der Bijektion zwischen Schnyder Labelings und Schnyder Woods aus Abschnitt \ref{sw}, dass die Label links und rechts am Ende dieser Kante gleich sind. Somit sind auch die Label in $G$ gleich und wir können die folgende Eigenschaft festhalten.
+Für diese gilt, wie in Abbildung \ref{alpha_bij} skizziert, dass das Label der Ecke eines Gebietes in $G$ und das ihr in $G+G^*$ gegenüberliegenden Label der Ecke eines Gebiets um einen Knoten in $G^*$ gleich sind. Für eine zu $v$ in $G^*$ hin orientierte Kante folgt aus der Bijektion zwischen Schnyder Labelings und Schnyder Woods aus Abschnitt \ref{sw}, dass die Label links und rechts am Ende dieser Kante gleich sind. Somit sind auch die Label in $G$ gleich und wir können die folgende Eigenschaft festhalten.
 \begin{itemize}
 \item [A1] Die Label, des von $\alpha_s$ induzierten Schnyder Wood auf $G$, sind zwischen zwei aufeinander folgenden zu $f$ orientierten Kanten gleich.
 \end{itemize}
@@ -80,7 +74,46 @@ Da es genau $\sum_{f \in F_{in}} |f|$ innere Winkel gibt und der FAA-Fluss $\mat
 Sei $G$ ein intern-3-zusammenhängender Graph mit gegebenen Aufhängungen $\{a_1,a_2,a_3\}$, dann existiert eine SLTR von $G$, genau dann wenn ein ganzzahliger zulässiger Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ existiert.
 \end{theorem}
 
-\begin{proof}
+Fassen wir vor dem Beweis noch einmal das Netzwerk zusammen.
+
+\begin{network}[SLTR]
+Bei $\mathcal{N}_G$ handelt es sich um ein gerichtetes Netzwerk, das auf Basis von $G$ erstellt wird, um eine SLTR von $G$ zu finden. Ein Ausschnitt um ein inneres Gebiet ist in Abbildung \ref{theo_algo} dargestellt.
+	\begin{itemize}
+	\item $\mathcal{N}_G$ hat zwei Quellen $s_1,s_2$ und zwei Senken $t_1,t_2$
+	\item Knoten in $\mathcal{N}_s$ werden für jeden innere Kante $e \in E_{in}$, jedes innere Gebiet $f\in F_{in}$ und jeden Knoten $v \in V$ aus $G$ erzeugt.
+	\item Es werden Knoten der folgenden Typen in $\mathcal{N}_S$ erzeugt:
+		\begin{itemize}
+		\item Knoten $e$ für jede innere Kante $e \in E_{in}$
+		\item Knoten $v$ für jeden $v \in V$ und Dummy-Knoten $v^*$ für jeden $v \in V_{in}$
+		\item Knoten für jedes innere Gebiet $f$.
+		\item $|f|$ kleine Quadrate $q$ um jedes innere Gebiet $f$
+		\item Vier Knoten $w_1,w_2,w_3,w_4$ für jedes innere Winkeldreieck
+		\item Die Dummy-Senke $t_d$
+		\end{itemize}
+	\item Es werden gerichtete Kanten der folgenden Typen in $\mathcal{N}_G$ erzeugt:
+		\begin{itemize}
+		\item $(s_1,e)$ von Quelle 1 zu jeder inneren Kante mit $c\big(s,e\big) = 1$
+		\item $(e,v_1),(e,v_2)$ von jeder inneren Kante zu den Endknoten mit $c\big(e,v\big) = 1$
+		\item $(e,q)$ von inneren Kanten zu adjazenten kleinen Quadraten mit $c\big(e,q\big) = 1$
+		\item $(q,f)$ von jeder kleinen Quadraten zu den inneren Gebieten mit $c\big(q,f\big) = 1$
+		\item $(f,t_1)$ von den inneren Gebieten zur Senke 1 mit $c\big(f,t_1\big) = |f|-3$
+		\item $(a_i,t_1)$ von den Aufhängungen zur Senke 1 mit $c\big(f,t\big) = \text{deg}(a_i)-2$
+		\item $(v,t_1)$ von den restlichen Knoten zur Senke 1 mit $c\big(f,t\big) = \text{deg}(v)-3$		
+		\item $(s_2,(f,v))$ von Quelle 2 zu jedem inneren Winkel mit $c\big(s_2,(f,v)\big) = 1$
+		\item $(w_1,w_2),(w_2,w_3),(w_3,w_4)$ in jedem inneren Winkel mit $c\big(w_i,w_{i+1}\big) = 1$
+		\item $(t_4,q)$ von inneren Winkeln zum nächsten kleinen Quadrat mit $c\big(t_4,q\big) = 1$
+		\item $(t_4,t'_3)$ von inneren Winkeln zum nächsten inneren Winkel mit $c\big(t_4,t'_3\big) = 1$
+		\item $((f,v),f)$ von inneren Winkeln zum Gebiet mit $c\big((f,v),f\big) = 1$
+		\item $(t_2,v*)$ von jedem inneren Winkel zum Dummy-Knoten mit $c\big(t_2,v^*\big) = 1$
+		\item $(v^*,t_d)$ von den Dummy-Knoten zur Dummy-Senke mit $c\big(f,t\big) = 1$
+		\item $(t_d,t_2)$ von der Dummy-Senke zu Senke 2 mit $c\big(t_d,t_2\big) = \sum_{f \in F_{in}}|f|-3$
+		\end{itemize}
+	\item $\mathcal{N}_S$ hat Bedarfe $d_1=|E_{in}|$ und $d_2 = \sum_{f \in F_{in}}|f|$
+	\item [$\Rightarrow$] Ein zulässiger ganzzahliger Fluss $\varphi = (\varphi_1,\varphi_2)$ existiert. $\Leftrightarrow$ Es existiert ein SLTR  auf $G$.
+	\end{itemize}
+\end{network}	
+
+\begin{proof}[Beweis von Theorem \ref{theo_algo}]
 Sei $G$ ein intern-3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und $\varphi=(\varphi_1,\varphi_2)$ sei ein ganzzahliger machbarer Fluss auf $\mathcal{N}_G$. Im ersten Schritt extrahieren wir einen Schnyder-Wood $\sigma$ und ein FAA $\phi$, um dann zu zeigen, dass sie ein Ecken kompatibles Paar bilden. Für einen machbaren Fluss müssen die Bedarfe erfüllt werden. Es gilt somit $|\varphi_1| =  |E_{in}|$ und $|\varphi_2| = \sum_{f \in F_{in}} |f|$.
 \begin{equation}\label{eq_sat}
 \begin{split}
