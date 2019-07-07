@@ -15,13 +15,13 @@ Sei $D=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den 
 Es folgen zwei bekannte Resultate für den Fall $n=1$, die später Anwendung finden werden.
 
 \begin{theorem}[Max-Flow Min-Cut]
-$\varphi$ ist ein maximale Fluss in $\mathcal{N}$, genau dann, wenn für mindestens einen Schnitt $\mathcal{S} \subset E$ gilt $c(\mathcal{S}) = |\varphi|$. Die Kapazität eines minimalen Schnittes entspricht dem maximalen Fluss.
+$\varphi$ ist ein maximale Fluss auf $\mathcal{N}$, genau dann, wenn für mindestens einen Schnitt $\mathcal{S} \subset E$ gilt $c(\mathcal{S}) = |\varphi|$. Die Kapazität eines minimalen Schnittes entspricht dem maximalen Fluss.
 \end{theorem}
 
 \begin{theorem}[Ganzzahliger Fluss]\label{theo_int_flow}
-Sei $\mathcal{N}$ ein Netzwerk mit einer Quelle und einer Senke und alle Kapazitäten seien ganzzahlig, dann existiert auch ein maximaler Fluss $\varphi$, sodass der Fluss auf allen Kanten ganzzahlig ist. Es gilt also $|\varphi(e)| \in \mathcal{N}$ für alle $e\in E$.
+Sei $\mathcal{N}$ ein Netzwerk mit einer Quelle und einer Senke und alle Kapazitäten seien ganzzahlig, dann existiert auch ein maximaler Fluss $\varphi$, sodass der Fluss auf allen Kanten ganzzahlig ist. Es gilt also $|\varphi(e)| \in \mathbb{N}$ für alle $e\in E$.
 \end{theorem}
 
 \begin{remark}
-Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen. Diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für diese Arbeit wäre jedoch der Fall $n=2$ für gerichtete Graphen interessant. Leider ist hier im Allgemeinen die Suche nach einer ganzzahligen Lösung nur über Lineare Programmierung möglich und befindet sich somit in $\mathcal{NP}$. Es existieren ebenfalls keine analogen Aussagen zum Max-Flow Min-Cut Theorem für gerichtete Netzwerke mit mehr als einer Quelle und Senke, sondern nur Schranken und Annäherungen \cite{leighton99}.
+Im Fall $n=1$ und Kapazitäten $c:E\mapsto\mathbb{N}$ impliziert die Existenz eines zulässigen Flusses die Existenz einer ganzzahligen Lösung, sowohl für gerichtete als auch ungerichtete Graphen. Diese lässt sich in polynomineller Zeit bestimmen. Für $n=2$ und ungerichtete Graphen gilt dies nach \cite{hu} ebenfalls. Für diese Arbeit wäre jedoch der Fall $n=2$ für gerichtete Graphen interessant. Leider ist hier im Allgemeinen die Suche nach einer ganzzahligen Lösung nur über Gemischte Lineare Programmierung (TODO) möglich und befindet sich somit in $\mathcal{NP}$. Es existieren ebenfalls keine analogen Aussagen zum Max-Flow Min-Cut Theorem für gerichtete Netzwerke mit mehr als einer Quelle und Senke, sondern nur Schranken und Annäherungen \cite{leighton99}.
 \end{remark}

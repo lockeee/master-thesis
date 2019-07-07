@@ -18,7 +18,7 @@ Betrachte einen planen Graphen $G$ und seinen schwacher dualer Graphen $G^*$. De
 Wenn wir einen Knoten $f_\infty$ für das äussere Gebiet hinzufügen und die Halbkanten zu diesem verlängern spricht man vom \textit{Abschluss} von $G+G^*$.
 
 \end{definition}
-Es ist leicht zu sehen, dass $G+G^*$ und sein Abschluss bipartit sind. Das folgende Theorem liefert eine Bijektion zwischen den Schnyder Woods auf $G$ und einer bestimmten $\alpha$-Orientierung auf $\tilde{G}$, die wir $\alpha_s$ nennen.
+Es ist leicht zu sehen, dass $G+G^*$ und sein Abschluss bipartit sind. Das folgende Theorem liefert eine Bijektion zwischen den Schnyder Woods auf $G$ und einer bestimmten $\alpha$-Orientierung auf dem Abschluss von $G+G^*$, die wir $\alpha_s$ nennen.
 
 \begin{theorem}\label{alpha_bij}
 Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$, dann sind die folgenden Strukturen in Bijektion:
@@ -30,11 +30,11 @@ Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$, dann sind die folg
 \end{theorem}
 
 \begin{remark}
-Wir erhalten aus einem $\alpha_s$-Orientierung den Schnyder Wood, indem wir den drei Aufhängungen die Label rot, grün und blau geben und dann Schritt für Schritt die Kanten einfärben und dabei die Orientierung der Kanten aus $\alpha_s$ auf $G$ übernehmen erfüllen wir bereits W1 und W2. Wir nun an jedem Knoten an dem wir ankommen W3 bei der Einfärbung berücksichtigen erhalten wir einen eindeutigen Schnyder Wood auf $G$.
+Wir erhalten aus einem $\alpha_s$-Orientierung den Schnyder Wood, indem wir den drei Aufhängungen die Label rot, grün und blau geben und dann Schritt für Schritt die Kanten einfärben und dabei die Orientierung der Kanten aus $\alpha_s$ auf $G$ übernehmen. Wir erfüllen so bereits W1 und W2. Wenn nun an jedem Knoten an dem wir ankommen W3 bei der Einfärbung berücksichtigt wird erhalten wir einen eindeutigen Schnyder Wood auf $G$ (und somit auch auf $G^*$).
 \end{remark}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\textwidth]{alpha_ex2.png}
-  \caption{Der Primal-Duale Graph $K_4+K_4^*$ mit einer $\alpha_s$-Orientiertung und den zugehörigen Schnyder Woods auf $K_4$ und $K^*_4$. }
+	\includegraphics[width=0.7\textwidth]{alpha_ex2.png}
+  \caption{ Der Primal-Duale Graph $K_4+K_4^*$ (a) mit einer $\alpha_s$-Orientiertung (b) und den zugehörigen Schnyder Woods auf $K_4$ (c) und $K^*_4$ (d). }
 \end{figure}
