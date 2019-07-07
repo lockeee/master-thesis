@@ -27,24 +27,29 @@ Wir betrachten das gerichtete Netzwerk $\mathcal{F}_z$ mit einer Quelle $s$ und 
 
 \begin{figure}
 	\centering
-  	\includegraphics[width=0.7\textwidth]{lem_faa_choice.png}
+  	\includegraphics[width=0.9\textwidth]{lem_faa_choice.png}
   	\caption{Skizze des Netzwerkes $\mathcal{F}_z$. Die Kanten von der Quelle zu einem Beutel $B_f$ hat Kapazität $|f|-3$ und alle anderen haben Kapazität 1.}
 \end{figure}
 
 $\phi$ weißt nun jedem inneren Gebiet $f$ genau $|f|-3$ Winkel zu und jeder Knoten $v$ kann nur einmal zugewiesen werden. Wenn wir noch die per Konstruktion von $\mathcal{N}_G$ zugewiesenen Knoten am äusseren Gebiet hinzunehmen, dann kodiert $\phi$ ein FAA von $G$.
 \end{proof}
 
-\begin{remark}
-Es ist uns nicht möglich mit beliebigen Winkeln aus $W$ zu beginnen und Schritt für Schritt für jedes Gebiet $|f|-3$ Winkel wählen, wie in Abbildung \ref{lem_faa_choice_ex} illustriert ist.
-\end{remark}
+Wenn wir zeigen können, dass ein wie Lemma \ref{lem_faa} konstruiertes $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert.
+
+\begin{example}
+Es ist uns nicht möglich mit beliebigen Winkeln aus $W$ zu beginnen und Schritt für Schritt für jedes Gebiet $|f|-3$ Winkel wählen. Betrachte den planaren Graphen $G$ aus Abbildung \ref{lem_faa_choice_ex}. Die beiden SLTRs auf der linken Seite haben die selben Aufhängungen, implizieren jedoch andere FAAs somit auch andere zulässige ganzzahlige Flüsse auf $\mathcal{N}_G$. Seien $\varphi$ und $\varphi'$ diese Flüsse und $f_{r},f_{g}$ und $f_b$ die drei eingefärbten Gebiete. Betrachten wir die Zuweisungs-Flüsse $\varphi_z$ und $\varphi'_z$. Dann gilt $$|\varphi_z(f_r,v)|=|\varphi_z(f_r,u)|=|\varphi_z(f_b,w)| = |\varphi_z(f_g,x)| = 1$$
+$$|\varphi_z(f_r,v)|=|\varphi_z(f_r,w)|=|\varphi_z(f_b,u)| = |\varphi_z(f_g,x)| = 1.$$
+Der Fluss $\tilde{\varphi}=\frac{\varphi+\varphi'}{2}$ ist ebenfalls zulässig und es folgt:
+$$|\tilde{\varphi}_z(f_r,v)|=|\tilde{\varphi}_z(f_g,x)| = 1 \text{ und } |\tilde{\varphi}_z(f_r,w)|=|\tilde{\varphi}_z(f_r,u)| = |\tilde{\varphi}_z(f_b,w)|=|\tilde{\varphi}_z(f_b,u)| = \frac{1}{2}.$$
+Somit liegen all diese Winkel in W. Wir können allerdings nicht einfach beginnen in einem Gebiet die benötigte Anzahl an Winkel auszuwählen. In Abbildung \ref{lem_faa_choice_ex} führt dies auf der rechten Seite zu keinem FAA und somit auch zu keiner SLTR.
+
 \begin{figure}[h]
 	\centering
   	\includegraphics[width=0.9\textwidth]{lem_faa_choice_ex.png}
-  	\caption{Die ganzzahligen Flüsse $\varphi$ und $\varphi'$ zusammen bilden den zulässigen Fluss $\frac{\varphi+\varphi'}{2}$, aber wir können nicht anfangen beliebige Winkel aus $\frac{\varphi_z+\varphi'_z}{2}$ zu wählen, um ein FAA zu erhalten. Rechts bleibt kein Knoten für das blaue Gebiet übrig.}
+  	\caption{Bei der Auswahl der Winkel aus W ist Vorsicht geboten.}
 	\label{lem_faa_choice_ex}
 \end{figure}
-
-Wenn wir zeigen können, dass ein wie Lemma \ref{lem_faa} konstruiertes $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert.
+\end{example}
 
 \subsection{Minimale Schnitte in $\mathcal{N}_G$}
 

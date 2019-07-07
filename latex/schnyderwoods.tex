@@ -58,21 +58,21 @@ Dies macht es möglich, wenn sinnvoll, zwischen den beiden Strukturen hin und he
 
 \subsection{Einbettungen via Schnyder Woods}\label{face_counting}
 
-Es existieren einige Anwendungen von Schnyder Woods im Bezug auf Einbettungen. Wie schon erwähnt bezieht sich eines der ersten Resultate auf die konvexe Einbettung auf einem Gitter. Eine Verbesserung des in \cite{schnyder90} erreichten ist das im Folgenden skizzierte \textit{face-counting} \cite{felsner01} (auf deutsch: Gebiete zählen). Betrachte $G$ mit einem Schnyder Wood $T_1,T_2,T_3$. Nach \cite[Korollar 2.5]{felsner04} handelt es sich bei den $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$. Von jedem Knoten $v$ aus existierten also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Die Pfade von $v$ zu den Aufhängungen treffen sich nach \cite[Lemma 2.4]{felsner04} nur in $v$. Wir erhalten also zu jedem Knoten $v$ drei Regionen $R_i$ , die jeweils von den Pfaden $P_{i-i}(v)$ und $P_{i+1}(v)$ und dem äußeren Gebiet eingegrenzt werden. In jeder dieser Regionen können wir nun die eingeschlossenen Gebiete von $G$ zählen. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich eine konvexe Zeichnung von $G$ erzeugen.
+Es existieren einige Anwendungen von Schnyder Woods im Bezug auf Einbettungen. Wie schon erwähnt bezieht sich eines der ersten Resultate auf die konvexe Einbettung auf einem Gitter. Eine Verbesserung des in \cite{schnyder90} erreichten ist das im Folgenden skizzierte \textit{face-counting} \cite{felsner01} (auf deutsch: Gebiete zählen). Betrachte $G$ mit einem Schnyder Wood $T_1,T_2,T_3$. Nach \cite[Korollar 2.5]{felsner04} handelt es sich bei den $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$. Von jedem Knoten $v$ aus existierten also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Die Pfade von $v$ zu den Aufhängungen treffen sich nach \cite[Lemma 2.4]{felsner04} nur in $v$. Wir erhalten also zu jedem Knoten $v$ drei Regionen $R_i$ , die jeweils von den Pfaden $P_{i-i}(v)$ und $P_{i+1}(v)$ und dem äußeren Gebiet eingegrenzt werden (vergleiche Abbildung \ref{face_counting} rechts). In jeder dieser Regionen können wir nun die eingeschlossenen Gebiete von $G$ zählen. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich eine konvexe Zeichnung von $G$ erzeugen.
 
-Hierzu ordnet man jedem Knoten $v$ seinen \textit{Gebiets Vektor} $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. In Abbildung \ref{face_counting} sind auf der rechten Seite die Regionen von $v$ eingefärbt. Nun gilt für jeden Knoten $v_1+v_2+v_3 = |F|-1$. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äußeren Ecken unserer Zeichnung. Sie entsprechen ebenfalls den Bildern der Aufhängungen von $G$. Die Position der inneren Knoten ergibt sich nun durch die Funktion 
+Hierzu ordnet man jedem Knoten $v$ seinen \textit{Gebietsvektor} $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. In Abbildung \ref{face_counting} sind auf der rechten Seite die Regionen von $v$ eingefärbt. Nun gilt für jeden Knoten $v_1+v_2+v_3 = |F|-1$. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äußeren Ecken unserer Zeichnung. Sie entsprechen ebenfalls den Bildern der Aufhängungen von $G$. Die Position der inneren Knoten ergibt sich nun durch die Funktion 
 $$\mu: V \to \mathbb{R}^2,v\mapsto v_1\alpha_1 + v_2\alpha_2+v_3\alpha_3.$$ 
 
 \begin{theorem}
-Sei G ein planer Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$. Sei $(v_1,v_2,v_3)$ der Gebiets Vektor von $v \in V$ im Bezug auf $\sigma$ mit $ v_i = \text{Anzahl der Gebiete in }R_i(v).$ Dann ist die Zeichnung $\mu(G)$ konvex.
+Sei G ein planer Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$. Sei $(v_1,v_2,v_3)$ der Gebietsvektor von $v \in V$ im Bezug auf $\sigma$ mit $ v_i = \text{Anzahl der Gebiete in }R_i(v).$ Dann ist die Zeichnung $\mu(G)$ konvex.
 \end{theorem}
 
-Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und passt auf ein $(|F|-1)\times(|F|-1)$-Gitter. Sie hat noch eine weitere Eigenschaft die später von Nutzen sein wird und die in der nächsten Proposition festgehalten ist.  In Abbildung \ref{face_counting} ist sie skizziert.
+Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und passt auf ein $(|F|-1)\times(|F|-1)$-Gitter. Sie hat noch eine weitere Eigenschaft die später von Nutzen sein wird und die in der nächsten Proposition festgehalten ist.  Sie ist in Abbildung \ref{face_counting} in der Mitte skizziert.
 
 \begin{figure}
 	\centering
   \includegraphics[width=0.8\textwidth]{face_counting.png}
-	\caption{Eine Schnyder Wood und die durch face-counting erhaltene Einbettung. Die eingefärbten Gebiete sind die Regionen die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
+	\caption{Eine Schnyder Wood auf $G$ und die durch face-counting erhaltene Einbettung von $G$. Die eingefärbten Gebiete sind die Regionen die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
 	\label{face_counting}
 \end{figure}
 

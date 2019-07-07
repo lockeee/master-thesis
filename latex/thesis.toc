@@ -5,7 +5,7 @@
 \contentsline {chapter}{\numberline {2}Grundlagen}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Geradlinige Dreiecks Darstellungen (SLTRs)}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Schnyder Woods}{5}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Einbettungen via Schnyder Woods}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.1}Einbettungen via Schnyder Woods}{7}{subsection.2.2.1}
 \contentsline {section}{\numberline {2.3}$\alpha $-Orientierungen}{9}{section.2.3}
 \contentsline {section}{\numberline {2.4}Fl\IeC {\"u}sse auf Graphen}{10}{section.2.4}
 \contentsline {chapter}{\numberline {3}Bedingungen f\IeC {\"u}r die Existenz von SLTRs}{13}{chapter.3}
@@ -23,5 +23,6 @@
 \contentsline {chapter}{\numberline {5}Das Programm}{53}{chapter.5}
 \contentsline {section}{\numberline {5.1}Dokumentation}{53}{section.5.1}
 \contentsline {section}{\numberline {5.2}Visualisierung}{54}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Eine gute Wahl von $\lambda $}{55}{subsection.5.2.1}
 \contentsline {section}{\numberline {5.3}Statistische Betrachtung}{55}{section.5.3}
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{57}{chapter*.40}
