@@ -711,30 +711,29 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 	n = len(V)
 	count += 1
 	if weights == None:
-		[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
-		weights = copy(W)
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
 		show(G)
-		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=outer_face)
-		return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2,outer_face=outer_face)
+		weights2 = _calculate_weights_step(G,faa,faa_dict,suspensions,count,outer_face=outer_face,W=copy(weights))
 	else:
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
-		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=outer_face)
+		weights2 = _calculate_weights_step(G,faa,faa_dict,suspensions,count,outer_face=outer_face,W=copy(weights))
 		M = weights-weights2
 		norm = M.norm()
 		if mod(count,5) == 0:
+			print norm
 			show(G)
 		if norm < const:
 			print "Stopped because of Norm, count is:" , count , norm 
 			return pos
-		elif count == 2:
+		elif count == 30:
 			print "Count up"
+			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
 			#graph2ipe(G,"example1_1")
-			[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
+			#[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
 			return pos
 	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2,outer_face=outer_face)	
@@ -748,7 +747,13 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=None):
 	#W = _weights_for_edges(G,faa,faa_dict,pos,W)
 	return W
 
-def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face):
+def _calculate_weights_step(G,faa,faa_dict,suspensions,count,outer_face=None,W=None):
+	n = len(G.vertices())
+	W = zero_matrix(RR,n,n)
+	W = _weights_for_pseudo_segments(G,faa,faa_dict,pos,W,count)
+	return W
+
+def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights=None):
 	count = 0
 	V = G.vertices()					
 	n = len(V)
@@ -759,13 +764,11 @@ def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face):
 	for E in G.edges():
 		i0 = V.index(E[0])
 		i1 = V.index(E[1])
-		W[i0,i1] = 10
-		W[i1,i0] = 10
+		W[i0,i1] = 2
+		W[i1,i0] = 2
 	while count < 2*n+10:
 		print count
 		G.set_pos(pos)
-		# if mod(count,20) == 0:
-		# 	show(G)
 		max_face = []
 		max_face_area = 0
 		for face in _interior_faces(G,oF=outer_face):
@@ -783,17 +786,17 @@ def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face):
 				i1 = V.index(E[1])
 				W[i0,i1] *= 2
 				W[i1,i0] *= 2
-		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,W)
+		if weights == None:
+			sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,W)
+		else:
+			sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,W+weights)
 		pos1 = {V[i]:sol[i] for i in range(n)}
-		s0 = V.index(suspensions[0])
-		print suspensions
-		print pos1[s0][1]
-		if int(round(pos1[s0][1])) == 100:
+		if int(round(pos1[V.index(suspensions[0])][1])) == 100:
 			pos = pos1
 			count += 1
 		else:
-			return pos
-	return [pos,W]
+			return [pos,W+weights]
+	return [pos,W+weights]
 
 def _weights_for_faces(G,faa,faa_dict,pos,W,outer_face):
 	V = G.vertices()
@@ -821,7 +824,7 @@ def _weights_for_edges(G,faa,faa_dict,pos,W):
 
 def _weights_for_pseudo_segments(G,faa,faa_dict,pos,W,count):
 	V = G.vertices()
-	x = 0.8
+	x = 1.2
 	for seg in _list_pseudo_segments(G,faa,faa_dict):
 		[R,L] = _nodes_on_left_right(G,seg,pos)
 		vol_l1 = 0
