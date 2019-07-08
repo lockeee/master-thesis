@@ -33,18 +33,37 @@ Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können
 \]
 Wenn wir nun die Pseudo-Inverse (TODO) berechnen, erhalten wir die Lösung
 $$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(A)_x&f(A)_y\\ 0&0\end{smallmatrix} \big).$$
-Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen. Das Ziel ist es, dass sich die Zeichnung nach einer gewissen Anzahl an Schritten nur noch so wenig verändert, dass wir den Algorithmus abbrechen können, und diese Zeichnung ausgeben.
-
-Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen können.
-\begin{itemize}
-\item Es gibt keine zu großen oder zu kleinen Gebiete.
-\item Es existieren keine zu langen oder kurzen Kanten.
-\item Es existieren keine Ecken mit zu kleinen Winkeln.
-\end{itemize}
+Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen. Wünschenswert wäre es, wenn sich die Zeichnung nach einer gewissen Anzahl an Schritten nur noch so wenig verändert, dass wir den Algorithmus abbrechen können, und die letzte Zeichnung ausgeben.
 
 \subsection{Eine gute Wahl von $\lambda$}
 
-Es gibt SLTRs, wie in Beispiel bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda(e)$ als monoton steigende Funktion, proportional zu Größe der angrenzenden Gebiete und der Lange der Kante, gewählt wird bringt im Allgemeinen keine schönen Ergebnisse wie in Beispiel TODO zu sehen.
+Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine klassische Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir zwei Punkte fest, die wir intuitiv als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen können.
+\begin{itemize}
+\item Es gibt keine zu großen oder zu kleinen Gebiete.
+\item Es existieren keine zu langen oder kurzen Kanten.
+\end{itemize}
+
+Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda(e)$ als monoton steigende Funktion, proportional zu Größe der angrenzenden Gebiete und der Lange der Kante, gewählt wird bringt im Allgemeinen keine schönen Ergebnisse.
+
+\begin{example}\label{bsp_long_segment}
+Bei der in Abbildung \ref{exp_long_segment} SLTR sind alle Knoten bis auf die Aufhängungen einer einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen von Typ
+$$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).$$
+Intuitiv wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zu Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten die uns helfen können das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern sind in blau eingefärbt. Um zur Zeichnung auf der rechten Seite zu gelangen erfolgt die Wahl der $\lambda$ nach dem folgenden Prinzip.
+\begin{itemize}
+\item [1.] Erstelle eine Liste $S$ aller Segmente der SLTR.
+\item [2.] Bestimmte für jedes Segment die Fläche aller Gebiete deren Randknoten alle auf auf der linken und rechten Seite.
+\item [3.] ... TODO
+\end{itemize}
+\end{example}
+
+\begin{example}\label{bsp_large_corner} 
+Gerade für Graphen mit vielen Knoten führt der Ansatz aus Beispiel \ref{bsp_long_segment} nicht immer zu einer schönen Zeichnung der SLTR. In Abbildung \ref{exp_large_corner} ist so ein Graph mit der ersten für $\lamda=1$ erhaltenen Zeichnung und dem Resultat nach 40 Schritten zu sehen. Ein anderer interaktiver Ansatz führt hier jedoch zu schöneren Ergebnissen. Wir setzen bei der Initialisierung $\lamda_0(e)=1$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = $\lambda_{i+1}(e)*c$. Wir wählen $\epsilon = 0,1$ und $c=2$. 
+
+Rechts in Abbildung ist das Ergebnis nach $|V|$ Schritten zu sehen.
+\end{example}
+
+Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei manchen Graphen zu keiner schönen Zeichnung. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt.
+
 
 \section{Statistische Betrachtung}
 

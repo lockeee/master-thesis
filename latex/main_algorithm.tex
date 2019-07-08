@@ -12,7 +12,7 @@ Das Ziel ist es, für einen gegebenen Graphen, sowohl einen Schnyder Wood als au
 
 Im Verlauf des Kapitels haben wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet, für das eine ganzzahlige Lösung einen Schnyder Wood bzw. ein FAA für einen planen Graphen $G$ liefert. Wir wollen jetzt eine Kombination aus beiden erstellen die ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$  kodiert.\
 
-Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt. Ein ganzzahliger Fluss $\varphi$ kodiert dann ein Ecken kompatibles Paar und impliziert somit nach Theorem \ref{theo_coco} eine SLTR für $G$. Es handelt sich hierbei um ein 2-Fluss-Netzwerk.
+Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt. Ein ganzzahliger Fluss $\varphi$ kodiert dann ein Ecken kompatibles Paar und impliziert somit nach Theorem \ref{theo_ccc} eine SLTR für $G$. Es handelt sich hierbei um ein 2-Fluss-Netzwerk.
 
 Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wir müssen jetzt diese drei Flüsse, also Schnyder-, Ecken- und Zuweisungs-Fluss in einem Netzwerk kombinieren. In \cite{af15} ergeben Schnyder- und Ecken-Fluss zusammen Fluss von Typ 1 und der Zuweisungs-Fluss Typ 2. Wir wollen hier analog ein Netzwerk konstruieren in dem wir FAA und Schnyder-Wood Fluss nicht trennen. Der Verständlichkeit wegen werden wir Pfade, die in einer Lösung von einem der drei Flussarten genutzt werden, \textit{Schnyder-Pfad, Ecken-Pfad} und \textit{Zuweisungs-Pfad} nennen.\\
 
@@ -29,7 +29,7 @@ Für diese gilt, wie in Abbildung \ref{alpha_bij} skizziert, dass das Label der 
 \begin{itemize}
 \item [A1] Die Label, des von $\alpha_s$ induzierten Schnyder Wood auf $G$, sind zwischen zwei aufeinander folgenden zu $f$ orientierten Kanten gleich.
 \end{itemize}
-Da es genau drei zu $f$ orientierte Kanten gibt müssen wir also dafür sorgen, dass für jedes Paar dieser Kanten eine Ecke zwischen ihnen liegt, da so die drei Ecken unterschiedliche Label haben und wir K2 erfüllen. Um dies zu erlangen implementieren wir eine zyklische Struktur um jedes innere Gebiet, wie in Abbildung \ref{comb_face_sketch} skizziert.\\
+Da es genau drei zu $f$ orientierte Kanten gibt müssen wir also dafür sorgen, dass für jedes Paar dieser Kanten eine Ecke zwischen ihnen liegt, da so die drei Ecken unterschiedliche Label haben und wir K2 erfüllen. Um dies zu erlangen implementieren wir eine zyklische Struktur um jedes innere Gebiet, wie in Abbildung \ref{combinded_face_sketch} skizziert.\\
 
 \begin{figure}[h]
 	\centering
@@ -119,15 +119,15 @@ Sei $G$ ein intern-3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}
 \begin{split}
 |\varphi_1| + |\varphi_2| & = \sum_{f \in F_{in}} (|f|-3) + 3|F_{in}| + |E_{in}|\\
 		& = \sum_{f \in F_{in}} (|f|-3) + 2|E| -|V| - 1 + 2|F| - |f_{aus}|\\
-		& = \sum_{f \in F_{in}} (|f|-3) + \sum_{v \in V} (deg(v)-3) + 2|V| + 2|F| - 1 - |f_{aus}|\\
-		& = \sum_{f \in F_{in}} (|f|-3) + \sum_{v \in V} (deg(v)-3) + 2|E| + 3 - |f_{aus}|\\
-		& = \underbrace{\sum_{f \in F_{in}}(|f|-3)  }_{\text{\parbox{8em}{Dummy-Senke zu Senke 2}}} + \underbrace{\sum_{v \in V} (deg(v)-3) +3 }_{\text{\parbox{10em}{Kapazität Senke 2 von den Knoten.}}} +\underbrace{\sum_{f \in F_{in}}(|f|-3) + 3|F_{in}|}_{\text{\parbox{12em}{Kanten von den Quadraten zu den inneren Gebieten}}}
+		& = \sum_{f \in F_{in}} (|f|-3) + \sum_{v \in V} (\text{deg}(v)-3) + 2|V| + 2|F| - 1 - |f_{aus}|\\
+		& = \sum_{f \in F_{in}} (|f|-3) + \sum_{v \in V} (\text{deg}(v)-3) + 2|E| + 3 - |f_{aus}|\\
+		& = \underbrace{\sum_{f \in F_{in}}(|f|-3)  }_{\text{\parbox{8em}{Dummy-Senke zu Senke 2}}} + \underbrace{\sum_{v \in V} (\text{deg}(v)-3) +3 }_{\text{\parbox{10em}{Kapazität Senke 2 von den Knoten.}}} +\underbrace{\sum_{f \in F_{in}}(|f|-3) + 3|F_{in}|}_{\text{\parbox{12em}{Kanten von den Quadraten zu den inneren Gebieten}}}
 \end{split}
 \end{equation}
 
 Die beiden Terme in der rechten unteren Klammer entsprechen den Kapazitäten von den inneren Gebieten zu Senke 1 und Senke 2. Somit sind alle Kanten zu den Senken ausgelastet. Die Kanten von den kleinen Quadraten zu den inneren Gebieten sind ebenfalls ausgelastet. Diese sind die einzigen Kanten in $\mathcal{N}_G$, die sowohl von $\varphi_1$ als auch $\varphi_2$ genutzt werden können. Kapazität eins und Ganzzahligkeit von $\varphi$ impliziert somit A3.\\
 
-Beginnen wir mit $\varphi_1$ um einen Schnyder Wood, oder genauer eine $\alpha_s$-Orientierung, zu erhalten. $|\varphi_1| = |E_{in}|$, somit führt durch jede innere Kante ein Schnyder-Pfad und dieser gibt uns die nach aussen gerichtete Kante in $\alpha_s$. Es bleibt zu zeigen, dass für jedes innere Gebiet und jeden Knoten die Bedingungen aus Theorem \ref{alpha_bij} für eine $\alpha_s$ eingehalten werden. Da alle Kanten von den Knoten zu Senke 1 ausgelastet sind folgt, dass durch jeden inneren Knoten $v$ genau $deg(v)-3$ Schnyder-Pfade führen. Somit ergeben die leeren Einkanten von $v$ in $\mathcal{N}_G$ die drei Auskanten für $\alpha_s$. Für eine Aufhängung $a_i$ folgt analog, dass die beiden ungenutzten Einkanten, zusammen mit der Halbkante ins äußere Gebiet, die Bedingungen der $\alpha_s$-Orientierung erfüllen. Es bleibt zu zeigen, dass durch jedes innere Gebiet $|f|-3$ Schnyder-Pfade führen. Der restliche Schnyder-Fluss $|E_{in}| - \sum_{v \in V} (deg(v)-3)$ muss durch die inneren Gebiete führen und aus der ersten und letzten Zeile von Gleichung \ref{sat_eq} folgt $$|E_{in}| - \sum_{v \in V} (deg(v)-3) = \sum_{f \in F_{in}} (|f|-3).$$
+Beginnen wir mit $\varphi_1$ um einen Schnyder Wood, oder genauer eine $\alpha_s$-Orientierung, zu erhalten. $|\varphi_1| = |E_{in}|$, somit führt durch jede innere Kante ein Schnyder-Pfad und dieser gibt uns die nach aussen gerichtete Kante in $\alpha_s$. Es bleibt zu zeigen, dass für jedes innere Gebiet und jeden Knoten die Bedingungen aus Theorem \ref{alpha_bij} für eine $\alpha_s$ eingehalten werden. Da alle Kanten von den Knoten zu Senke 1 ausgelastet sind folgt, dass durch jeden inneren Knoten $v$ genau $\text{deg}(v)-3$ Schnyder-Pfade führen. Somit ergeben die leeren Einkanten von $v$ in $\mathcal{N}_G$ die drei Auskanten für $\alpha_s$. Für eine Aufhängung $a_i$ folgt analog, dass die beiden ungenutzten Einkanten, zusammen mit der Halbkante ins äußere Gebiet, die Bedingungen der $\alpha_s$-Orientierung erfüllen. Es bleibt zu zeigen, dass durch jedes innere Gebiet $|f|-3$ Schnyder-Pfade führen. Der restliche Schnyder-Fluss $|E_{in}| - \sum_{v \in V} (\text{deg}(v)-3)$ muss durch die inneren Gebiete führen und aus der ersten und letzten Zeile von Gleichung \ref{eq_sat} folgt $$|E_{in}| - \sum_{v \in V} (\text{deg}(v)-3) = \sum_{f \in F_{in}} (|f|-3).$$
 Somit führen $|f|-3$ Schnyder-Pfade durch jedes innere Gebiet und wir können die $\alpha_s$-Orientierung vervollständigen und erhalten einen Schnyder Wood auf $G$.\\
 
 Betrachten wir nun $\varphi_2$. Nach A4 sind alle äusseren Kanten in den Winkeln ausgelastet. Falls diese nun in jedem inneren Gebiet von drei Ecken-Pfaden und $|f|-3$ Zuweisungs-Pfaden genutzt werden, können wir ein FAA extrahieren. Da alle Kanten zu Senke 2 ausgelastet sind, führen $\sum_{f \in F_{in}} (|f|-3)$ Pfade durch die Dummy-Senke. Somit werden auch $\sum_{f \in F_{in}} (|f|-3)$ Knoten inneren Gebieten zugewiesen. Indem wir die Pfade zurückverfolgen und sehen aus welchem Gebiet der Zuweisungs-Pfad einen Dummy-Knoten betritt, können wir diese Informationen auslesen. Es bleibt zu zeigen, dass jedem Gebiet genau $|f|-3$ Knoten zugewiesen werden. Dies gilt, wenn durch jedes Gebiet drei Ecken-Pfade laufen und folgt somit, da die Kanten von den inneren Gebieten zu Senke 2 ausgelastet sind. Wir können also aus $\varphi_2$ ein FAA für $G$ extrahieren. \\
@@ -149,7 +149,7 @@ Diese Behauptung folgt aus der in Abbildung \ref{alpha_bij} illustrierten Bijekt
 
 Diese beiden Behauptungen zusammen zeigen, dass jede Ecke aus $\phi$ ein anderes Label in $\sigma$ hat. Somit handelt es sich um ein Ecken Kompatibles Paar $(\sigma,\phi)$.\\
 
-Wir haben die Rückrichtung gezeigt. Nehmen wir also an, dass eine SLTR für $G$ existiert. Wir müssen nun einen zulässigen ganzzahligen Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ konstruieren, der die SLTR kodiert. Nach Theorem \ref{theo_coco} existiert ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$, das zu diesem SLTR passt. Betrachte die zu $\sigma$ gehörige $\alpha_s$-Orientierung.
+Wir haben die Rückrichtung gezeigt. Nehmen wir also an, dass eine SLTR für $G$ existiert. Wir müssen nun einen zulässigen ganzzahligen Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ konstruieren, der die SLTR kodiert. Nach Theorem \ref{theo_ccc} existiert ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$, das zu diesem SLTR passt. Betrachte die zu $\sigma$ gehörige $\alpha_s$-Orientierung.
 
 Wir beginnen mit einem leeren, wie oben konstruierten Netzwerk $\mathcal{N}_G$ und werden nun Schritt für Schritt einen zulässigen Fluss $\varphi$ konstruieren.
 

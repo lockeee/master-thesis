@@ -12,8 +12,7 @@ Ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\ph
 
 Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem SLTR (mindestens ein) Ecken kompatibles Paar existiert und das anders herum jedes Ecken kompatible Paar eine SLTR induziert.
 
-\begin{theorem}
-\label{theo_ccc}
+\begin{theorem}\label{theo_ccc}
 Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt genau dann eine SLTR, wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{theorem}
 
@@ -53,7 +52,7 @@ Sei $v \in M_i$. Alle Winkel an $v$ im Inneren von $\gamma$ haben das Label $i$.
     \label{sweeplines2}
   \end{minipage}
 \end{figure}
-\captionsetup{format=plain,labelsep=endash,justification=centerlast,width=.85\textwidth}
+\captionsetup{format=plain,labelsep=endash,justification=centerlast,width=.9\textwidth}
 
 Nach Beobachtung \ref{obs2} sind die Mengen $M_1,M_2$ und $M_3$ disjunkt. Wir suchen nun nach drei kombinatorisch konvexen Ecken von $\gamma$. Das FAA und das Schnyder Labeling sind Ecken kompatibel und somit hat jedes Gebiet $f \in F_{in}$ einen Winkel mit Label $i$. Also liegt in jeder Menge $M_i$ ein Knoten $v_i$, der vom FAA nicht einem Gebiet innerhalb von $\gamma$ zugewiesen wird. Nehmen wir an $a_i \notin M_i$, denn sonst hätten wir nach E1 eine Ecke gefunden. Da $D$ eine konvexe Zeichnung ist muss $v_i$ einen Nachbarn ausserhalb von $\gamma$ besitzen. Somit liegt $v_i$ auf $\gamma$, ist nicht in $\gamma$ zugewiesen und hat einen Nachbarn ausserhalb von $\gamma$. $v_i$ erfüllt also E2 und somit hat jeder begrenzende Zykel drei kombinatorisch konvexe Ecken (jeweils eine aus jedem $M_i$).
 \end{proof}
@@ -107,13 +106,13 @@ Ein minimales Gegenbeispiel $\Delta$ hat kein teilendes Segment.
 \end{lemma}
 
 \begin{remark}
-Insbesondere bedeutet dies, dass in $\Delta$ für jede Aufhängung $deg(a_i) \geq 3$ gelten muss.
+Insbesondere bedeutet dies, dass in $\Delta$ für jede Aufhängung deg$(a_i) \geq 3$ gelten muss.
 \end{remark}
 
 \begin{proof}
 Angenommen $\Delta$ hat ein teilendes Segment mit den Endpunkten $p$ und $q$. Falls auf beiden Seiten des teilenden Segmentes eine Aufhängung mit Grad größer als zwei liegt, dann wird ein unterteilendes Segment in $\Delta$ induziert (siehe Abbildung \ref{subdividing_ex} d)). Falls es sich bei $p$ oder $q$ um eine Aufhängung handelt, bedeutet dies ebenfalls, dass ein unterteilendes Dreieck existiert\footnote{Falls auf der einen Seite des Segmentes nur die Aufhängung $a_i$ liegt wird kein unterteilendes Dreieck impliziert. Jedoch existiert dann mit $\Delta' = \Delta \backslash \{a_1\}$ ein kleineres SLTR (welches dann kein Gegenbeispiel ist) und aus diesem lässt sich ein Ecken kompatibles Paar für $\Delta$ bauen.}. Somit können wir annehmen, dass das teilende Segment zwischen $p$ und $q$ die Aufhängung $a_1$ von Grad zwei abtrennt. $p,q$ und $a_1$ bilden also ein Dreieck. Wir betrachten zwei Fälle. Entweder das teilende Segment besteht nur aus der Kante $(p,q)$ (Fall 1) oder es existiert mindestens ein weiterer Knoten auf dem Segment (Fall 2).\\
 
-\underline{1. Fall}: Falls $p$ Grad drei und dritten Nachbar $p'$ hat, dann muss die Kante $(p',q)$ existieren und $a_1,q,p$ sind die Ecken eines unterteilenden Dreiecks mit der inneren Kante $(p,q)$. Dies ist ein Widerspruch zu Lemma \ref{lem_subtri} und es folgt $deg(p),deg(q) \geq 4$. Da $deg(a_1) = 2$ gelten muss und $G$ intern-3-zusammenhängend ist liegt $a_1$ alleine auf der einen Seite des Segments und alle anderen Nachbarn von $p$ und $q$ auf der anderen. 
+\underline{1. Fall}: Falls $p$ Grad drei und dritten Nachbar $p'$ hat, dann muss die Kante $(p',q)$ existieren und $a_1,q,p$ sind die Ecken eines unterteilenden Dreiecks mit der inneren Kante $(p,q)$. Dies ist ein Widerspruch zu Lemma \ref{lem_subtri} und es folgt $\text{deg}(p),\text{deg}(q) \geq 4$. Da $\text{deg}(a_1) = 2$ gelten muss und $G$ intern-3-zusammenhängend ist liegt $a_1$ alleine auf der einen Seite des Segments und alle anderen Nachbarn von $p$ und $q$ auf der anderen. 
 Wir behaupten, dass mindestens eine der Kanten $(a_1,p)$ und $(a_1,q)$ kontrahierbar ist, sodass der resultierende Graph eine SLTR besitzt. Die Zuweisungen bleiben, bist auf bei $p$ und $q$, gleich (siehe Abbildung \ref{pic_lem3_1}, b)). Dieser Schritt ist nicht trivial. Wir nutzen als Kriterium die begrenzenden Zykel aus Definition \ref{def_ccc}. Damit beide Kontraktionen nicht zum erwünschten Ergebnis führen, müssen zwei begrenzende Zykel $\gamma_v,\gamma_w$ mit genau drei kombinatorisch konvexen Ecken, $p,q$ und $v$ respektive $w$, existieren (siehe Abbildung \ref{pic_lem3_1}, c)). Nur dann induziert die Kontraktion von $(a_1,p)$ und $(a_1,q)$ einen Zykel mit nur zwei Ecken. Und somit hätte der resultierende Graph keine SLTR.
 
 Dieser Fall kann aber nicht auftreten. Seien $v,w$ die Ecken dieser Zykel. Dann existieren Pfade $P_{pw}$ und $P_{qw}$ von $p$ nach $w$ und $q$ nach $v$. Diese Pfade sind Teil von $\gamma_v$ beziehungsweise $\gamma_w$ und enthalten somit keine kombinatorisch konvexen Ecken mit Ausnahme der Endknoten. Die Winkel an diesen Pfaden im Inneren der Zykel sind somit $\geq \pi$. Sei $z$ der Knoten an dem sich $P_{pw}$ und $P_{qw}$ kreuzen. Da $z$ keine Ecke sein kann muss er auf beiden Zyklen $\gamma_v,\gamma_w$  zugewiesen sein. Somit müsste der Winkel im inneren der Zykel der an $z$ von $P_{pw}$ und $P_{qw}$ eingeschlossen wird mindesten $\pi$ sein. Dies ist ein Widerspruch zur Annahme das $\Delta$ eine SLTR ist (siehe Abbildung \ref{pic_lem3_1}, c)).
@@ -122,7 +121,7 @@ Dieser Fall kann aber nicht auftreten. Seien $v,w$ die Ecken dieser Zykel. Dann 
 	\centering
 	  \includegraphics[width=0.9\textwidth]{lem3_1.png}
     	\caption{a) Unterteilendes Dreieck bei Grad 3. b) Kantenkontraktion der Kante $(a_1,p)$. c) Die Pfade die bei der Kontraktion von $(a_1,p)$ oder $(a_1,q)$ Degeneriertheit induzieren.}
-    	\label{ccc1}
+    	\label{pic_lem3_1}
 \end{figure}
 
 Es kann also mindestens eine der Kanten kontrahiert werden. Sei $(a_1,p)$ diese Kante und $G'$ der Graph der durch Kontraktion von $(a_1,p)$ und das Löschen von $(p,q)$ entsteht. Wir erhalten das FAA $\phi'$ durch löschen der Zuweisung von $p$ aus $\phi$. Der Knoten $q$ ist weiterhin dem äusseren Gebiet zugewiesen. Da $G'$ weniger Knoten als $G$ hat ist er kein Gegenbeispiel und wir erhalten einen Schnyder Labeling $\sigma'$, das zusammen mit $\phi'$ ein Ecken kompatibles Paar bildet. Wir können $\phi'$ zu einem Labeling von $G$ erweitern indem wir, beginnend bei $a_1$, im Uhrzeigersinn die Label $1,2$ und $3$ im Gebiet $a_1,q,p$ einfügen. Wir erhalten ein Ecken kompatibles Paar. \\
@@ -228,7 +227,7 @@ Da $G'$ die gleiche Anzahl an Knoten und weniger Kanten als $G$ kann er kein Geg
 
 Das Schnyder Labeling $\sigma'$ ist eindeutig für Gebiete (TODO) mit $a_1$ oder $a_2$ als Ecken und einer geflippten Kante auf dem Rand (siehe Abbildung \ref{pic_lem6_3}, b)). In einem ersten Schritt müssen wir $(a_2,p_k)$ wieder einfügen und $\sigma'$ eindeutig erweitern (wie in Abbildung \ref{pic_lem6_3} b) zu sehen).
 
-Die Flips wurden entlang $q,p_1,\ldots,p_k$ durchgeführt und nach unserer Annahme haben die Knoten $p_1,\ldots,p_{k-1}$ von $\phi'$ zugewiesene Winkel in $G'$. Sei $p_0$=$q$. Zwei Knoten $p_{i-1}$ und $p_i$, mit $i \in \{1,\ldots,k\}$ in dieser Folge sind nicht zwangsläufig Nachbarn, aber sie sind die Ecken des (dreieckigen) Gebietes $a_2,p_{i-1},p_{i}$ und alle Knoten auf dem Rand zwischen $p_{i-1}$ und $p_{i}$ sind diesem Gebiet zugewiesen (siehe Abbildung \ref{pic_lem6_4}, a)). Wir führen nun Schritt für Schritt, beginnend mit $i=k$, einen \textit{rückwärts flip} durch. Hierfür entfernen wir die Kante $(p_{i},a_2)$ wieder und setzen die Kante $(p_{i},a_1)$ wieder ein. Merke, dass $p_{i}$ vor dem Schritt $i$ einen zusätzlichen Nachbarn in $G_{i}$ (im Verhältnis zu $G$) hat und somit gilt $deg(p_{i}) \geq 4$, weil $G$ intern-3-zusammenhängend ist. Sei $\alpha_{i}$ der gegen den Uhrzeigersinn auf die Kante zu $a_1$ folgende Winkel und $\beta_{i}$ der im Uhrzeigersinn auf die Kante zu $p_{i-1}$ folgende Winkel (jeweils an $p_{i}$). Dann handelt es sich bei diesen Winkeln, wegen $deg(p_i) \geq 4$, nicht um den Selben. Bei jedem Schritt wird die folgende Invariante eingehalten.
+Die Flips wurden entlang $q,p_1,\ldots,p_k$ durchgeführt und nach unserer Annahme haben die Knoten $p_1,\ldots,p_{k-1}$ von $\phi'$ zugewiesene Winkel in $G'$. Sei $p_0$=$q$. Zwei Knoten $p_{i-1}$ und $p_i$, mit $i \in \{1,\ldots,k\}$ in dieser Folge sind nicht zwangsläufig Nachbarn, aber sie sind die Ecken des (dreieckigen) Gebietes $a_2,p_{i-1},p_{i}$ und alle Knoten auf dem Rand zwischen $p_{i-1}$ und $p_{i}$ sind diesem Gebiet zugewiesen (siehe Abbildung \ref{pic_lem6_4}, a)). Wir führen nun Schritt für Schritt, beginnend mit $i=k$, einen \textit{rückwärts flip} durch. Hierfür entfernen wir die Kante $(p_{i},a_2)$ wieder und setzen die Kante $(p_{i},a_1)$ wieder ein. Merke, dass $p_{i}$ vor dem Schritt $i$ einen zusätzlichen Nachbarn in $G_{i}$ (im Verhältnis zu $G$) hat und somit gilt $\text{deg}(p_{i}) \geq 4$, weil $G$ intern-3-zusammenhängend ist. Sei $\alpha_{i}$ der gegen den Uhrzeigersinn auf die Kante zu $a_1$ folgende Winkel und $\beta_{i}$ der im Uhrzeigersinn auf die Kante zu $p_{i-1}$ folgende Winkel (jeweils an $p_{i}$). Dann handelt es sich bei diesen Winkeln, wegen $\text{deg}(p_i) \geq 4$, nicht um den Selben. Bei jedem Schritt wird die folgende Invariante eingehalten.
 
 \begin{invariant}
 Vor dem Schritt $i$ hat der Knoten $p_i$ die Label 2,3,1,1 im Uhrzeigersinn beginnend mit den Winkel $\alpha_i$ und Enden mit $\beta_i$ (siehe Abbildung \ref{pic_lem6_4}, a)). Zusätzlich bilden das Schnyder Labeling $\sigma'_i$ und das FAA $\phi'_i$ ein Ecken kompatibles Paar auf $G'_i$.

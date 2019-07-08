@@ -94,9 +94,9 @@ Dies führt zu der folgenden Definition im diskreten Fall.
 
 \begin{definition}[Harmonische Funktionen]
 Sei $G=(V,E)$ ein planarer zusammenhängender Graph und $S \subseteq V$. Eine Funktion $g:V \to \mathbb{R}$ nennen wir am Knoten $v \in V$ \textit{harmonisch}, falls gilt:
-$$ \text{H1} \quad \frac{1}{deg(v)} \sum_{u \in N(v)}(g(u) - g(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad\quad\:\,\:$$
+$$ \text{H1} \quad \frac{1}{\text{deg}(v)} \sum_{u \in N(v)}(g(u) - g(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad\quad\:\,\:$$
 Wir können H1 durch das hinzufügen einer nichtnegativen Gewichtsfunktion $\lambda:E\to\mathbb{R}_+$ verallgemeinern. Es gilt $\lambda(v,w) = \lambda_{vw}$.
-$$ \text{H2}\quad\frac{1}{deg(v)} \sum_{u \in N(v)}\lambda_{uv}(g(u) - g(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad$$
+$$ \text{H2}\quad\frac{1}{\text{deg}(v)} \sum_{u \in N(v)}\lambda_{uv}(g(u) - g(v)) = 0 \quad \forall v \in V \backslash S \qquad\qquad\qquad\qquad\qquad\qquad$$
 Ein Knoten für den $g$ nicht harmonisch ist, nennt man \textit{Pol}.
 \end{definition}
 
