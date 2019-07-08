@@ -113,7 +113,7 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \newtheorem{corollary}[theorem]{Corollary}%
 \theoremstyle{definition}%
 \newtheorem{definition}[theorem]{Definition}%
-\newtheorem{example}[theorem]{Example}%
+\newtheorem{example}[theorem]{Beispiel}%
 \newtheorem*{remark}{Bemerkung}%
 \theoremstyle{dotless_theorem}%
 \newtheorem{claim}{Behauptung}%
@@ -122,7 +122,8 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \theoremstyle{dotless_theorem}%
 \newtheorem{observation}{Beobachtung}
 \newtheorem*{invariant}{Invariante}
-
+\theoremstyle{definition}%
+\newtheorem{network}{Netzwerk}
 
 \newreptheorem{theorem}{Theorem}
 }%
@@ -253,7 +254,7 @@ Institut für Mathematik
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifthenelse{\equal{\vLanguage}{german}}{\selectlanguage{german}}{\selectlanguage{german}}%
-\input{zusammenfassung.tex}
+%\input{zusammenfassung.tex}
 \tableofcontents%
 \pagenumbering{arabic}
 

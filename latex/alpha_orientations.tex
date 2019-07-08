@@ -1,22 +1,40 @@
 \section{$\alpha$-Orientierungen}\label{alpha_orientations}
 
-Für unseren Algorithmus in Kapitel \ref{main_algo} führen wir eine weitere zu Schnyder-Woods und Labelings in Bijektion stehende Struktur auf Graphen ein und halten uns dabei an \cite{felsner04}.
+Für unseren Algorithmus in Kapitel \ref{main_algo} führen wir nun eine weitere zu Schnyder-Woods und Labelings in Bijektion stehende Struktur auf Graphen ein und orientieren uns dabei weiter an weiter \cite{felsner04}.
 
-Sei $G=(V,E)$ ein ungerichteter Graph und $\alpha:V\mapsto\mathbb{N}$ eine Funktion auf $G$. Eine $\alpha-Orientierung$ ist eine Orientierung der Kanten von $G$, sodass der Ausgrad eines jeden Knoten $\alpha(v)$ entspricht. Somit gilt $outdeg(v) = \alpha(v).$
+\begin{definition}[$\alpha$-Orientierung]
+Sei $G=(V,E)$ ein ungerichteter Graph und $\alpha:V\mapsto\mathbb{N}$ eine Funktion auf $G$. Eine $\alpha$\textit{-Orientierung} ist eine Orientierung der Kanten von $G$, sodass der Ausgrad eines jeden Knoten $\alpha(v)$ entspricht. Somit muss gelten $$\text{outdeg}(v) = \alpha(v).$$
+\end{definition}
 
-Wir betrachten den Primal-Dual Graphen $G+G^*$ eines planen intern-3-zusam\allowbreak men\allowbreak hängenden Graphen $G$. Hier ist $G^*$ der schwache duale Graph\footnote{$G^*$ hat einen (Gebiets-)Knoten für jedes innere Gebiet von $G$. Für jede innerer Kante in $G$ fügen wir eine Kante zwischen den beiden (Gebietes-)Knoten $f,f'$ in $G^*$ ein, die adjazent zu dieser Kante in $G$ sind.} zusammen mit einer Halbkante ins äussere Gebiet von jeder inzidenten Kante aus. Die Menge der Knoten von $G+G^*$ besteht aus Knoten-Knoten, Kanten-Knoten und Gebiets-Knoten. Kanten in $G+G^*$ existieren, sowohl zwischen inzidenten Kanten und Knoten, als auch Kanten und Gebieten in $G$. Somit ist $G+G^*$ bipartit. Falls wir einen Knoten $f_\infty$ für das äussere Gebiet einsetzten und die Halbkanten verlängern, spricht man vom Abschluss von $G+G^*$. Wir schreiben $\tilde{G}$. Das folgende Theorem liefert eine Bijektion zwischen den Schnyder Woods auf $G$ und einer bestimmten $\alpha$-Orientierung auf $\tilde{G}$, die wir $\alpha_s$ nennen.
+Um von $\alpha$-Orientierungen zu Schnyder Woods zu gelangen müssen wir Primal-Dual Graphen betrachten die mit den nächsten beiden Definitionen eingeführt werden.
 
-\begin{figure}
-	\centering
-  \includegraphics[width=0.95\textwidth]{alpha_ex.png}
-  \caption{Der Primal-Duale Graph $K_4+K_4^*$ mit einer $\alpha_s$-Orientiertung und dem zugehörigen Schnyder Wood auf $K_4$. }
-\end{figure}
+\begin{definition}[schwacher dualer Graph]
+Sei $G$ ein planer Graph. $G^*$ der \textit{schwache duale Graph} von $G$. $G^*$ hat einen (Gebiets-)Knoten für jedes innere Gebiet von $G$. Für jede innerer Kante in $G$ fügen wir eine Kante zwischen den beiden (Gebiets-)Knoten $f,f'$ in $G^*$ ein, die adjazent zu dieser Kante in $G$ sind.
+\end{definition}
+
+\begin{definition}[Primal-Dual Graph]
+Betrachte einen planen Graphen $G$ und seinen schwacher dualer Graphen $G^*$. Der \textit{Primal-Dual Graph} $G+G^*$ ist eine Vereinigung der Graphen $G$ und $G^*$ mit einem Knoten an jeder Kantenkreuzung. Die Menge der Knoten von $G+G^*$ besteht aus Knoten-Knoten, Kanten-Knoten und Gebiets-Knoten. Kanten in $G+G^*$ existieren, sowohl zwischen inzidenten Kanten und Knoten, als auch Kanten und Gebieten in $G$. Hinzu kommen Halbkanten\footnote{Kanten mit nur einem Randknoten die immer von diesem weg orientiert sind.} von den Kanten-Knoten und Knoten-Knoten am äusseren Gebiet von $G$.
+
+Wenn wir einen Knoten $f_\infty$ für das äussere Gebiet hinzufügen und die Halbkanten zu diesem verlängern spricht man vom \textit{Abschluss} von $G+G^*$.
+
+\end{definition}
+Es ist leicht zu sehen, dass $G+G^*$ und sein Abschluss bipartit sind. Das folgende Theorem liefert eine Bijektion zwischen den Schnyder Woods auf $G$ und einer bestimmten $\alpha$-Orientierung auf dem Abschluss von $G+G^*$, die wir $\alpha_s$ nennen.
 
 \begin{theorem}\label{alpha_bij}
 Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$, dann sind die folgenden Strukturen in Bijektion:
 \begin{itemize}
-\item Die Schnyder Wälder auf $G$.
-\item Die Schnyder Wälder auf dem (schwachen) dualen Graphen $G^*$.
-\item Die $\alpha_{s}$-Orientierungen des Abschlusses von $G+G^*$ mit $\alpha_s(v) = \alpha_s(f) = 3$ für jeden Knoten-Knoten $v$ und Gebiets-Knoten $f$,  $\alpha_s(e) = 1$ für jeden Kanten-Knoten $e$ und  $\alpha_s(f_\infty) = 0$.
+\item [A1] Die Schnyder Woods auf $G$.
+\item [A2] Die Schnyder Woods auf dem (schwachen) dualen Graphen $G^*$.
+\item [A3] Die $\alpha_{s}$-Orientierungen des Abschlusses von $G+G^*$ mit $\alpha_s(v) = \alpha_s(f) = 3$ für jeden Knoten-Knoten $v$ und Gebiets-Knoten $f$,  $\alpha_s(e) = 1$ für jeden Kanten-Knoten $e$ und  $\alpha_s(f_\infty) = 0$.
 \end{itemize}
 \end{theorem}
+
+\begin{remark}
+Wir erhalten aus einem $\alpha_s$-Orientierung den Schnyder Wood, indem wir den drei Aufhängungen die Label rot, grün und blau geben und dann Schritt für Schritt die Kanten einfärben und dabei die Orientierung der Kanten aus $\alpha_s$ auf $G$ übernehmen. Wir erfüllen so bereits W1 und W2. Wenn nun an jedem Knoten an dem wir ankommen W3 bei der Einfärbung berücksichtigt wird erhalten wir einen eindeutigen Schnyder Wood auf $G$ (und somit auch auf $G^*$).
+\end{remark}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{alpha_ex2.png}
+  \caption{ Der Primal-Duale Graph $K_4+K_4^*$ (a) mit einer $\alpha_s$-Orientiertung (b) und den zugehörigen Schnyder Woods auf $K_4$ (c) und $K^*_4$ (d). }
+\end{figure}

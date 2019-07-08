@@ -5,8 +5,8 @@ In diesem Abschnitt werden wir uns mit einer zweiten Charakterisierung von SLTRs
 \begin{definition}[Ecken Kompatibilität]\label{def_ccc}
 Ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ nenne wir \textit{Ecken kompatibel}, falls:
 \begin{itemize}
-\item [C1] Das Schnyder Labeling $\sigma$ und das FAA $\phi$ nutzen die selben Aufhängungen.
-\item [C2] In jedem inneren Gebiet haben die drei Ecken aus $\phi$ drei unterschiedliche Label in $\sigma$.
+\item [K1] Das Schnyder Labeling $\sigma$ und das FAA $\phi$ die selben Aufhängungen nutzen, und
+\item [K2] Die drei Ecken aus $\phi$ in jedem inneren Gebiet drei unterschiedliche Label in $\sigma$ haben.
 \end{itemize}
 \end{definition}
 
@@ -14,42 +14,46 @@ Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem S
 
 \begin{theorem}
 \label{theo_ccc}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt eine SLTR, genau dann wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
+Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt genau dann eine SLTR, wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{theorem}
 
-Wir beweisen zuerst die (deutlich einfachere) Rückrichtung des Theorems. Hier können wir die durch das in Abschnitt \ref{sw} erklärte \textit{face counting} erhaltene Einbettung nutzen, um zu zeigen, dass jeder begrenzende Zykel $\gamma$ genau drei kombinatorisch konvexe Ecken besitzt. 
+TODO Beispiel oder Bild!! \\
+
+Wir beweisen zuerst die (deutlich einfachere) Rückrichtung des Theorems. Hier können wir die durch das in Abschnitt \ref{face_counting} erklärte \textit{face-counting} erhaltene Einbettung nutzen, um zu zeigen, dass jeder begrenzende Zykel $\gamma$ mindestens drei kombinatorisch konvexe Ecken besitzt. 
 
 \begin{lemma}\label{lem1}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Falls ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ Ecken kompatibel ist, dann hat jeder begrenzende Zykel $\gamma$ genau drei kombinatorisch konvexe Ecken im Bezug auf $\phi$.
+Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Falls ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ Ecken kompatibel ist, dann hat jeder begrenzende Zykel $\gamma$, der nicht von einem Pfad induziert wird, mindestens drei kombinatorisch konvexe Ecken im Bezug auf $\phi$.
 \end{lemma}
 
 \begin{proof}
 Sei $\gamma$ ein begrenzender Zykel und $F_{in}$ die Menge der inneren Gebiete von $G$. Seien $\alpha_1=(0,1),\alpha_2=(1,0)$ und $\alpha_3=(0,0)$ drei linear unabhängige Vektoren in $\mathbb{R}^2$. $D$ sei die durch \textit{face counting} erhaltende Zeichnung von $G$ mit den Ecken $\alpha_1,\alpha_2,\alpha_3$. Ein Beispiel einer solchen Zeichnung findet sich in Abbildung \ref{face_counting}. Betrachte nun den begrenzenden Zykel $\gamma$ in $D$. Wir schieben nun, wie in Abbildung \ref{sweeplines1} illustriert, ausgehend von $\alpha_i$ die Geraden $(\alpha_{i+1},\alpha_{i-1})$ über den Graphen. Sei $M_i$ die Menge der zuerst von $(\alpha_{i+1},\alpha_{i-1})$ getroffenen Knoten von $\gamma$ für $i \in (1,2,3)$.
 
 \begin{observation}\label{obs1}
-Alle Knoten um ein inneres Gebiet $f$ mit Label $i$ in $f$ werden von der Gerade $(\alpha_{i+1},\alpha_{i-1})$ zum gleichen Zeitpunkt getroffen. Dies folgt direkt aus Eigenschaft W5 (Abschnitt \ref{sw}), da alle Knoten mit dem selben Label in der Zeichnung auf $c_i(\alpha_{i+1},\alpha_{i-1})$ platziert werden.
+Alle Knoten um ein inneres Gebiet $f$ mit Label $i$ in $f$ werden von der Gerade $(\alpha_{i+1},\alpha_{i-1})$ zum gleichen Zeitpunkt getroffen. Dies folgt direkt aus Proposition \ref{w5} W5, weil alle Knoten mit dem selben Label in der Zeichnung auf $c_i(\alpha_{i+1},\alpha_{i-1})$ platziert werden.
 \end{observation}
 
 \begin{observation}\label{obs2}
 Sei $v \in M_i$. Alle Winkel an $v$ im Inneren von $\gamma$ haben das Label $i$. Die Geraden teilen die Winkel um einen Knoten (siehe Abbildung \ref{sweeplines2}). Die Winkel an $v$, die von $a_i$ aus gesehen vollständig auf der anderen Seite von $(\alpha_{i+1},\alpha_{i-1})$ liegen, haben Label $i$.
 \end{observation}
 
+\captionsetup{format=plain,labelsep=endash,justification=centerlast,width=.45\textwidth}
 \begin{figure}
   \centering
-  \begin{minipage}{0.4\textwidth}
+  \begin{minipage}{0.45\textwidth}
   \centering
-    \includegraphics[width=0.9\textwidth]{sweeplines1.png}
-    \caption{}
+    \includegraphics[width=0.8\textwidth]{sweeplines1.png}
+    \caption{Die drei Geraden die wir von den Aufhängungen aus über den Graphen schieben.}
     \label{sweeplines1}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.4\textwidth}
+  \begin{minipage}{0.45\textwidth}
   \centering
-    \includegraphics[width=0.9\textwidth]{sweeplines2.png}
-    \caption{}
+    \includegraphics[width=0.8\textwidth]{sweeplines2.png}
+    \caption{Winkel die komplett gegenüber der Geraden $i$ liegen haben Label $i$.}
     \label{sweeplines2}
   \end{minipage}
 \end{figure}
+\captionsetup{format=plain,labelsep=endash,justification=centerlast,width=.85\textwidth}
 
 Nach Beobachtung \ref{obs2} sind die Mengen $M_1,M_2$ und $M_3$ disjunkt. Wir suchen nun nach drei kombinatorisch konvexen Ecken von $\gamma$. Das FAA und das Schnyder Labeling sind Ecken kompatibel und somit hat jedes Gebiet $f \in F_{in}$ einen Winkel mit Label $i$. Also liegt in jeder Menge $M_i$ ein Knoten $v_i$, der vom FAA nicht einem Gebiet innerhalb von $\gamma$ zugewiesen wird. Nehmen wir an $a_i \notin M_i$, denn sonst hätten wir nach E1 eine Ecke gefunden. Da $D$ eine konvexe Zeichnung ist muss $v_i$ einen Nachbarn ausserhalb von $\gamma$ besitzen. Somit liegt $v_i$ auf $\gamma$, ist nicht in $\gamma$ zugewiesen und hat einen Nachbarn ausserhalb von $\gamma$. $v_i$ erfüllt also E2 und somit hat jeder begrenzende Zykel drei kombinatorisch konvexe Ecken (jeweils eine aus jedem $M_i$).
 \end{proof}
@@ -209,10 +213,10 @@ Um nun den Graphen $G'$ zu erhalten löschen wir die im letzten \textit{flip} hi
 
 Betrachten wir einen beliebigen begrenzenden Zykel $\gamma'$ in $G'$ und sei $\gamma_k$ der korrespondierende Zykel in $G_k$ Wir müssen wieder zeigen, dass jeder Zykel mindestens drei kombinatorisch konvexe Ecken hat. Im Fall, dass $p_k$ nicht auf dem Rand von $\gamma'$ liegt, folgt sofort, dass beide Zykel die selben kombinatorisch konvexen Ecken haben (und somit beide mindestens drei). Betrachten wir also den Fall, dass $p_k$ auf dem Rand von $\gamma'$ liegt. Im Fall, dass $\gamma'$ nur einen Teil der Nachbarn von $p_k$ beinhaltet und nicht den zugewiesenen Winkel einschließt ist $p_k$ sowohl eine kombinatorisch konvexe Ecke von $\gamma_k$ und somit auch von $\gamma'$. Sei also $p_k$ keine kombinatorisch konvexe Ecke von $\gamma'$. Falls der zugewiesene Winkel an $p_k$ im Inneren von $\gamma'$ liegt, aber $\gamma'$ nicht alle Nachbarn von $p_k$ enthält, muss $\gamma_k$ mindestens vier kombinatorisch konvexe Ecken besitzen. Die ersten drei sind $a_1,a_2$ und $p_k$ und die vierte befindet sich auf dem Teil des Randes $R$ vom $\gamma'$ zwischen $p_k$ und $a_2$\footnote{Diese Ecke muss existieren, da der begrenzende Zykel $\tilde{\gamma}$, der sich aus $R$ und der Kante $(a_2,p_k)$ bildet, mindestens drei kombinatorisch konvexe Ecken in $G_k$ hat.}. Somit hat $\gamma'$ mindestens drei kombinatorisch konvexe Ecken. Betrachte den Fall, dass $\gamma'$ alle Nachbarn von $p_k$ beinhaltet, aber der zugewiesene Winkel nicht im Inneren von $\gamma'$ liegt. In der SLTR $\Delta_k$ ist der Aussenwinkel von $\gamma_k$ am Knoten $p_k$ somit nicht grösser als $\pi$ und $\gamma_k$ muss drei andere (kombinatorisch konvexe) Ecken haben. Diese sind auch kombinatorisch konvexe) Ecken von $\gamma'$. Somit hat jeder begrenzende Zykel $\gamma'$ in $G'$ mindestens drei kombinatorisch konvexe Ecken und es folgt, dass $\phi'$ ein Gutes-FAA ist.
 
-Da $G'$ die gleiche Anzahl an Knoten und weniger Kanten als $G$ kann er kein Gegenbeispiel sein. Es existiert also ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist. Es bleibt zu zeigen, dass wir aus $\sigma'$ ein Labeling für $G$ erstellen können, welches dann Ecken kompatibel zu $\phi$ ist. Wir stützen uns hierfür auf die folgende Eigenschaft, die aus C2 folgt.
+Da $G'$ die gleiche Anzahl an Knoten und weniger Kanten als $G$ kann er kein Gegenbeispiel sein. Es existiert also ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist. Es bleibt zu zeigen, dass wir aus $\sigma'$ ein Labeling für $G$ erstellen können, welches dann Ecken kompatibel zu $\phi$ ist. Wir stützen uns hierfür auf die folgende Eigenschaft, die aus K2 folgt.
 
 \begin{itemize} 
-\item [C3] In einem Ecken kompatiblen Paar $(\sigma,\phi)$ hat jeder zugewiesene Winkel in diesem Gebiet (mindestens) einen benachbarten Winkel mit dem selben Label.
+\item [K3] In einem Ecken kompatiblen Paar $(\sigma,\phi)$ hat jeder zugewiesene Winkel in diesem Gebiet (mindestens) einen benachbarten Winkel mit dem selben Label.
 \end{itemize}
 
 \begin{figure}
@@ -267,7 +271,7 @@ Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1
 Angenommen $G$ besitzt eine SLTR, dann existert nach Lemma \ref{lem6} ein Schnyder Labeling, das Ecken kompatibel mit dem von der SLTR induzierten FAA ist.
 \end{proof}
 
-Theorem \ref{theo_ccc} liefert noch keinen direkten Weg um für einen Graphen die Frage zu beantworten ob er eine SLTR zulässt. Im nächsten Kapitel werden wir uns aber mit einem Algorithmus befassen, der den Zusammenhang aus Theorem \ref{theo_ccc} nutzt um für einen Graphen ein Gutes-FAA zu erkennen.
+Theorem \ref{theo_ccc} liefert noch keinen direkten Weg um für einen Graphen die Frage zu beantworten ob er eine SLTR zulässt. Im nächsten Kapitel werden wir uns aber mit einem Algorithmus befassen, der den Zusammenhang aus Theorem \ref{theo_ccc} nutzt um für einen Graphen ein Gutes-FAA zu erkennen, falls er eine SLTR zulässt.
 
 
 

@@ -1,30 +1,8 @@
 \chapter{Grundlagen}\label{pre}
 
-Diese Arbeit wird sich mit einfachen planaren Graphen beschäftigen, also solchen die keine Mehrfachkanten und Schleifen besitzen und für die kreuzungsfreie Zeichnungen, beziehungsweise Einbettungen, in der Ebene existieren. Sei $G = (V,E)$ ein Graph bestehend aus der Menge der Knoten $V$ und Kanten $E \subseteq ( \,V \times V ) \,$. Eine Kante $(u,v)$ verbindet die beiden Knoten $u$ und $v$. Ein Pfad von $u$ nach $v$ ist eine Folge von Kanten, die $u$ und $v$ verbindet. Mit dem Grad $deg(v)$ eines Knoten meinen wir die Anzahl der adjazenten Kanten.\ 
+Diese Arbeit wird sich mit einfachen planaren Graphen beschäftigen, also solchen die keine Mehrfachkanten und Schleifen besitzen und für die kreuzungsfreie Zeichnungen, beziehungsweise Einbettungen, in der Ebene existieren. Sei $G = (V,E)$ ein Graph bestehend aus der Menge der Knoten $V$ und Kanten $E \subseteq ( \,V \times V ) \,$. Eine Kante $e=(u,v)$ verbindet die beiden Knoten $u$ und $v$. Ein Pfad von $u$ nach $v$ ist eine Folge von Kanten, die $u$ und $v$ verbindet. Mit dem Grad deg$(v)$ eines Knoten meinen wir die Anzahl der adjazenten Kanten.
 
-Einen planaren Graphen zusammen mit einer möglichen kreuzungsfreien Einbettung in der Ebene bezeichnen wir als \textit{planen Graphen}. Für einen planen Graphen können wir, zusätzlich zu den Knoten und Kanten, auch die Menge der Gebiete (engl. faces) $F$ betrachten, die durch die Kanten und Knoten begrenzten Regionen in der Ebene, wobei wird das unbeschränkte als das \textit{äussere} Gebiet bezeichnen. Für die weiteren Betrachtungen macht es oft Sinn drei Knoten $\{a_1,a_2,a_3\}$ die das äusseren Gebiet berühren gesondert zu betrachten. Wir nennen sie die \textit{Aufhängungen} von $G$. \\
-
-Planare Graphen haben durch die Existenz kreuzungsfreier Einbettungen in gewissem Sinne besonders schöne Zeichnungen. So ist einer der Fragen, mit der sich schon viele Mathematiker*innen auseinander gesetzt haben und auf die auch in dieser Arbeit eingegangen wird: \textit{"How to draw a Graph?"}\cite{tutte63}
-
-Betrachten wir unterschiedliche Arten von Einbettungen. Bei einer topologischen Zeichnung eines planaren Graphen werden die Kanten als Kurven dargestellt, die sich nur in den Knoten treffen. Wir können diese Kurven auch als Geraden zeichnen. In den Fünfzigern wurde unter anderem von István Fáry gezeigt, dass für jeden planaren Graphen und für jede Wahl eines äusseren Gebietes eine geradlinige und kreuzungsfreie Einbettung existiert \cite{fary48}.
-
-Um eine Unterklasse der planaren Graphen genauer zu betrachten brauchen wir folgende Definition.
-
-\begin{definition}[intern zusammenhängend]\label{int_3_con}
-Ein Graph $G$ ist zusammenhängend falls für alle Knoten $u,v$ ein Pfad von $u$ nach $v$ exisitert. $G$ ist \textit{k-zusammenhängend}, falls er nach der Entfernung von $k-1$ beliebigen Knoten weiterhin zusammanhängend ist.\\
-Sei $G$ plan mit den Aufhängungen $\{a_1,a_2,a_3\}$, weiter sei $a_\infty$ ein zusätzlicher Knoten eingefügt im äusseren Gebiet. Dann ist $G$ \textit{intern k-zusammenhängend}, falls $G+v_\infty\coloneqq(V\cup\{v_\infty \},E\cup \{(a_1,a_\infty),(a_2,a_\infty),(a_3,a_\infty)\})$ k-zusammenhängend ist. 
-\end{definition}
-
-In den Siebzigern betrachtete William Thomas Tutte die Unterklasse der 3-zusam-menhängenden planaren Graphen und zeigte, dass für diese nicht nur geradlinige, sondern \textit{konvexe} Zeichnungen existieren. Bei einer konvexen Einbettung entsprechen die Kantenfogen, die ein Gebiet einschließen, den Randkurven von konvexen Polygonen \cite{tutte63}.
-
-Diese Arbeit wird sich mit einer speziellen Form der konvexen Einbettung von planaren Graphen beschäftigen.
-
-\begin{figure}
-	\centering
-  \includegraphics[width=0.9\textwidth]{topo_straight_convex.png}
-	\caption{Planarer Graph mit einer topologischen, einer geradlinigen und einer konvexen Zeichnung.}
-	\label{topo_straight_convex}
-\end{figure}
+Eine Einbettung eines Graphen in der Ebene ist eine Abbildung $m:G\to\mathbb{R}^2$ die die Kanten und Knoten kreuzungsfrei in die Ebene zeichnet. Einen planaren Graphen zusammen mit einer möglichen kreuzungsfreien Einbettung in der Ebene bezeichnen wir als \textit{planen Graphen}. Für einen planen Graphen können wir, zusätzlich zu den Knoten und Kanten, auch die Menge der Gebiete (engl. faces) $F$ betrachten, die durch die Kanten und Knoten begrenzten Regionen in der Ebene. Wir bezeichnen das unbeschränkte als das \textit{äussere} Gebiet. Wir können den Begriff der Einbettung von $G$ auch etwas weiter fassen und mit im nur die Definition der Menge der Gebiete $F$ von $G$ und eines äusseren Gebietes $f_{aus} \in F$ meinen, sodass eine Zeichnung mit diesen Gebieten existiert. Wir nennen dies auch eine \textit{topologische} Einbettung. Diese bildet eine Äquivalenzklasse aller möglichen Zeichnungen von $G$, die genau die in von der Einbettung definierten Gebiete (inklusive dem Äusseren) haben. Wir werden im Verlauf der Arbeit, wenn wir von Einbettung reden manchmal eine spezifische und manchmal die Äquivalenzklasse meinen. Die Bedeutung sollte sich aber aus dem Kontext ergeben.
 
 \input{sltr.tex}
 \input{schnyderwoods.tex}

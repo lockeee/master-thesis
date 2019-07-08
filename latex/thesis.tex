@@ -9,7 +9,7 @@
 \MNumber{324283} %matriculation number
 \Supervisor{Prof. Dr. Stefan Felsner} %name of supervisor and first referee
 \Referee{Dr. Frank Lutz} %name of second referee
-\Date{7.6.2019} %date of delivery
+\Date{17.7.2019} %date of delivery
 \Language{german} %choose between english and german
 
 
@@ -93,14 +93,19 @@
 % For analysis
 \usepackage{tikz,pgfplots}
 
+%For captions
+\usepackage[format=plain,labelsep=endash,justification=centerlast,width=.85\textwidth]{caption}
+% For readability
+\usepackage{hyperref}
+
 
 \begin{document}
-
+\input{introduction.tex}
 \input{prerequisites.tex}
 \input{main_theory.tex}
 \input{main_algorithm.tex}
 \input{the_program.tex}
-\bibliographystyle{amsalpha}
+\bibliographystyle{AMS}
 \bibliography{bibliography}
 
 \end{document}

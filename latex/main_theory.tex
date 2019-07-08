@@ -1,6 +1,15 @@
-\chapter{Hauptteil}
+\chapter{Bedingungen für die Existenz von SLTRs}\label{main_theory}
 
-Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon ein SLTR für $G$ gefunden haben, dann hat jeder Knoten $v$ in maximal einem inzidenten Gebiet $f$ einen flachen Winkel, den wir mit $(f,v)$ bezeichnen, und liegt auf einer Geraden. Jedes Gebiet $f$ hat genau drei Ecken, also $|f|-3$ flache Winkel. Dies liefert im Umkehrschluss eine notwendige Bedingung für die Existent einer SLTR. Diese ist in der nächsten Definition festgehalten.
+Wir werden in diesem Kapitel hinreichende Bedingungen für die Existenz von SLTRs erarbeiten. Als ersten Schritt wollen wir jedoch eine notwendige Eigenschaft festhalten.
+
+Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon eine SLTR für $G$ gefunden haben. Für die Zeichnung müssen die folgenden Bedingungen gelten:
+
+\begin{itemize}
+\item Jeder Knoten $v \in V$ hat in maximal einem inzidenten Gebiet $f$ einen flachen Winkel.
+\item Jedes Gebiet $f \in F$ (inklusive dem Äusseren) hat genau drei Ecken. Es muss also in jedem Gebiet $|f|-3$ flache Winkel an Knoten geben.
+\end{itemize}
+
+Diese Bedingungen liefern eine notwendige Bedingung für die Existent einer SLTR. Sie ist in der nächsten Definition festgehalten.
 
 \begin{definition}[FAA]\label{def_faa}
 Sei $G=(V,E,F)$ ein planer Graph. Eine \textit{flache Winkel Zuweisung} $\phi$, kurz \textit{FAA} (nach dem englischen \textit{flat angle assignment}), ist eine partielle Zuordnung der Knoten zu den Gebieten. Es muss gelten:
@@ -13,15 +22,20 @@ Für den Fall, dass Aufhängungen gegeben sind, fordern wir zusätzlich:
 \item [F3] Die inzidenten Knoten des äusseren Gebietes, die keine Aufhängungen sind, müssen dem äusseren Gebiet zugewiesen sein.
 \end{itemize}
 
+\end{definition}
+
+\begin{example}
+Links und rechts in Abbildung \ref{exp_faa} sehen wir den selben planaren Graphen $G$ mit zwei unterschiedlichen Zeichnungen. Das äussere Gebiet ist bei beiden das selbe. Die Pfeile stellen hier die Zuweisung der Knoten zu den inneren Gebieten da (also das FAA). Auf der rechten Seite sehen wir eine SLTR von $G$ mit dem passenden FAA. Auf der linken Seite ist ein FAA eingezeichnet, das keine SLTR induziert.
+
 \begin{figure}[h]
 	\centering
   \includegraphics[width=0.9\textwidth]{faa_def.png}
-  \caption{Ein planer Graph mit einer SLTR und einem FAA, dass keine SLTR induziert. Die Pfeile stellen hier die Zuweisung der Knoten zu den inneren Gebieten da.}
+  \caption{Der selbe planare Graph mit zwei FAA, von denen nur das rechte eine SLTR induziert.}
+  \label{exp_faa}
 \end{figure}
+\end{example}
 
-\end{definition}
-
-Somit induziert jede SLTR genau ein FAA. Ein planer Graph kann also nur dann eine SLTR besitzen, wenn mindestens ein FAA existiert. Jedoch liefert nicht jedes FAA sofort eine SLTR. Um hinreichende Bedingungen für SLTRs zu erhalten, werden sich die nächsten beiden Abschnitten mit zwei Ansätzen nach Aerts und Felsner beschäftigen. Der erste Ansatz aus \cite{af13} liefert ein System aus harmonischen Gleichungen aus dessen Lösung eine SLTR folgt. In Teilen darauf basierend, stellt der zweite Ansatz aus \cite{af15} einen Zusammenhang zwischen Schnyder Woods und FAAs her und die Existenz passender Paare impliziert wieder die Existenz von SLTRs.
+Somit induziert jede SLTR genau ein FAA. Ein planer Graph kann also nur dann eine SLTR besitzen, wenn mindestens ein FAA existiert. Wie in Beispiel \ref{bsp_faa} gezeigt, induziert jedoch nicht jedes FAA eine SLTR. Um hinreichende Bedingungen für SLTRs zu erhalten, werden sich die nächsten beiden Abschnitten mit zwei Ansätzen nach Aerts und Felsner beschäftigen. Der erste Ansatz aus \cite{af13} liefert ein System aus harmonischen Gleichungen aus dessen Lösung eine SLTR folgt. In Teilen darauf basierend, stellt der zweite Ansatz aus \cite{af15} einen Zusammenhang zwischen Schnyder Woods und FAAs her und die Existenz passender Paare impliziert wieder die Existenz von SLTRs.
 
 \input{harmonic_functions.tex}
 \input{corner_compatible_pairs.tex}

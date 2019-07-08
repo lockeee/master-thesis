@@ -8,6 +8,7 @@ Aus einer ganzzahligen Lösung kann man ein Gutes-FAA $\phi$ aus $\varphi_2$ ext
 
 \section{Dokumentation}
 
+TODO
 
 \begin{itemize}
 \item Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Somit spart sie im Falle, der nicht Existenz eines FAA Zeit. 
@@ -32,23 +33,23 @@ Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können
 \]
 Wenn wir nun die Pseudo-Inverse (TODO) berechnen, erhalten wir die Lösung
 $$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(A)_x&f(A)_y\\ 0&0\end{smallmatrix} \big).$$
-Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen.\\
+Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen. Das Ziel ist es, dass sich die Zeichnung nach einer gewissen Anzahl an Schritten nur noch so wenig verändert, dass wir den Algorithmus abbrechen können, und diese Zeichnung ausgeben.
 
-Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv, in absteigender Reihenfolge, als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen wollen.
+Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir drei Punkte fest, die wir intuitiv als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen können.
 \begin{itemize}
-\item Alle inneren Gebiete haben eine ähnliche Größe.
+\item Es gibt keine zu großen oder zu kleinen Gebiete.
 \item Es existieren keine zu langen oder kurzen Kanten.
-\item Es existieren keine Ecken mit zu kleinen oder großen Winkeln.
+\item Es existieren keine Ecken mit zu kleinen Winkeln.
 \end{itemize}
 
-TODO
+\subsection{Eine gute Wahl von $\lambda$}
+
+Es gibt SLTRs, wie in Beispiel bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda(e)$ als monoton steigende Funktion, proportional zu Größe der angrenzenden Gebiete und der Lange der Kante, gewählt wird bringt im Allgemeinen keine schönen Ergebnisse wie in Beispiel TODO zu sehen.
 
 \section{Statistische Betrachtung}
 
 Für eine statistische Betrachtung der Häufigkeit von Graphen mit SLTRs wurde das Programm auf pseudo-zufällige Graphen laufen lassen. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen unter Umständen andere Ergebnisse liefern. Ein uniformer Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy07} erstellen. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen, nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. \\
 
-In Abbildung \ref{table} sind die Ergebnisse für Graphen von vier bis TODO Knoten dargestellt, mit jeweils TODO Graphen für jede Knotenzahl. Wir übergeben dem Programm einen Graphen mit Aufhängungen $\{a_1.,a_2,a_3\}$, was im Falle 3-zusammenhängender planer Graphen mit mehr als drei Knoten ein äusseres Gebiet induziert. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
+In Abbildung \ref{table} sind die Ergebnisse für Graphen von vier bis TODO Knoten dargestellt, mit jeweils TODO Graphen für jede Knotenzahl. Wir übergeben dem Programm einen Graphen mit Aufhängungen $\{a_1,a_2,a_3\}$, was im Falle 3-zusammenhängender planer Graphen mit mehr als drei Knoten ein äusseres Gebiet induziert. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
 
 \input{table.tex}
-
-TODO
