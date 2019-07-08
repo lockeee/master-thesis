@@ -6,11 +6,12 @@ def test_visualisation():
 	G1 = [Graph(':I`A?gPaGk`deQ`s^'),[(0, 3), (3, 2), (2, 0)],(0,2,3)]
 	G2 = [Graph([[0, 1],[0, 2],[0, 3],[1, 2],[1, 4],[2, 5],[3, 4],[3, 5],[4,5]]),[(0, 1), (1, 2), (2, 0)],(1,2,0)]
 	G3 = [Graph([[0, 1],[1, 2],[0, 3],[1, 3],[3, 4],[1, 4],[4, 5],[1, 5],[5,6],[1, 6], [6, 7], [7, 1],[7,2]]) ,[(3, 0), (0, 1), (1, 2), (2, 7), (7, 6), (6, 5), (5, 4), (4, 3)], (1,2,0)]
+	G4 = [Graph(':Xa@a_AaCbCD_AaC_C_GH_I`ABj_JL_AG_IJaKbKaPQbKQ_HLkPQ_AFN`BF'),[(2, 5), (5, 6), (6, 3), (3, 2)],(2, 5, 6)]
 
-	L = [G1]
+	## Liste von Testgraphen ##
+	L = [G1,G2,G3,G4]
 	for [G,face,sus] in L:
 		plot_sltr(G,outer_face=face,suspensions=sus)
-
 
 def write_statistics(s,t,amount):
 	with open('analysis2.csv', mode='a') as file:
@@ -304,7 +305,7 @@ def one_flow_for_one(graph,outer_face,suspensions):
 	else:
 		return False
 
-def mini_test(nodes,number,print_info=True,just_non_int=True):
+def mini_test(nodes,number,print_info=True,just_non_int=False):
 	start = time.time()
 	SLTR = [0]*500
 	FAA = [0]*500
