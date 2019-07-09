@@ -40,7 +40,9 @@ def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int
 
 def _get_good_faa(G, Flow2,outer_face=None,suspensions=None,return_angle_edges=None):
 	gFAA = []
+	print Flow2.edges()
 	if not Flow2.has_vertex('Do2') or len(Flow2.neighbors_in('Do2')) == 0:
+		print "in"
 		## In this case the only assigned vertices are those around the outer face
 		if outer_face == None :
 			## Triangulation ##

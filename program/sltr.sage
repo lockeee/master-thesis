@@ -40,7 +40,7 @@ def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int
 
 def _get_good_faa(G, Flow2,outer_face=None,suspensions=None,return_angle_edges=None):
 	gFAA = []
-	if not Flow2.has_vertex('Do2') or len(Flow2.neighbors_in('Do2')) == 0:
+	if Flow2 == None or len(Flow2.vertices()) == 0 or len(Flow2.neighbors_in('Do2')) == 0:
 		## In this case the only assigned vertices are those around the outer face
 		if outer_face == None :
 			## Triangulation ##
@@ -51,13 +51,13 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None,return_angle_edges=N
 			## Only assigned vertices to outer face ##
 			name = _face_2_ints(_name_face_vertex(outer_face)[2:])
 			add = []
-			for i in outer_face:
-				if i[0] not in suspensions:
-					add.append(i[0])
+			for i in name:
+				if i not in suspensions:
+					add.append(i)
 			gFAA = [[name,add]]
-			for i in _interior_faces(G,oF = outer_face):
-				gFAA.append([_face_2_ints(_name_face_vertex(i)[2:]),[]])
-			return gFAA
+			for f in _interior_faces(G,oF = outer_face):
+				gFAA.append([_face_2_ints(_name_face_vertex(f)[2:]),[]])
+			return [gFAA,[]]
 	else:
 		## In this case we have assigned vertices on the inside
 		non_int = False
@@ -136,7 +136,7 @@ def _get_faa_from_non_int_solution(G,Flow):
 		print "We found a non-int flow that contains no FAA?!"
 		return None
 
-##### CREATRING AND CALCULATIONS IN TWO FLOW GRAPH ###################################################################################################################################################
+##### CREATING AND CALCULATIONS TWO FLOW GRAPH ###################################################################################################################################################
 ####################################################################################################################################################################
 ####################################################################################################################################################################
 ####################################################################################################################################################################
@@ -151,6 +151,8 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 		try:
 			Flow = H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0)
 			[gFAA,angle_edges] = _get_good_faa(graph, Flow[1],outer_face=outer_face,suspensions=suspensions,return_angle_edges=True)
+			if len(angle_edges) == 0:
+				return [gFAA,True]
 			H.delete_edges(angle_edges)
 			ass_flow = len(angle_edges)
 			new_flow = flow2-ass_flow
@@ -168,9 +170,9 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 					return [gFAA,True]		
 				except EmptySetError:
 					print_info(graph, outer_face, suspensions, check_non_int_flow, check_just_non_int_flow)
-					raise ValueError("Counter Example Found :(")
+		 			raise ValueError("Counter Example Found :(")
 		except:
-		 	pass
+		  	pass
 	else:	
 		try:
 			Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True) , True]
@@ -458,7 +460,7 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 	
 	## const is for the stopping of the first iteration approach
 	const = 1
-	
+
 	V = G.vertices()
 	n = len(V)
 	count += 1

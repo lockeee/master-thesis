@@ -114,7 +114,7 @@ def run_iterator_3_test(nodes,print_info=True,just_non_int=True):
 			for face in G.faces():
 				found = False
 				for suspensions in _give_suspension_list(G,face):
-					sltr = has_sltr(G,suspensions=suspensions,outer_face=face,check_just_non_int_flow=just_non_int)
+					sltr = has_sltr(G,suspensions=suspensions,outer_face=face,just_non_int_flow=just_non_int)
 					if sltr:
 						found = True
 						break
