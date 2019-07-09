@@ -706,9 +706,11 @@ def _get_good_faa_layout(graph,faa,suspensions=None,outer_face=None):
 	return pos
 
 def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,outer_face=None):
-	const = 1
 	V = G.vertices()
 	n = len(V)
+	W = zero_matrix(RR,n,n)
+	# return _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,W)[0]
+	const = 1
 	count += 1
 	if weights == None:
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
@@ -724,16 +726,18 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 		M = weights-weights2
 		norm = M.norm()
 		if mod(count,5) == 0:
-			print norm
 			show(G)
 		if norm < const:
-			print "Stopped because of Norm, count is:" , count , norm 
+			print "Stopped because of Norm, count is:" , count
+			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
+			#graph2ipe(G,"example1_3")
+			G.set_pos(pos)
 			return pos
 		elif count == 30:
 			print "Count up"
+			#graph2ipe(G,"example1_2")
 			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
-			#graph2ipe(G,"example1_1")
-			#[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
+			#graph2ipe(G,"example1_3")
 			G.set_pos(pos)
 			return pos
 	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2,outer_face=outer_face)	
@@ -748,8 +752,10 @@ def _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=None):
 	return W
 
 def _calculate_weights_step(G,faa,faa_dict,suspensions,count,outer_face=None,W=None):
+	print count
 	n = len(G.vertices())
 	W = zero_matrix(RR,n,n)
+	#W = _weights_for_faces(G,faa,faa_dict,pos,W,outer_face)
 	W = _weights_for_pseudo_segments(G,faa,faa_dict,pos,W,count)
 	return W
 
@@ -766,7 +772,7 @@ def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weight
 		i1 = V.index(E[1])
 		W[i0,i1] = 2
 		W[i1,i0] = 2
-	while count < 2*n+10:
+	while count < 50:
 		print count
 		G.set_pos(pos)
 		max_face = []
@@ -804,11 +810,10 @@ def _weights_for_faces(G,faa,faa_dict,pos,W,outer_face):
 		p = _get_face_area(G,face)
 		p = p
 		for E in face:
-			q = _get_edge_length(G,E)
 			i0 = V.index(E[0])
 			i1 = V.index(E[1])
-			W[i0,i1] += p
-			W[i1,i0] += p
+			W[i0,i1] += p^0.8
+			W[i1,i0] += p^0.8
 	return W
 
 def _weights_for_edges(G,faa,faa_dict,pos,W):
@@ -818,13 +823,13 @@ def _weights_for_edges(G,faa,faa_dict,pos,W):
 		q = q
 	 	i0 = V.index(edge[0])
 	 	i1 = V.index(edge[1])
-		W[i0,i1] += q
-	 	W[i1,i0] += q
+		W[i0,i1] += q^1	
+	 	W[i1,i0] += q^1
 	return W
 
 def _weights_for_pseudo_segments(G,faa,faa_dict,pos,W,count):
 	V = G.vertices()
-	x = 1.2
+	x = 1.25
 	for seg in _list_pseudo_segments(G,faa,faa_dict):
 		[R,L] = _nodes_on_left_right(G,seg,pos)
 		vol_l1 = 0
