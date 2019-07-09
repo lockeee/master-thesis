@@ -42,6 +42,10 @@ Stefan Felsner and Manfred Scheucher, \emph{Arrangements of pseudocircles:
 {\'E}ric Fusy, \emph{Combinatoire des cartes planaires et applications
   algorithmiques}, Ph.D. thesis, LIX Ecole Polytechnique, 2007.
 
+\bibitem[Fus09]{fusy09}
+\bysame, \emph{Uniform random sampling of planar graphs in linear time}, Random
+  Structures \& Algorithms \textbf{35} (2009), no.~4, 464--522.
+
 \bibitem[Glp12]{glpk}
 \emph{{G}nu {L}inear {P}rogramming {K}it ({V}ersion 8.3)}, 2012,
   http://www.gnu.org/software/glpk/.

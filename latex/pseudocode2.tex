@@ -1,0 +1,24 @@
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\underline{GFAA-Visualization1} $(G,\phi,f_{aus},\{a_1,a_2,a_3\})$\;
+	\Input{$G$, ein planarer, intern-3-zusammenhängender Graph mit den Aufhängungen $a_1,a_2,a_3 \in f_{aus}$ und einem Guten-FAA $\phi$.}
+	\Output{Eine SLTR Zeichnung}
+	$S_G \longleftarrow$ Liste der von $\phi$ induzierten Segmente\;
+	\for{ $S \in S_G:$}
+		{ 
+		$A_r,A_l$ \longleftarrow alle Gebiete komplett rechts bzw. Links von S\;
+		$c_r,c_l$ \longleftarrow Anzahl aller Gebiete komplett rechts bzw. Links von S\;
+		$v_r,v_l$ \longleftarrow Anzahl aller Gebiete komplett rechts bzw. Links von S\;
+		\If{$A_r,A_l \neq 0$}
+			{
+			$r = (v_r^{\frac{5}{4}})*(c_l)^2$\;
+			$r = (v_l^{\frac{5}{4}})*(c_r)^2$\;
+			}
+		\for{ Kanten $e\in A_i$}
+			{
+			$\lambda_e += r$
+			}
+		}
+	\caption{An algorithm to detect and return a Good-FAA for a plane, internally-3-connected and suspended Graph $G$.}
+\end{algorithm}

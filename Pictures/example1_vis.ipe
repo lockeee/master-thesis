@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20150825115823" modified="D:20190708114821"/>
+<info created="D:20150825115823" modified="D:20190709111955"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -230,9 +230,9 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <page>
-<layer name="alpha"/>
 <layer name="beta"/>
-<view layers="alpha beta" active="alpha"/>
+<layer name="alpha"/>
+<view layers="beta alpha" active="alpha"/>
 <path layer="beta" stroke="black" pen="heavier">
 296 492 m
 244.667 352 l
@@ -261,11 +261,11 @@ h
 492 100 m
 328.667 296 l
 </path>
-<path stroke="blue" pen="ultrafat">
+<path layer="alpha" stroke="blue" pen="fat">
 492 100 m
 412.667 240 l
 </path>
-<path stroke="black" pen="heavier">
+<path layer="beta" stroke="black" pen="heavier">
 333.333 380 m
 412.667 240 l
 </path>
@@ -277,12 +277,12 @@ h
 286.667 324 m
 193.333 212 l
 </path>
-<use layer="alpha" name="mark/disk(sx)" pos="296 492" size="large" stroke="black"/>
-<use name="mark/disk(sx)" pos="244.667 352" size="large" stroke="black"/>
+<use name="mark/disk(sx)" pos="296 492" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="244.667 352" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="100 100" size="large" stroke="black"/>
-<use name="mark/disk(sx)" pos="492 100" size="large" stroke="black"/>
+<use layer="beta" name="mark/disk(sx)" pos="492 100" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="333.333 380" size="large" stroke="black"/>
-<use name="mark/disk(sx)" pos="286.667 324" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="286.667 324" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="193.333 212" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="328.667 296" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="412.667 240" size="large" stroke="black"/>
@@ -356,67 +356,26 @@ h
 798.247 200.699 l
 863.78 184.741 l
 </path>
-<path stroke="red" pen="ultrafat">
+<path stroke="red" pen="fat">
 244.667 352 m
 286.667 324 l
 328.667 296 l
 370.667 268 l
 412.667 240 l
 </path>
-<path stroke="black" pen="heavier">
-296 492 m
-244.667 352 l
-</path>
-<path stroke="black" pen="heavier">
-296 492 m
-100 100 l
-</path>
-<path stroke="black" pen="heavier">
-296 492 m
-492 100 l
-</path>
-<path stroke="black" pen="heavier">
-296 492 m
-333.333 380 l
-</path>
-<path stroke="blue" pen="ultrafat">
+<path stroke="blue" pen="fat">
 244.667 352 m
 193.333 212 l
 </path>
-<path stroke="black" pen="heavier">
-100 100 m
-492 100 l
-</path>
-<path stroke="blue" pen="ultrafat">
+<path stroke="blue" pen="fat">
 100 100 m
 193.333 212 l
 </path>
-<path stroke="black" pen="heavier">
-100 100 m
-328.667 296 l
-</path>
-<path stroke="black" pen="heavier">
-492 100 m
-328.667 296 l
-</path>
-<path stroke="black" pen="heavier">
-333.333 380 m
-412.667 240 l
-</path>
-<path stroke="black" pen="heavier">
-333.333 380 m
-370.667 268 l
-</path>
-<path stroke="black" pen="heavier">
-286.667 324 m
-193.333 212 l
-</path>
-<use name="mark/disk(sx)" pos="296 492" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="244.667 352" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="100 100" size="large" stroke="black"/>
-<use name="mark/disk(sx)" pos="492 100" size="large" stroke="black"/>
+<use layer="beta" name="mark/disk(sx)" pos="492 100" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="333.333 380" size="large" stroke="black"/>
-<use name="mark/disk(sx)" pos="286.667 324" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="286.667 324" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="193.333 212" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="328.667 296" size="large" stroke="black"/>
 <use name="mark/disk(sx)" pos="412.667 240" size="large" stroke="black"/>

@@ -20,7 +20,7 @@ TODO
 
 Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR, müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz über harmonische Funktionen nutzen, um eine SLTR von $G$ zu erhalten.
 
-Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummibad-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden harmonischen Gleichungen für zugewiesene (oben) und nicht zugewiesene (unten) Knoten.
+Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummibad-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden harmonischen Gleichungen für zugewiesene (oben) und nicht zugewiesene Knoten (unten).
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1) $$
 $$ f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0 $$
 Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können wir diese Gleichungen, um die Aufhängungen $A = \{a_1,a_2,a_3\}$ erweitern und als Matrix schreiben.
@@ -35,40 +35,69 @@ Wenn wir nun die Pseudo-Inverse (TODO) berechnen, erhalten wir die Lösung
 $$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(A)_x&f(A)_y\\ 0&0\end{smallmatrix} \big).$$
 Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen. Wünschenswert wäre es, wenn sich die Zeichnung nach einer gewissen Anzahl an Schritten nur noch so wenig verändert, dass wir den Algorithmus abbrechen können, und die letzte Zeichnung ausgeben.
 
-\subsection{Eine gute Wahl von $\lambda$}
+\subsection{Probleme bei der Wahl von $\lambda$}
 
-Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine klassische Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir zwei Punkte fest, die wir intuitiv als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen können.
+Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine klassische Gummiband-Repräsentation die $\phi$ respektiert. Wir wollen nun anhand dieser Einbettung $\lambda$ verändern um, Iteration für Iteration, eine \glqq schönere\grqq{ } Einbettung zu erhalten. Halten wir zwei Punkte fest, die wir als Bewertungsmaßstab für eine schöne Einbettung berücksichtigen können.
 \begin{itemize}
 \item Es gibt keine zu großen oder zu kleinen Gebiete.
-\item Es existieren keine zu langen oder kurzen Kanten.
+\item Es existieren keine zu kurzen Kanten.
 \end{itemize}
 
-Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda(e)$ als monoton steigende Funktion, proportional zu Größe der angrenzenden Gebiete und der Lange der Kante, gewählt wird bringt im Allgemeinen keine schönen Ergebnisse.
+Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda$ als monoton steigende Funktion, proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge, gewählt wird liefert im Allgemeinen keine schönen Zeichnungen wie im nächsten Beispiel gezeigt wird. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für dieses die oben erwähnten Einschränkungen stärker auftreten.
 
 \begin{example}\label{bsp_long_segment}
-Bei der in Abbildung \ref{exp_long_segment} SLTR sind alle Knoten bis auf die Aufhängungen einer einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen von Typ
+Bei der in Abbildung \ref{long_segment} zu sehenden SLTR sind alle Knoten bis auf die Aufhängungen einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen von Typ
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).$$
-Intuitiv wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zu Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten die uns helfen können das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern sind in blau eingefärbt. Um zur Zeichnung auf der rechten Seite zu gelangen erfolgt die Wahl der $\lambda$ nach dem folgenden Prinzip.
-\begin{itemize}
-\item [1.] Erstelle eine Liste $S$ aller Segmente der SLTR.
-\item [2.] Bestimmte für jedes Segment die Fläche aller Gebiete deren Randknoten alle auf auf der linken und rechten Seite.
-\item [3.] ... TODO
-\end{itemize}
+Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zu Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten die uns helfen können das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern sind in blau eingefärbt. Um zur Zeichnung auf der rechten Seite zu gelangen erfolgt die Wahl der $\lambda$ nach dem folgenden Algorithmus.
+
+%\input{pseudocode2.tex}
+
 \end{example}
+
+\begin{figure}[h]
+	\centering
+  \includegraphics[width=0.8\textwidth]{example1_vis.pdf}
+  \caption{Zwei Zeichnungen des SLTR aus Beispiel \ref{bsp_long_segment}.}
+  \label{long_segment}
+\end{figure}
+
+Dieser Ansatz führt aber, gerade bei Graphen mit vielen Knoten, zu keiner Zeichnung die die oben genannten Punkte erfüllt (vergleiche Abbildung \ref{large_corner}, b)). Wir betrachten ein weiteres Beispiel um einen zweiten Algorithmus zu erläutern.
 
 \begin{example}\label{bsp_large_corner} 
-Gerade für Graphen mit vielen Knoten führt der Ansatz aus Beispiel \ref{bsp_long_segment} nicht immer zu einer schönen Zeichnung der SLTR. In Abbildung \ref{exp_large_corner} ist so ein Graph mit der ersten für $\lamda=1$ erhaltenen Zeichnung und dem Resultat nach 40 Schritten zu sehen. Ein anderer interaktiver Ansatz führt hier jedoch zu schöneren Ergebnissen. Wir setzen bei der Initialisierung $\lamda_0(e)=1$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = $\lambda_{i+1}(e)*c$. Wir wählen $\epsilon = 0,1$ und $c=2$. 
+Gerade für Graphen mit vielen Knoten führt der Ansatz aus Beispiel \ref{bsp_long_segment} nicht immer zu einer schönen Zeichnung der SLTR. In Abbildung \ref{large_corner} a) ist so ein Graph mit der ersten für $\lambda=1$ erhaltenen Zeichnung und dem Resultat nach 40 Schritten von Algorithmus \ref{algo2} zu sehen (b). Ein anderer interativer Ansatz führt hier jedoch zu schöneren Ergebnissen. Wir setzen bei der Initialisierung $\lambda_0(e)=2$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. 
 
-Rechts in Abbildung ist das Ergebnis nach $|V|$ Schritten zu sehen.
+Wir wählen $\epsilon = 0,1$ und $c=2$. In Abbildung \ref{large_corner} c) das Ergebnis nach $2*|V|$ Schritten zu sehen, das deutlich lesbarer als das die beiden anderen Zeichnungen ist.
+
 \end{example}
 
-Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei manchen Graphen zu keiner schönen Zeichnung. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt.
+\begin{figure}[h]
+	\centering
+  \includegraphics[width=0.8\textwidth]{example1_vis.pdf}
+  \caption{Drei Zeichnungen der gleichen SLTR für unterschiedliche $\lambda$. a) Für $\lambda=1$. b) Nach dem Ansatz aus Beispiel \ref{bsp_long_segment}. c) Nach dem Ansatz aus Beispiel \ref{bsp_long_segment}.}
+  \label{long_segment}
+\end{figure}
 
+\subsection{Eine heuristisch gute Wahl von $\lambda$}
+
+Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei einigen Graphen schlechten Zeichnungen. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt. Wir führen die beiden Algorithmen hintereinander aus. Falls Algorithmus \ref{algo2} konvergiert, brechen wir ab und geben sie aus. Falls nicht merken wir uns die berechneten Werte $\lambda'$ und führen \ref{algo2} durch. Bei jedem Schritt berechnen wir nun eine neue Zeichnung mit $\lambda(e) = \lambda_{i+1}(e) + \lambda'(e)$. Wieder führen wir 50 Schritte durch. 
+
+Beispiele von so errechneten Zeichnungen verschiedener SLTRs sind in Abbildung \ref{vis_examples} zu sehen.
 
 \section{Statistische Betrachtung}
 
-Für eine statistische Betrachtung der Häufigkeit von Graphen mit SLTRs wurde das Programm auf pseudo-zufällige Graphen laufen lassen. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen unter Umständen andere Ergebnisse liefern. Ein uniformer Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy07} erstellen. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen, nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. \\
+Zum Abschluss folgt eine statistische Betrachtung der Verteilung von Graphen mit SLTRs. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen die aufschlussreichsten Resultate liefern. Ein guter Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy09} implementieren. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. 
 
-In Abbildung \ref{table} sind die Ergebnisse für Graphen von vier bis TODO Knoten dargestellt, mit jeweils TODO Graphen für jede Knotenzahl. Wir übergeben dem Programm einen Graphen mit Aufhängungen $\{a_1,a_2,a_3\}$, was im Falle 3-zusammenhängender planer Graphen mit mehr als drei Knoten ein äusseres Gebiet induziert. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
+Es folgt eine kurze Beschreibung des Samplers. Wir beginnen mit $G_0 = K_4$. Nun wird in Schritt $i$ mit spezifizierbaren Wahrscheinlichkeiten eine der folgenden vier Operationen inspiriert von TODO durchgeführt.
+
+\begin{itemize}
+\item Ein Knoten $v$ mit deg$(v) \geq 4$ wird in $v_1,v_2$ geteilt und eine Kante $(v_1,v_2)$ eingefügt . Nun werden die zyklisch sortierten Nachbarn in zwei Teile $N_1,N_2$ getrennt und mit $v_1$ beziehungsweise $v_2$ verbunden.
+\item Ein Knoten wird in ein Gebiet eingefügt und mit mindestens drei der am Gebiet liegenden Knoten verbunden. 
+\item Eine Knoten wird auf einer Kante eingefügt und mit einem in einem angrenzenden Gebiet liegenden Knoten verbunden.
+\item Es wird eine Kante in ein Gebiet mit mehr als drei Knoten eingefügt.
+\end{itemize}
+
+Nach jeder dieser Operationen ist $G_i$ weiterhin planar und die Erzeugung kann bei der gewünschten Knotenzahl angehalten werden. Abschliessend wird zufällig ein äussereres Gebiet und aus diesem die Aufhängungen gewählt.
+
+In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 100 und 1000 Knoten, mit jeweils fünf Graphen für jede Knotenzahl, dargestellt. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
 
 \input{table.tex}

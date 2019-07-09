@@ -110,9 +110,9 @@ Sei $f$ ein Gebiet,
 	\label{face_cut_edge}
 \end{figure}
 
-\begin{lemma}\label{lem_min_cut}
+\begin{proposition}\label{lem_min_cut}
 Sei $\mathcal{N}$ ein gerichtetes Netzwerk mit einer Quelle $s$ und einer Senke $t$. Sei $\mathcal{S}_{min}$ ein minimaler Kantenschnitt zwischen $s$ und $t$ und sei $\mathcal{T} \subseteq \mathcal{S}_{min}$. Dann ist $\tilde{\mathcal{S}}_{min} = \mathcal{S}_{min} \backslash \mathcal{T}$ ein minimaler Kantenschnitt zwischen $s$ und $t$ in $\tilde{\mathcal{N}} = \mathcal{N}\backslash \mathcal{T}$.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 Nehmen wir ohne Beschränkung der Allgemeinheit an, dass $\mathcal{N}$ nur Kanten mit Kapazität 1 enthält. Nach dem \textit{Max-Flow Min-Cut} Theorem existiert ein $s$-$t$-Fluss $\varphi$ mit $|\varphi| = c(\mathcal{S}_{min})$. Nach Theorem \ref{theo_int_flow} können wir annehmen, dass wir es sich um einen ganzzahligen Fluss handelt. Wir können diesen Fluss somit in Pfade (TODO) $p$ mit Flussstärke 1 aufteilen. Betrachten wir nun $\tilde{\mathcal{N}} = \mathcal{N} \backslash \mathcal{T}$, dann trennt die Entnahme von $\mathcal{T}$ genau $c(\mathcal{T})$ Pfade $p \in P$. Die restlichen Pfade, nennen wir sie $\tilde{p} \in \tilde{P}$, bleiben intakt. Somit existiert ein $s$-$t$-Fluss $\tilde{\varphi}$ mit $|\tilde{\varphi}| = c(\mathcal{S}_{min}) - c(\mathcal{T})$. $\tilde{\mathcal{S}}_{min} = \mathcal{S}_{min} \backslash \mathcal{T}$ muss somit ein minimaler Schnitt in $\tilde{\mathcal{N}}$ sein, da jedes $p \in \tilde{P}$ genau eine Kante aus $\tilde{\mathcal{S}}_{min}$ nutzt und die Entnahme dieser Kanten, nach Voraussetzung, $s$ und $t$ trennt.
