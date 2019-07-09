@@ -1,9 +1,9 @@
 import random
 
 def choose_split_face_edge():
-	cut1 = 333 	## Adds one vertex and one edge
-	cut2 = 666 	## Adds one vertex and two edges
-	cut3 = 1000  ## Triangulates random face --> >2 edges
+	cut1 = 200 	## Adds one vertex and one edge
+	cut2 = 550 	## Adds one vertex and two edges
+	cut3 = 995  ## Triangulates random face --> >2 edges
 	cut4 = 1000 ## Adds random edge in Graph
 	n = randint(0,1000)
 	if n < cut1:
@@ -17,12 +17,13 @@ def choose_split_face_edge():
 def random_3_graph(nodes):
 	## Starting with a K_4
 	G = Graph([(0, 1, None), (0, 2, None), (0, 3, None), (1, 2, None), (1, 3, None), (2, 3, None)])
+
 	while len(G.vertices())<nodes:
 		index = choose_split_face_edge()
 		if index == 1:
 			l = len(G.vertices())
 			G = add_vertex_via_split(G)
-			if len( G.vertices() ) == l :
+			if len( G.vertices() ) == l:
 				index = 2
 		if index == 2:
 			G = add_vertex_on_edge(G)
@@ -40,8 +41,7 @@ def random_int_3_graph(nodes):
 		[G,suspensions,face,embedding] = random_3_graph(nodes)
 		face = G.faces()[randint(0,len(G.faces())-1)]
 		l2 = _give_suspension_list(G,face)
-		shuffle(l2)
-		suspensions = l2[0]
+		suspensions = l2[randint(0,len(l2)-1)]
 		return [G,suspensions,face,None]
 	else:
 		[G,suspensions,face,embedding] = random_3_graph(nodes+1)
@@ -55,30 +55,36 @@ def add_vertex_via_split(graph):
 		if graph.degree(vertex) > 3:
 			list_of_vertices.append(vertex)
 	if len(list_of_vertices) > 0 :
-		n = randint(0,len(list_of_vertices)-1)
-		push_vertex = list_of_vertices[n]
+		push_vertex = list_of_vertices[randint(0,len(list_of_vertices)-1)]
 		deg_vert = graph.degree(push_vertex)
 		r = range(2,deg_vert-1)
+		sN = _sorted_neighbors(graph,push_vertex)
 		random.shuffle(r)
-		for i in r:
-			C = Combinations(range(deg_vert),i)
-			C = C.list()
-			random.shuffle(C)
-			for comb in C:
-				G = copy(graph)
-				neighbors = G.neighbors(push_vertex)
-				add_vertex = G.add_vertex()
-				G.add_edge(push_vertex,add_vertex)
-				for j in comb:
-					G.delete_edge(push_vertex,neighbors[j])
-					G.add_edge(add_vertex,neighbors[j])
-				if G.is_planar():
-					return G
-		return graph
-	else:
-		return graph
+		add_vertex = graph.add_vertex()
+		graph.add_edge(push_vertex,add_vertex)
+		for i in range(r[0]):
+			graph.delete_edge(push_vertex,sN[i])
+			graph.add_edge(add_vertex,sN[i])
+	return graph
 
-
+def _sorted_neighbors(G,v):
+	n = len(G.neighbors(v))
+	N = G.neighbors(v)[randint(0,n-1)]
+	sN = [N]
+	edge = (v,N)
+	while True:
+		for face in G.faces():
+			stop = False
+			if edge in face:
+				for E in face:
+					if E[1] == v:
+						sN.append(E[0])
+						edge = (v,E[0])
+						if len(sN) == n:
+							if randint(0,1) == 1:
+								sN.reverse()
+							return sN
+						break
 
 def add_vertex_on_edge(graph):
 	## Adds one vertex and two edges
@@ -107,8 +113,7 @@ def add_vertex_on_edge(graph):
 
 def add_vertex_in_face(graph):
 	## adds one vertex and >2 edges
-	n = randint(0,len(graph.faces())-1)
-	face = graph.faces()[n]
+	face = graph.faces()[randint(0,len(graph.faces())-1)]
 	vertices = []
 	for edge in face:
 		vertices.append(edge[0])
@@ -122,9 +127,9 @@ def add_edge_in_face(graph):
 	## adds one edge in face
 	fl = []
 	for face in graph.faces():
-		if len(face) > 3:
+		if len(face) > 2:
 			b = randint(0,len(face)-1)
-			n = randint(2,len(face)-2)
+			n = randint(2,len(face)-1)
 			a = (b+n)%len(face)
 			graph.add_edge(face[b][0],face[a][0])
 	return graph	
