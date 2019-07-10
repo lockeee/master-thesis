@@ -1,6 +1,4 @@
 import sage.all
-attach("graph2ipe.sage")
-attach("pseudo_random_3_graph.sage")
 
 def has_sltr(graph,suspensions=None,outer_face=None,embedding=None,just_non_int_flow = True,check_non_int_flow=False):
 	if suspensions != None and outer_face == None:
@@ -67,58 +65,60 @@ def _get_good_faa(G, Flow2,outer_face=None,suspensions=None,return_angle_edges=N
 				non_int = True
 				break
 		if non_int:
-			[Flow,angle_edges] = _get_faa_from_non_int_solution(G,Flow2,return_angle_edges =return_angle_edges)
+			Flow = _get_faa_from_non_int_solution(G,Flow2)
 		else:
 			Flow = Flow2
 		## interior vertices to assign ##
-		dummy_verts = Flow.neighbors_in('Do2')
-		list_A = []
-		angle_edges = []
-		for v in dummy_verts:
-			angles_v2 = Flow.neighbors_in(v)
-			for a2 in angles_v2:
-				list_A.append(a2)
-				angle_edges.append([Flow.neighbors_in(a2)[0],a2])
-		for v in list_A:
-			a2 = copy(v)
-			name = a2[:-3]
-			names = name.split(',')
-			[names1,names2] = [_face_2_ints(names[0][2:]),_face_2_ints(names[1][2:])]
-			x = True
-			for j in range(len(gFAA)):
-				if  names1 == gFAA[j][0]:
-					x = False
-					gFAA[j][1].append(names2[0])
-			if x:
-				add = [names1]
-				add.append(names2)
-				gFAA.append(add)
-		## Append vertices assigned to outer Face ##
-		name = _name_face_vertex(outer_face)[2:]
-		name = [_face_2_ints(name)]
-		add = []
-		for i in outer_face:
-			if i[0] not in suspensions:
-				add.append(i[0])
-		name.append(add)
-		gFAA.insert(0,name)	
-		## Append triangles ##
-		for i in _interior_faces(G,oF = outer_face):
-			if len(i) == 3:
-				gFAA.append([_face_2_ints(_name_face_vertex(i)[2:]),[]])
-		if return_angle_edges:
-			return [gFAA,angle_edges]
+		if Flow != None:
+			dummy_verts = Flow.neighbors_in('Do2')
+			list_A = []
+			angle_edges = []
+			for v in dummy_verts:
+				angles_v2 = Flow.neighbors_in(v)
+				for a2 in angles_v2:
+					list_A.append(a2)
+					angle_edges.append([Flow.neighbors_in(a2)[0],a2])
+			for v in list_A:
+				a2 = copy(v)
+				name = a2[:-3]
+				names = name.split(',')
+				[names1,names2] = [_face_2_ints(names[0][2:]),_face_2_ints(names[1][2:])]
+				x = True
+				for j in range(len(gFAA)):
+					if  names1 == gFAA[j][0]:
+						x = False
+						gFAA[j][1].append(names2[0])
+				if x:
+					add = [names1]
+					add.append(names2)
+					gFAA.append(add)
+			## Append vertices assigned to outer Face ##
+			name = _name_face_vertex(outer_face)[2:]
+			name = [_face_2_ints(name)]
+			add = []
+			for i in outer_face:
+				if i[0] not in suspensions:
+					add.append(i[0])
+			name.append(add)
+			gFAA.insert(0,name)	
+			## Append triangles ##
+			for i in _interior_faces(G,oF = outer_face):
+				if len(i) == 3:
+					gFAA.append([_face_2_ints(_name_face_vertex(i)[2:]),[]])
+			if return_angle_edges:
+				return [gFAA,angle_edges]
+			else:
+				return [gFAA,angle_edges]
 		else:
-			return [gFAA,angle_edges]
+			"uuuups"
 
 def _get_faa_from_non_int_solution(G,Flow):
 	## First calculates a new one-flow graph to then get an FAA, i.e. an integral flow, that is contained in Flow.
 	ass_flow = int(round(Flow.edge_label('Do2','o2')))
-	D = DiGraph(['Do2','o2',ass_flow])
+	D = DiGraph([['Do2','o2',ass_flow]])
 	for face in G.faces():
 		D.add_edge('i2',_name_face_vertex(face),len(face)-3)
 	dummy_verts = Flow.neighbors_in('Do2')
-	list_A = []
 	for v in dummy_verts:
 		D.add_edge(v,'Do2',1)
 		angles_v2 = Flow.neighbors_in(v)
@@ -126,12 +126,11 @@ def _get_faa_from_non_int_solution(G,Flow):
 			D.add_edge(a2,v,1)
 			a1 = Flow.neighbors_in(a2)[0]
 			D.add_edge(a1,a2,1)
-			name = a1[:-3]
-			face = name.split()[0]
+			face = a1.split(',')[0]
 			D.add_edge(face,a1,1)
-	[val,F_new] = D.flow('s','t', value_only=False, integer=True, use_edge_labels=True)
+	[val,F_new] = D.flow('i2','o2', value_only=False, integer=True, use_edge_labels=True)
 	if val == ass_flow:
-		return Flow_new
+		return F_new
 	else:
 		print "We found a non-int flow that contains no FAA?!"
 		return None
@@ -151,31 +150,35 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 		try:
 			Flow = H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0)
 			[gFAA,angle_edges] = _get_good_faa(graph, Flow[1],outer_face=outer_face,suspensions=suspensions,return_angle_edges=True)
-			if len(angle_edges) == 0:
-				return [gFAA,True]
-			H.delete_edges(angle_edges)
-			ass_flow = len(angle_edges)
-			new_flow = flow2-ass_flow
-			H.add_edge('o2','o1',new_flow)
-			H.add_edge('i1','i2',new_flow)
-			(f,Flow1) = H.flow('i1','o1',value_only=False,use_edge_labels=True,integer = True)
-			if flow1+new_flow == f:
+			if not check_non_int_flow:
 				return [gFAA,True]
 			else:
-				try:
-					Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True) , True]
-					[gFAA,angle_edges] = _get_good_faa(graph, Flow[1],outer_face=outer_face,suspensions=suspensions,return_angle_edges=True)
-					print_info(graph, outer_face, suspensions, check_non_int_flow, check_just_non_int_flow)
-					print "Counter example to FAA extraction found :("
-					return [gFAA,True]		
-				except EmptySetError:
-					print_info(graph, outer_face, suspensions, check_non_int_flow, check_just_non_int_flow)
-		 			raise ValueError("Counter Example Found :(")
+				if len(angle_edges) == 0:
+					return [gFAA,True]
+				H.delete_edges(angle_edges)
+				ass_flow = len(angle_edges)
+				new_flow = flow2-ass_flow
+				H.add_edge('o2','o1',new_flow)
+				H.add_edge('i1','i2',new_flow)
+				(f,Flow1) = H.flow('i1','o1',value_only=False,use_edge_labels=True,integer = True)
+				if flow1+new_flow == f:
+					return [gFAA,True]
+				else:
+					try:
+						Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True) , True]
+						[gFAA,angle_edges] = _get_good_faa(graph, Flow[1],outer_face=outer_face,suspensions=suspensions,return_angle_edges=True)
+						print_info(graph, outer_face, suspensions, check_non_int_flow, check_just_non_int_flow)
+						raise ValueError("Counter example to FAA extraction found!!! There is a GFAA but not extractable from non-int solution!")
+						return [gFAA,True]		
+					except EmptySetError:
+						print_info(graph, outer_face, suspensions, check_non_int_flow, check_just_non_int_flow)
+			 			raise ValueError("Counter Example Found to non-int-flow conjecture!!! There is non-int solution but no GFAA!")
+
 		except:
-		  	pass
+		   	pass
 	else:	
 		try:
-			Flow = [H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True) , True]
+			Flow = H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = True)
 			[gFAA,angle_edges] = _get_good_faa(graph, Flow[1],outer_face=outer_face,suspensions=suspensions,return_angle_edges=True)
 			return [gFAA,True]		
 		except EmptySetError:

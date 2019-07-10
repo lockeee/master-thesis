@@ -43,6 +43,8 @@ Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine klassische Gummi
 \item Es existieren keine zu kurzen Kanten.
 \end{itemize}
 
+Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. 
+
 Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda$ als monoton steigende Funktion, proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge, gewählt wird liefert im Allgemeinen keine schönen Zeichnungen wie im nächsten Beispiel gezeigt wird. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für dieses die oben erwähnten Einschränkungen stärker auftreten.
 
 \begin{example}\label{bsp_long_segment}
@@ -87,7 +89,7 @@ Beispiele von so errechneten Zeichnungen verschiedener SLTRs sind in Abbildung \
 
 Zum Abschluss folgt eine statistische Betrachtung der Verteilung von Graphen mit SLTRs. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen die aufschlussreichsten Resultate liefern. Ein guter Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy09} implementieren. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. 
 
-Es folgt eine kurze Beschreibung des Samplers. Wir beginnen mit $G_0 = K_4$. Nun wird in Schritt $i$ mit spezifizierbaren Wahrscheinlichkeiten eine der folgenden vier Operationen inspiriert von TODO durchgeführt.
+Es folgt eine kurze Beschreibung des Samplers. Wir beginnen mit $G_0 = K_4$. Nun wird in Schritt $i$ mit spezifizierbaren Wahrscheinlichkeiten eine der folgenden vier Operationen durchgeführt.
 
 \begin{itemize}
 \item Ein Knoten $v$ mit deg$(v) \geq 4$ wird in $v_1,v_2$ geteilt und eine Kante $(v_1,v_2)$ eingefügt . Nun werden die zyklisch sortierten Nachbarn in zwei Teile $N_1,N_2$ getrennt und mit $v_1$ beziehungsweise $v_2$ verbunden.
@@ -96,8 +98,8 @@ Es folgt eine kurze Beschreibung des Samplers. Wir beginnen mit $G_0 = K_4$. Nun
 \item Es wird eine Kante in ein Gebiet mit mehr als drei Knoten eingefügt.
 \end{itemize}
 
-Nach jeder dieser Operationen ist $G_i$ weiterhin planar und die Erzeugung kann bei der gewünschten Knotenzahl angehalten werden. Abschliessend wird zufällig ein äussereres Gebiet und aus diesem die Aufhängungen gewählt.
+Nach jeder dieser Operationen ist $G_i$ weiterhin planar und die Erzeugung kann bei der gewünschten Knotenzahl angehalten werden. Abschließend wird zufällig ein äußeres Gebiet und aus diesem die Aufhängungen gewählt.
 
-In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 100 und 1000 Knoten, mit jeweils fünf Graphen für jede Knotenzahl, dargestellt. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
+In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 100 und 800 Knoten, mit jeweils fünf Graphen für jede Knotenzahl, dargestellt. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
 
 \input{table.tex}

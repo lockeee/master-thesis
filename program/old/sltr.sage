@@ -1,6 +1,4 @@
 import sage.all
-attach("graph2ipe.sage")
-attach("pseudo_random_3_graph.sage")
 
 def has_sltr(graph,suspensions=None,outer_face=None,embedding=None,just_non_int_flow = True,check_non_int_flow=False):
 	if suspensions != None and outer_face == None:
