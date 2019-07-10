@@ -1,20 +1,20 @@
 \chapter{Das Programm}\label{the_program}
 
-Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich. Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird hier, mithilfe des in Sage enthaltenen Solvers \textit{Glpk} \cite{glpk} für Lineare Programmierung gelöst, welcher ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt, falls eine zulässige Lösung existiert und sonst nichts.
+Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Algorithmus \ref{algo_gfaa} baut auf Vermutung \ref{int_conj}, dass sich aus jeder nicht ganzzahligen Lösung ein Gutes-FAA extrahieren lässt, auf. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich.
 
 \input{pseudocode1.tex}
 
-Aus einer ganzzahligen Lösung kann man ein Gutes-FAA $\phi$ aus $\varphi_2$ extrahieren indem man die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgt. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
+Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Sie spart im Falle, der nicht Existenz eines FAA Zeit. 
+
+Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird hier, mithilfe des in Sage enthaltenen Solvers \textit{Glpk} \cite{glpk} für Lineare Programmierung gelöst, welcher ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt, falls eine zulässige Lösung existiert und sonst nichts.
+
+Aus einer ganzzahligen Lösung kann man ein FAA $\phi$ aus $\varphi_2$ extrahieren indem man die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgt. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
+
+Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutung \ref{int_conj} stimmt nicht notwendig. Es kann hier ein FAA aus $\varphi_2$ extrahiert und ausgegeben werden. Da uns der Beweis von Vermutung \ref{int_conj} nicht gelungen ist gewährleistet er allerdings die Korrektheit des Algorithmus. Bei Tests ergaben sich auf dieser Weise immer noch kürzere Berechnungszeiten, als bei der Suche nach ausschließlich ganzzahligen Lösungen.
 
 \section{Dokumentation}
 
 TODO
-
-\begin{itemize}
-\item Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Somit spart sie im Falle, der nicht Existenz eines FAA Zeit. 
-\item Bei der Inizialisierung von $\mathcal{N}_G$ wird das innere Netzwerk in Gebieten $f$ mit $|f|=3$ weggelassen, da in jeder zulässigen Lösung der Fluss aus den Ecken die kleinen Quadrate voll ausfüllt. Der Bedarf muss dementsprechend angepasst werden.
-\item  Optional 
-\end{itemize}
 
 \section{Visualisierung}
 

@@ -21,9 +21,9 @@
 \contentsline {section}{\numberline {4.2}Nicht ganzzahlige L\IeC {\"o}sungen}{46}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Minimale Schnitte in $\mathcal {N}_G$}{48}{subsection.4.2.1}
 \contentsline {chapter}{\numberline {5}Das Programm}{53}{chapter.5}
-\contentsline {section}{\numberline {5.1}Dokumentation}{53}{section.5.1}
+\contentsline {section}{\numberline {5.1}Dokumentation}{54}{section.5.1}
 \contentsline {section}{\numberline {5.2}Visualisierung}{54}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Probleme bei der Wahl von $\lambda $}{54}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Eine heuristisch gute Wahl von $\lambda $}{56}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Statistische Betrachtung}{56}{section.5.3}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{59}{chapter*.42}
+\contentsline {subsection}{\numberline {5.2.1}Probleme bei der Wahl von $\lambda $}{55}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Eine heuristisch gute Wahl von $\lambda $}{57}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Statistische Betrachtung}{57}{section.5.3}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{59}{chapter*.41}

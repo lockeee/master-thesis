@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper]{geometry}
+
+\title{algorithmicx (algpseudocode) example}
+
+% From the package documentation:
+% "The package algorithmicx itself doesn’t define any
+% algorithmic commands, but gives a set of macros to 
+% define such a command set.  You may use only 
+% algorithmicx, and define the commands yourself, or you 
+% may use one of the predefined command sets."
+% 
+% Popular predefined command sets include algpseudocode and algpascal. algcompatible should only be used in old documents, and algc is incomplete.
+
+\usepackage[Algorithmus]{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+
+\begin{document}
+
+\begin{algorithm}
+\caption{Berechnung eines Guten-FAA}
+\label{algo_sltr}
+\begin{algorithmic}[1]
+\Procedure{GFAA}{$G,f_{aus},\{a_1,a_2,a_3\}$}
+\If{FAA$(G,\{a_1,a_2,a_3\}) \neq$ None}	
+	\State $\{d_1,d_2\} \gets $ demands for $\mathcal{N}_G$
+	\State initialize $\mathcal{N}_G$
+	\State $\varphi=(\varphi_1,\varphi_2) \gets $ two-flow$(\mathcal{N}_G)$\Comment Netzwerk \ref{net_sltr}
+	\If {$\varphi \neq$ None}\Comment Fluss muss nicht ganzzahlig sein
+		\If{$\varphi$ is non-integer}
+			\State $\varphi_z \gets$ FAA-flow($\varphi_2$)
+			\State $\mathcal{N} \gets \mathcal{N}_G \backslash \{$edges used by $\varphi_z\}$
+			\State $\tilde{\varphi} \gets $ int-one-flow$(\mathcal{N})$\Comment Ecken- und Schnyder-Fluss zu $\varphi_z$
+			\If { $|\tilde{\varphi}| = d_1+d_2-|\varphi_z|$ }
+				\State $\phi \gets $ FAA$(\varphi_z)$
+				\State \Return $\phi$
+			\Else \Comment Nur erreichbar, falls Vermutung \ref{int_conj} falsch
+				\State $\varphi=(\varphi_1,\varphi_2) \gets $ int-two-flow$(\mathcal{N}_G)$
+				\If {$\varphi \neq$ None}\Comment Sonst Gegenbeispiel zu Vermutung \ref{int_conj}
+					\State $\phi \gets $ FAA$(\varphi_2)$
+					\State \Return $\phi$
+				\EndIf
+			\EndIf
+		\Else
+			\State $\phi \gets $ FAA$(\varphi_2)$
+		\EndIf
+	\EndIf
+	\State \Return $\phi$
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
