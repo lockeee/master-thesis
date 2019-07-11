@@ -95,18 +95,19 @@
 \usepackage{tikz,pgfplots}
 
 %For captions
-\usepackage[format=plain,labelsep=endash,justification=centerlast,width=.9\textwidth]{caption}
+\usepackage[format=plain,labelsep=endash,justification=raggedright,width=1\textwidth]{caption}
 % For readability
 \usepackage{hyperref}
 
 
+\pagenumbering{arabic}
 \begin{document}
 \input{introduction.tex}
 \input{prerequisites.tex}
 \input{main_theory.tex}
 \input{main_algorithm.tex}
 \input{the_program.tex}
-\bibliographystyle{amsalpha}
+\bibliographystyle{alphadin}
 \bibliography{bibliography}
 
 \end{document}
