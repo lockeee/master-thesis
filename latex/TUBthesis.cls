@@ -158,10 +158,11 @@ pdftitle=\vTitle, pdfauthor=\vAuthor, pdfsubject=\vThesis%
 \pagestyle{empty}%
 \begin{center}
 
-\vspace*{.06\textheight}
-{\LARGE Technische Universität Berlin \par}\vspace{1.5cm} % University name
-\textbf{\Large Master Arbeit}\\[0.5cm] % Thesis type
-
+\begin{minipage}[t]{0.65\textwidth}
+\centering
+\includegraphics[width=0.5\textwidth]{tu_logo.png}
+\end{minipage}
+\\[1cm]
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \vTitle\par}\vspace{0.4cm} % Thesis title
 \HRule \\[1.5cm] % Horizontal line
@@ -256,7 +257,7 @@ Institut für Mathematik
 \ifthenelse{\equal{\vLanguage}{german}}{\selectlanguage{german}}{\selectlanguage{german}}%
 %\input{zusammenfassung.tex}
 \tableofcontents%
-\pagenumbering{arabic}
+
 
 \mainmatter%
 }

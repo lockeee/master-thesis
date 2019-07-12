@@ -1,50 +1,57 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
-The style file: amsalpha.bst
+The style file: alphadin.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibliography.bib
-Warning--missing pages in lov99
-Warning--missing journal name in schnyder90
-Warning--missing journal, volume, and year in schnyder90
-You've used 17 entries,
-            2624 wiz_defined-function locations,
-            660 strings with 6425 characters,
-and the built_in function-call counts, 6180 in all, are:
-= -- 612
-> -- 183
-< -- 9
-+ -- 54
-- -- 53
-* -- 501
-:= -- 927
+Warning--empty edition in glpk
+Warning--empty address in glpk
+Warning--empty edition in sage
+`address' is a missing field, not a string, for entry sage
+while executing---line 2205 of file alphadin.bst
+You've used 19 entries,
+            4793 wiz_defined-function locations,
+            1007 strings with 8612 characters,
+and the built_in function-call counts, 10669 in all, are:
+= -- 1173
+> -- 240
+< -- 237
++ -- 255
+- -- 72
+* -- 699
+:= -- 1735
 add.period$ -- 17
-call.type$ -- 17
-change.case$ -- 91
-chr.to.int$ -- 16
-cite$ -- 20
-duplicate$ -- 280
-empty$ -- 532
-format.name$ -- 77
-if$ -- 1290
+call.type$ -- 19
+change.case$ -- 82
+chr.to.int$ -- 18
+cite$ -- 22
+duplicate$ -- 346
+empty$ -- 832
+format.name$ -- 152
+if$ -- 2214
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 31
-newline$ -- 62
-num.names$ -- 43
-pop$ -- 97
+missing$ -- 86
+newline$ -- 106
+num.names$ -- 57
+pop$ -- 121
 preamble$ -- 1
-purify$ -- 108
+purify$ -- 120
 quote$ -- 0
-skip$ -- 217
+skip$ -- 576
 stack$ -- 0
-substring$ -- 464
-swap$ -- 44
-text.length$ -- 9
-text.prefix$ -- 10
+substring$ -- 784
+swap$ -- 75
+text.length$ -- 53
+text.prefix$ -- 11
 top$ -- 0
-type$ -- 136
+type$ -- 194
 warning$ -- 3
-while$ -- 62
-width$ -- 19
-write$ -- 193
-(There were 3 warnings)
+while$ -- 102
+width$ -- 21
+write$ -- 244
+(There was 1 error message)
