@@ -1,20 +1,12 @@
 \chapter{Das Programm}\label{the_program}
 
-Wir wollen nun auf eine Implementierung des Algorithmus aus dem vorherigen Abschnitt eingehen. Algorithmus \ref{algo_gfaa} baut auf Vermutung \ref{int_conj}, dass sich aus jeder nicht ganzzahligen Lösung ein Gutes-FAA extrahieren lässt, auf. Der Code wurde in SageMath \cite{sage} geschrieben und ist auf Anfrage erhältlich.
+Wir wollen nun auf eine Implementierung von Netzwerk \ref{net_sltr} aus dem vorherigen Abschnitt eingehen. Das im Folgenden beschriebene Programm baut auf Vermutung \ref{int_conj} -- dass sich aus jedem nicht ganzzahligen zulässigen Fluss auf Netzwerk \ref{net_sltr} ein Gutes-FAA extrahieren lässt -- auf. Der Code wurde in SageMath geschrieben und ist auf Anfrage erhältlich \cite{sage}. Algorithmus \ref{algo_gfaa} gibt einen Überblick der durchgeführten Schritte bei der Suche nach einem Guten-FAA für einen gegebenen ebenen intern-3-zusammenhängenden Graphen mit Aufhängungen $\{a_1,a_2,a_3\}$
 
 \input{pseudocode1.tex}
 
-Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit bestimmen. Sie spart im Falle, der nicht Existenz eines FAA Zeit. 
+Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit auf einem deutlich kleineren Netzwerk bestimmen. Dies spart Zeit, falls zu Aufhängungen keine FAAs auf $G$ existieren. Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird mithilfe des in SageMath enthaltenen Solvers \textit{Glpk} für Lineare Programmierung gelöst, welcher ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt, falls eine zulässige Lösung existiert und sonst nichts\cite{glpk,sage}. In den Zeilen \ref{int_one_flow1} und \ref{int_two_flow1}, wird im Gegensatz zu Zeile \ref{two_flow1}, nur nach ganzzahligen Lösungen gesucht. Aus einer ganzzahligen Lösung kann man ein FAA $\phi$ aus $\varphi_2$ extrahieren indem man die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgt. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
 
-Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird hier, mithilfe des in Sage enthaltenen Solvers \textit{Glpk} \cite{glpk} für Lineare Programmierung gelöst, welcher ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt, falls eine zulässige Lösung existiert und sonst nichts.
-
-Aus einer ganzzahligen Lösung kann man ein FAA $\phi$ aus $\varphi_2$ extrahieren indem man die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgt. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
-
-Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutung \ref{int_conj} stimmt nicht notwendig. Es kann hier ein FAA aus $\varphi_2$ extrahiert und ausgegeben werden. Da uns der Beweis von Vermutung \ref{int_conj} nicht gelungen ist gewährleistet er allerdings die Korrektheit des Algorithmus. Bei Tests ergaben sich auf dieser Weise immer noch kürzere Berechnungszeiten, als bei der Suche nach ausschließlich ganzzahligen Lösungen.
-
-\section{Dokumentation}
-
-TODO
+Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutung \ref{int_conj} stimmt nicht notwendig. Es könnte hier ein FAA aus $\varphi_2$ extrahiert und ausgegeben werden. Wir gewährleisten  jedoch so die Korrektheit des Algorithmus, weil wir den Beweis von Vermutung \ref{int_conj} noch nicht gefunden haben. Bei Tests ergaben sich mit diesem Ansatz kürzere Berechnungszeiten, als bei der Suche nach ausschließlich ganzzahligen Lösungen. Zeile \ref{sanity_check} sollte nach Vermutung \ref{int_conj} nicht erreicht werden. Sie stellt jedoch sicher gestellt, dass Algorithmus \ref{algo_gfaa} immer dann ein Gutes-FAA ausgibt, wenn ein ganzzahliger Fluss auf Netzwerk \ref{net_sltr} existiert.
 
 \section{Visualisierung}
 
@@ -31,9 +23,9 @@ Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können
 	0 & \text{sonst.} \\
 	\end{dcases}
 \]
-Wenn wir nun die Pseudo-Inverse (TODO) berechnen, erhalten wir die Lösung
+Wenn wir nun die Pseudo-Inverse berechnen, erhalten wir eine Einbettung.
 $$f(V) = M_{\lambda}^{-1}\big( \begin{smallmatrix}f(A)_x&f(A)_y\\ 0&0\end{smallmatrix} \big).$$
-Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} aus \cite{fs17}, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen. Wünschenswert wäre es, wenn sich die Zeichnung nach einer gewissen Anzahl an Schritten nur noch so wenig verändert, dass wir den Algorithmus abbrechen können, und die letzte Zeichnung ausgeben.
+Wir wollen nun, inspiriert von den \textit{iterativen Tutte Einbettungen} nach Felsner und Scheucher, diese Rechnung mehrmals durchführen und Schritt für Schritt die Gewichtung $\lambda$ anpassen \cite{fs17}. Wünschenswert wäre es, wenn sich die Zeichnung nach einer gewissen Anzahl an Schritten nur noch so wenig verändert, dass wir den Algorithmus abbrechen können, und die letzte Zeichnung ausgeben.
 
 \subsection{Probleme bei der Wahl von $\lambda$}
 
@@ -43,63 +35,88 @@ Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine klassische Gummi
 \item Es existieren keine zu kurzen Kanten.
 \end{itemize}
 
-Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. 
+Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz nach Scheucher \cite{fs17}, bei dem $\lambda$ als monoton steigende Funktion, proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge, gewählt wird liefert im Allgemeinen keine schönen Zeichnungen wie im nächsten Beispiel gezeigt wird. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für dieses die oben erwähnten Einschränkungen stärker auftreten.
 
-Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz aus \cite{fs17}, bei dem $\lambda$ als monoton steigende Funktion, proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge, gewählt wird liefert im Allgemeinen keine schönen Zeichnungen wie im nächsten Beispiel gezeigt wird. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für dieses die oben erwähnten Einschränkungen stärker auftreten.
-
-\begin{example}\label{bsp_long_segment}
-Bei der in Abbildung \ref{long_segment} zu sehenden SLTR sind alle Knoten bis auf die Aufhängungen einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen von Typ
+\begin{example}\label{bsp_long_segment}\label{bsp_long_segment}
+Bei der in Abbildung \ref{long_segment} a) zu sehenden SLTR sind alle Knoten bis auf die Aufhängungen einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen von Typ
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).$$
-Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zu Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten die uns helfen können das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern sind in blau eingefärbt. Um zur Zeichnung auf der rechten Seite zu gelangen erfolgt die Wahl der $\lambda$ nach dem folgenden Algorithmus.
-
-%\input{pseudocode2.tex}
-
+Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zu Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten die uns helfen können das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern sind in blau eingefärbt. Um zur Zeichnung auf der rechten Seite zu gelangen erfolgt die Wahl der $\lambda$ in jedem Schritt nach folgenden Schema. Wir berechnen zu jedem Segment die Mengen der Kanten $S_1,S_2$, die an Gebieten liegen die vollständig auf einer der beiden Seiten des Segments liegen. Parallel dazu berechnen wir die Summe der Flächen dieser Gebiete $A_1,A_2$. Falls beide Mengen nicht leer sind erhöhen wir für jede Kante $e \in A_i$ $\lambda(e)$ um $a_i$ mit:
+$$ a_i = A_i^{1.25}*|A_j|^{-2} \text{ , mit } j \neq i.$$
+Die Exponenten sind heuristisch gewählt. Wir brechen entweder ab, wenn die Einbettung konvergiert oder wir eine feste Anzahl an Schritten durchgeführt haben. Eine so errechnete Einbettungen ist in Abbildung \ref{long_segment} c) zu sehen.
 \end{example}
 
 \begin{figure}[h]
 	\centering
-  \includegraphics[width=0.8\textwidth]{example1_vis.pdf}
-  \caption{Zwei Zeichnungen des SLTR aus Beispiel \ref{bsp_long_segment}.}
+  \includegraphics[width=1\textwidth]{example1_vis.pdf}
+  \caption{a) Eine Einbettung mit $\lambda$=1. b) Eine Einbettung nach bei der wir nur zu $e$ adjazente Gebiete für $\lambda(e)$ berücksichtigen. c) Eine Einbettung nach dem Schema aus Beispiel \ref{bsp_large_corner}.}
   \label{long_segment}
 \end{figure}
 
-Dieser Ansatz führt aber, gerade bei Graphen mit vielen Knoten, zu keiner Zeichnung die die oben genannten Punkte erfüllt (vergleiche Abbildung \ref{large_corner}, b)). Wir betrachten ein weiteres Beispiel um einen zweiten Algorithmus zu erläutern.
+Dieser Ansatz führt aber, gerade bei Graphen mit vielen Knoten, zu keiner Zeichnung die die oben genannten Punkte erfüllt (vergleiche Abbildung \ref{large_corner}, b)). Wir betrachten ein weiteres Beispiel um ein zweites Schema zu erläutern.
 
 \begin{example}\label{bsp_large_corner} 
-Gerade für Graphen mit vielen Knoten führt der Ansatz aus Beispiel \ref{bsp_long_segment} nicht immer zu einer schönen Zeichnung der SLTR. In Abbildung \ref{large_corner} a) ist so ein Graph mit der ersten für $\lambda=1$ erhaltenen Zeichnung und dem Resultat nach 40 Schritten von Algorithmus \ref{algo2} zu sehen (b). Ein anderer interativer Ansatz führt hier jedoch zu schöneren Ergebnissen. Wir setzen bei der Initialisierung $\lambda_0(e)=2$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. 
-
-Wir wählen $\epsilon = 0,1$ und $c=2$. In Abbildung \ref{large_corner} c) das Ergebnis nach $2*|V|$ Schritten zu sehen, das deutlich lesbarer als das die beiden anderen Zeichnungen ist.
-
+Gerade für Graphen mit vielen Knoten führt der Ansatz aus Beispiel \ref{bsp_long_segment} nicht immer zu einer schönen Zeichnung der SLTR. In Abbildung \ref{large_corner} a) ist so ein Graph mit der ersten für $\lambda=1$ erhaltenen Zeichnung und dem Resultat nach 40 Schritten nach dem Schema aus Beispiel \ref{bsp_long_segment} zu sehen (Abbildung \ref{large_corner} b). Ein anderer iterativer Ansatz führt hier jedoch zu schöneren Ergebnissen. Wir setzen bei der Initialisierung $\lambda_0(e)=2$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. Wir wählen $\epsilon = 0,1$ und $c=2$. In Abbildung \ref{large_corner} c) ist die Einbettung nach 50 Schritten zu sehen.
 \end{example}
 
 \begin{figure}[h]
 	\centering
-  \includegraphics[width=0.8\textwidth]{example1_vis.pdf}
+  \includegraphics[width=1\textwidth]{example1_vis.pdf}
   \caption{Drei Zeichnungen der gleichen SLTR für unterschiedliche $\lambda$. a) Für $\lambda=1$. b) Nach dem Ansatz aus Beispiel \ref{bsp_long_segment}. c) Nach dem Ansatz aus Beispiel \ref{bsp_long_segment}.}
   \label{long_segment}
 \end{figure}
 
 \subsection{Eine heuristisch gute Wahl von $\lambda$}
 
-Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei einigen Graphen schlechten Zeichnungen. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt. Wir führen die beiden Algorithmen hintereinander aus. Falls Algorithmus \ref{algo2} konvergiert, brechen wir ab und geben sie aus. Falls nicht merken wir uns die berechneten Werte $\lambda'$ und führen \ref{algo2} durch. Bei jedem Schritt berechnen wir nun eine neue Zeichnung mit $\lambda(e) = \lambda_{i+1}(e) + \lambda'(e)$. Wieder führen wir 50 Schritte durch. 
+Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei einigen Graphen schlechten Zeichnungen. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt. Wir führen die beiden Algorithmen hintereinander aus. Falls Algorithmus \ref{algo2} konvergiert, brechen wir ab und geben sie aus. Falls nicht merken wir uns die berechneten Werte $\lambda'$ und führen \ref{algo2} durch. Bei jedem Schritt berechnen wir nun eine neue Zeichnung mit $\lambda(e) = \lambda_{i+1}(e) + \lambda'(e)$. Wieder führen wir 50 Schritte durch.  TODO
 
 Beispiele von so errechneten Zeichnungen verschiedener SLTRs sind in Abbildung \ref{vis_examples} zu sehen.
 
-\section{Statistische Betrachtung}
+\section{Experimentelle Rechnungen}\label{stats}
 
-Zum Abschluss folgt eine statistische Betrachtung der Verteilung von Graphen mit SLTRs. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen die aufschlussreichsten Resultate liefern. Ein guter Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy09} implementieren. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. 
+Es folgt eine kurze statistische Betrachtung der Verteilung von Graphen mit SLTRs. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen die aufschlussreichsten Resultate liefern. Ein guter Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy09} implementieren. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. 
 
 Es folgt eine kurze Beschreibung des Samplers. Wir beginnen mit $G_0 = K_4$. Nun wird in Schritt $i$ mit spezifizierbaren Wahrscheinlichkeiten eine der folgenden vier Operationen durchgeführt.
 
 \begin{itemize}
-\item Ein Knoten $v$ mit deg$(v) \geq 4$ wird in $v_1,v_2$ geteilt und eine Kante $(v_1,v_2)$ eingefügt . Nun werden die zyklisch sortierten Nachbarn in zwei Teile $N_1,N_2$ getrennt und mit $v_1$ beziehungsweise $v_2$ verbunden.
-\item Ein Knoten wird in ein Gebiet eingefügt und mit mindestens drei der am Gebiet liegenden Knoten verbunden. 
-\item Eine Knoten wird auf einer Kante eingefügt und mit einem in einem angrenzenden Gebiet liegenden Knoten verbunden.
-\item Es wird eine Kante in ein Gebiet mit mehr als drei Knoten eingefügt.
+\item[PG1] Ein Knoten $v$ mit deg$(v) \geq 4$ wird in $v_1,v_2$ geteilt und eine Kante $(v_1,v_2)$ eingefügt. Nun werden die zyklisch sortierten Nachbarn in zwei Teile $N_1,N_2$ getrennt und mit $v_1$ beziehungsweise $v_2$ verbunden.
+\item[PG2] Eine Knoten wird auf einer Kante eingefügt und mit einem in einem angrenzenden Gebiet liegenden Knoten verbunden.
+\item[PG3] Ein Knoten wird in ein Gebiet eingefügt und mit mindestens drei der am Gebiet liegenden Knoten verbunden. 
+\item[PG4] Es wird eine zufällige Kante in ein Gebiet mit mehr als drei Knoten eingefügt.
 \end{itemize}
 
 Nach jeder dieser Operationen ist $G_i$ weiterhin planar und die Erzeugung kann bei der gewünschten Knotenzahl angehalten werden. Abschließend wird zufällig ein äußeres Gebiet und aus diesem die Aufhängungen gewählt.
 
-In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 100 und 800 Knoten, mit jeweils fünf Graphen für jede Knotenzahl, dargestellt. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). \\
+In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 100 und 800 Knoten, mit jeweils fünf Graphen für jede Knotenzahl, dargestellt. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). 
 
 \input{table.tex}
+
+Wie nicht anders zu erwarten bilden die Farben drei Strahlen die sich mit wachsender Knotenzahl zunehmend vermischen. Die Parameter des Samplers sind dahingehend ausgerichtet um gerade an diesem Übergang viele Graphen zu erzeugen. Für Graphen mit im Verhältnis großen Kantenzahlen finden sich fast immer SLTRs.
+
+\section{Dokumentation}
+
+Zum Abschluss des Kapitels folgt eine Dokumentation des Programs. Die Datei \texttt{program.sage} muss in SageMath geladen werden \cite{sage}. Die beiden in \texttt{program.sage} implementierten Funktionen sind:
+\begin{description}
+\item[\texttt{sltr(graph, suspensions, face, non\char`_int, check\char`_int, plotting)}] \hfill 
+Gibt, falls möglich, ein Gutes-FAA zurück und erstellt optional eine Zeichnung.
+\begin{description}
+\item[\texttt{return = GFAA :}] Eine Gutes-FAA als Liste von Gebieten mit Zuweisungen, \texttt{[[[1,4,6,8],[4]], ... ]}, oder \texttt{None}.
+\item[\texttt{graph :}] Ein planarer intern-3-zusammenhängender Graph
+\item[\texttt{suspensions :}] Die Aufhängungen als Liste \texttt{[$a_1,a_2,a_3$]}, mit \texttt{None} werden alle möglichen Aufhängungen überprüft.
+\item[\texttt{face :}] Das äußere Gebiet als Kantenfolge \texttt{[[$v_1,v_2$], ... ,[$v_k,v_1$]]}, mit \texttt{None} werden alle möglichen äußeren Gebiete überprüft.
+\item[\texttt{non\char`_int :}] default \texttt{True}, sonst wird nur nach ganzzahligen Lösungen gesucht.
+\item[\texttt{check\char`_int :}] default \texttt{True}, sonst wird die Überprüfung ab Zeile \ref{algo_check} ausgelassen.
+\item[\texttt{plotting :}] default \texttt{False}, sonst wird eine Zeichnung ausgegeben.
+\end{description}
+\item[\texttt{random\char`_sltr(vertices, non\char`_int, check\char`_int, plotting, ipe, cut)}] \hfill 
+Erzeugt einen pseudo-zufälligen Graphen und erstellt, falls möglich, ein Gutes-FAA und eine passenden Zeichnung.
+\begin{description}
+\item[\texttt{return = [graph,GFAA]}] Ein Paar aus Graph und GFAA oder \texttt{[graph,None]}.
+\item[\texttt{vertices :}] Die Anzahl der Knoten des zu erzeugenden Graphen
+\item[\texttt{non\char`_int :}] default \texttt{True}, sonst wird nur nach ganzzahligen Lösungen gesucht.
+\item[\texttt{check\char`_int :}] default \texttt{True}, sonst wird die Überprüfung ab Zeile \ref{algo_check} ausgelassen.
+\item[\texttt{plotting :}] default \texttt{True}, sonst wird keine Zeichnung ausgegeben.
+\item[\texttt{ipe :}] default \texttt{None}, bei Übergabe eines Strings \texttt{\char"string"} wird eine ipe-Datei string.ipe erstellt.
+\item[\texttt{cut :}] default \texttt{None}, optional lassen sich die Parameter der pseudo-zufälligen Erzeugung durch drei aufsteigende natürliche Zahlen $\leq 1000$ anpassen \texttt{[a, b, c]}. Es wird der in Abschnitt \ref{stats} beschriebene Sampler genutzt. Die normale Einstellung ist \texttt{[300,600,990]}. In jedem Schritt wird eine der vier Möglichkeiten PG1, PG2, PG3 und PG4 mit Verteilung $a/1000$, $(a+b)/1000$, $(a+b+c)/1000$ und $(1000-a-b-c)/1000$ ausgewählt.
+\end{description}
+\end{description}
+

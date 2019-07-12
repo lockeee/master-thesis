@@ -25,6 +25,12 @@
 \newblock Straight Line Triangle Representations via Schnyder Labelings.
 \newblock {In: }\emph{J. Graph Algorithms Appl.} 19 (2015), Nr. 1, S. 467--505
 
+\bibitem[EIS75]{even75}
+\textsc{Even}, Shimon ; \textsc{Itai}, Alon  ; \textsc{Shamir}, Adi:
+\newblock On the complexity of time table and multi-commodity flow problems.
+\newblock {In: }\emph{16th Annual Symposium on Foundations of Computer Science
+  (sfcs 1975)} IEEE, 1975, S. 184--193
+
 \bibitem[F{\'a}r48]{fary48}
 \textsc{F{\'a}ry}, Istv{\'a}n:
 \newblock On straight-line representation of planar graphs.
@@ -41,6 +47,11 @@
 \newblock Lattice structures from planar graphs.
 \newblock {In: }\emph{The electronic journal of combinatorics} 11 (2004), Nr.
   1, S.~15
+
+\bibitem[FF56]{ff09}
+\textsc{Ford}, Lester~R. ; \textsc{Fulkerson}, Delbert~R.:
+\newblock Maximal flow through a network.
+\newblock {In: }\emph{Canadian Journal of Mathematics} 8 (1956), S. 399--404
 
 \bibitem[FS17]{fs17}
 \textsc{Felsner}, Stefan ; \textsc{Scheucher}, Manfred:
@@ -63,6 +74,12 @@
 \textsc{Hu}, T~C.:
 \newblock Multi-commodity network flows.
 \newblock {In: }\emph{Operations research} 11 (1963), Nr. 3, S. 344--360
+
+\bibitem[KV18]{korte12}
+\textsc{Korte}, Bernhard ; \textsc{Vygen}, Jens:
+\newblock \emph{Combinatorial optimization}.
+\newblock 6.
+\newblock Springer, 2018
 
 \bibitem[LR99]{leighton99}
 \textsc{Leighton}, Tom ; \textsc{Rao}, Satish:

@@ -86,7 +86,7 @@ Sei $\varphi_F$ ein zulässiger ganzzahliger Fluss auf $\mathcal{N}_F$. Der Flus
 
 \begin{remark}
 
-Das oben konstruierte Netzwerk zur Bestimmung von FAAs lässt sich auch als Zwei-Fluss Problem konstruieren, wenn wir für Ecken- und Zuweisungs-Fluss getrennte Quellen und Senken erstellen und für jeden Winkelknoten $(f,v)$ jeweils zwei mit einer Kante mit Kapazität 1 verbundene Knoten $(f,v)$ und $(f,v)'$ einsetzen (siehe Abbildung \ref{faa_as_2}). In den ersten führt eine Kante von beiden Quellen mit Kapazität 1. Und vom zweiten aus führen Kanten zu $f$ und $v$. Der Bedarf des Ecken-Flusses ist dann $3|F_{in}|$ und der Bedarf des Zuweisung-Flusses $\sum_{f \in F_{in}}{|f|-3}$.
+Das oben eingeführte Netzwerk \ref{net_faa} zur Bestimmung von FAAs lässt sich auch als Zwei-Fluss-Problem konstruieren. Wir trennen für Ecken- und Zuweisungs-Fluss die Quellen und Senken.  Zu jedem Winkelknoten $(f,v)$ fügen wir eine Kopie $(f,v)'$ ein und verbinden beide durch eine Kante mit Kapazität 1 (siehe Abbildung \ref{faa_as_2}). In den ersten führt eine Kante von beiden Quellen mit Kapazität 1. Und vom zweiten aus führen Kanten zu $f$ und $v$. Der Bedarf des Ecken-Flusses ist dann $3|F_{in}|$ und der Bedarf des Zuweisung-Flusses $\sum_{f \in F_{in}}{|f|-3}$.
 
 \begin{figure}[h]
 	\centering
@@ -95,7 +95,7 @@ Das oben konstruierte Netzwerk zur Bestimmung von FAAs lässt sich auch als Zwei
   \label{faa_as_2}
 \end{figure}
 
-Eine zulässige ganzzahlige Lösung $\varphi_F = (\varphi_e,\varphi_z)$ entspricht dann wieder einem FAA auf $G$. Aus der Ganzzahligkeit folgt, dass ein Winkel entweder von $\varphi_{e}$ (Ecke) oder $\varphi_{z}$ (Zuweisung) genutzt wird. Dies gewährleistet die Kante zwischen den beiden Winkelknoten, da sie nur von einem von beiden Flüssen genutzt werden kann.
+Eine zulässige ganzzahlige Lösung $\varphi_F = (\varphi_e,\varphi_z)$ entspricht dann wieder einem FAA auf $G$. Aus der Ganzzahligkeit folgt, dass ein Winkel entweder von $\varphi_{e}$ (Ecke) oder $\varphi_{z}$ (Zuweisung) genutzt wird. Dies gewährleisten die Kanten zwischen den Winkelknoten, da sie immer nur von einem der beiden Flüssen genutzt werden können.
 \end{remark}
 
 
