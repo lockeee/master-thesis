@@ -13,7 +13,7 @@ Ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\ph
 Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem SLTR (mindestens ein) Ecken kompatibles Paar existiert und das anders herum jedes Ecken kompatible Paar eine SLTR induziert.
 
 \begin{theorem}\label{theo_ccc}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt genau dann eine SLTR, wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
+Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt genau dann eine SLTR, wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{theorem}
 
 TODO Beispiel oder Bild!! \\
@@ -21,7 +21,7 @@ TODO Beispiel oder Bild!! \\
 Wir beweisen zuerst die (deutlich einfachere) Rückrichtung des Theorems. Hier können wir die durch das in Abschnitt \ref{face_counting} erklärte \textit{face-counting} erhaltene Einbettung nutzen, um zu zeigen, dass jeder begrenzende Zykel $\gamma$ mindestens drei kombinatorisch konvexe Ecken besitzt. 
 
 \begin{lemma}\label{lem1}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Falls ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ Ecken kompatibel ist, dann hat jeder begrenzende Zykel $\gamma$, der nicht von einem Pfad induziert wird, mindestens drei kombinatorisch konvexe Ecken im Bezug auf $\phi$.
+Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Falls ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ Ecken kompatibel ist, dann hat jeder begrenzende Zykel $\gamma$, der nicht von einem Pfad induziert wird, mindestens drei kombinatorisch konvexe Ecken im Bezug auf $\phi$.
 \end{lemma}
 
 \begin{proof}
@@ -62,7 +62,7 @@ Nach Beobachtung \ref{obs2} sind die Mengen $M_1,M_2$ und $M_3$ disjunkt. Wir su
 
 Zusammen mit Theorem \ref{com_theo} folgt, dass es sich bei dem FAA um ein Gutes-FAA handelt. Somit induziert das Ecken kompatible Paar ein SLTR von $G$.\\
 
-Machen wir uns an den Beweis der Hinrichtung. Zu jedem SLTR können wir ein eindeutiges FAA erstellen indem wir die flachen Winkel der SLTR im FAA zuweisen. Wir müssen also zeigen, dass zu jeder SLTR ein Schnyder Labeling existiert, das zusammen mit dem induzierten FAA ein Ecken kompatibles Paar bildet. Sei $G$ ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$, der (mindestens) eine SLTR besitzt. Sei $\Delta$ eine SLTR von $G$ und sei $\phi$ das von $\Delta$ induzierte FAA.
+Machen wir uns an den Beweis der Hinrichtung. Zu jedem SLTR können wir ein eindeutiges FAA erstellen indem wir die flachen Winkel der SLTR im FAA zuweisen. Wir müssen also zeigen, dass zu jeder SLTR ein Schnyder Labeling existiert, das zusammen mit dem induzierten FAA ein Ecken kompatibles Paar bildet. Sei $G$ ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$, der (mindestens) eine SLTR besitzt. Sei $\Delta$ eine SLTR von $G$ und sei $\phi$ das von $\Delta$ induzierte FAA.
 
 Vor dem nächsten Lemma müssen wir zwei geometrische Objekte einführen. Beispiele finden sich in Abbildung \ref{subdividing_ex}.
 
@@ -146,7 +146,7 @@ Nun ist $G'$ kein Gegenbeispiel und es existiert ein zu $\phi'$ kompatibles Schn
 Im nächsten Lemma wird eine Eigenschaft von Ecken kompatiblen Paaren festgehalten, die für den Beweis von Theorem \ref{theo_ccc} nützlich sein wird.
 
 \begin{lemma}\label{lem4}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ und einem Ecken kompatiblen Paar $(\sigma,\phi)$ aus einem Schnyder Labeling und einem FAA. Sei $v$ ein Nachbar einer Aufhängung $a_i$. Falls $v$ von $\phi$ einem Gebiet $f$ zugewiesen ist, das $a_i$ beinhaltet folgt, dass das Label von $v$ in $f$ nur einmal an $v$ vorkommt. Alle anderen Winkel an $v$ haben ein anderes Label.
+Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ und einem Ecken kompatiblen Paar $(\sigma,\phi)$ aus einem Schnyder Labeling und einem FAA. Sei $v$ ein Nachbar einer Aufhängung $a_i$. Falls $v$ von $\phi$ einem Gebiet $f$ zugewiesen ist, das $a_i$ beinhaltet folgt, dass das Label von $v$ in $f$ nur einmal an $v$ vorkommt. Alle anderen Winkel an $v$ haben ein anderes Label.
 \end{lemma}
 
 \begin{proof}
@@ -169,7 +169,7 @@ Um $v$ existieren nach L2 im Uhrzeigersinn drei nichtleere Intervalle mit Label 
 \input{lem5.tex}
 
 \begin{lemma}\label{lem6}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ der eine SLTR besitzt. Sei $\phi$ das von dieser SLTR induzierte FAA. Dann existiert ein Schnyder Labeling $\sigma$ von $G$, sodass $\sigma$ und $\phi$ ein Ecken kompatibles Paar bilden.
+Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ der eine SLTR besitzt. Sei $\phi$ das von dieser SLTR induzierte FAA. Dann existiert ein Schnyder Labeling $\sigma$ von $G$, sodass $\sigma$ und $\phi$ ein Ecken kompatibles Paar bilden.
 \end{lemma}
 
 \begin{proof}
@@ -265,11 +265,11 @@ Wir haben also Schritt $i$ durchgeführt und die Invariante hat bestand. Per Ind
 Wir haben nun alle nötigen Hilfsmittel erarbeitet um das folgende, weiter oben schon aufgeführte Theorem zu beweisen.
 
 \begin{reptheorem}{theo_ccc}
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt eine SLTR, genau dann wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
+Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt eine SLTR, genau dann wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{reptheorem}
 
 \begin{proof}[Beweis von Theorem \ref{theo_ccc}]
-Sei G ein planer, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Angenommen $G$ besitzt ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$. Nach Lemma \ref{lem1} existiert dann eine SLTR von $G$. 
+Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. Angenommen $G$ besitzt ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$. Nach Lemma \ref{lem1} existiert dann eine SLTR von $G$. 
 
 Angenommen $G$ besitzt eine SLTR, dann existert nach Lemma \ref{lem6} ein Schnyder Labeling, das Ecken kompatibel mit dem von der SLTR induzierten FAA ist.
 \end{proof}

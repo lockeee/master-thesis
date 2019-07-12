@@ -3,7 +3,7 @@
 Die Beweise zu den in diesem Kapitel aufgestellten Propositionen und Theoremen werden ausgelassen. Sie befinden sich, wenn nicht anders angegeben, in \cite{af13} . Zum Einstieg eine weitere Definition, die es ermöglicht eine Beobachtung zu SLTRs festzuhalten.
 
 \begin{definition}[Begrenzende Zykel und kombinatorisch konvexe Ecken]\label{def_ccc}
-Sei $G$ ein planer Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$, der H umrandende Weg in G, das heißt $\gamma$ ist eine Folge aus Kanten und Knoten die $H$ in $G$ begrenzt. Knoten und Kanten können in $\gamma$ mehrfach vorkommen (vergleiche Abbildung \ref{corner_def}). Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. Die Menge der Knoten, Kanten und Gebiete aus $G$ die im Inneren von $\gamma$ oder auf $\gamma$ liegen nennen wir int$(\gamma)$. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
+Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$, der H umrandende Weg in G, das heißt $\gamma$ ist eine Folge aus Kanten und Knoten die $H$ in $G$ begrenzt. Knoten und Kanten können in $\gamma$ mehrfach vorkommen (vergleiche Abbildung \ref{corner_def}). Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. Die Menge der Knoten, Kanten und Gebiete aus $G$ die im Inneren von $\gamma$ oder auf $\gamma$ liegen nennen wir int$(\gamma)$. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
 \begin{itemize}
 \item [E1] $v$ ist eine Aufhängung, oder
 \item [E2] $v$ ist nicht durch $\phi$ zugeordnet und es existiert eine Kante $e = (v,w)$ mit $e \notin int(\gamma)$, oder
@@ -36,7 +36,7 @@ Betrachten wir eine SLTR und einen begrenzenden Zykel $\gamma$, der nicht von ei
 Die Beobachtung aus dem Beispiel gilt allgemein für SLTRs und begrenzende Zykel. Die folgende Präposition nach \cite[Prop 2.2, Prop 2.4]{af13} hält sie fest.
 
 \begin{proposition}\label{com_prop}
-Sei $G$ ein planer Graph der eine SLTR zulässt. Sei weiter $\phi$ das von der SLTR induzierte FAA. Sei $H$ ein zusammenhängender Teilgraph von G (kein Pfad) und $\gamma = \gamma(H)$ sein begrenzender Zykel. Falls $v$ eine geometrisch konvexe Ecke von $\gamma$ in der SLTR ist, dann ist $v$ auch eine kombinatorisch konvexe Ecke von $\gamma$ hinsichtlich $\phi$. Somit gilt:
+Sei $G$ ein ebener Graph der eine SLTR zulässt. Sei weiter $\phi$ das von der SLTR induzierte FAA. Sei $H$ ein zusammenhängender Teilgraph von G (kein Pfad) und $\gamma = \gamma(H)$ sein begrenzender Zykel. Falls $v$ eine geometrisch konvexe Ecke von $\gamma$ in der SLTR ist, dann ist $v$ auch eine kombinatorisch konvexe Ecke von $\gamma$ hinsichtlich $\phi$. Somit gilt:
 \begin{itemize}
 \item [E4] Jeder begrenzende Zykel $\gamma$, der nicht von einem Pfad induziert wird, hat hinsichtlich $\phi$ mindestens drei kombinatorisch konvexe Ecken.
 \end{itemize}
@@ -81,13 +81,13 @@ Sei $\Sigma$ ein Kontaktfamilie von Pseudosegmenten und $S\subseteq\Sigma$. Wir 
 \end{figure}
 
 \begin{lemma}\cite[Lemma 2.8]{af13}\label{lemma_af13}
-Sei $\phi$ ein Gutes-FAA auf einem planen und intern 3-zusammenhängenden Graphen. Dann gilt: 
+Sei $\phi$ ein Gutes-FAA auf einem ebenen und intern 3-zusammenhängenden Graphen. Dann gilt: 
 \begin{itemize}
 \item [E5] Jede Teilmenge $S \subseteq \Sigma_{\phi}$ mit $|S| \geq 2$ hat mindestens 3 freie Punkte.
 \end{itemize}
 \end{lemma}
 
-Betrachte einen planen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem GFAA $\phi$. Wenn die von $\phi$ induzierte Kontaktfamilie $\Sigma_{\phi}$ mit geradlinigen Segmenten darstellbar ist, dann ist diese Darstellung eine zu $\phi$ passende SLTR für $G$. Für den Fall, dass eine solche Darstellung $f:G\to\mathbb{R}^2$ existiert, können für die Koordinaten der Segmente oder genauer für die Knoten $v$ von $G$ auf den Segmenten im Folgenden Gleichungen aufgestellt werden. Die Positionen $f(v)$ der Knoten $v$ in der Einbettung $f(G)$ müssen diese Gleichungen erfüllen. Das resultierende Gleichungssystem beinhaltet harmonische Funktionen. Bevor wir die Gleichungen, die unser Problem charakterisieren, in Abschnitt \ref{the_equations} angeben, werden wir zu harmonischen Funktionen einen kurzen Überblick geben.
+Betrachte einen ebenen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem GFAA $\phi$. Wenn die von $\phi$ induzierte Kontaktfamilie $\Sigma_{\phi}$ mit geradlinigen Segmenten darstellbar ist, dann ist diese Darstellung eine zu $\phi$ passende SLTR für $G$. Für den Fall, dass eine solche Darstellung $f:G\to\mathbb{R}^2$ existiert, können für die Koordinaten der Segmente oder genauer für die Knoten $v$ von $G$ auf den Segmenten im Folgenden Gleichungen aufgestellt werden. Die Positionen $f(v)$ der Knoten $v$ in der Einbettung $f(G)$ müssen diese Gleichungen erfüllen. Das resultierende Gleichungssystem beinhaltet harmonische Funktionen. Bevor wir die Gleichungen, die unser Problem charakterisieren, in Abschnitt \ref{the_equations} angeben, werden wir zu harmonischen Funktionen einen kurzen Überblick geben.
 
 \subsection{Harmonische Funktionen auf planaren Graphen}
 
@@ -139,11 +139,11 @@ Somit erfüllt die so gegebene Funktion $f:V\to\mathbb{R}^2$ mit $f=(f_x,f_y)$ u
 Dies führt uns zum Hauptresultat aus \cite{af13}:
 
 \begin{theorem}\label{com_theo}
-Sei $G$ ein intern 3-zusammenhängender, planarer Graph und $\Sigma$ eine Familie von Pseudosegmenten, induziert von einem FAA, sodass jede Teilfamilie $S \subset \Sigma$ entweder mindestens drei freie Punkte hat, oder maximal ein Element enthält. Die eindeutige Lösung des aus $\Sigma$ folgenden Gleichungssystems ist eine SLTR.
+Sei $G$ ein intern-3-zusammenhängender, ebener Graph und $\Sigma$ eine Familie von Pseudosegmenten, induziert von einem FAA, sodass jede Teilfamilie $S \subset \Sigma$ entweder mindestens drei freie Punkte hat, oder maximal ein Element enthält. Dann induziert die eindeutige Lösung $f:V\to \mathbb{R}^2$ des aus $\Sigma$ resultierenden Gleichungssystems eine SLTR. 
 \end{theorem}
 
 \begin{remark}
-Dies bedeutet, dass die weiter oben in Lemma \ref{lemma_af13} festgehaltene notwendige Bedingung auch eine hinreichende ist. Falls wir schon ein Gutes-FAA gefunden haben, dann können wir mit Hilfe des obigen Ansatzes auch eine Einbettung in der Ebene erhalten. Es gilt jedoch für viele Graphen, dass sie, wie in Beispiel \ref{bsp_exp_faa}, exponentiell vielen FAAs besitzen. Selbst wenn wir die hinreichende Bedingung E4 in polynomineller Zeit überprüfen könnten, erreichen wir auf diesem Weg keinen schnellen Algorithmus.
+Dies bedeutet, dass die notwendigen Bedingungen E4 und E5, die in Lemma \ref{lemma_af13} und in Proposition \ref{com_prop} festgehaltenen wurden, auch hinreichende Bedingungen sind. Falls wir schon ein Gutes-FAA gefunden haben, dann können wir mit Hilfe des obigen Ansatzes auch eine Einbettung in der Ebene erhalten. Es gilt jedoch für viele Graphen, dass sie, wie in Beispiel \ref{bsp_exp_faa}, exponentiell vielen FAAs besitzen. Selbst wenn wir die hinreichende Bedingung E4 in polynomineller Zeit überprüfen könnten, erreichen wir auf diesem Weg keinen schnellen Algorithmus.
 \end{remark}
 
 Aerts und Felsner werfen am Ende von \cite{af13} die Frage nach einer guten Wahl von $\lambda$ auf und wie dies die resultierenden Einbettungen beeinflussen kann. Kapitel \ref{the_program} wird einer möglichen Antwort dieser Frage nachgehen.

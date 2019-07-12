@@ -2,7 +2,7 @@
 
 Wir werden in diesem Kapitel weitere notwendige und zwei hinreichende Bedingungen für die Existenz von SLTRs erarbeiten. Als ersten Schritt wollen wir jedoch eine notwendige Eigenschaft festhalten.
 
-Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon eine SLTR für $G$ gefunden haben. Für die Zeichnung müssen die folgenden Bedingungen gelten:
+Sei $G$ ein ebener intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. Nehmen wir für einen Moment an, dass wir schon eine SLTR für $G$ gefunden haben. Für die Zeichnung müssen die folgenden Bedingungen gelten:
 
 \begin{itemize}
 \item Jeder Knoten $v \in V$ hat in maximal einem inzidenten Gebiet $f$ einen flachen Winkel, also Winkel $\pi$.
@@ -12,7 +12,7 @@ Sei $G$ ein planer intern 3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_
 Diese Bedingungen liefern eine notwendige Bedingung für die Existent einer SLTR. Sie ist in der nächsten Definition festgehalten.
 
 \begin{definition}[FAA]\label{def_faa}
-Sei $G=(V,E,F)$ ein planer Graph. Eine \textit{flache Winkel Zuweisung} $\phi$, kurz \textit{FAA} (nach dem englischen \textit{flat angle assignment}), ist eine partielle Zuordnung der Knoten zu den Gebieten. Es muss gelten:
+Sei $G=(V,E,F)$ ein ebener Graph. Eine \textit{flache Winkel Zuweisung} $\phi$, kurz \textit{FAA} (nach dem englischen \textit{flat angle assignment}), ist eine partielle Zuordnung der Knoten zu den Gebieten. Es muss gelten:
 \begin{itemize}
 \item [F1] Jedem Gebiet $f$ sind genau $|f|-3$ Knoten zugewiesen.
 \item [F2] Jeder Knoten $v$ ist höchstens einem Gebiet zugewiesen.
@@ -35,7 +35,7 @@ Links und rechts in Abbildung \ref{exp_faa} sehen wir den selben planaren Graphe
 \end{figure}
 \end{example}
 
-Somit induziert jede SLTR genau ein FAA. Ein planer Graph kann also nur dann eine SLTR besitzen, wenn mindestens ein FAA existiert. Wie in Beispiel \ref{bsp_faa} gezeigt, induziert jedoch nicht jedes FAA eine SLTR. Unser Ziel ist die Erarbeitung eines Algorithmus zu Erkennung von SLTRs und für diesen werden hinreichende Bedingungen für ihre Existenz benötigt. Deswegen werden sich die nächsten beiden Abschnitten mit zwei Arbeiten von Aerts und Felsner beschäftigen. Das Hauptresultat der ersten liefert ein Gleichungssystem, das harmonische Funktionen beinhaltet. Eine Lösung dieses Systems liefert eine SLTR \cite{af13}. In Teilen darauf basierend, stellt die zweite Arbeit einen Zusammenhang zwischen Schnyder Woods und FAAs her und die Existenz passender Paare impliziert wieder die Existenz von SLTRs \cite{af15}.
+Somit induziert jede SLTR genau ein FAA. Ein ebener Graph kann also nur dann eine SLTR besitzen, wenn mindestens ein FAA existiert. Wie in Beispiel \ref{bsp_faa} gezeigt, induziert jedoch nicht jedes FAA eine SLTR. Unser Ziel ist die Erarbeitung eines Algorithmus zu Erkennung von SLTRs und für diesen werden hinreichende Bedingungen für ihre Existenz benötigt. Deswegen werden sich die nächsten beiden Abschnitten mit zwei Arbeiten von Aerts und Felsner beschäftigen. Das Hauptresultat der ersten liefert ein Gleichungssystem, das harmonische Funktionen beinhaltet. Eine Lösung dieses Systems liefert eine SLTR \cite{af13}. In Teilen darauf basierend, stellt die zweite Arbeit einen Zusammenhang zwischen Schnyder Woods und FAAs her und die Existenz passender Paare impliziert wieder die Existenz von SLTRs \cite{af15}.
 
 \input{harmonic_functions.tex}
 \input{corner_compatible_pairs.tex}

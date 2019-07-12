@@ -9,7 +9,7 @@ def test_visualisation():
 	G4 = [Graph(':Xa@a_AaCbCD_AaC_C_GH_I`ABj_JL_AG_IJaKbKaPQbKQ_HLkPQ_AFN`BF'),[(2, 5), (5, 6), (6, 3), (3, 2)],(2, 5, 6)]
 
 	## Liste von Testgraphen ##
-	L = [G1,G2,G4]
+	L = [G4]
 	for [G,face,sus] in L:
 		plot_sltr(G,outer_face=face,suspensions=sus)
 
