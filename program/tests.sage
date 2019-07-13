@@ -1,6 +1,7 @@
 import time
 import random
 import csv
+attach("program.sage")
 
 def test_visualisation():
 	G1 = [Graph(':I`A?gPaGk`deQ`s^'),[(0, 3), (3, 2), (2, 0)],(0,2,3)]
@@ -14,7 +15,7 @@ def test_visualisation():
 		plot_sltr(G,outer_face=face,suspensions=sus)
 
 def write_statistics(s,t,amount):
-	with open('analysis7.csv', mode='a') as file:
+	with open('analysis8.csv', mode='a') as file:
 		for v in range(s,t+1):
 			for j in range(amount):
 				[G,sus,oF,emb] = random_3_graph(v)

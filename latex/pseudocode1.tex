@@ -12,7 +12,7 @@
 			\State $\phi \gets $ FAA$(\varphi_2)$
 			\State \Return $\phi$
 		\Else
-			\State $\varphi_z \gets$ FAA-flow($\varphi_2$)\Comment Fluss nach Lemma \ref{lem_faa}
+			\State $\varphi_z \gets$ FAA-flow($\varphi_2$)\Comment Fluss nach Proposition \ref{lem_faa}
 			\State $\mathcal{N} \gets \mathcal{N}_G \backslash \{$edges used by $\varphi_z\}$\label{algo_check}
 			\State $\tilde{\varphi} \gets $ int-one-flow$(\mathcal{N})$\Comment Ecken- und Schnyder-Fluss zu $\varphi_z$\label{int_one_flow1}
 			\If { $|\tilde{\varphi}| = d_1+d_2-|\varphi_z|$ }

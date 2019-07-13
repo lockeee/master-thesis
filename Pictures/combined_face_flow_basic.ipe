@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190527180651" modified="D:20190617165533"/>
+<info created="D:20190527180651" modified="D:20190712232351"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -585,20 +585,13 @@ h
 160 696
 176 720 c
 </path>
-<text matrix="1 0 0 1 -1.271 63.0388" transformations="translations" pos="528 656" stroke="black" type="label" width="46.824" height="9.963" depth="0" halign="center" valign="center" size="Large">Senke 2</text>
-<path matrix="1 0 0 1 -1.271 63.0388" stroke="black">
+<text matrix="1 0 0 1 0.0910597 111.942" transformations="translations" pos="528 656" stroke="black" type="label" width="88.768" height="9.962" depth="2.79" halign="center" valign="center" size="Large">Dummy-Senke</text>
+<path matrix="1 0 0 1 0.0910597 111.942" stroke="black">
 480 668 m
 480 644 l
 576 644 l
 576 668 l
 h
-</path>
-<path stroke="black" dash="dotted" arrow="normal/normal">
-444 768 m
-528 768
-528 752
-528 744
-528 732 c
 </path>
 <path stroke="black" dash="dotted" arrow="normal/normal">
 504 448 m
@@ -621,6 +614,27 @@ h
 424 700
 452 724
 440 752 c
+</path>
+<text matrix="1 0 0 1 0.00509375 15.9983" transformations="translations" pos="528 656" stroke="black" type="label" width="46.824" height="9.963" depth="0" halign="center" valign="center" size="Large">Senke 2</text>
+<path matrix="1 0 0 1 0.00509375 15.9983" stroke="black">
+480 668 m
+480 644 l
+576 644 l
+576 668 l
+h
+</path>
+<text matrix="1 0 0 1 36 124" transformations="translations" pos="492 596" stroke="black" type="label" width="81.629" height="10.759" depth="4.09" halign="center" valign="center" size="Large" style="math">\sum_{f\in F_{in}}|f|-3</text>
+<path stroke="black">
+528 756 m
+528 732 l
+</path>
+<path stroke="black" arrow="normal/normal">
+528 708 m
+528 684 l
+</path>
+<path stroke="seagreen" arrow="normal/normal">
+444 768 m
+480 768 l
 </path>
 </page>
 </ipe>

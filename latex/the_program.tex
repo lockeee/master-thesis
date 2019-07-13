@@ -1,6 +1,6 @@
 \chapter{Das Programm}\label{the_program}
 
-Wir wollen nun auf eine Implementierung von Netzwerk \ref{net_sltr} aus dem vorherigen Abschnitt eingehen. Das im Folgenden beschriebene Programm baut auf Vermutung \ref{int_conj} -- dass sich aus jedem nicht ganzzahligen zulässigen Fluss auf Netzwerk \ref{net_sltr} ein Gutes-FAA extrahieren lässt -- auf. Der Code wurde in SageMath geschrieben und ist auf Anfrage erhältlich \cite{sage}. Algorithmus \ref{algo_gfaa} gibt einen Überblick der durchgeführten Schritte bei der Suche nach einem Guten-FAA für einen gegebenen ebenen intern-3-zusammenhängenden Graphen mit Aufhängungen $\{a_1,a_2,a_3\}$
+In diesem Kapitel werden wir auf die Implementierung von Netzwerk \ref{net_sltr} aus dem vorherigen Abschnitt eingehen. Das im Folgenden beschriebene Programm baut auf Vermutung \ref{int_conj} -- dass sich aus jedem nicht ganzzahligen zulässigen Fluss auf Netzwerk \ref{net_sltr} ein Gutes-FAA extrahieren lässt -- auf. Der Code wurde in SageMath geschrieben und ist auf Anfrage erhältlich \cite{sage}. Algorithmus \ref{algo_gfaa} gibt einen Überblick der durchgeführten Schritte bei der Suche nach einem Guten-FAA für einen gegebenen ebenen intern-3-zusammenhängenden Graphen mit Aufhängungen $\{a_1,a_2,a_3\}$
 
 \input{pseudocode1.tex}
 
@@ -67,15 +67,15 @@ Gerade für Graphen mit vielen Knoten führt der Ansatz aus Beispiel \ref{bsp_lo
 
 \subsection{Eine heuristisch gute Wahl von $\lambda$}
 
-Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei einigen Graphen schlechten Zeichnungen. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt. Wir führen die beiden Algorithmen hintereinander aus. Falls Algorithmus \ref{algo2} konvergiert, brechen wir ab und geben sie aus. Falls nicht merken wir uns die berechneten Werte $\lambda'$ und führen \ref{algo2} durch. Bei jedem Schritt berechnen wir nun eine neue Zeichnung mit $\lambda(e) = \lambda_{i+1}(e) + \lambda'(e)$. Wieder führen wir 50 Schritte durch.  TODO
+Der Ansatz aus Beispiel \ref{bsp_large_corner} führt jedoch auch bei einigen Graphen schlechten Zeichnungen. Doch ein Kompromiss aus beiden hat heuristisch vielversprechende Zeichnungen erzeugt. Wir führen die beiden Algorithmen hintereinander aus. Falls Algorithmus \ref{algo2} konvergiert, brechen wir ab und geben sie aus. Falls nicht merken wir uns die berechneten Werte $\lambda'$ und führen das Schema aus Beispiel \ref{bsp_large_corner} durch. Bei jedem Schritt berechnen wir nun eine neue Zeichnung mit $\lambda(e) = \lambda_{i+1}(e) + \lambda'(e)$. Wieder führen wir 50 Schritte durch.  TODO
 
 Beispiele von so errechneten Zeichnungen verschiedener SLTRs sind in Abbildung \ref{vis_examples} zu sehen.
 
 \section{Experimentelle Rechnungen}\label{stats}
 
-Es folgt eine kurze statistische Betrachtung der Verteilung von Graphen mit SLTRs. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen die aufschlussreichsten Resultate liefern. Ein guter Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy aus \cite{fusy09} implementieren. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. 
+Es folgt eine kurze statistische Betrachtung der Verteilung von Graphen mit SLTRs. Hier würde eine gleichmäßige Wahl von (intern-)3-zusammenhängenden Graphen die aufschlussreichsten Resultate liefern. Ein Algorithmus zur zufälligen Erstellung 3-zusammenhängender planarer Graphen lässt sich zum Beispiel nach einem Ansatz von Fusy implementieren \cite{fusy09}. Als Teilschritt der Erstellung eines uniformen Samplers für planare Graphen werden hier 3-zusammenhängende planare Graphen mit gleichverteilter Wahrscheinlichkeit erzeugt. Die Implementierung ist jedoch aufgrund der Auswertung von Erzeugendenfunktionen nicht trivial. Diese Analyse beschränkt sich daher auf pseudo-zufällig erzeugte Graphen. 
 
-Es folgt eine kurze Beschreibung des Samplers. Wir beginnen mit $G_0 = K_4$. Nun wird in Schritt $i$ mit spezifizierbaren Wahrscheinlichkeiten eine der folgenden vier Operationen durchgeführt.
+Es folgt eine kurze Beschreibung des von uns benutzen Samplers. Wir beginnen mit $G_0 = K_4$. Nun wird in Schritt $i$ mit noch zu wählenden Wahrscheinlichkeiten eine der folgenden vier Operationen durchgeführt.
 
 \begin{itemize}
 \item[PG1] Ein Knoten $v$ mit deg$(v) \geq 4$ wird in $v_1,v_2$ geteilt und eine Kante $(v_1,v_2)$ eingefügt. Nun werden die zyklisch sortierten Nachbarn in zwei Teile $N_1,N_2$ getrennt und mit $v_1$ beziehungsweise $v_2$ verbunden.

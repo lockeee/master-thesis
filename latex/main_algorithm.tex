@@ -10,13 +10,11 @@ Das Ziel ist es, für einen gegebenen ebenen intern-3-zusammenhängenden Graphen
 
 \subsection{Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}
 
-Im Verlauf des Kapitels haben wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet, für das eine ganzzahlige Lösung einen Schnyder Wood bzw. ein FAA für einen ebenen Graphen $G$ liefert. Wir wollen jetzt eine Kombination aus beiden erstellen die ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$  kodiert.\
+Im Verlauf des Kapitels haben wir nun sowohl für Schnyder Woods als auch für FAAs ein Netzwerk betrachtet, für das eine ganzzahlige Lösung einen Schnyder Wood bzw. ein FAA für einen ebenen Graphen $G$ liefert. Wir wollen jetzt eine Kombination aus beiden erstellen, die ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$  kodiert. Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt. Ein ganzzahliger Fluss $\varphi$ kodiert dann ein Ecken kompatibles Paar und impliziert somit nach Theorem \ref{theo_ccc} eine SLTR für $G$. Dieses Netzwerk wird zwei Paare von Quellen und Senken haben. Es entspricht somit einem Gerichteten-Multi-Fluss-Problem. Wir werden nach der Konstruktion kurz darauf eingehen, warum sich nach diesem Ansatz kein Netzwerk mit nur einem Fluss erstellen lässt, auf welchem ein zulässiger Fluss einer SLTR entspricht.
 
-Es folgt die Konstruktion eines Netzwerkes, wir bezeichnen es mit $\mathcal{N}_G$, welches diesen Wunsch erfüllt. Ein ganzzahliger Fluss $\varphi$ kodiert dann ein Ecken kompatibles Paar und impliziert somit nach Theorem \ref{theo_ccc} eine SLTR für $G$. Es handelt sich hierbei um ein 2-Fluss-Netzwerk.
+Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wir müssen jetzt diese drei Flüsse, also Schnyder-, Ecken- und Zuweisungs-Fluss in einem Netzwerk kombinieren. Bei Aerts und Felsner ergeben Schnyder- und Ecken-Fluss zusammen Fluss von Typ 1 und der Zuweisungs-Fluss Typ 2 \cite{af15}. Wir wollen hier analog ein Netzwerk konstruieren in dem wir FAA- und Schnyder-Wood Fluss nicht trennen. Der Verständlichkeit wegen werden wir Pfade, die in einer Lösung von einem der drei Flussarten genutzt werden, \textit{Schnyder-Pfad, Ecken-Pfad} und \textit{Zuweisungs-Pfad} nennen.
 
-Wie oben in Abschnitt \ref{faa-flow} erwähnt lässt sich ein FAA auch mit einem Zwei-Fluss kodieren und wir können Ecken- und Zuweisungs-Fluss mit den passenden Bedarfen getrennt betrachten. Wir müssen jetzt diese drei Flüsse, also Schnyder-, Ecken- und Zuweisungs-Fluss in einem Netzwerk kombinieren. In \cite{af15} ergeben Schnyder- und Ecken-Fluss zusammen Fluss von Typ 1 und der Zuweisungs-Fluss Typ 2. Wir wollen hier analog ein Netzwerk konstruieren in dem wir FAA- und Schnyder-Wood Fluss nicht trennen. Der Verständlichkeit wegen werden wir Pfade, die in einer Lösung von einem der drei Flussarten genutzt werden, \textit{Schnyder-Pfad, Ecken-Pfad} und \textit{Zuweisungs-Pfad} nennen.
-
-Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und $\mathcal{N}_F$ zu $\mathcal{N}_G$ müssen die Ecken Kompatibilität von Schnyder Labeling und FAA gewährleistet werden. K1 zu erfüllen, also die Nutzung der gleichen Aufhängungen von $\sigma$ und $\phi$, ist kein Problem. Allerdings müssen wir für die zweite Bedingung das Netzwerk etwas komplizierter machen. Betrachten wir als Basis $\mathcal{N}_S \cup \mathcal{N}_F$ und fürs erste nur das Teilnetzwerk um ein inneres Gebiet $f$, dann sehen wir, dass $f$ in $\mathcal{N}_S$ $|f|-3$ Schnyder-Fluss aufnimmt, aber $|f|$ Einkanten in $\mathcal{N}_S$ hat. Wir können die drei leeren Kanten für den Ecken-Fluss aus $\mathcal{N}_F$ nutzen. Um K2 zu erfüllen, müssen gewährleisten, dass jede Ecke im Schnyder Labeling ein anderes Label hat. Betrachten wir also die von $\varphi_S$ induzierte $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Nach Theorem \ref{alpa_bij} erhalten wir in Bijektion stehende Schnyder Labelings auf $G$ und $G^*$.
+Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und $\mathcal{N}_F$ zu $\mathcal{N}_G$ muss die Ecken-Kompatibilität von Schnyder Labeling und FAA gewährleistet werden. Bei der Konstruktion der von Netzwerk \ref{net_faa} und \ref{net_schnyder} haben wir jeweils die Aufhängungen von $G$ respektiert. Somit erfüllen wir K1 aus Definition \ref{def_ccc}, da die resultierenden $\sigma$ und $\phi$ die gleichen Aufhängungen nutzen. Allerdings müssen wir für die zweite Bedingung das Netzwerk etwas komplizierter machen. Betrachten wir als Basis $\mathcal{N}_S \cup \mathcal{N}_F$ und fürs erste nur das Teilnetzwerk um ein inneres Gebiet $f$, dann sehen wir, dass es $\mathcal{N}_S$ von $|f|-3$ adjazenten Kanten (Schnyder-)Fluss aufnimmt. Es bleiben somit drei Einkanten in $\mathcal{N}_S$ ungenutzt\footnote{Genau diese Kanten entsprechen in Netzwerk \ref{net_schnyder} der $\alpha_s$-Orientiertung.}. Wir können auf diesen drei Kanten den Ecken-Fluss aus $\mathcal{N}_F$ einfügen. Um K2 zu erfüllen, müssen wir gewährleisten, dass jede Ecke im Schnyder Labeling ein anderes Label hat. Betrachten wir also die von $\varphi_s$ induzierte $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Nach Theorem \ref{alpha_bij} erhalten wir in Bijektion stehende Schnyder Woods und nach Theorem \ref{theo_schnyder_bih} auch in Bijektion stehende Schnyder Labelings auf $G$ und $G^*$.
 
 \begin{figure}[h]
 	\centering
@@ -25,24 +23,24 @@ Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und 
 	\label{alpha_bij}
 \end{figure}
 
-Für diese gilt, wie in Abbildung \ref{alpha_bij} skizziert, dass das Label der Ecke eines Gebietes in $G$ und das ihr in $G+G^*$ gegenüberliegenden Label der Ecke eines Gebiets um einen Knoten in $G^*$ gleich sind. Für eine zu $v$ in $G^*$ hin orientierte Kante folgt aus der Bijektion zwischen Schnyder Labelings und Schnyder Woods aus Abschnitt \ref{sw}, dass die Label links und rechts am Ende dieser Kante gleich sind. Somit sind auch die Label in $G$ gleich und wir können die folgende Eigenschaft festhalten.
+Für diese gilt, wie in Abbildung \ref{alpha_bij} skizziert, dass das Label der Ecke eines Gebietes in $G$ und das ihr in $G+G^*$ gegenüberliegenden Label der Ecke eines Gebiets um einen (Gebiets-)Knoten $f$ in $G^*$ gleich sind. Für eine zu $f$ in $G^*$ hin orientierte Kante folgt aus der Bijektion zwischen Schnyder Labelings und Schnyder Woods, dass die Label links und rechts am Ende dieser Kante gleich sind. Somit sind auch die Label in $G$ gleich und wir können die folgende Eigenschaft festhalten (vergleiche Abbildung \ref{alpha_bij}).
+
 \begin{itemize}
-\item [A1] Die Label, des von $\alpha_s$ induzierten Schnyder Wood auf $G$, sind zwischen zwei aufeinander folgenden zu $f$ orientierten Kanten gleich.
+\item [A1] Die Label, des von $\alpha_s$ induzierten Schnyder Labelings auf $G$, sind zwischen zwei aufeinander folgenden, von $f$ weg orientierten Kanten gleich.
 \end{itemize}
-Da es genau drei zu $f$ orientierte Kanten gibt müssen wir also dafür sorgen, dass für jedes Paar dieser Kanten eine Ecke zwischen ihnen liegt, da so die drei Ecken unterschiedliche Label haben und wir K2 erfüllen. Um dies zu erlangen implementieren wir eine zyklische Struktur um jedes innere Gebiet, wie in Abbildung \ref{combinded_face_sketch} skizziert.\\
+
+Da es genau drei zu $f$ orientierte Kanten gibt müssen wir also dafür sorgen, dass für jedes Paar dieser Kanten eine Ecke zwischen ihnen liegt. So hätten die drei Ecken unterschiedliche Label und K2 wäre erfüllt. Um dies zu erreichen implementieren wir eine zyklische Struktur um jedes innere Gebiet, wie in Abbildung \ref{combined_face_sketch} skizziert.
 
 \begin{figure}[h]
 	\centering
-  	\includegraphics[width=0.9\textwidth]{combined_face_sketch.png}
-  	\caption{Eine Skizze des kombinierten Netzwerkes auf einem inneren Gebiet mit $|f| = 4$. Beispielhaft sind Schnyder-Fluss (rot), Ecken-Fluss (blau) und Zuweisungs-Fluss (grün) eingezeichnet. }
+  	\includegraphics[width=0.9\textwidth]{combined_face_sketch.pdf}
+  	\caption{Eine Skizze des kombinierten Netzwerkes auf einem inneren Gebiet mit $|f| = 4$. Beispielhaft sind ein Schnyder-Pfad (rot),ein Ecken-Pfad (blau) und ein Zuweisungs-Pfad (grün) eingezeichnet. }
 	\label{combined_face_sketch}
 \end{figure}
 
-Betrachten wir zuerst den Schnyder-Fluss. Dieser wird Fluss von Typ 1, also von Quelle 1 zu Senke 1 sein. Für einen Schnyder-Pfad der durch einen Knoten $v$ führt hat sich nichts geändert. Der in der Skizze eingezeichnete Schnyder-Pfad der durch $f$ führt passiert davor einen extra Knoten, wir nennen ihn \textit{kleines Quadrat} der gewährleisten soll, dass von Seite des Gebietes aus entweder ein Schnyder-Pfad oder ein Ecken-Pfad in $f$ mündet. Zuletzt fügen wir wie oben von jedem inneren Gebiet eine Kante mit Kapazität $|f|-3$ zu Senke 1 ein. Somit kodiert hier eine ganzzahlige Lösung weiterhin einen Schnyder Wood auf $G$.\
+Betrachten wir zuerst den \textbf{Schnyder-Fluss}. Dieser wird Fluss von Typ 1, also von Quelle 1 zu Senke 1 sein. Für einen Schnyder-Pfad der durch einen Knoten $v$ führt hat sich nichts geändert. Der in der Skizze eingezeichnete Schnyder-Pfad der durch $f$ führt passiert davor einen extra Knoten, wir nennen ihn \textit{kleines Quadrat} der gewährleisten soll, dass von Seite des Gebietes aus entweder ein Schnyder-Pfad oder ein Ecken-Pfad in $f$ mündet. Zuletzt fügen wir wie oben von jedem inneren Gebiet eine Kante mit Kapazität $|f|-3$ zu Senke 1 ein. Somit kodiert hier eine ganzzahlige Lösung, genau wie zuvor in Netzwerk \ref{net_schnyder}, einen Schnyder Wood auf $G$.
 
-Kommen wir nun zum FAA-Fluss, also Fluss von Typ 2. Von Quelle 2 geht genau wie in Abbildung \ref{faa_flow} eine Kante zu jedem inneren Winkel $(f,v)$. Ein Zuweisungs-Pfad verlässt diesen Winkel über einen zusätzlich zu $v$ eingefügten Dummy-Knoten $v^*$. Von jedem $v^*$ geht eine Kante mit Kapazität 1 zu einer Dummy-Senke und von dieser eine Kante mit Kapazität $\sum_{f \in F_{in}} |f|-3$ zu Senke 2, wie in Abbildung \ref{dummy_sink} illustriert.
-
-Die Dummy-Knoten sorgen dafür, dass jeder Knoten im FAA nur einmal zugewiesen werden kann, ohne in Konflikt mit dem Schnyder-Fluss zu kommen. Die eingeschobene Dummy-Senke beschränkt die Anzahl der zugewiesenen Knoten, genau wie im zuvor konstruierten FAA-Fluss, auf $\sum_{f \in F_{in}} |f|-3$.
+Kommen wir nun zum \textbf{FAA-Fluss}, also Fluss von Typ 2. Für einen Winkelknoten $(f,v)$ aus Netzwerk \ref{net_faa} erstellen wir ein Winkeldreieck aus vier Knoten und drei Kanten in $\mathcal{N}_G$ (vergleiche Abbildung \ref{combined_face_sketch}). Betrachten wir zuerst den im FAA-Fluss enthaltenen \textbf{Zuweisungs-Fluss}. Von Quelle 2 geht genau wie in Netzwerk \ref{net_faa} eine Kante zu jedem inneren Winkeldreieck $(f,v)$. Ein Zuweisungs-Pfad benutzt nur die erste Kante in einem Winkeldreieck und verlässt es über einen zusätzlich zu $v$ eingefügten Dummy-Knoten $v^*$. Von jedem $v^*$ geht eine Kante mit Kapazität 1 zu einer vorgeschobenen Dummy-Senke. Von dieser fügen wir eine Kante mit Kapazität $\sum_{f \in F_{in}} |f|-3$ zu Senke 2 ein, wie in Abbildung \ref{dummy_sink} illustriert. Die Dummy-Knoten $v^*$ sorgen dafür, dass jeder Knoten im FAA nur einmal zugewiesen werden kann, ohne in Konflikt mit dem Schnyder-Fluss zu kommen. Die eingeschobene Dummy-Senke beschränkt die Anzahl der insgesamt zugewiesenen Knoten, genau wie im zuvor konstruierten FAA-Fluss, auf $\sum_{f \in F_{in}} |f|-3$. (TODO ist die Dummy-Senke wirklich notwendig?)
 
 \begin{figure}[h]
 	\centering
@@ -51,61 +49,38 @@ Die Dummy-Knoten sorgen dafür, dass jeder Knoten im FAA nur einmal zugewiesen w
 	\label{dummy_sink}
 \end{figure}
 
-Es bleibt der Ecken-Fluss. Hier betritt der Pfad das Gebiet $f$ wieder durch einen Winkel und muss es über ein ungenutztes kleines Quadrat verlassen. Die zweite und dritte Kante in jedem Winkeldreieck gewährleisten, dass nicht immer das nächste kleine Quadrat genutzt werden muss. Falls dies von Schnyder-Fluss besetzt ist und der nächste Winkel zugewiesen wird, kann ein Ecken-Pfad den nächsten Winkel passieren. Weiterhin sorgt die erste Kante, die von sowohl Schnyder-, als auch Winkel-Pfaden genutzt werden kann, für eine eindeutige Beschriftung (als Ecke oder nicht) im Falle einer ganzzahligen Lösung. Wie oben existieren auch hier Kanten von jedem inneren Gebiet zu Senke 2 mit Kapazität drei.
+Es bleibt der \textbf{Ecken-Fluss}. Ein Ecken-Pfad betritt das Netzwerk um ein Gebiet wieder durch in einem Winkeldreieck $(f,v)$ und muss es über ein vom Schnyder-Fluss ungenutztes kleines Quadrat verlassen. Die zweite und dritte Kante in jedem Winkeldreieck gewährleisten, dass nicht immer das nächste kleine Quadrat genutzt werden muss. Falls dies von Schnyder-Fluss besetzt ist und der nächste Winkel zugewiesen wird, kann ein Ecken-Pfad den nächsten Winkel passieren. Die erste Kante, die von sowohl Zuweisungs-, als auch Ecken-Pfaden genutzt werden kann, sorgt im Falle einer ganzzahligen Lösung für eine eindeutige Beschriftung (als Ecke oder Zuweisung). Wie zuvor existieren auch hier Kanten von jedem inneren Gebiet zu Senke 2 mit Kapazität drei.
 
-Betrachten wir die Bedarfe der beiden Flüsse von Typ 1 und Typ 2, $\varphi_1$ bzw. $\varphi_2$. Beide entsprechen jeweils den Bedarfen der oben konstruierten $\mathcal{N}_S$ und $\mathcal{N}_F$, da mit den gleichen Argumenten wie oben, ein Schnyder Wood und ein FAA kodiert werden können. Jedes Gebiet benötigt genau drei Ecken und $|f|-3$ zugewiesene Knoten und je ein Schnyder-Pfad führt durch jede innere Kante, $|E_{in}|$. Hier seien wieder $E_{in}$ die inneren Kanten und $F_{in}$ die inneren Gebiete von $G$. Es gilt also:
-
-\begin{itemize}
-\item $d_1$ = Bedarf$(\varphi_1) = $ Bedarf$(\varphi_S) = |E_{in}|$
-\item $d_2$ = Bedarf$(\varphi_2) = $ Bedarf$(\varphi_F) =  \sum_{f \in F_{in}}(|f|-3) + 3|F_{in}| = \sum_{f \in F_{in}} |f|$
-\end{itemize}
-
-Bevor wir in Theorem \ref{theo_algo} zeigen, dass eine ganzzahlige Lösung $\varphi=(\varphi_1,\varphi_2)$ auch wirklich ein Ecken kompatibles Paar kodiert, wollen wir noch ein Paar weitere Beobachtungen festhalten. Nehmen wir also an, wir haben eine ganzzahlige Lösung $\varphi$ gefunden, dann gilt für diese:
-\begin{itemize}
-\item [A2] Jede äussere Kante in einem Winkel-Dreieck ist ausgelastet, sie wird entweder von einem Ecken- oder Zuweisungspfad genutzt.
-\item [A3] Jede Kante von einem kleinen Quadrat zu einem inneren Gebiet $f$ ist ausgelastet, sie wird entweder von einem Schnyder- oder Ecken-Pfad genutzt.
-\item [A4] Ein inneres Gebiet $f$ mit $|f|=3$ kann nicht von Zuweisungs- bzw. Schnyder-Pfaden genutzt werden.
-\end{itemize}
-
-Wir wollen diese Beobachtungen kurz begründen. Für jede mögliche ganzzahlige Lösung $\varphi$ gilt $$|\varphi|=|\varphi_1|+|\varphi_2| = |E_{in}| + \sum_{f \in F_{in}} |f|.$$
-Da es genau $\sum_{f \in F_{in}} |f|$ innere Winkel gibt und der FAA-Fluss $\mathcal{N}_G$ nur durch diese betreten kann ergibt sich A2. A3 wird aus Gleichung \ref{eq_sat} weiter unten folgen. Durch ein inneres Gebiet $f$ müssen drei Ecken-Pfade führen und im Fall $|f|=3$ führt dies zu A4, da kein Platz in den Winkeln für Zuweisungs-Pfade und keine freien kleinen Quadrate für Schnyder-Pfade existieren.
-
-\begin{theorem}\label{theo_algo}
-Sei $G$ ein intern-3-zusammenhängender Graph mit gegebenen Aufhängungen $\{a_1,a_2,a_3\}$, dann existiert eine SLTR von $G$, genau dann wenn ein ganzzahliger zulässiger Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ existiert.
-\end{theorem}
-
-Fassen wir vor dem Beweis noch einmal das Netzwerk zusammen.
+Die Bedarfe der beiden Flüsse, $\varphi_s$ bzw. $\varphi_F$, haben sich im Verhältnis zu zuvor nicht verändert. Beide entsprechen jeweils den Bedarfen der oben konstruierten Netzwerke. So kann, mit den gleichen Argumenten wie oben, ein Schnyder Wood und ein FAA kodiert werden. Jedes Gebiet benötigt genau drei Ecken und $|f|-3$ zugewiesene Knoten und je ein Schnyder-Pfad führt durch jede innere Kante, $|E_{in}|$. Hier seien wieder $E_{in}$ die inneren Kanten und $F_{in}$ die inneren Gebiete von $G$. Fassen wir noch einmal zusammen.
 
 \begin{network}[SLTR]\label{net_sltr}
-Bei $\mathcal{N}_G$ handelt es sich um ein gerichtetes Netzwerk, das auf Basis von $G$ erstellt wird, um eine SLTR von $G$ zu finden. Ein Ausschnitt um ein inneres Gebiet ist in Abbildung \ref{theo_algo} dargestellt.
+Bei $\mathcal{N}_G$ handelt es sich um ein gerichtetes Netzwerk, das auf Basis eines ebenen intern-3-zusammenhängenden Graphen $G$ mit Aufhängungen $a_1,a_2,a_3$ erstellt wird, um eine SLTR von $G$ zu finden. Ein Ausschnitt um ein inneres Gebiet ist in Abbildung \ref{combined_face_sketch} dargestellt.
 	\begin{itemize}
 	\item $\mathcal{N}_G$ hat zwei Quellen $s_1,s_2$ und zwei Senken $t_1,t_2$
-	\item Knoten in $\mathcal{N}_s$ werden für jeden innere Kante $e \in E_{in}$, jedes innere Gebiet $f\in F_{in}$ und jeden Knoten $v \in V$ aus $G$ erzeugt.
-	\item Es werden Knoten der folgenden Typen in $\mathcal{N}_S$ erzeugt:
+	\item Es werden Knoten der folgenden Typen in $\mathcal{N}_G$ erzeugt:
 		\begin{itemize}
 		\item Knoten $e$ für jede innere Kante $e \in E_{in}$
 		\item Knoten $v$ für jeden $v \in V$ und Dummy-Knoten $v^*$ für jeden $v \in V_{in}$
-		\item Knoten für jedes innere Gebiet $f$.
+		\item Knoten für jedes innere Gebiet $f \in F_{in}$.
 		\item $|f|$ kleine Quadrate $q$ um jedes innere Gebiet $f$
-		\item Vier Knoten $w_1,w_2,w_3,w_4$ für jedes innere Winkeldreieck
-		\item Die Dummy-Senke $t_d$
+		\item Vier Knoten $w_i=(f,v)_i$, mit $i\in\{1,\ldots,4\}$, für jeden inneren Winkel
+		\item eine Dummy-Senke $t_d$
 		\end{itemize}
 	\item Es werden gerichtete Kanten der folgenden Typen in $\mathcal{N}_G$ erzeugt:
 		\begin{itemize}
-		\item $(s_1,e)$ von Quelle 1 zu jeder inneren Kante mit $c\big(s,e\big) = 1$
-		\item $(e,v_1),(e,v_2)$ von jeder inneren Kante zu den Endknoten mit $c\big(e,v\big) = 1$
+		\item $(s_1,e)$ von Quelle 1 zu jeder inneren Kante mit $c\big(s_1,e\big) = 1$
+		\item $(e,v_1),(e,v_2)$ von jeder inneren Kante zu den Endknoten mit $c\big(e,v_i\big) = 1$
 		\item $(e,q)$ von inneren Kanten zu adjazenten kleinen Quadraten mit $c\big(e,q\big) = 1$
-		\item $(q,f)$ von jeder kleinen Quadraten zu den inneren Gebieten mit $c\big(q,f\big) = 1$
+		\item $(q,f)$ einem kleinen Quadraten zu seinem inneren Gebiet mit $c\big(q,f\big) = 1$
 		\item $(f,t_1)$ von den inneren Gebieten zur Senke 1 mit $c\big(f,t_1\big) = |f|-3$
-		\item $(a_i,t_1)$ von den Aufhängungen zur Senke 1 mit $c\big(f,t\big) = \text{deg}(a_i)-2$
-		\item $(v,t_1)$ von den restlichen Knoten zur Senke 1 mit $c\big(f,t\big) = \text{deg}(v)-3$		
-		\item $(s_2,(f,v))$ von Quelle 2 zu jedem inneren Winkel mit $c\big(s_2,(f,v)\big) = 1$
+		\item $(a_i,t_1)$ von den Aufhängungen zur Senke 1 mit $c\big(a_i,t\big) = \text{deg}(a_i)-2$
+		\item $(v,t_1)$ von den restlichen Knoten zur Senke 1 mit $c\big(v,t\big) = \text{deg}(v)-3$		
+		\item $(s_2,w_1)$ von Quelle 2 zu jedem inneren Winkel mit $c\big(s_2,w_1\big) = 1$
 		\item $(w_1,w_2),(w_2,w_3),(w_3,w_4)$ in jedem inneren Winkel mit $c\big(w_i,w_{i+1}\big) = 1$
-		\item $(t_4,q)$ von inneren Winkeln zum nächsten kleinen Quadrat mit $c\big(t_4,q\big) = 1$
-		\item $(t_4,t'_3)$ von inneren Winkeln zum nächsten inneren Winkel mit $c\big(t_4,t'_3\big) = 1$
-		\item $((f,v),f)$ von inneren Winkeln zum Gebiet mit $c\big((f,v),f\big) = 1$
-		\item $(t_2,v*)$ von jedem inneren Winkel zum Dummy-Knoten mit $c\big(t_2,v^*\big) = 1$
-		\item $(v^*,t_d)$ von den Dummy-Knoten zur Dummy-Senke mit $c\big(f,t\big) = 1$
+		\item $(w_2,v*)$ von jedem inneren Winkel zum Dummy-Knoten mit $c\big(w_2,v^*\big) = 1$
+		\item $(w_4,q)$ von inneren Winkeln zum nächsten kleinen Quadrat mit $c\big(w_4,q\big) = 1$
+		\item $(w_4,w'_3)$ von einem inneren Winkeln zum Nächsten mit $c\big(w_4,w'_3\big) = 1$
+		\item $(v^*,t_d)$ von den Dummy-Knoten zur Dummy-Senke mit $c\big(v^*,t_d\big) = 1$
 		\item $(t_d,t_2)$ von der Dummy-Senke zu Senke 2 mit $c\big(t_d,t_2\big) = \sum_{f \in F_{in}}|f|-3$
 		\end{itemize}
 	\item $\mathcal{N}_S$ hat Bedarfe $d_1=|E_{in}|$ und $d_2 = \sum_{f \in F_{in}}|f|$
@@ -113,8 +88,22 @@ Bei $\mathcal{N}_G$ handelt es sich um ein gerichtetes Netzwerk, das auf Basis v
 	\end{itemize}
 \end{network}	
 
+Bevor wir in Theorem \ref{theo_algo} zeigen, dass eine ganzzahlige Lösung $\varphi=(\varphi_1,\varphi_2)$ auch wirklich ein Ecken kompatibles Paar kodiert, wollen wir noch ein Paar weitere Beobachtungen festhalten. Nehmen wir also an, es existiert ein ganzzahliger zulässiger Fluss $\varphi$ auf $\mathcal{N}_G$, dann gilt für diesen:
+\begin{itemize}
+\item [A2] Jede äußere Kante $(w_1,w_2)$ in einem Winkel-Dreieck ist ausgelastet, sie wird entweder von einem Ecken- oder Zuweisungs-Pfad genutzt.
+\item [A3] Jede Kante von einem kleinen Quadrat zu einem inneren Gebiet $f$ ist ausgelastet, sie wird entweder von einem Schnyder- oder Ecken-Pfad genutzt.
+\item [A4] Ein inneres Gebiet $f$ mit $|f|=3$ kann nicht von Zuweisungs- bzw. Schnyder-Pfaden genutzt werden.
+\end{itemize}
+
+Wir wollen diese Beobachtungen kurz begründen. Für jede mögliche ganzzahlige Lösung $\varphi$ gilt $$|\varphi|=|\varphi_1|+|\varphi_2| = |E_{in}| + \sum_{f \in F_{in}} |f|.$$
+Da es genau $\sum_{f \in F_{in}} |f|$ innere Winkel gibt und der FAA-Fluss $\mathcal{N}_G$ nur durch diese betreten kann ergibt sich A2. A3 wird aus Gleichung \ref{eq_sat} weiter unten folgen. Durch ein inneres Gebiet $f$ müssen drei Ecken-Pfade laufen und im Fall $|f|=3$ führt dies zu A4, da in den Winkeln kein Platz für Zuweisungs-Pfade ist und keine freien kleinen Quadrate für Schnyder-Pfade existieren.
+
+\begin{theorem}\label{theo_algo}
+Sei $G$ ein intern-3-zusammenhängender Graph mit gegebenen Aufhängungen $\{a_1,a_2,a_3\}$, dann existiert eine SLTR von $G$, genau dann wenn ein ganzzahliger zulässiger Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ existiert.
+\end{theorem}
+
 \begin{proof}[Beweis von Theorem \ref{theo_algo}]
-Sei $G$ ein intern-3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und $\varphi=(\varphi_1,\varphi_2)$ sei ein ganzzahliger machbarer Fluss auf $\mathcal{N}_G$. Im ersten Schritt extrahieren wir einen Schnyder-Wood $\sigma$ und ein FAA $\phi$, um dann zu zeigen, dass sie ein Ecken kompatibles Paar bilden. Für einen machbaren Fluss müssen die Bedarfe erfüllt werden. Es gilt somit $|\varphi_1| =  |E_{in}|$ und $|\varphi_2| = \sum_{f \in F_{in}} |f|$.
+Sei $G$ ein intern-3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und $\varphi=(\varphi_1,\varphi_2)$ sei ein ganzzahliger zulässiger Fluss auf $\mathcal{N}_G$. Im ersten Schritt konstruieren wir einen Schnyder-Wood $\sigma$ und ein FAA $\phi$ aus $\varphi$, um dann zu zeigen, dass sie ein Ecken kompatibles Paar bilden. Für einen zulässigen Fluss müssen die Bedarfe erfüllt werden. Es gilt somit $|\varphi_1| =  |E_{in}|$ und $|\varphi_2| = \sum_{f \in F_{in}} |f|$. In der nächsten Gleichung bezeichne $f_{aus}$ das äussere Gebiet.
 \begin{equation}\label{eq_sat}
 \begin{split}
 |\varphi_1| + |\varphi_2| & = \sum_{f \in F_{in}} (|f|-3) + 3|F_{in}| + |E_{in}|\\
@@ -127,40 +116,42 @@ Sei $G$ ein intern-3-zusammenhängender Graph mit Aufhängungen $\{a_1,a_2,a_3\}
 
 Die beiden Terme in der rechten unteren Klammer entsprechen den Kapazitäten von den inneren Gebieten zu Senke 1 und Senke 2. Somit sind alle Kanten zu den Senken ausgelastet. Die Kanten von den kleinen Quadraten zu den inneren Gebieten sind ebenfalls ausgelastet. Diese sind die einzigen Kanten in $\mathcal{N}_G$, die sowohl von $\varphi_1$ als auch $\varphi_2$ genutzt werden können. Kapazität eins und Ganzzahligkeit von $\varphi$ impliziert somit A3.
 
-Beginnen wir mit $\varphi_1$ um einen Schnyder Wood, oder genauer eine $\alpha_s$-Orientierung, zu erhalten. $|\varphi_1| = |E_{in}|$, somit führt durch jede innere Kante ein Schnyder-Pfad und dieser gibt uns die nach aussen gerichtete Kante in $\alpha_s$. Es bleibt zu zeigen, dass für jedes innere Gebiet und jeden Knoten die Bedingungen aus Theorem \ref{alpha_bij} für eine $\alpha_s$ eingehalten werden. Da alle Kanten von den Knoten zu Senke 1 ausgelastet sind folgt, dass durch jeden inneren Knoten $v$ genau $\text{deg}(v)-3$ Schnyder-Pfade führen. Somit ergeben die leeren Einkanten von $v$ in $\mathcal{N}_G$ die drei Auskanten für $\alpha_s$. Für eine Aufhängung $a_i$ folgt analog, dass die beiden ungenutzten Einkanten, zusammen mit der Halbkante ins äußere Gebiet, die Bedingungen der $\alpha_s$-Orientierung erfüllen. Es bleibt zu zeigen, dass durch jedes innere Gebiet $|f|-3$ Schnyder-Pfade führen. Der restliche Schnyder-Fluss $|E_{in}| - \sum_{v \in V} (\text{deg}(v)-3)$ muss durch die inneren Gebiete führen und aus der ersten und letzten Zeile von Gleichung \ref{eq_sat} folgt $$|E_{in}| - \sum_{v \in V} (\text{deg}(v)-3) = \sum_{f \in F_{in}} (|f|-3).$$
-Somit führen $|f|-3$ Schnyder-Pfade durch jedes innere Gebiet und wir können die $\alpha_s$-Orientierung vervollständigen und erhalten einen Schnyder Wood auf $G$.\\
+Beginnen wir mit $\varphi_1$ um einen Schnyder Wood, oder genauer eine $\alpha_s$-Orientierung, zu erhalten. Es gilt $|\varphi_1| = |E_{in}|$, und somit führt durch jede innere Kante ein Schnyder-Pfad. Dieser gibt uns die nach außen gerichtete Kante in $\alpha_s$. Es bleibt zu zeigen, dass für jedes innere Gebiet und jeden Knoten die Bedingungen aus Theorem \ref{alpha_bij} für eine $\alpha_s$-Orientierung eingehalten werden. Da alle Kanten von den Knoten zu Senke 1 ausgelastet sind folgt, dass durch jeden inneren Knoten $v$ genau $\text{deg}(v)-3$ Schnyder-Pfade führen. Somit ergeben die leeren Einkanten von $v$ in $\mathcal{N}_G$ die drei Auskanten für $\alpha_s$. Für eine Aufhängung $a_i$ folgt analog, dass die beiden ungenutzten Einkanten, zusammen mit der Halbkante ins äußere Gebiet, die Bedingungen der $\alpha_s$-Orientierung erfüllen. Es bleibt zu zeigen, dass durch jedes innere Gebiet $|f|-3$ Schnyder-Pfade führen. Der restliche Schnyder-Fluss mit Stärke $|E_{in}| - \sum_{v \in V} (\text{deg}(v)-3)$ muss durch die inneren Gebiete führen und aus der ersten und letzten Zeile von Gleichung \ref{eq_sat} folgt $$|E_{in}| - \sum_{v \in V} (\text{deg}(v)-3) = \sum_{f \in F_{in}} (|f|-3).$$
+Somit führen $|f|-3$ Schnyder-Pfade durch jedes innere Gebiet und wir können die $\alpha_s$-Orientierung vervollständigen und erhalten einen Schnyder Wood $\sigma$ auf $G$.
 
-Betrachten wir nun $\varphi_2$. Nach A4 sind alle äusseren Kanten in den Winkeln ausgelastet. Falls diese nun in jedem inneren Gebiet von drei Ecken-Pfaden und $|f|-3$ Zuweisungs-Pfaden genutzt werden, können wir ein FAA extrahieren. Da alle Kanten zu Senke 2 ausgelastet sind, führen $\sum_{f \in F_{in}} (|f|-3)$ Pfade durch die Dummy-Senke. Somit werden auch $\sum_{f \in F_{in}} (|f|-3)$ Knoten inneren Gebieten zugewiesen. Indem wir die Pfade zurückverfolgen und sehen aus welchem Gebiet der Zuweisungs-Pfad einen Dummy-Knoten betritt, können wir diese Informationen auslesen. Es bleibt zu zeigen, dass jedem Gebiet genau $|f|-3$ Knoten zugewiesen werden. Dies gilt, wenn durch jedes Gebiet drei Ecken-Pfade laufen und folgt somit, da die Kanten von den inneren Gebieten zu Senke 2 ausgelastet sind. Wir können also aus $\varphi_2$ ein FAA für $G$ extrahieren. \\
+Betrachten wir nun $\varphi_2$, also den FAA-Fluss. Nach A4 sind alle äußeren Kanten in den Winkeln ausgelastet. Falls diese nun in jedem inneren Gebiet von drei Ecken-Pfaden und $|f|-3$ Zuweisungs-Pfaden genutzt werden, können wir ein FAA konstruieren. Da alle Kanten zu Senke 2 ausgelastet sind, führen $\sum_{f \in F_{in}} (|f|-3)$ Pfade durch die Dummy-Senke. Somit werden auch $\sum_{f \in F_{in}} (|f|-3)$ Knoten inneren Gebieten zugewiesen. Indem wir diese Pfade zurückverfolgen und sehen aus welchem Gebiet der Zuweisungs-Pfad einen Dummy-Knoten betritt erhalten wir die Zuweisungen. Es bleibt zu zeigen, dass jedem Gebiet genau $|f|-3$ Knoten zugewiesen werden. Dies gilt genau dann, wenn durch jedes Gebiet drei Ecken-Pfade laufen. Da die Kanten von den inneren Gebieten zu Senke 2 sind ausgelastet sind, können wir also aus $\varphi_2$ ein FAA $\phi$ für $G$ konstruieren.
 
-Nun müssen wir zeigen, dass $\sigma$ und $\phi$ ein Ecken kompatibles Paar ergeben. C1, dass beide die gleichen Aufhängungen nutzen folgt sofort aus der Konstruktion von $\mathcal{N}_G$. Es bleibt C2.\
-
-Betrachten wir ein Teilnetzwerk (wie in Abbildung \ref{combined_face_sketch}) um ein inneres Gebiet $f$. Die drei Ecken-Pfade können keine der $|f|-3$ kleinen Quadrate nutzen die schon von Schnyder-Fluss okkupiert werden. Die drei übrigen kleinen Quadrate nennen wir \textit{verfügbar}. Ausgehend von $f$ folgen wir den Ecken-Pfaden rückwärts zu den verfügbaren kleinen Quadraten. Wenn wir das Quadrat verlassen gelangen wir zur dritten Kante eines Winkeldreiecks (entgegen dem Uhrzeigersinn). Nun verlassen wir das Gebiet entweder über diesen Winkel oder bewegen uns weiter (entgegen dem Uhrzeigersinn) zum nächsten Winkeldreieck. Doch wir werden zeigen, dass dies nur dann geschieht wenn das kleine Quadrat zwischen diesen nicht \textit{verfügbar} ist. Also betritt zwischen zwei \textit{verfügbaren} kleinen Quadraten ein Ecken-Pfad das Gebiet und die Winkel haben nach A1 unterschiedliche Label.
+Nun müssen wir zeigen, dass $\sigma$ und $\phi$ ein Ecken kompatibles Paar ergeben. Die Bedingung K1, dass beide die gleichen Aufhängungen nutzen, folgt sofort aus der Konstruktion von $\mathcal{N}_G$. Es bleibt K2, also betrachten wir ein Teilnetzwerk (wie in Abbildung \ref{combined_face_sketch}) um ein inneres Gebiet $f$. Die drei Ecken-Pfade können keine der $|f|-3$ kleinen Quadrate nutzen die schon von Schnyder-Fluss okkupiert werden. Die drei übrigen kleinen Quadrate nennen wir \textit{verfügbar}. Ausgehend von $f$ folgen wir den Ecken-Pfaden rückwärts zu den verfügbaren kleinen Quadraten. Wenn wir das Quadrat verlassen gelangen wir zur dritten Kante eines Winkeldreiecks (entgegen dem Uhrzeigersinn). Nun verlassen wir das Gebiet entweder über diesen Winkel oder bewegen uns weiter (entgegen dem Uhrzeigersinn) zum nächsten Winkeldreieck. Wir zeigen in Behauptung \ref{claim1}, dass dies nur dann geschieht wenn das kleine Quadrat zwischen diesen nicht verfügbar ist. Also betritt zwischen jeweils zwei verfügbaren kleinen Quadraten ein Ecken-Pfad das Gebiet und die Winkel haben nach A1 unterschiedliche Label in $\sigma$.
 
 \begin{claim}\label{claim1}
 Seien $Q_1,Q_2$ und $Q_3$, im Uhrzeigersinn, die drei verfügbaren kleinen Quadrate um ein inneres Gebiet $f$. Dann existiert ein Ecken-Pfad, welcher das Netzwerk über $Q_i$ verlässt. Dieser betritt es in einem Winkel zwischen, im Uhrzeigersinn, $Q_{i-1}$ und $Q_i$.
 \end{claim}
 
-Angenommen dies ist nicht der Fall und nehmen wir ohne Beschränkung der Allgemeinheit an, dass der Ecken-Pfad $P_e$ das Gebiet durch $Q_3$ verlässt. Der Winkel über den $P_e$ das Teilnetzwerk um das innere Gebiet betritt liegt also nicht zwischen $Q_2$ und $Q_3$. Angenommen er liegt zwischen $Q_1$ und $Q_2$. Betrachte das letzte Winkeldreck vor $Q_2$. Nach unserer Annahme ist die innere Kante dieses Dreiecks von $P_e$ ausgelastet. Somit kann kein Ecken-Fluss zu $Q_2$ gelangen und wir erhalten einen Widerspruch, da alle kleinen Quadrate entweder von Ecken- oder von Schnyder-Fluss genutzt werden müssen. Mit dem gleichen Argument kann $P_e$ das Teilnetzwerk nicht zwischen $Q_3$ und $Q_1$ betreten. Somit ist Behauptung \ref{claim1} wahr.
+\begin{figure}
+	\centering
+  	\includegraphics[width=0.9\textwidth]{combined_face_skip.pdf}
+  	\caption{Das untere \textit{verfügbare} kleine Quadrat (grau) wird vom Ecken-Fluss (blau) übersprungen und kann nicht mehr ausgelastet werden.}
+	\label{combined_face_skip}
+\end{figure}
 
-\begin{claim}
+Angenommen dies ist nicht der Fall und nehmen wir ohne Beschränkung der Allgemeinheit an, dass der Ecken-Pfad $P_e$ das Gebiet durch $Q_3$ verlässt. Der Winkel über den $P_e$ das Teilnetzwerk um das innere Gebiet betritt liegt also nicht zwischen $Q_2$ und $Q_3$ (vergleiche Abbildung \ref{combined_face_skip}). Angenommen er liegt zwischen $Q_1$ und $Q_2$. Betrachte das letzte Winkeldreieck vor $Q_2$. Nach unserer Annahme ist die innere Kante dieses Dreiecks von $P_e$ ausgelastet. Somit kann kein Ecken-Fluss zu $Q_2$ gelangen und wir erhalten einen Widerspruch, da alle kleinen Quadrate entweder von Ecken- oder von Schnyder-Fluss genutzt werden müssen. Mit dem gleichen Argument kann $P_e$ das Teilnetzwerk nicht zwischen $Q_3$ und $Q_1$ betreten. Somit ist Behauptung \ref{claim1} wahr.
+
+\begin{claim}\label{claim_angle}
 Alle Winkel zwischen zwei aufeinander folgenden verfügbaren kleinen Quadraten, haben die selben Label im Schnyder Labeling $\sigma$.
 \end{claim}
-Diese Behauptung folgt aus der in Abbildung \ref{alpha_bij} illustrierten Bijektion zwischen der $\alpha_S$ Orientierung und den Schnyder Labelings auf $G$ und $G^*$. Die Winkel links und rechts von einem kleinen Quadrat, dass von einem Schnyder-Pfad genutzt wird, haben das gleiche Label in $\sigma$, da diese den Einkanten in $\alpha_s$ entsprechen. Die Auskanten entsprechen den verfügbaren kleinen Quadraten, und hier ändern sich die Label.\\
-
-Diese beiden Behauptungen zusammen zeigen, dass jede Ecke aus $\phi$ ein anderes Label in $\sigma$ hat. Somit handelt es sich um ein Ecken Kompatibles Paar $(\sigma,\phi)$.\\
+Diese Behauptung folgt aus A1. Die Winkel links und rechts von einem kleinen Quadrat, dass von einem Schnyder-Pfad genutzt wird, haben das gleiche Label in $\sigma$, da diese den Einkanten in $\alpha_s$ entsprechen. Die Auskanten entsprechen den verfügbaren kleinen Quadraten, und hier ändern sich die Label. Diese beiden Behauptungen zusammen zeigen, dass jede Ecke aus $\phi$ ein anderes Label in $\sigma$ hat. Somit handelt es sich um ein Ecken Kompatibles Paar $(\sigma,\phi)$.
 
 Wir haben die Rückrichtung gezeigt. Nehmen wir also an, dass eine SLTR für $G$ existiert. Wir müssen nun einen zulässigen ganzzahligen Fluss $\varphi=(\varphi_1,\varphi_2)$ auf $\mathcal{N}_G$ konstruieren, der die SLTR kodiert. Nach Theorem \ref{theo_ccc} existiert ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$, das zu diesem SLTR passt. Betrachte die zu $\sigma$ gehörige $\alpha_s$-Orientierung.
 
-Wir beginnen mit einem leeren, wie oben konstruierten Netzwerk $\mathcal{N}_G$ und werden nun Schritt für Schritt einen zulässigen Fluss $\varphi$ konstruieren.
+Wir beginnen mit einem leeren, wie oben konstruierten Netzwerk $\mathcal{N}_G$ und werden nun Schritt für Schritt einen zulässigen Fluss $\varphi$ konstruieren. Zuerst fügen wir für jeden zugewiesenen Winkel einen Pfad von Quelle 2, über die äußere Kante des Winkeldreiecks, den zugehörigen Dummy-Knoten und die Dummy-Senke hin zu Senke 2 ein. Es kommen somit $\sum_{f \in F_{in}}|f|-3$ Einheiten Fluss hinzu und die Kante von der Dummy-Senke zu Senke 2 wird ausgelastet. 
 
-Zuerst fügen wir für jeden zugewiesenen Winkel einen Pfad von Quelle 2, über die äussere Kante des Winkeldreiecks, den zugehörigen Dummy-Knoten und die Dummy-Senke hin zu Senke 2 ein. Es kommen somit $\sum_{f \in F_{in}}|f|-3$ Einheiten Fluss hinzu und die Kante von der Dummy-Senke zu Senke 2 wird ausgelastet.
+Als nächsten fügen wir den Schnyder-Fluss hinzu, der die $\alpha_s$-Orientierung kodiert. Zuerst von Quelle 1 zu jedem inneren Kanten-Knoten $e$, dann von den inneren Kanten entweder über ein kleines Quadrat in ein angrenzendes Gebiet oder zu einem benachbarten Knoten je nachdem, wohin die Auskante von $e$ in $\alpha_s$ zeigt. Als Konsequent müssen wir auch die Kanten von den inneren Knoten und inneren Gebieten zu Senke 1 sättigen.
 
-Als nächsten fügen wir den Fluss hinzu, der die $\alpha_s$-Orientierung kodiert. Zuerst von Quelle 1 zu jedem inneren Kanten-Knoten $e$, dann von den inneren Kanten entweder über ein kleines Quadrat in ein angrenzendes Gebiet oder zu einem benachbarten Knoten je nachdem, wohin die Auskante von $e$ in $\alpha_s$ zeigt. Zuletzt saturieren wir die Kanten von den inneren Knoten und inneren Gebieten zu Senke 1.
-
-Zuletzt müssen wir den Ecken-Fluss einfügen. Ein Ecken-Pfad $P_e$ entspringt in Quelle 1, nutzt das zugehörige Winkeldreieck (diese sind noch frei) und verlässt das Gebiet über das im Uhrzeigersinn nächste verfügbare kleine Quadrat, wieder. 
-
-Es sind alle Kanten hin zu den Senken ausgelastet. Ebenso kann man sehen, dass an keiner Kante die Kapazität überschritten wird. Somit haben wir einen zulässigen ganzzahligen Fluss kostruiert, der eine SLTR kodiert. Damit ist der Beweis abgeschlossen.
-
+Zuletzt fügen wir den Ecken-Fluss ein. Ein Ecken-Pfad $P_e$ beginnt in Quelle 1, nutzt das zugehörige Winkeldreieck (diese sind noch frei) und verlässt das Gebiet über das im Uhrzeigersinn nächste verfügbare kleine Quadrat. Das dieser Weg frei ist folgt wieder aus Behauptung \ref{claim_angle}. Es sind somit alle Kanten zu den Senken ausgelastet ohne die Kapazität einer Kante zu überschreiten. Somit haben wir einen zulässigen ganzzahligen Fluss konstruiert, der eine SLTR kodiert. Damit ist der Beweis abgeschlossen.
 \end{proof}
+
+\begin{remark}
+Wir können die Quellen und Senken von Netzwerk \ref{net_sltr} nicht vereinen und trotzdem gewährleisten, dass eine zulässige ganzzahlige Lösung ein SLTR kodiert. In Netzwerk \ref{net_sltr} verlieren wir so die Kontrolle über die Menge von Schnyder TODO
+\end{remark}
 
 \input{non_int.tex}
