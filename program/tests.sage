@@ -15,7 +15,7 @@ def test_visualisation():
 		plot_sltr(G,outer_face=face,suspensions=sus)
 
 def write_statistics(s,t,amount):
-	with open('analysis8.csv', mode='a') as file:
+	with open('analysis12.csv', mode='a') as file:
 		for v in range(s,t+1):
 			for j in range(amount):
 				[G,sus,oF,emb] = random_3_graph(v)

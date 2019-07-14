@@ -130,7 +130,7 @@ Dieser Fall kann aber nicht auftreten. Seien $v,w$ die Ecken dieser Zykel. Dann 
 
 Es kann also mindestens eine der Kanten kontrahiert werden. Sei $(a_1,p)$ diese Kante und $G'$ der Graph der durch Kontraktion von $(a_1,p)$ und das Löschen von $(p,q)$ entsteht. Wir erhalten das FAA $\phi'$ durch löschen der Zuweisung von $p$ aus $\phi$. Der Knoten $q$ ist weiterhin dem äußeren Gebiet zugewiesen. Da $G'$ weniger Knoten als $G$ hat ist er kein Gegenbeispiel und wir erhalten einen Schnyder Labeling $\sigma'$, das zusammen mit $\phi'$ ein Ecken kompatibles Paar bildet. Wir können $\phi'$ zu einem Labeling von $G$ erweitern indem wir, beginnend bei $a_1$, im Uhrzeigersinn die Label $1,2$ und $3$ im Gebiet $a_1,q,p$ einfügen. Wir erhalten ein Ecken kompatibles Paar.
 
-\item[Fall 2] Sei $x$ der erste Nachbar von $p$ auf dem teilenden Segment. Wir kontrahieren wieder die Kante $(a_1,p)$ um $G'$ zu erhalten und zeigen, dass $G'$ eine SLTR besitzt. Bei der Kontraktion müssen keine weiteren Kanten gelöscht werden, wie in Abbildung \ref{pic_lem3_2} a) zu sehen ist. Wieder erhalten wir das FAA $\phi'$ auf $G'$ indem wir die Zuweisung von $p$ aus $\phi$ löschen. Zu jedem begrenzendem Pfad $\gamma$ in $G$, existiert $\gamma'$ in $G'$. Falls $x$ eine kombinatorisch konvexe Ecke einer der Zykel $\gamma$ ist, dann ist er dies auch für $\gamma'$, weil keine Kante an $x$ gelöscht wurde.
+\item[Fall 2] Sei $x$ der erste Nachbar von $p$ auf dem teilenden Segment. Wir kontrahieren wieder die Kante $(a_1,p)$ um $G'$ zu erhalten und zeigen, dass $G'$ eine SLTR besitzt. Bei der Kontraktion müssen keine weiteren Kanten gelöscht werden, wie in Abbildung \ref{pic_lem3_2} a) zu sehen ist. Wieder erhalten wir das FAA $\phi'$ auf $G'$ indem wir die Zuweisung von $p$ aus $\phi$ löschen. Zu jedem begrenzenden Zykel $\gamma$ in $G$, existiert ein begrenzender Zykel $\gamma'$ in $G'$. Falls $x$ eine kombinatorisch konvexe Ecke von $\gamma$ ist, dann ist $x$ dies auch für $\gamma'$, weil keine Kante an $x$ gelöscht wurde.
 
 \begin{figure}[h]
 	\centering
@@ -166,7 +166,7 @@ In einem minimalen Gegenbeispiel $\Delta$, kann kein Nachbar $x_i$ einer der Auf
 \end{lemma}
 
 \begin{remark}
-Lemma \ref{lem5} impliziert insbesondere, dass die drei Aufhängungen $a_1,a_2$ und $a_3$ von $\Delta$ ein Dreieck bilden.
+Lemma \ref{lem5} impliziert insbesondere, dass die drei Aufhängungen $a_1,a_2$ und $a_3$ von $\Delta$ ein Dreieck bilden. Es liegen also keine weiteren Knoten auf dem äußeren Rand von $\Delta$.
 \end{remark}
 
 \begin{proof}
@@ -207,7 +207,7 @@ Für jeden dieser Fälle entsteht ein ein Graph $G'$ der kleiner ist als $G$. Wi
 
 Im Folgenden seien $x$ und $z$ benachbart. Das Dreieck $f_{a_1zx}$ in $\Delta$ hat somit keine weiteren Knoten auf den Rändern.
 \begin{description}[leftmargin =0pt, font = \bfseries]
-\item[Fall 1a)] Wir erzeugen $G'$, indem wir die Kante $(a_1,z)$ löschen und $(x,z)$ kontrahieren. Wir bezeichnen den neuen Knoten mit $x'$ (siehe Abbildung \ref{pic_lem5_3} 1a). Wir erhalten dass FAA $\phi'$ von $G'$ indem wir die Zuweisung von $x$ aus $\phi$ löschen. Sei $\gamma'$ ein begrenzender Zykel in $G'$. Betrachte den induzierten Zykel $\gamma$ in $G$. Dieser hat mindestens drei kombinatorisch konvexe Ecken. Diejenigen Ecken die nicht $x$ und $z$ sind müssen auch Ecken von $\gamma'$ sein. Falls entweder $x$ oder $z$ eine kombinatorisch konvexe Ecke von $\gamma$ sind, dann ist $x'$ eine kombinatorisch konvexe Ecke von $\gamma'$. Angenommen $x$ und $z$ sind kombinatorisch konvexe Ecken von $\gamma$. Merke, dass es sich bei $\gamma$ nicht nur um das Dreieck $f_{a_1zx}$ handeln kann, da $\gamma'$ nicht von einem Pfad induziert wird. Somit muss enternder an $x$ oder $z$ mindestens ein weiterer Winkel im Inneren von $\gamma$ liegen. Angenommen ein Winkel an $z$, aber nicht der im Dreieck $f_{a_1zx}$, liegt im Inneren von $\gamma$. Dann zeigt dieser Winkel nicht in Richtung von $x$. Somit muss der zugewiesene Winkel an $z$ (wie in Abbildung \ref{pic_lem5_3} a) im Inneren von $\gamma$ liegen. Es folgt, dass $\gamma$ mindestens vier kombinatorisch konvexe Ecken in $G$ hat. Falls $\gamma$ einen weiteren Winkel an $x$ in seinem Inneren hat, dann kann man analog zeigen, dass $\gamma$ wieder mindestens vier kombinatorisch konvexe Ecken in $G$ hat. Somit hat $G'$ eine SLTR.
+\item[Fall 1a] Wir erzeugen $G'$, indem wir die Kante $(a_1,z)$ löschen und $(x,z)$ kontrahieren. Wir bezeichnen den neuen Knoten mit $x'$ (siehe Abbildung \ref{pic_lem5_3} 1a). Wir erhalten dass FAA $\phi'$ von $G'$ indem wir die Zuweisung von $x$ aus $\phi$ löschen. Sei $\gamma'$ ein begrenzender Zykel in $G'$. Betrachte den induzierten Zykel $\gamma$ in $G$. Dieser hat mindestens drei kombinatorisch konvexe Ecken. Diejenigen Ecken die nicht $x$ und $z$ sind müssen auch Ecken von $\gamma'$ sein. Falls entweder $x$ oder $z$ eine kombinatorisch konvexe Ecke von $\gamma$ sind, dann ist $x'$ eine kombinatorisch konvexe Ecke von $\gamma'$. Angenommen $x$ und $z$ sind kombinatorisch konvexe Ecken von $\gamma$. Merke, dass es sich bei $\gamma$ nicht nur um das Dreieck $f_{a_1zx}$ handeln kann, da $\gamma'$ nicht von einem Pfad induziert wird. Somit muss enternder an $x$ oder $z$ mindestens ein weiterer Winkel im Inneren von $\gamma$ liegen. Angenommen ein Winkel an $z$, aber nicht der im Dreieck $f_{a_1zx}$, liegt im Inneren von $\gamma$. Dann zeigt dieser Winkel nicht in Richtung von $x$. Somit muss der zugewiesene Winkel an $z$ (wie in Abbildung \ref{pic_lem5_3} a) im Inneren von $\gamma$ liegen. Es folgt, dass $\gamma$ mindestens vier kombinatorisch konvexe Ecken in $G$ hat. Falls $\gamma$ einen weiteren Winkel an $x$ in seinem Inneren hat, dann kann man analog zeigen, dass $\gamma$ wieder mindestens vier kombinatorisch konvexe Ecken in $G$ hat. Somit hat $G'$ eine SLTR.
 
 \begin{figure}[h]
 \centering
@@ -217,7 +217,7 @@ Im Folgenden seien $x$ und $z$ benachbart. Das Dreieck $f_{a_1zx}$ in $\Delta$ h
 \end{figure}
 
 Da $G'$ weniger Knoten als $G$ hat, kann es kein Gegenbeispiel sein. Sei $\sigma'$ ein zu $\phi'$ Ecken kompatibles Schnyder Labeling. Nach Lemma \ref{lem4} kommt das Label des zugewiesenen Winkels an $x'$ nur einmal vor. Wir kehren nun die Kontraktion von $(x,z)$ um (vergleiche Abbildung \ref{pic_lem5_3} b). Die Winkel von $a_1,x$ und $z$ im Dreieck $f_{a_1zx}$ haben Label 1, 2 und 3 im Uhrzeigersinn bei $a_1$ beginnend. Wir geben dem zugewiesenen Winkel an $z$ Label 1. Der Winkel an $z$ dem wir ein neues Label gegeben haben ist keine Ecke und sonst hat sich im Bezug auf $\phi'$ nichts verändert. Somit ist das konstruierte Schnyder Labeling $\sigma$ Ecken kompatibel zu $\phi$. $G$ kann also kein Gegenbeispiel sein.
-\item[Fall 1b)] Der Knoten $z$ habe Grad drei. Falls der Knoten $z$ von $\phi$ zugeordnet ist, dann kann er an keinem zu $(x,z)$ adjazenten Gebiet zugeordnet sein (wegen Fall 1a). Angenommen $z$ ist einem Gebiet zugeordnet, zu dem, wie in Abbildung \ref{pic_lem5_4}, $a_1$ gehört. Dann existiert ein unterteilendes Dreieck. Die gestrichelte Gerade muss in $\Delta$ existieren da $z$ Grad drei hat. Somit kann $G$ kein Gegenbeispiel sein. Der Knoten $z$ kann also nicht zugewiesen sein.
+\item[Fall 1b] Der Knoten $z$ habe Grad drei. Falls der Knoten $z$ von $\phi$ zugeordnet ist, dann kann er an keinem zu $(x,z)$ adjazenten Gebiet zugeordnet sein (wegen Fall 1a). Angenommen $z$ ist einem Gebiet zugeordnet, zu dem, wie in Abbildung \ref{pic_lem5_4}, $a_1$ gehört. Dann existiert ein unterteilendes Dreieck. Die gestrichelte Gerade muss in $\Delta$ existieren da $z$ Grad drei hat. Somit kann $G$ kein Gegenbeispiel sein. Der Knoten $z$ kann also nicht zugewiesen sein.
 
 \begin{figure}[h]
 	\centering
@@ -250,21 +250,59 @@ Wir werden $z$ nicht löschen sondern auf der gestrichelten Geraden verschieben,
 
 Dies beendet den Beweis für den Fall das $z$ Grad drei hat.
 
-\item[Fall 1c)] Als Folgerungen der Fälle 1a) und 1b) können wir annehmen, dass $z$ mindestens Grad vier hat und keinem Gebiet zugeordnet ist, welches an $(x,z)$ grenzt. Somit können wir die Kante $(a_1,x)$ kontrahieren und die Kante $(x,z)$ löschen und erhalten $G'$ (siehe Abbildung \ref{pic_lem5_7}). Der Knoten $z$ hat nun in $G'$ mindestens Grad drei, weil er zuvor mindestens Grad vier hatte. Wir erhalten das FAA $\phi'$ auf $G'$, indem wir die Zuweisung von $x$ aus $\phi$ löschen. 
+\item[Fall 1c] Als Folgerungen der Fälle 1a) und 1b) können wir annehmen, dass $z$ mindestens Grad vier hat und keinem Gebiet zugeordnet ist, welches an $(x,z)$ grenzt. Somit können wir die Kante $(a_1,x)$ kontrahieren und die Kante $(x,z)$ löschen und erhalten $G'$ (siehe Abbildung \ref{pic_lem5_7}). Der Knoten $z$ hat nun in $G'$ mindestens Grad drei, weil er zuvor mindestens Grad vier hatte. Wir erhalten das FAA $\phi'$ auf $G'$, indem wir die Zuweisung von $x$ aus $\phi$ löschen. 
 
-Sei $\gamma'$ ein begrenzender Zykel in $G'$ und $\gamma$ der induzierte begrenzende Zykel auf $G$. Wir müssen zeigen, dass $\gamma'$ drei kkE hat. Falls $x$ eine kkE von $\gamma$ ist, dann muss $a_1$ eine kkE von $\gamma'$ sein. Nehmen wir an, dass $z$ eine kkE von $\gamma$ und keine kkE von $\gamma'$ ist. Dann liegen alle Nachbarn von $z$, mit Ausnahme von $x$ auf dem Rand oder im Inneren von $\gamma$. 
-
+Sei $\gamma'$ ein begrenzender Zykel in $G'$ und $\gamma$ der korrespondierende begrenzende Zykel in $G$. Wir müssen zeigen, dass $\gamma'$ drei kombinatorisch konvexe Ecken hat. Falls $x$ eine kombinatorisch konvexe Ecke von $\gamma$ ist, dann muss $a_1$ eine kombinatorisch konvexe Ecke von $\gamma'$ sein. Nehmen wir an, dass $z$ eine kombinatorisch konvexe Ecke von $\gamma$ und keine kombinatorisch konvexe Ecke von $\gamma'$ ist. Dann liegen alle Nachbarn von $z$, mit Ausnahme von $x$ auf dem Rand oder im Inneren von $\gamma$. Nehmen wir an, dass $\gamma'$ nur zwei kombinatorisch konvexe EckeN hat. Betrachte Abbildung \ref{pic_lem5_8} a). Sei $p$ der entgegen dem Uhrzeigersinn nächste Nachbar von $z$ nach $x$. Auf dem Pfad von $a_1$ zu $p$ muss mindestens ein Nachbar liegen, da $z$ mindestens Grad vier hat. Falls alle Nachbarn von $z$ zwischen $p$ und $a_1$ auf dem Rand von $\gamma$ liegen und Gebieten außerhalb von $\gamma$ zugewiesen sind existiert ein unterteilendes Dreieck in $G$ (siehe Abbildung \ref{pic_lem5_8} a). Falls der Pfad, wie in Abbildung \ref{pic_lem5_8} b), konkav ist folgt dies nicht. Wir nennen $(a_1,x)$ nicht kontrahierbar und verweisen auf Fall 1d. Falls der Pfad anders herum konvex ist, dann liegt mindestens eine kombinatorisch konvexe Ecke $x'$ von $\gamma$ zwischen $p$ und $a_1$. Der Zykel $\gamma'$ hat somit die drei kombinatorisch konvexe Ecken $a_1,p$ und $x'$. 
 
 \begin{figure}[h]
 	\centering
 	  \includegraphics[width=0.66\textwidth]{lem5_7.pdf}
-    	\caption{Das Löschen von $z$, falls $w$ mindestens Grad vier hat. Wir verschieben den Knoten $z$ entlang der gestrichelten Geraden auf die Kante $(a_1,x)$ und erhalten so wieder eine SLTR.}
+    	\caption{Falls $x$ dem Gebiet an $(a_1,x)$ zugewiesen ist, $(x,z)$ eine Kante ist und deg$(z)\geq 4$, kontrahieren wir die Kante $(a_1,x)$ und löschen $(x,z)$.}
     	\label{pic_lem5_7}
 \end{figure}
 
-\end{description}
+Betrachten wir den Fall, dass kein begrenzender Zykel $\gamma$ in $G$ existiert, der $z$ als kombinatorisch konvexe Ecke hat. Weiter sei $z$ keine kombinatorisch konvexe Ecke von $\gamma'$. Somit ist $(a_1,x)$ kontrahierbar, jeder begrenzende Zykel in $G'$ hat mindestens drei kombinatorisch konvexe Ecken und $G'$ hat eine SLTR. Somit existiert ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist (wir haben $\phi'$ durch löschen der Zuweisung von $x$ erhalten). Wir können ein Schnyder Labeling $\sigma'$ zu $\sigma$ erweitern indem wie die Kontraktion einer Kante, die eine Aufhängung beinhaltet, umkehren (siehe Abbildung \ref{pic_lem5_8}) \cite[Kapitel 2.6]{felsner04}. Wir begründen die Ecken-Kompatibilität. Gebiet $f_{a_1,z,x}$ ist ein Dreieck und wir setzen beginnend bei $a_1$ die Label 1, 2 und 3 ein. Hinzu kommt, dass der von $\phi$ zugewiesene Winkel von $x$ nicht als einziger Label 2 hat. $G$ kann also kein Gegenbeispiel sein.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{lem5_8.pdf}
+\caption{a) Falls der Pfad zwischen $a_1$ und $p$ entlang einer Gerade verläuft, dann existiert ein unterteilendes Dreieck. b) Wenn der Pfad konkav ist, dann können wir $(a_1,x)$ nicht kontrahieren. c) Nun muss jedoch der Nachbar von $z$, der im Uhrzeigersinn vor $x$ liegt, $a_1$ entlang der gestrichelten Gerade \glqq{sehen}\grqq{ } können, ohne von einem anderen Nachbarn von $z$ behindert zu werden. Somit kann dies für den im Uhrzeigersinn auf $a_1$ folgenden Nachbarn von $z$ und $x$ nicht gelten, wie die gestrichelte Kurve illustriert.}
+\label{pic_lem5_8}
+\end{figure}
+
+\item[Fall 1d] Aufgrund der bearbeiteten Fälle können wir annehmen, dass $z$ mindestens Grad vier hat, keinem Gebiet zugeordnet ist, welches an $(x,z)$ grenzt und $(s_1,x)$ nicht kontrahierbar ist. Weil $(s_1,x)$ nicht kontrahierbar ist, muss ein begrenzender Pfad $\gamma$ in $G$ existieren, sodass $z$ auf dem Rand von $\gamma$ liegt, alle Nachbarn von $z$ ausser $x$ auf oder innerhalb von $\gamma$ liegen und $\gamma$ genau drei kombinatorisch konvexe Ecken hat zu denen $z$ gehört. Betrachte Abbildung \ref{pic_lem5_8} b). Es liegen keine kombinatorisch konvexe Ecken von $\gamma$ auf dem Pfad zwischen $a_1$ und $p$. Somit wird die in Abbildung \ref{pic_lem5_8} c) eingezeichnete Gerade zwischen $p$ und $a_1$ nicht von Nachbarn von $z$ unterbrochen. $p$ kann $s_1$ entlang dieser Gerade \glqq{sehen}\grqq{ }. Da $z$ keinem Gebiet zugeordnet ist, welches an $(x,z)$ grenzt und keine kombinatorisch konvexe Ecke von $\gamma$ ist (die alle Nachbarn ausser $x$ beinhaltet) kann $z$ nicht zugewiesen sein. 
+
+Wir erstellen $G'$ durch löschen der Kante $(a_1,z)$ aus $G$. Das FAA $\phi'$ folgt indem wir die Zuweisung von $z$ zum Gebiet mit $a_1,x$ und $z$ zu $\phi$ hinzufügen (siehe Abbildung \ref{pic_lem5_9} b). Angenommen es existiert in $G'$ eine begrenzender Zykel $\gamma'$ der nur zwei kombinatorisch konvexe Ecke bezüglich $\phi'$ hat. Dann muss $z$ auf dem Rand von $\gamma'$ liegen und $z$ muss eine kombinatorisch konvexe Ecke des korrespondierenden Zykels $\gamma$ in $G$ sein. Falls nun $\gamma'$ alle Nachbarn von $z$ in $G'$ enthält, dann hat $\gamma$ mindestens vier kombinatorisch konvexe Ecken oder $z$ ist keine Ecke von $\gamma$, wie wir begründen werden. Wie in Abbildung \ref{pic_lem5_8} c) illustriert, kann der im Uhrzeigersinn erste Nachbar von $z$ nach $a_1$ den Knoten $x$ nicht \glqq{sehen}\grqq{ }, weil der Nachbar vor $x$ im Weg ist. Somit muss zwischen diesen beiden Nachbarn eine kombinatorisch konvexe Ecke von $\gamma$ liegen. Nehmen wir an, dass $\gamma'$ den zugewiesenen Winkel an $z$ in $G'$ einschließt. Weiter sei $z$ eine kombinatorisch konvexe Ecke des korrespondierenden Zykels $\gamma$. Dann muss $\gamma$ mindestens vier kombinatorisch konvexe Ecken in $G$ haben. Die beiden Ränder von $\gamma$ zwischen $a_1$ und $z$ müssen strikt konvex in der Zeichnung von $G$ sein und somit jeweils eine weitere kombinatorisch konvexe Ecke von $\gamma$ enthalten (vergleiche Abbildung \ref{pic_lem5_9} a).
+
+Somit haben wir gezeigt, dass $G'$ eine SLTR hat. Erneut kann $G'$ kein Gegenbeispiel sein und wir erhalten ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist. Wir können dies, wie in Abbildung \ref{pic_lem5_9} b) zu sehen ist, zu einem Schnyder Labeling $\sigma$ von $G$ erweitern, das Ecken kompatibel zu $\phi$ ist, da wir kein Label an einer Zuweisung aus $\phi$ ändern. Somit kann $G$ kein Gegenbeispiel sein.
+
+Dies beendet den Beweis für den Fall, das $x$ und $z$ Nachbarn sind.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{lem5_9.pdf}
+\caption{a) Falls $z$ eine kombinatorisch konvexe Ecke des begrenzenden Zykels $\gamma$ (um den grauen Teilgraphen) ist, dann hat $\gamma$ mindestens vier kombinatorisch konvexe Ecken, da die Pfade von $a_1$ zu $z$ auf beiden strikt Seiten konvex sind. b) Löschen der Kante $(a_1,z)$. }
+\label{pic_lem5_9}
+\end{figure}
+
+\item[Fall 2] Seien nun $x$ und $z$ nicht benachbart, dann muss mindestens ein Knoten auf der Gerade zwischen ihnen liegen. Wir nennen diesen Knoten $p$. Der Knoten $p$ muss dem Gebiet mit den Ecken $a_1,z,x$ zugewiesen sein (vergleiche Abbildung \ref{pic_lem5_10}). Wir wählen $p$, sodass die Kante $(x,p)$ existiert. Wir erhalten $G'$ durch die Kontraktion der Kante $(a_1,x)$. Das FAA $\phi'$ von $G'$ folgt durch löschen der Zuweisungen von $x$ und $
+p$ aus $\phi$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.66\textwidth]{lem5_10.pdf}
+\caption{Kontraktion der Kante $(a_1,x)$, wenn $x$ einem Gebiet an $(a_1,x)$ zugeordnet ist und $x$ und $z$ nicht benachbart sind.}
+\label{pic_lem5_10}
+\end{figure}
+
+Wir betrachten einen begrenzende Zykel $\gamma$ in $G'$ und seinen korrespondierenden begrenzenden Zykel $\gamma$ in $G$. Falls $x$ eine kombinatorisch konvexe Ecke vom $\gamma$ ist, dann sind $p$ oder $a_1$ die korrespondierende kombinatorisch konvexe Ecke von $\gamma'$. Beachte, dass wir die Zuweisung von $p$ geändert haben. Falls $p$ eine kombinatorisch konvexe Ecke eines korrespondierenden Zykels $\gamma$ in $G$ ist, dann muss $p$ in $G$ einen Nachbar außerhalb von $\gamma$ besitzen. Da sich der Grad von $p$ in $G'$ nicht ändert, muss dieser Nachbar auch außerhalb von $\gamma'$ in $G'$ liegen. Es folgt, dass $p$ eine kombinatorisch konvexe Ecke von $\gamma'$ ist, da $p$ nicht zugewiesen ist. Somit hat jeder begrenzende Zykel in $G'$ mindestens drei kombinatorisch konvexe Ecken und wir haben gezeigt, dass $G'$ eine SLTR hat die von $\phi'$ induziert wird.
+
+Der Graph $G'$ hat einen Knoten weniger als $G$ und kann somit kein Gegenbeispiel sein. Sei nun $\sigma'$ das zu $\phi'$ Ecken kompatible Schnyder Labeling von $G'$. Wir müssen nun zeigen, dass im Gebiet $f$ mit den Ecken $a_1,z$ und $x$, in dem auch $p$ liegt, jede Ecke ein anderes Label hat. Sei $f'$ das zu $f$ korrespondierende Gebiet in $G'$ (siehe Abbildung \ref{pic_lem5_10}). Im Schnyder Labeling $\sigma'$ hat der Winkel an $p$ das Label 2 in $f'$, weil er auf der rechten Seite einer Kante zur Aufhängung mit Label 1 liegt. Der Winkel an $x$ in $f$ hat aus dem Gleichen Grund ebenfalls Label 3 in $\sigma$. Somit haben weder $p$ noch $x$ in ihren von $\phi$ zugewiesenen Gebieten Label in $\sigma$, die in diesen Gebieten nur einmal vorkommen. Da $\phi'$ Ecken kompatibel was zu $\sigma'$ war, bilden $\sigma$ und $\phi$ ein Ecken kompatibles Paar zur SLTR $\Delta$ von $G$.
+\end{description}
+Wir haben somit für alle aufgelisteten Fälle einen Widerspruch zur Annahme erhalten, dass $G$ ein minimales Gegenbeispiel ist. Dies beendet den Beweis.
 \end{proof}
+
+In einem letzten Lemma werden wir nun zeigen, dass keine Gegenbeispiel $G$ existieren kann, das eine SLTR (mit dem induzierten FAA $\phi$) zulässt, auf dem aber kein Schnyder Labeling $\sigma$ existiert, welchen Ecken kompatibel zu $\phi$ ist.
 
 \begin{lemma}\label{lem6}
 Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ der eine SLTR besitzt. Sei $\phi$ das von dieser SLTR induzierte FAA. Dann existiert ein Schnyder Labeling $\sigma$ von $G$, sodass $\sigma$ und $\phi$ ein Ecken kompatibles Paar bilden.
