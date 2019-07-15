@@ -12,13 +12,13 @@
 			\State $\phi \gets $ FAA$(\varphi_2)$
 			\State \Return $\phi$
 		\Else
-			\State $\varphi_z \gets$ FAA-flow($\varphi_2$)\Comment Fluss nach Lemma \ref{lem_faa}
+			\State $\varphi_z \gets$ FAA-flow($\varphi_2$)\Comment Fluss nach Proposition \ref{lem_faa}
 			\State $\mathcal{N} \gets \mathcal{N}_G \backslash \{$edges used by $\varphi_z\}$\label{algo_check}
 			\State $\tilde{\varphi} \gets $ int-one-flow$(\mathcal{N})$\Comment Ecken- und Schnyder-Fluss zu $\varphi_z$\label{int_one_flow1}
 			\If { $|\tilde{\varphi}| = d_1+d_2-|\varphi_z|$ }
 				\State $\phi \gets $ FAA$(\varphi_z)$
 				\State \Return $\phi$
-			\Else \Comment Nur erreichbar, falls Vermutung \ref{int_conj} falsch\label{sanity_check}
+			\Else \Comment Nur erreichbar, falls Vermutung \ref{faa_conj} falsch\label{sanity_check}
 				\State $\varphi=(\varphi_1,\varphi_2) \gets $ int-two-flow$(\mathcal{N}_G)$
 				\If {$\varphi \neq$ None}\Comment Sonst Gegenbeispiel zu Vermutung\ref{int_conj}\label{int_two_flow1}
 					\State $\phi \gets $ FAA$(\varphi_2)$

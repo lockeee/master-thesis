@@ -13,45 +13,45 @@ Warning--empty address in glpk
 Warning--empty edition in sage
 `address' is a missing field, not a string, for entry sage
 while executing---line 2205 of file alphadin.bst
-You've used 22 entries,
+You've used 24 entries,
             4793 wiz_defined-function locations,
-            1024 strings with 8998 characters,
-and the built_in function-call counts, 12702 in all, are:
-= -- 1397
-> -- 303
-< -- 302
-+ -- 332
-- -- 95
-* -- 829
-:= -- 2085
-add.period$ -- 21
-call.type$ -- 22
-change.case$ -- 98
-chr.to.int$ -- 21
-cite$ -- 25
-duplicate$ -- 400
-empty$ -- 964
-format.name$ -- 190
-if$ -- 2612
+            1033 strings with 9263 characters,
+and the built_in function-call counts, 13708 in all, are:
+= -- 1494
+> -- 330
+< -- 329
++ -- 362
+- -- 103
+* -- 888
+:= -- 2255
+add.period$ -- 23
+call.type$ -- 24
+change.case$ -- 107
+chr.to.int$ -- 23
+cite$ -- 27
+duplicate$ -- 436
+empty$ -- 1046
+format.name$ -- 207
+if$ -- 2817
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 97
-newline$ -- 122
-num.names$ -- 66
-pop$ -- 140
+missing$ -- 107
+newline$ -- 132
+num.names$ -- 72
+pop$ -- 155
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 155
 quote$ -- 0
-skip$ -- 693
+skip$ -- 755
 stack$ -- 0
-substring$ -- 930
-swap$ -- 88
-text.length$ -- 62
-text.prefix$ -- 11
+substring$ -- 982
+swap$ -- 95
+text.length$ -- 67
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 220
+type$ -- 236
 warning$ -- 3
-while$ -- 122
-width$ -- 24
-write$ -- 283
+while$ -- 131
+width$ -- 26
+write$ -- 306
 (There was 1 error message)

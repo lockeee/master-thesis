@@ -48,6 +48,12 @@
 \newblock {In: }\emph{The electronic journal of combinatorics} 11 (2004), Nr.
   1, S.~15
 
+\bibitem[Fel12]{felsner12}
+\textsc{Felsner}, Stefan:
+\newblock \emph{Geometric graphs and arrangements: some chapters from
+  combinatorial geometry}.
+\newblock Springer Science \& Business Media, 2012
+
 \bibitem[FF56]{ff09}
 \textsc{Ford}, Lester~R. ; \textsc{Fulkerson}, Delbert~R.:
 \newblock Maximal flow through a network.
@@ -69,6 +75,12 @@
 \newblock Uniform random sampling of planar graphs in linear time.
 \newblock {In: }\emph{Random Structures \& Algorithms} 35 (2009), Nr. 4, S.
   464--522
+
+\bibitem[FZ08]{fz08}
+\textsc{Felsner}, Stefan ; \textsc{Zickfeld}, Florian:
+\newblock On the number of planar orientations with prescribed degrees.
+\newblock {In: }\emph{the electronic journal of combinatorics} 15 (2008), Nr.
+  1, S.~77
 
 \bibitem[Hu63]{hu}
 \textsc{Hu}, T~C.:

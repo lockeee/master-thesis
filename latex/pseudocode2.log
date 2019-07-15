@@ -118,4 +118,60 @@ LaTeX Font Info:    ... okay on input line 18.
 * v-part:(T,H,B)=(71.70166pt, 418.25368pt, 107.55254pt)
 * \paperwidth=421.10078pt
 * \paperheight=597.50787pt
-* \te
+* \textwidth=294.76926pt
+* \textheight=418.25368pt
+* \oddsidemargin=-9.10423pt
+* \evensidemargin=-9.10423pt
+* \topmargin=-37.56833pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 22.
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]\OT1/cmr/bx/n/12 Algorithmus 1 $[]$
+ []
+
+
+! LaTeX Error: File `.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+./pseudocode2.tex:23: Emergency stop.
+<read *> 
+         
+l.23 	\input{}
+              ^^M
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 1342 strings out of 492649
+ 18509 string characters out of 6129622
+ 84278 words of memory out of 5000000
+ 5269 multiletter control sequences out of 15000+600000
+ 6683 words of font info for 24 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 27i,5n,20p,257b,203s stack positions out of 5000i,500n,10000p,200000b,80000s
+./pseudocode2.tex:23:  ==> Fatal error occurred, no output PDF file produced!
