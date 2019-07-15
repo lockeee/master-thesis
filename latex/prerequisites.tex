@@ -1,15 +1,15 @@
 \chapter{Grundlagen}\label{pre}
 
-Wir werden uns in dieser Arbeit hauptsächlich mit einfachen planaren Graphen beschäftigen, also solchen die keine Mehrfachkanten und Schleifen besitzen und für die kreuzungsfreie Zeichnungen, beziehungsweise Einbettungen, in der Ebene existieren. Sei $G = (V,E)$ ein Graph bestehend aus der Menge der Knoten $V$ und der Menge der Kanten $E \subseteq ( \,V \times V ) \,$. Eine Kante $e=(u,v)$ verbindet die beiden Knoten $u$ und $v$. Einen Graphen $G$, definiert als Kombination der Mengen von Knoten und Kanten nennen wir auch einen \textit{kombinatorischen} Graphen. Ein Pfad von $u$ nach $v$ ist eine Folge von Kanten $\{(u,w_1),(w_1,w_2),\ldots,(w_k,v)\} \subset E$ die $u$ und $v$ verbindet. Mit dem Grad deg$(v)$ eines Knoten meinen wir die Anzahl der adjazenten Kanten, der Kanten die $v$ als einen Endpunkt haben.
+Wir werden uns in dieser Arbeit hauptsächlich mit einfachen planaren Graphen beschäftigen, also solchen, die keine Mehrfachkanten und Schleifen besitzen und für die kreuzungsfreie Zeichnungen, beziehungsweise Einbettungen, in der Ebene existieren. Sei $G = (V,E)$ ein Graph bestehend aus der Menge der Knoten $V$ und der Menge der Kanten $E \subseteq ( \,V \times V ) \,$. Eine Kante $e=(u,v)$ verbindet die beiden Knoten $u$ und $v$. Einen Graphen $G$, definiert als Kombination der Mengen von Knoten und Kanten, nennen wir auch einen \textit{kombinatorischen} Graphen. Ein Pfad von $u$ nach $v$ ist eine Folge von Kanten $\{(u,w_1),(w_1,w_2),\ldots,(w_k,v)\} \subset E$ die $u$ und $v$ verbindet. Mit dem Grad deg$(v)$ eines Knoten meinen wir die Anzahl der adjazenten Kanten, der Kanten, die $v$ als einen Endpunkt haben.
 
-Eine Einbettung (oder Zeichnung) eines Graphen in der Ebene ist eine Abbildung $m:G\to\mathbb{R}^2$ die die Kanten und Knoten kreuzungsfrei in die Ebene zeichnet. Einen planaren Graphen zusammen mit einer möglichen kreuzungsfreien Einbettung in der Ebene bezeichnen wir als \textit{ebenen Graphen}. Für einen ebenen Graphen können wir, zusätzlich zu den Knoten und Kanten, auch die Menge der Gebiete (engl. faces) $F$ betrachten, das heißt die durch die Kanten und Knoten begrenzten Regionen in der Ebene. Wir bezeichnen das unbeschränkte Gebiet als das \textit{äußere} Gebiet. Wir können den Begriff der Einbettung von $G$ auch etwas weiter fassen und mit diesem nur die Definition der Menge der Gebiete $F$ von $G$ und eines äußeren Gebietes $f_{aus} \in F$ meinen, sodass mindestens eine planare Zeichnung mit diesen Gebieten existiert. Wir nennen dies auch eine \textit{kombinatorische} Einbettung. Die kombinatorische Einbettung bildet eine Äquivalenzklasse aller möglichen Zeichnungen von $G$. In ihr enthalten sind alle Zeichnungen von $G$ deren Gebiete (inklusive dem Äußeren) denen der kombinatorischen Einbettung entsprechen. Wir werden im Verlauf der Arbeit, wenn wir von Einbettung reden, manchmal eine spezifische Zeichnung und manchmal ihre Äquivalenzklasse meinen, die Bedeutung sollte sich jedoch aus dem Kontext ergeben.
+Eine Einbettung (oder Zeichnung) eines Graphen in der Ebene ist eine Abbildung $m:G\to\mathbb{R}^2$, die die Kanten und Knoten kreuzungsfrei in die Ebene zeichnet. Einen planaren Graphen zusammen mit einer möglichen kreuzungsfreien Einbettung in der Ebene bezeichnen wir als \textit{ebenen Graphen}. Für einen ebenen Graphen können wir, zusätzlich zu den Knoten und Kanten, auch die Menge der Gebiete (engl. faces) $F$ betrachten, das heißt, die durch die Kanten und Knoten begrenzten Regionen in der Ebene. Wir bezeichnen das unbeschränkte Gebiet als das \textit{äußere} Gebiet. Wir können den Begriff der Einbettung von $G$ auch etwas weiter fassen und mit diesem nur die Definition der Menge der Gebiete $F$ von $G$ und eines äußeren Gebietes $f_{aus} \in F$ meinen, sodass mindestens eine planare Zeichnung mit diesen Gebieten existiert. Wir nennen dies auch eine \textit{kombinatorische} Einbettung. Die kombinatorische Einbettung bildet eine Äquivalenzklasse aller möglichen Zeichnungen von $G$. In ihr enthalten sind alle Zeichnungen von $G$, deren Gebiete (inklusive dem Äußeren) denen der kombinatorischen Einbettung entsprechen. Wir werden im Verlauf der Arbeit, wenn wir von Einbettung reden, manchmal eine spezifische Zeichnung und manchmal ihre Äquivalenzklasse meinen, die Bedeutung sollte sich jedoch aus dem Kontext ergeben.
 
 \section{Geradlinige Dreiecks-Darstellungen (SLTRs)}
 
 Wir werden uns in dieser Arbeit mit Möglichkeiten auseinandersetzten, geradlinige Dreiecks-Darstellungen für planare Graphen zu finden. Die englische Bezeichnung der geradlinigen Dreiecks-Darstellungen lautet straight line triangle representation, kurz SLTR. Die nächste Definition formalisiert diese Darstellung.
 
 \begin{definition}[SLTR]\label{defsltr}
-Eine Zeichnung eines ebenen Graphen $G$ wird \textit{SLTR} genannt falls gilt:
+Eine Zeichnung eines ebenen Graphen $G$ wird \textit{SLTR} genannt, falls gilt:
 \begin{itemize}
 \item[S1] Alle Kanten sind Segmente von Geraden.
 \item[S2] Alle Gebiete, inklusive dem Äußeren, sind nicht-degenerierte Dreiecke.
@@ -25,7 +25,7 @@ Eine Zeichnung eines ebenen Graphen $G$ wird \textit{SLTR} genannt falls gilt:
 Für die weiteren Betrachtungen ist es nützlich die drei Knoten $\{a_1,a_2,a_3\}$, die das äußeren Gebiet berühren, gesondert zu betrachten. Wir nennen sie die \textit{Aufhängungen} von $G$. Die Knoten $a_1,a_2$ und $a_3$ sind dann die designierten Ecken des äußeren Gebietes einer möglichen SLTR. Einen Graphen zusammen mit einem äußeren Gebiet und festen Aufhängungen als Paar zu behandeln ist sinnvoll, wie in Beispiel \ref{bsp1} zu sehen sein wird.
 
 \begin{example}\label{bsp1}
-Es existieren planare Graphen, von denen manche Einbettungen SLTRs zulassen, andere jedoch nicht. Betrachten wir den planaren Graphen mit zehn Knoten aus Abbildung \ref{10_example}. Mit rot und grün sind die beiden Gebiete markiert die jeweils einmal als das äußere Gebiet festgelegt wurden. Die kombinatorische Einbettung auf der rechten Seite lässt zu dieser Wahl des äußeren Gebietes keine SLTR zu. Das nicht dreieckige Gebiet ist grau eingefärbt. Zu Auswahl auf der linken Seite existiert hingegen eine. Dies ist der kleinste 3-zusammenhängende kombinatorische Graph, der diese Eigenschaft hat.
+Es existieren planare Graphen, von denen manche Einbettungen SLTRs zulassen, andere jedoch nicht. Betrachten wir den planaren Graphen mit zehn Knoten aus Abbildung \ref{10_example}. Mit rot und grün sind die beiden Gebiete markiert, die jeweils einmal als das äußere Gebiet festgelegt wurden. Die kombinatorische Einbettung auf der rechten Seite lässt zu dieser Wahl des äußeren Gebietes keine SLTR zu. Das nicht dreieckige Gebiet ist grau eingefärbt. Zur Auswahl auf der linken Seite existiert hingegen eine. Dies ist der kleinste 3-zusammenhängende kombinatorische Graph, der diese Eigenschaft hat.
 
 \begin{figure}[h]
 \centering
@@ -36,10 +36,10 @@ Es existieren planare Graphen, von denen manche Einbettungen SLTRs zulassen, and
 
 \end{example}
 
-Bevor wir zur ersten Proposition kommen werden wir die Klasse der planaren Graphen, die wir betrachten wollen etwas weiter einschränken. Dabei hilft uns die nächste Definition.
+Bevor wir zur ersten Proposition kommen werden wir die Klasse der planaren Graphen, die wir betrachten wollen, etwas weiter einschränken. Dabei hilft uns die nächste Definition.
 
 \begin{definition}[intern-k-zusammenhängend]\label{int_3_con}
-Ein Graph $G$ ist zusammenhängend falls für alle Knoten $u,v$ ein Pfad von $u$ nach $v$ existiert. $G$ ist \textit{k-zusammenhängend}, falls er nach der Entfernung von $k-1$ beliebigen Knoten weiterhin zusammenhängend ist. Sei $G$ eben mit den Aufhängungen $\{a_1,a_2,a_3\}$, weiter sei $a_\infty$ ein zusätzlicher Knoten eingefügt im äußeren Gebiet. Dann ist $G$ \textit{intern k-zusammenhängend}, falls $G+a_\infty\coloneqq(V\cup\{a_\infty \},E\cup \{(a_1,a_\infty),(a_2,a_\infty),(a_3,a_\infty)\})$ k-zusammenhängend ist.
+Ein Graph $G$ ist \textit{zusammenhängend}, falls für alle Knoten $u,v$ ein Pfad von $u$ nach $v$ existiert. $G$ ist \textit{k-zusammenhängend}, falls er nach der Entfernung von $k-1$ beliebigen Knoten weiterhin zusammenhängend ist. Sei $G$ eben mit den Aufhängungen $\{a_1,a_2,a_3\}$, weiter sei $a_\infty$ ein zusätzlicher Knoten eingefügt im äußeren Gebiet. Dann ist $G$ \textit{intern k-zusammenhängend}, falls $G+a_\infty\coloneqq(V\cup\{a_\infty \},E\cup \{(a_1,a_\infty),(a_2,a_\infty),(a_3,a_\infty)\})$ k-zusammenhängend ist.
 \end{definition}
 
 Die nächste Präposition enthält eine erste notwendige Bedingung für die Existenz von geradlinigen Dreiecksdarstellungen (SLTRs).
@@ -49,7 +49,7 @@ Sei $G$ ein ebener Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ als äußere Ec
 \end{proposition}
 
 \begin{proof}
-Sei $\Delta$ die SLTR von $G=(V,E)$. Angenommen es existiert eine Menge $U \subseteq V$ in $G$ mit $|U| = 2$, deren Entnahme $G$ in nicht zusammenhängende Komponenten trennt. Wir werden zeigen, dass jeder Teil von $G\backslash U$ eine der Aufhängungen enthält und somit $G + a_\infty$ nicht von $U$ getrennt wird. Da $G$ intern-3-zusammenhängend ist können nur die Aufhängungen $a_i$ Grad 2 haben. Sei $K$ eine der Komponenten von $G\backslash U$. Betrachte $K\cup U$ als induzierten Teilgraphen von $G$. Falls $K\cup U$ ein Pfad ist, also nur Knoten von Grad 1 oder 2 enthält, dann kann nur $K=\{a_i\}$ gelten.
+Sei $\Delta$ die SLTR von $G=(V,E)$. Angenommen es existiert eine Menge $U \subseteq V$ in $G$ mit $|U| = 2$, deren Entnahme $G$ in nicht zusammenhängende Komponenten trennt. Wir werden zeigen, dass jeder Teil von $G\backslash U$ eine der Aufhängungen enthält und somit $G + a_\infty$ nicht von $U$ getrennt wird. Da $G$ intern-3-zusammenhängend ist, können nur die Aufhängungen $a_i$ Grad 2 haben. Sei $K$ eine der Komponenten von $G\backslash U$. Betrachte $K\cup U$ als induzierten Teilgraphen von $G$. Falls $K\cup U$ ein Pfad ist, also nur Knoten von Grad 1 oder 2 enthält, dann kann nur $K=\{a_i\}$ gelten.
 
 Falls $K\cup U$ kein Pfad ist, betrachte die konvexe Hülle von $U \cup K$ in $\Delta$. Mindestens drei der Ecken von $U \cup K$ haben Außenwinkel grösser als $\pi$ (an diesen Ecken befinden sich Knoten aus $U \cup K$). Zwei dieser Winkel können an den Knoten aus $U$ liegen, aber der dritte muss ein Winkel sein, der schon in $\Delta$ existiert. Es handelt sich somit um eine Aufhängung.
 \end{proof}
@@ -65,13 +65,13 @@ Sei $G$ ein planarer 3-zusammenhängender Graph und $\{a_1,a_2,a_3\} \subset V$.
 \end{proposition}
 
 \begin{proof}
-Angenommen es existieren zwei Gebiete $f,f'$ die $a_1,a_2$ und $a_3$ enthalten. Dann berühren sich diese Gebiete an mehr als einer Kante (vergleiche Abbildung \ref{3_con_uni} links). Im grauen Gebiet müssen Knoten liegen, da $G$ 3-zusammenhängend ist. Wenn wir aber nun $a_2$ und $a_3$ entfernen, dann teilen wir $G$ in zwei nicht zusammenhängende Gebiete. Es kann somit nur ein Gebiet $f$ geben, in welchem die $a_1,a_2$ und $a_3$ liegen.
+Angenommen es existieren zwei Gebiete $f$ und $f'$, die $a_1,a_2$ und $a_3$ enthalten. Dann berühren sich diese Gebiete an mehr als einer Kante (vergleiche Abbildung \ref{3_con_uni} links). Im grauen Gebiet müssen Knoten liegen, da $G$ 3-zusammenhängend ist. Wenn wir aber nun $a_2$ und $a_3$ entfernen, dann teilen wir $G$ in zwei nicht zusammenhängende Gebiete. Es kann somit nur ein Gebiet $f$ geben, in welchem die $a_1,a_2$ und $a_3$ liegen.
 \end{proof}
 
 \begin{figure}
 	\centering
   \includegraphics[width=0.95\textwidth]{3_conn_uni.png}
-	\caption{Die entnehme der Knoten $a_2$ und $a_3$ trennt $G$, was zu einem Wider- spruch zum 3-Zusammenhang führt.}
+	\caption{Die Entnahme der Knoten $a_2$ und $a_3$ trennt $G$, was zu einem Widerspruch zum 3-Zusammenhang führt.}
 	\label{3_con_uni}
 \end{figure}
 
@@ -82,9 +82,9 @@ Wir könnten uns somit für 3-zusammenhängende planare Graphen auf die Wahl von
 Mit den Fragen, welche notwendigen und hinreichenden Bedingungen für die Existenz von SLTRs gelten und welche algorithmischen Ansätze man bei der Suche nach einer spezifischen Darstellung verfolgen kann, werden wir uns in den nächsten beiden Kapiteln auseinandersetzen. Zuvor werden in diesem Kapitel noch einige Konzepte eingeführt, die notwendig sind, um der Argumentation zu folgen.
 
 \section{Schnyder Woods}\label{sw}
-Betrachten wir einen ebenen Graphen mit Aufhängungen $a_1,a_2,a_3$. Anschaulich handelt es sich bei einem Schnyder Wald um drei Aufspannende Bäume $T_1,T_2,T_3$, sodass jeder der Bäume $T_i$ zu seiner Wurzel $a_i$ hin gerichtet ist. Jede der Kanten wird mindestens von einem der Bäume genutzt und Kanten können von zwei der drei Bäume gleichzeitig genutzt werden.
+Betrachten wir einen ebenen Graphen mit Aufhängungen $a_1,a_2,a_3$. Anschaulich handelt es sich bei einem Schnyder Wald um drei aufspannende Bäume $T_1,T_2,T_3$, sodass jeder der Bäume $T_i$ zu seiner Wurzel $a_i$ hin gerichtet ist. Jede der Kanten wird mindestens von einem der Bäume genutzt und Kanten können von zwei der drei Bäume gleichzeitig genutzt werden.
 
-Schnyder Wälder, im weiteren nach der englischen Bezeichnung \textit{Schnyder Woods}, wurden zuerst von Walter Schnyder eingeführt \cite{schnyder89}. Es handelt sich die um eine Färbung und Orientierung der inneren Kanten einer Triangulierung. Sie dienten der Betrachtung der von planaren Graphen induzierten Ordnungen. In einer weiteren Arbeit wurden mit ihrer Hilfe geradlinige und konvexe Einbettungen Triangulierungen auf einem $(|V|-2)\times(|V|-2)$ Gitter erzeugt \cite{schnyder90}.
+Schnyder Wälder, im weiteren nach der englischen Bezeichnung \textit{Schnyder Woods}, wurden zuerst von Walter Schnyder eingeführt \cite{schnyder89}. Es handelt sich um eine Färbung und Orientierung der inneren Kanten einer Triangulierung. Sie dienten der Betrachtung der von planaren Graphen induzierten Ordnungen. In einer weiteren Arbeit wurden mit ihrer Hilfe geradlinige und konvexe Einbettungen Triangulierungen auf einem $(|V|-2)\times(|V|-2)$ Gitter erzeugt \cite{schnyder90}.
 
 Wir wollen hier die Verallgemeinerung auf 3-zusammenhängende planare Graphen durch Felsner und die zu ihnen in Bijektion stehenden Schnyder Labelings einführen \cite{felsner01}. Wir orientierten uns dabei an einem Lehrbuch von Felsner \cite{felsner12}. Für den Rest dieses Kapitels sei $G$, wenn nicht weiter spezifiziert, ein 3-zusammenhängender ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$.
 
@@ -104,7 +104,7 @@ Ein Schnyder Wood ist eine Orientierung und Beschriftung der Kanten von $G$ mit 
   \caption{Illustration der ersten drei Bedingungen für Schnyder Woods.}
 \end{figure}
 
-Analog zu den Schnyder Woods, kann man Schnyder Labelings definieren, die zu diesen in Bijektion stehen. Hier betrachten wir nicht zuerst die Kanten eines planaren Graphen sondern die Winkel an den Knoten.
+Analog zu den Schnyder Woods kann man Schnyder Labelings definieren, die zu diesen in Bijektion stehen. Hier betrachten wir nicht zuerst die Kanten eines planaren Graphen, sondern die Winkel an den Knoten.
 
 \begin{definition}[Schnyder Labeling]\label{def_sl}
 Ein Schnyder Labeling ist eine Beschriftung der Winkel von $G$ mit den Labeln 1, 2 und 3 (oder rot, grün und blau) unter Berücksichtigung der folgenden Regeln:
@@ -137,7 +137,7 @@ Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $a_1,a
 Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $a_1,a_2,a_3$. Der in Abbildung \ref{schnyder_bij} dargestellte Zusammenhang erzeugt eine Bijektion zwischen Schnyder Woods und Schnyder Labelings auf $G$.
 \end{theorem}
 
-Dies macht es möglich, wenn für Darstellung und Verständnis sinnvoll, zwischen den beiden Strukturen hin und her zu wechseln. So kann es im Verlauf dieser Arbeit vorkommen, dass wir vom einen schreiben, aber implizit Eigenschaften des anderen meinen. Für die von uns im Folgenden betrachteten Graphen existiert mindestens ein Schnyder Wood. Dies belegt das nächste Theorem nach Ezra Miller \cite[Theorem A]{miller02}.
+Dies ermöglicht es zwischen den beiden Strukturen hin und her zu wechseln, wenn es für die Darstellung und für das Verständnis sinnvoll ist. So kann es im Verlauf dieser Arbeit vorkommen, dass wir vom einen schreiben, aber implizit Eigenschaften des anderen meinen. Für die von uns im Folgenden betrachteten Graphen existiert mindestens ein Schnyder Wood. Dies belegt das nächste Theorem nach Ezra Miller \cite[Theorem A]{miller02}.
 
 \begin{theorem}
 Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. $G$ ist genau dann intern-3-zusammenhängend, wenn ein Schnyder Wood auf $G$ mit den Ecken $\{a_1,a_2,a_3\}$ existiert.
@@ -145,13 +145,13 @@ Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. $G$ ist genau dann
 
 \subsection{Einbettungen via Schnyder Woods}\label{face_counting}
 
-Es existieren einige Anwendungen von Schnyder Woods in Bezug auf Einbettungen. Wie schon erwähnt, bezieht sich eines der ersten Resultate auf die konvexe Einbettung auf einem Gitter. Das im Folgenden skizzierte \textit{face-counting} nach Felsner (deutsch: Gebiete zählen), erzeugt eine Einbettung auf einem kleineren Gitter als nach Schnyder \cite{felsner01}. Betrachte $G$ mit einem Schnyder Wood $T_1,T_2,T_3$. Es handelt es sich bei den Bäumen $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$ \cite[Korollar 2.5]{felsner12}. Von jedem Knoten $v$ aus existierten also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Jeweils zwei der Pfade von $v$ zu den Aufhängungen haben $v$ als einzigen gemeinsamen Knoten \cite[Lemma 2.4]{felsner12}. Wir können somit zu jedem Konten $v$ drei Regionen $R_i$ definieren, die jeweils von den Pfaden $P_{i-1}(v)$ und $P_{i+1}(v)$ und dem äußeren Gebiet eingegrenzt werden\footnote{Ein Beispiel für diese Regionen findet sich in Abbildung \ref{face_counting} auf der rechten Seite.}. In jeder dieser Regionen können wir nun die eingeschlossenen Gebiete von $G$ zählen. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich eine konvexe Zeichnung von $G$ erzeugen.
+Es existieren einige Anwendungen von Schnyder Woods in Bezug auf Einbettungen. Wie schon erwähnt, bezieht sich eines der ersten Resultate auf die konvexe Einbettung auf einem Gitter. Das im Folgenden skizzierte \textit{face-counting} nach Felsner (deutsch: Gebiete zählen) erzeugt eine Einbettung auf einem kleineren Gitter als nach Schnyder \cite{felsner01}. Betrachte $G$ mit einem Schnyder Wood $T_1,T_2,T_3$. Es handelt es sich bei den Bäumen $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$ \cite[Korollar 2.5]{felsner12}. Von jedem Knoten $v$ aus existieren also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Jeweils zwei der Pfade von $v$ zu den Aufhängungen haben $v$ als einzigen gemeinsamen Knoten \cite[Lemma 2.4]{felsner12}. Wir können somit zu jedem Konten $v$ drei Regionen $R_i$ definieren, die jeweils von den Pfaden $P_{i-1}(v)$ und $P_{i+1}(v)$ und dem äußeren Gebiet eingegrenzt werden\footnote{Ein Beispiel für diese Regionen findet sich in Abbildung \ref{face_counting} auf der rechten Seite.}. In jeder dieser Regionen können wir nun die eingeschlossenen Gebiete von $G$ zählen. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich eine konvexe Zeichnung von $G$ erzeugen.
 
 Hierzu ordnet man jedem Knoten $v$ seinen \textit{Gebietsvektor} $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. In Abbildung \ref{face_counting} sind auf der rechten Seite die Regionen von $v$ eingefärbt. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äußeren Ecken unserer Zeichnung. Sie entsprechen ebenfalls den Bildern der Aufhängungen von $G$. Die Position der inneren Knoten ergibt sich nun durch die Funktion 
 $$\mu: V \to \mathbb{R}^2,v\mapsto v_1\alpha_1 + v_2\alpha_2+v_3\alpha_3.$$ 
 
 \begin{theorem}[Theorem 2.7 \cite{felsner12}]
-Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$. Sei $(v_1,v_2,v_3)$ der, unter Berücksichtigung von $\sigma$ berechnete, Gebietsvektor von $v \in V$, mit $ v_i = \text{Anzahl der Gebiete in }R_i(v).$ Dann ist die Zeichnung $\mu(G)$ konvex.
+Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$ und $(v_1,v_2,v_3)$ der unter Berücksichtigung von $\sigma$ berechnete Gebietsvektor von $v \in V$, mit $ v_i = \text{Anzahl der Gebiete in }R_i(v).$, dann ist die Zeichnung $\mu(G)$ konvex.
 \end{theorem}
 
 Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und passt, falls $G$ 3-zusammenhängend ist, auf ein $(|F|-1)\times(|F|-1)$-Gitter \cite[Korollar 2.8]{felsner12}. Sie hat noch eine weitere Eigenschaft, die später von Nutzen sein wird und die in der nächsten Proposition festgehalten ist.  Dies ist in Abbildung \ref{face_counting} in der Mitte skizziert.
@@ -159,14 +159,14 @@ Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und pa
 \begin{figure}
 	\centering
   \includegraphics[width=1\textwidth]{face_counting.png}
-	\caption{Eine Schnyder Wood auf $G$ und die durch face-counting erhaltene Einbettung von $G$. Die eingefärbten Gebiete sind die Regionen die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
+	\caption{Eine Schnyder Wood auf $G$ und die durch face-counting erhaltene Einbettung von $G$. Die eingefärbten Gebiete sind die Regionen, die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
 	\label{face_counting}
 \end{figure}
 
 \begin{proposition}\label{w5}
 Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$. Für $\mu(G)$, die durch face-counting erzeugte Einbettung von $G$, gilt:
 \begin{itemize}
-\item [W5] Die Knoten eines inneren Gebietes werden auf die Seiten eines Dreiecks mit den Seiten $c_i(\alpha_{i-1}-\alpha_{i+1})$ mit passenden Konstanten $c_i$ abgebildet. Im inneren dieses Dreiecks befinden sich keine Knoten. Die Winkel im Inneren des Gebietes an den Knoten auf der Seite $c_i(\alpha_{i-1}-\alpha_{i+1})$ haben Label $i$ im Schnyder Labeling.
+\item [W5] Die Knoten eines inneren Gebietes werden auf die Seiten eines Dreiecks mit den Seiten $c_i(\alpha_{i-1}-\alpha_{i+1})$ mit passenden Konstanten $c_i$ abgebildet. Im Inneren dieses Dreiecks befinden sich keine Knoten. Die Winkel im Inneren des Gebietes an den Knoten auf der Seite $c_i(\alpha_{i-1}-\alpha_{i+1})$ haben Label $i$ im Schnyder Labeling.
 \end{itemize}
 \end{proposition}
 
@@ -175,17 +175,17 @@ Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a
 Für den Algorithmus in Kapitel \ref{main_algo} führen wir nun eine weitere zu Schnyder-Woods und Labelings in Bijektion stehende Struktur auf Graphen ein und folgen dabei wieder Felsner \cite{felsner04}.
 
 \begin{definition}[$\alpha$-Orientierung]
-Sei $G=(V,E)$ ein ungerichteter Graph und $\alpha:V\mapsto\mathbb{N}$ eine Funktion auf $G$. Eine $\alpha$\textit{-Orientierung} ist eine Orientierung der Kanten von $G$, sodass der Ausgangsgrad\footnote{Der Ausgangsgrad eines Knoten $v$ entspricht der Anzahl der adjazenten Kanten von $v$, die von $v$ weg gerichtet sind.} eines jeden Knoten $\alpha(v)$ entspricht, dass heißt $$\text{outdeg}(v) = \alpha(v).$$
+Sei $G=(V,E)$ ein ungerichteter Graph und $\alpha:V\mapsto\mathbb{N}$ eine Funktion auf $G$. Eine $\alpha$\textit{-Orientierung} ist eine Orientierung der Kanten von $G$, sodass der Ausgangsgrad\footnote{Der Ausgangsgrad eines Knoten $v$ entspricht der Anzahl der adjazenten Kanten von $v$, die von $v$ weg gerichtet sind.} eines jeden Knoten $\alpha(v)$ entspricht, dass heißt, $$\text{outdeg}(v) = \alpha(v).$$
 \end{definition}
 
-Um von $\alpha$-Orientierungen zu Schnyder Woods zu gelangen müssen wir Primal-Dual Graphen betrachten, die mit den nächsten beiden Definitionen eingeführt werden.
+Um von $\alpha$-Orientierungen zu Schnyder Woods zu gelangen, müssen wir Primal-Dual Graphen betrachten, die mit den nächsten beiden Definitionen eingeführt werden.
 
 \begin{definition}[schwacher dualer Graph]
 Sei $G$ ein ebener Graph. Wir definieren $G^*$, den \textit{schwachen dualen Graphen} von $G$. $G^*$ hat einen (Gebiets-)Knoten für jedes innere Gebiet von $G$. Für jede innere Kante in $G$ fügen wir eine Kante zwischen den beiden (Gebiets-)Knoten $f,f'$ in $G^*$ ein, die adjazent zu dieser Kante in $G$ sind.
 \end{definition}
 
 \begin{definition}[Primal-Dual Graph]
-Betrachte einen ebenen Graphen $G$ und seinen schwacher dualen Graphen $G^*$. Der \textit{Primal-Dual Graph} $G+G^*$ ist eine Vereinigung der Graphen $G$ und $G^*$. Wenn wir $G$ und $G^*$ übereinander legen, dann kreuzen sich jeweils eine Kante aus $G$ und eine aus $G^*$. An so einer Kantenkreuzung fügen wir in $G+G^*$ einen Knoten ein und verbinden ihn mit den adjazenten Knoten aus $G$ und $G^*$. Die Menge der Knoten von $G+G^*$ besteht aus Knoten-Knoten (Knoten in $G$), Kanten-Knoten (an den Kreuzungen) und Gebiets-Knoten (Knoten in $G^*$). Kanten in $G+G^*$ existieren, sowohl zwischen inzidenten Kanten und Knoten, als auch Kanten und Gebieten in $G$. Hinzu kommen Halbkanten von den Kanten-Knoten und Knoten-Knoten am äußeren Gebiet von $G$. Wenn wir einen Knoten $f_\infty$ für das äußere Gebiet hinzufügen und die Halbkanten zu diesem verlängern spricht man vom \textit{Abschluss} von $G+G^*$. Ein Beispiel ist in Abbildung \ref{alpha_ex} a) zu sehen.
+Betrachte einen ebenen Graphen $G$ und seinen schwacher dualen Graphen $G^*$. Der \textit{Primal-Dual Graph} $G+G^*$ ist eine Vereinigung der Graphen $G$ und $G^*$. Wenn wir $G$ und $G^*$ übereinander legen, dann kreuzen sich jeweils eine Kante aus $G$ und eine aus $G^*$. An so einer Kantenkreuzung fügen wir in $G+G^*$ einen Knoten ein und verbinden ihn mit den adjazenten Knoten aus $G$ und $G^*$. Die Menge der Knoten von $G+G^*$ besteht aus Knoten-Knoten (Knoten in $G$), Kanten-Knoten (an den Kreuzungen) und Gebiets-Knoten (Knoten in $G^*$). Kanten in $G+G^*$ existieren, sowohl zwischen inzidenten Kanten und Knoten, als auch Kanten und Gebieten in $G$. Hinzu kommen Halbkanten von den Kanten-Knoten und Knoten-Knoten am äußeren Gebiet von $G$. Wenn wir einen Knoten $f_\infty$ für das äußere Gebiet hinzufügen und die Halbkanten zu diesem verlängern, spricht man vom \textit{Abschluss} von $G+G^*$. Ein Beispiel ist in Abbildung \ref{alpha_ex} a) zu sehen.
 
 \end{definition}
 
@@ -211,8 +211,8 @@ Wir erklären kurz die erhaltene Bijektion von A1 und A2 zu A3. Angenommen wir h
 
 Angenommen wir haben eine $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Sie induziert die Orientierung der Kanten der resultierenden Schnyder Woods $\sigma$ und $\sigma^*$. Wir müssen jedoch noch die Label bestimmen. Dies erfolgt mit Hilfe der Gerader Pfad Regel. 
 
-\begin{description}
-\item[Gerader Pfad Regel:] Beginnen wir auf einer beliebigen Kante von $G+G^*$. Wenn wir einen Kanten-Knoten $e$ betreten, dann verlassen wir diesen auf der gegenüberliegenden Seite (wir folgen der zugrunde liegenden Kante in $G$ bzw. $G^*$). Wenn wir einen Knoten-Knoten oder Gebiets-Knoten $v$ betreten und über eine Kante kommen die zu $v$ orientiert ist, dann laufen wir auf der gegenüberliegenden, von $v$ weg orientierten Kante, weiter\footnote{Es existieren genau drei von $v$ weg orientierte Kanten und wir wählen die von uns aus gesehen Mittlere.} (vergleiche Abbildung \ref{straight_path} a). Falls wir $v$ über eine von $v$ weg orientierte Kante betreten, dann hängt unsere Wahl der Auskante von der Orientierung am letzten Kanten-Knoten $e$\footnote{Wir betreten Kanten-Knoten nur über zu diesen hin orientierte Kanten.} ab. Falls dort die Auskante auf der rechten Seite liegt, wählen wir jetzt die rechte\footnote{Falls wir $v$ durch eine von $v$ weg orientierte Kante betreten, dann bleiben noch zwei andere übrig.} von $v$ weg orientierte Kante, sonst die linke (vergleiche Abbildung \ref{straight_path} b). Falls wir $a_\infty$ erreichten laufen wir nicht weiter. 
+\begin{description}[leftmargin =0pt, font = \rmfamily ]
+\item[Gerader Pfad Regel:] Beginnen wir auf einer beliebigen Kante von $G+G^*$. Wenn wir einen Kanten-Knoten $e$ betreten, dann verlassen wir diesen auf der gegenüberliegenden Seite (wir folgen der zugrunde liegenden Kante in $G$ bzw. $G^*$). Wenn wir einen Knoten-Knoten oder Gebiets-Knoten $v$ betreten und über eine Kante kommen, die zu $v$ orientiert ist, dann laufen wir auf der gegenüberliegenden, von $v$ weg orientierten Kante weiter\footnote{Es existieren genau drei von $v$ weg orientierte Kanten und wir wählen die von uns aus gesehen Mittlere.} (vergleiche Abbildung \ref{straight_path} a). Falls wir $v$ über eine von $v$ weg orientierte Kante betreten, dann hängt unsere Wahl der Auskante von der Orientierung am letzten Kanten-Knoten $e$\footnote{Wir betreten Kanten-Knoten nur über zu diesen hin orientierte Kanten.} ab. Falls dort die Auskante auf der rechten Seite liegt, wählen wir jetzt die rechte\footnote{Falls wir $v$ durch eine von $v$ weg orientierte Kante betreten, dann bleiben noch zwei andere übrig.}, von $v$ weg orientierte Kante, sonst die linke (vergleiche Abbildung \ref{straight_path} b). Falls wir $a_\infty$ erreichen, laufen wir nicht weiter. 
 \end{description}
 
 \begin{figure}
@@ -222,14 +222,14 @@ Angenommen wir haben eine $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$.
   \label{straight_path}
 \end{figure}
 
-Betrachten wir einen Pfad nach der Regel, der mit einer gerichteten Kante $e \in G+G^*$ beginnt. Dann endet er in $a_\infty$ \cite[Lemma 15]{felsner01}. Der letzte passierte Knoten muss nun entweder eine der Aufhängungen von $G$ oder $G^*$ sein. Wir Färben den Pfad in der Farbe dieser Aufhängung. Die so erhaltene Orientierung und Färbung auf den Kanten von $G$ und $G^*$ entspricht zwei in Bijektion stehenden Schnyder Woods $\sigma$ und $\sigma^*$ \cite{felsner04}.
+Betrachten wir einen Pfad, der mit einer gerichteten Kante $e \in G+G^*$ beginnt, und mit der Gerader Pfad Regel fortfährt. Dann endet er in $a_\infty$ \cite[Lemma 15]{felsner01}. Der letzte passierte Knoten muss nun entweder eine der Aufhängungen von $G$ oder $G^*$ sein. Wir färben den Pfad in der Farbe dieser Aufhängung. Die so erhaltene Orientierung und Färbung auf den Kanten von $G$ und $G^*$ entspricht zwei in Bijektion stehenden Schnyder Woods $\sigma$ und $\sigma^*$ \cite{felsner04}.
 
 \section{Gerichtetes-Multi-Fluss-Problem}\label{dir_multi_flow}
 
-Wir werden in Kapitel \ref{main_algo} einen gerichteten Graphen $\mathcal{N}$ auf Basis von $G$ konstruieren, sodass ein maximaler Fluss $\varphi$ einer SLTR von $G$ entspricht. Es gibt viele unterschiedliche Arten von Flussproblemen. So kann man zum Beispiel Graphen mit nur einem Paar von Quellen und Senken oder mit jeweils mehreren betrachten und die Kanten können gerichtet oder ungerichtet sein. Im Fall von mehreren Quellen und Senken werden diese normalerweise als Paare $s_i,t_i$ gehandhabt und es wird gefordert, dass insgesamt Fluss $\varphi_i$ mit Stärke $d_i \in \mathbb{R}_+$ von $s_i$ zu $t_i$ fließt. Als zusätzliche Einschränkung haben die Kanten $e$ Kapazitäten $c(e) \in \mathbb{R}_+$, die nicht überschritten werden dürfen. Für jede Kante muss also gelten $\varphi(e) \leq c(e)$. Wir werden uns in Kapitel \ref{main_algo} mit einem Fluss der folgenden Form befassen.
+Wir werden in Kapitel \ref{main_algo} einen gerichteten Graphen $\mathcal{N}$ auf Basis von $G$ konstruieren, sodass ein maximaler Fluss $\varphi$ einer SLTR von $G$ entspricht. Es gibt viele unterschiedliche Arten von Flussproblemen. So kann man zum Beispiel Graphen mit nur einem Paar von Quellen und Senken oder mit jeweils mehreren Paaren betrachten und die Kanten können gerichtet oder ungerichtet sein. Im Fall von mehreren Quellen und Senken werden diese normalerweise als Paare $s_i,t_i$ gehandhabt und es wird gefordert, dass insgesamt Fluss $\varphi_i$ mit Stärke $d_i \in \mathbb{R}_+$ von $s_i$ zu $t_i$ fließt. Als zusätzliche Einschränkung haben die Kanten $e$ Kapazitäten $c(e) \in \mathbb{R}_+$, die nicht überschritten werden dürfen. Für jede Kante muss also gelten $\varphi(e) \leq c(e)$. Wir werden uns in Kapitel \ref{main_algo} mit einem Fluss der folgenden Form befassen.
 
 \begin{definition}[Gerichtetes-Multi-Fluss-Problem]\label{def_multi_flow}
-Sei $\mathcal{N}=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den Kapaziäten $c:E\mapsto\mathbb{R}_{+}$, Paaren von ausgezeichneten Knoten $\{(s_1,t_1), ... ,(s_n,t_n)\}\subset V \times V$ und positiven Bedarfen $\{d_1, ... ,d_n\} \in \mathbb{R}_+^n$. Dann bilden die Funktionen $\varphi_i: E \to \mathbb{R}_+^{|E|}$ einen zulässigen Fluss $\varphi=(\varphi_1, ... ,\varphi_n)$ auf $\mathcal{N}$, falls
+Sei $\mathcal{N}=(V,E)$ ein gerichteter Graph, im Weiteren auch Netzwerk genannt, mit den Kapaziäten $c:E\mapsto\mathbb{R}_{+}$, Paaren von ausgezeichneten Knoten $\{(s_1,t_1), ... ,(s_n,t_n)\}\subset V \times V$ und positiven Bedarfen $\{d_1, ... ,d_n\} \in \mathbb{R}_+^n$, dann bilden die Funktionen $\varphi_i: E \to \mathbb{R}_+^{|E|}$ einen zulässigen Fluss $\varphi=(\varphi_1, ... ,\varphi_n)$ auf $\mathcal{N}$, falls
 \begin{itemize}
 \item[M1] $\forall (u,v) \in E : \sum_{i=1}^{n}{\varphi_i(u,v)} \leq c(u,v) $
 \item[M2] $ \forall u \neq s_i,t_i : \sum_{w \in V} \varphi_i(u,w) - \sum_{w \in V} \varphi_i(w,u) $

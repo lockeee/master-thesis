@@ -464,14 +464,14 @@ Sei $E_C = \{S_1\cup \ldots \cup S_n\}$, sodass alle $S_i$ V- oder F-Schritte si
 Ein Schnyder-Zykel mit Kapazität 1 in $\mathcal{N}_G$ entspricht also einem gerichteten Zykel einer $\alpha_s$-Orientierung. Insbesondere finden wir also in einem ganzzahligen Schnyder-Fluss auch Schnyder-Zykel, die essentiellen Zykeln bezüglich $\alpha_s$-Orientierungen entsprechen.
 
 \begin{remark}
-Wir können den fraktionalen Schnyder-Fluss vollständig mit Schnyder-Zyklen der passenden Kapazitäten überdecken ohne dabei neue fraktionale Teile zu erzeugen. Dies ist möglich, da wir den Fluss in Pfade aufteilen können. Da die Kanten von der Quelle und zu Senke gesättigt sind, reicht es wenn wir die Pfadstücke zwischen den Kanten-Knoten und Gebiets-Knoten bzw. Knoten-Knoten betrachten. Aus den fraktionalen Pfaden können wir nun Schnyder-Zyklen bilden. Dies wirft die folgenden Fragen auf, die wir allerdings hier nicht beantworten können.
+Wir können den fraktionalen Schnyder-Fluss vollständig mit Schnyder-Zyklen der passenden Kapazitäten überdecken ohne dabei neue fraktionale Teile zu erzeugen. Dies ist möglich, da wir den Fluss in Pfade aufteilen können. Da die Kanten von der Quelle und zu Senke gesättigt sind, reicht es die Pfadstücke zwischen den Kanten-Knoten und Gebiets-Knoten bzw. Knoten-Knoten zu betrachten. Aus den fraktionalen Pfaden können wir nun Schnyder-Zyklen bilden. Dies wirft die folgenden Fragen auf, die wir allerdings hier nicht beantworten werden.
 \begin{itemize}
-\item Ist es möglich die Schnyder-Zykel so zu bilden, dass zu allen korrespondierende essentielle Zykel auf $G+G^*$ existieren, wenn wir zulassen, dass auch ganzzahlige Pfade aufgeteilt werden?
+\item Ist es möglich die Schnyder-Zykel so zu bilden, dass zu jedem ein korrespondierender essentieller Zykel auf $G+G^*$ existiert, wenn wir zulassen, dass auch ganzzahlige Pfade aufgeteilt werden?
 \item Angenommen dies ist möglich, muss dann $\tilde{\varphi}_s$ eine Linearkombination aus ganzzahligen Schnyder-Flüssen sein? Somit dann auch $\tilde{\varphi}$?
 \end{itemize}
 \end{remark}
 
-Die nächste Definition zeigt einen Weg auf mithilfe der alternierenden Zykel einen neuen zulässigen Fluss zu konstruieren.
+Die nächste Definition zeigt einen Weg auf, wie man mithilfe der alternierenden Zykel einen neuen zulässigen Fluss kann.
 
 \begin{definition}[Umkehrung eines Schynder-Zykels]
 Sei $E_C = \{S_1\cup \ldots \cup S_n\}$ Schnyder-Zykel mit Kapazität $a=|E_C|$. Wir können einen Schritt $S_i$ umkehren, indem wir Fluss mit Kapazität $a$ vom ersten Teil der Kanten auf den zweiten Teil verschieben. Die \textit{Umkehrung} von $E_C$ erfolgt nun, indem wir jeden Schritt $S_i \subset E_C$ umkehren (vergleiche Abbildung \ref{K_turn}).
@@ -501,12 +501,16 @@ Die hier eingeführten Definitionen führen zu deutlich längeren gleichgerichte
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth]{combined_face_alt_cycle.pdf}
-\caption{Ein Beispiel eines C-Zykels (blau) und eines Z-Zykels(grün). Der C-Zykel führt in diesem Beispiel nur bis zu einem Winkeldreieck (roter Punkt). Falls $a+b=1$ gilt und durch einen der beiden, vom Z-Zykel genutzen, Dummy-Knoten kein weiterer Zuweisungs-Pfad führt können wir die beiden Zykel umkehren und erhalten einen ganzzahligen Fluss.}
+\includegraphics[width=0.8\textwidth]{combined_face_alt_cycle.pdf}
+\caption{Ein Beispiel von zwei C-Zykeln (blau) und zwei Z-Zykeln(grün). Merke, dass es sich hier jeweils einmal um Zykel mit Kapazität $a$ und jeweils einmal um Zykel mit Kapazität $b$ handelt. Die C-Zykel führen in diesem Beispiel nur bis zu einem Winkeldreieck (roter Punkt). Falls $a+b=1$ gilt und durch einen der beiden, von den Z-Zykel genutzen, Dummy-Knoten kein weiterer Zuweisungs-Pfad führt können wir jeweils einen der beiden Zykel umkehren und erhalten einen ganzzahligen Fluss.}
 \label{combined_face_alt_cycle}
 \end{figure}
 
 Analog zu oben ist es möglich den fraktionalen Anteil des FAA-Flusses mit alternierenden Zykeln überdecken. Wir müssen dafür allerdings unter Umständen ganzzahlige Pfade aufteilen. In den Lösungen für $\mathcal{N}_G$, die mit dem in Kapitel \ref{the_program} vorgestellten Programm errechneten wurden, finden sich ebenfalls solche Zykel. Durch schrittweises Umkehren war es uns auf kleineren Beispielen möglich so ganzzahlige Lösungen zu konstruieren. Ein Ausschnitt aus so einem Beispiel ist in Abbildung \ref{combined_face_alt_cycle} zu sehen.
+
+Das Umkehren von Z-Zykeln liefert einen weiteren Weg um aus dem Zuweisungs-Fluss $\tilde{\varphi}_z$ eines nicht-ganzzahligen zulässigen Flusses $\tilde{\varphi}$ ein FAA zu konstruieren. Wir teilen zuerst den Zuweisungs-Fluss in Z-Zykel auf. 
+
+
 
 Es könnte möglich sein für nicht-ganzzahlige Lösungen, unter der Annahme, dass keine Ganzzahligen existieren können, zu einem Widerspruch zu gelangen und somit Vermutung \ref{int_conj} zu beweisen. Wir haben dies für einige Sonderfälle gezeigt. 
 Im Allgemeinen haben wir allerdings auch hier keinen Weg gefunden Vermutung \ref{int_conj} zu beweisen.

@@ -3,7 +3,7 @@
 Zum Einstieg eine weitere Definition, die es ermöglicht eine Beobachtung zu SLTRs festzuhalten. Die Beweise zu den in diesem Abschnitt aufgestellten Propositionen und Theoremen werden ausgelassen. Sie befinden sich, wenn nicht anders angegeben, in der entsprechenden Arbeit von Aerts und Felsner \cite{af13}.
 
 \begin{definition}[Begrenzende Zykel und kombinatorisch konvexe Ecken]\label{def_ccc}
-Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$, der H umrandende Weg in G, das heißt $\gamma$ ist eine Folge aus Kanten und Knoten die $H$ in $G$ begrenzt. Knoten und Kanten können in $\gamma$ mehrfach vorkommen (vergleiche Abbildung \ref{corner_def}). Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. Die Menge der Knoten, Kanten und Gebiete aus $G$ die im Inneren von $\gamma$ oder auf $\gamma$ liegen nennen wir int$(\gamma)$. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
+Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$ der H umrandende Weg in G. Somit ist $\gamma$ eine Folge aus Kanten und Knoten die $H$ in $G$ begrenzt. Knoten und Kanten können in $\gamma$ mehrfach vorkommen (vergleiche Abbildung \ref{corner_def}). Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. Die Menge der Knoten, Kanten und Gebiete aus $G$, die im Inneren von $\gamma$ oder auf $\gamma$ liegen, bezeichnen wir mit int$(\gamma)$. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
 \begin{itemize}
 \item [E1] $v$ ist eine Aufhängung, oder
 \item [E2] $v$ ist nicht durch $\phi$ zugeordnet und es existiert eine Kante $e = (v,w)$ mit $e \notin int(\gamma)$, oder
@@ -19,11 +19,11 @@ Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi
 \end{figure}
 
 \begin{remark}
-Angenommen wir haben einen ebenen Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und ein FAA auf $G$ gegeben. Um aus diesem FAA eine SLTR zu erzeugen müssen wir die Gebiete in die Form von Dreiecken bringen. Stellen wir uns vor, dass alle Knoten auf einem Haufen liegen. Als erstes \glqq ziehen\grqq{ }wir die Aufhängungen auseinander, um uns dann Stück für Stück nach innen vorzuarbeiten. Sind wir so bei einem Restgraphen $H$ angekommen, dann brauchen wir mindestens drei Knoten auf Rand ($\gamma(H)$) an denen wir \glqq ziehen\grqq{ }können um H in eine konvexe Form zu bringen, ohne dabei einen flachen Winkel des FAA zu verletzten. Kombinatorisch konvexe Ecken entsprechen anschaulich gesehen diesen Knoten.
+Angenommen wir haben einen ebenen Graphen $G$ mit Aufhängungen $\{a_1,a_2,a_3\}$ und ein FAA auf $G$ gegeben. Um aus diesem FAA eine SLTR zu erzeugen, müssen wir die Gebiete in die Form von Dreiecken bringen. Stellen wir uns vor, dass alle Knoten auf einem Haufen liegen. Als Erstes \glqq ziehen\grqq{ }wir die Aufhängungen auseinander, um uns dann Stück für Stück nach innen vorzuarbeiten. Sind wir so bei einem Restgraphen $H$ angekommen, dann brauchen wir mindestens drei Knoten auf Rand, also $\gamma(H)$, an denen wir \glqq ziehen\grqq{ }können, um H in eine konvexe Form zu bringen, ohne dabei einen flachen Winkel des FAA zu verletzten. Kombinatorisch konvexe Ecken entsprechen anschaulich gesehen diesen Knoten.
 \end{remark}
 
 \begin{example}
-Betrachten wir eine SLTR und einen begrenzenden Zykel $\gamma$, der nicht von einem Pfad induziert wird. In Abbildung \ref{pic_exp_cycle} ist so eine SLTR mit dem begrenzenden Zykel in rot abgebildet. Sei $K$ die konvexe Hülle von $\gamma$ in der SLTR. Sie ist hier grau unterlegt. Dann muss jede Ecke von $K$ einen Außenwinkel haben, welcher grösser als $\pi$ ist. Und da $K$ nicht von einem Pfad induziert ist müssen mindestens drei Ecken existieren (die drei roten Kreise). Es handelt sich um geometrisch konvexe Ecken in der SLTR. Nun ist der Knoten $v$ an dieser Ecke entweder eine Aufhängung (wie unten links) oder es muss eine Kante geben die $K$ verlässt, denn in einer SLTR kann kein Winkel (ausser an den Aufhängungen) grösser sein als $\pi$. Wenn der Knoten $v$ an der Ecke keine Aufhängung ist, dann existiert also mindestens eine Kante $(v,w) \notin K$. Es handelt sich also bei $v$ auch um eine kombinatorisch konvexe Ecken von $\gamma$. Somit hat $\gamma$ mindestens drei kombinatorisch konvexe Ecken in der SLTR. 
+Betrachten wir eine SLTR und einen begrenzenden Zykel $\gamma$, der nicht von einem Pfad induziert wird. In Abbildung \ref{pic_exp_cycle} ist so eine SLTR mit dem begrenzenden Zykel in rot abgebildet. Sei $K$ die konvexe Hülle von $\gamma$ in der SLTR. Sie ist hier grau unterlegt. Dann muss jede Ecke von $K$ einen Außenwinkel haben, welcher grösser als $\pi$ ist. Und da $K$ nicht von einem Pfad induziert ist, müssen mindestens drei Ecken existieren (die drei roten Kreise). Es handelt sich um geometrisch konvexe Ecken in der SLTR. Nun ist der Knoten $v$ an dieser Ecke entweder eine Aufhängung (wie unten links) oder es muss eine Kante geben, die $K$ verlässt, denn in einer SLTR kann kein Winkel (ausser an den Aufhängungen) grösser sein als $\pi$. Wenn der Knoten $v$ an der Ecke keine Aufhängung ist, dann existiert also mindestens eine Kante $(v,w) \notin K$. Es handelt sich also bei $v$ auch um eine kombinatorisch konvexe Ecken von $\gamma$. Somit hat $\gamma$ mindestens drei kombinatorisch konvexe Ecken in der SLTR. 
 \end{example}
 
 \begin{figure}[h]
@@ -33,22 +33,22 @@ Betrachten wir eine SLTR und einen begrenzenden Zykel $\gamma$, der nicht von ei
   \label{pic_exp_cycle}
 \end{figure}
 
-Die Beobachtung aus dem Beispiel gilt allgemein für SLTRs und begrenzende Zykel. Die folgende Präposition nach \cite[Prop 2.2, Prop 2.4]{af13} hält sie fest.
+Die Beobachtung aus dem Beispiel gilt allgemein für SLTRs und begrenzende Zykel. Die folgende Präposition nach \cite[Prop 2.2, Prop 2.4]{af13} hält sie fest:
 
 \begin{proposition}\label{com_prop}
-Sei $G$ ein ebener Graph der eine SLTR zulässt. Sei weiter $\phi$ das von der SLTR induzierte FAA. Sei $H$ ein zusammenhängender Teilgraph von G (kein Pfad) und $\gamma = \gamma(H)$ sein begrenzender Zykel. Falls $v$ eine geometrisch konvexe Ecke von $\gamma$ in der SLTR ist, dann ist $v$ auch eine kombinatorisch konvexe Ecke von $\gamma$ hinsichtlich $\phi$. Somit gilt:
+Sei $G$ ein ebener Graph, der eine SLTR zulässt. Sei weiter $\phi$ das von der SLTR induzierte FAA. Sei $H$ ein zusammenhängender Teilgraph von G (kein Pfad) und $\gamma = \gamma(H)$ sein begrenzender Zykel. Falls $v$ eine geometrisch konvexe Ecke von $\gamma$ in der SLTR ist, dann ist $v$ auch eine kombinatorisch konvexe Ecke von $\gamma$ hinsichtlich $\phi$. Somit gilt:
 \begin{itemize}
 \item [E4] Jeder begrenzende Zykel $\gamma$, der nicht von einem Pfad induziert wird, hat hinsichtlich $\phi$ mindestens drei kombinatorisch konvexe Ecken.
 \end{itemize}
 \end{proposition}
 
-Proposition \ref{com_prop} liefert also eine notwendige Bedingung damit ein FAA von einer SLTR induziert sein kann. Dies ist sogar eine hinreichende Bedingung, wie im Verlauf des Kapitels in Theorem \ref{com_theo} gezeigt wird. 
+Proposition \ref{com_prop} liefert also eine notwendige Bedingung, damit ein FAA von einer SLTR induziert sein kann. Dies ist sogar eine hinreichende Bedingung, wie im Verlauf des Kapitels in Theorem \ref{com_theo} gezeigt wird. 
 
 \begin{definition}[Gutes-FAA]
 Wir nennen ein FAA, das E4 aus Proposition \ref{com_prop} erfüllt, im Weiteren \textit{Gutes-FAA} oder kurz \textit{GFAA}.
 \end{definition}
 
-Aerts und Felsner zeigen, dass ein Gutes-FAA eine \textit{Kontaktfamilie von Pseudosegmenten} induziert die \textit{dehnbar} ist und sich somit geradlinig darstellen lässt.
+Aerts und Felsner zeigen, dass ein Gutes-FAA eine \textit{Kontaktfamilie von Pseudosegmenten} induziert, die sich somit geradlinig darstellen lässt. Wir beginnen mit der Definition.
 
 \begin{definition}[Kontaktfamilie von Pseudosegmenten]
 Eine \textit{Kontaktfamilie von Pseudosegmenten} ist eine Familie $\Sigma = \{c_i\}_{i\in I}$ von einfachen Kurven $$c_i:[0,1] \to \mathbb{R}^2, \text{ mit } c_i(0) \neq c_i(1),$$ sodass alle Kurven $c_i,c_j$ mit $i \neq j$ maximal einen gemeinsamen Punkt haben. Dieser Punkt muss dann ein Endpunkt von mindestens einer der Kurven sein.
@@ -56,7 +56,7 @@ Eine \textit{Kontaktfamilie von Pseudosegmenten} ist eine Familie $\Sigma = \{c_
 
 Ein GFAA $\phi$ liefert eine Relation $\rho$ auf den Kanten von G. Zwei Kanten $(v,w)$ und $(v,u)$, beide adjazent zu $f$, stehen genau dann in Relation, wenn $\phi(v)=f$. $(v,w)$ und $(v,u)$ müssen also auf der selben Seite  des Dreiecks $f$ in der SLTR liegen. Der transitive Abschluss dieser Relation liefert eine Äquivalenzrelation $\rho$. Die Aquivalenzklassen von $\rho$ bilden eine Kontaktfamilie von Pseudosegmenten.
 
-Nennen wir die Äquivalenzklassen von $\rho$ Kurven, dann gilt nach F2, dass jeder Knoten nur einem Gebiet zugeordnet werden kann und somit auch nur im Inneren von einer Kurve liegt. Die Kurven können sich also nicht kreuzen, sondern es kann nur eine an einer anderen enden. Weiter hat jede Kurve unterschiedliche Anfangs- und Endpunkte und kann sich nicht selbst berühren. Dies kann man so begründen, dass sonst der resultierende begrenzende Zykel $\gamma$ nur eine beziehungsweise zwei kombinatorisch konvexe Ecken hätte. Das wäre ein Widerspruch zu E4. Analog können zwei Kurven nicht ihre Anfangs- und Endpunkte teilen, da sonst wieder ein Zykel mit zu wenigen Ecken entstehen würde. Für eine von einem FAA $\phi$ induzierte Kontaktfamilie schreiben wir auch $\Sigma_{\phi}$. 
+Nennen wir die Äquivalenzklassen von $\rho$ Kurven, dann gilt nach F2, dass jeder Knoten nur einem Gebiet zugeordnet werden kann und somit auch nur im Inneren von einer Kurve liegt. Die Kurven können sich also nicht kreuzen, sondern es kann nur eine an einer anderen enden. Weiter hat jede Kurve unterschiedliche Anfangs- und Endpunkte und kann sich nicht selbst berühren. Dies kann man so begründen, dass sonst der resultierende begrenzende Zykel $\gamma$ nur eine, beziehungsweise zwei kombinatorisch konvexe Ecken hätte. Das wäre ein Widerspruch zu E4. Analog können zwei Kurven nicht ihre Anfangs- und Endpunkte teilen, da sonst wieder ein Zykel mit zu wenigen Ecken entstehen würde. Für eine von einem FAA $\phi$ induzierte Kontaktfamilie schreiben wir auch $\Sigma_{\phi}$. 
 
 \begin{figure}[h]
 	\centering
@@ -81,7 +81,7 @@ Sei $\Sigma$ ein Kontaktfamilie von Pseudosegmenten und $S\subseteq\Sigma$. Wir 
 \end{figure}
 
 \begin{lemma}\cite[Lemma 2.8]{af13}\label{lemma_af13}
-Sei $\phi$ ein Gutes-FAA auf einem ebenen und intern 3-zusammenhängenden Graphen. Dann gilt: 
+Sei $\phi$ ein Gutes-FAA auf einem ebenen und intern 3-zusammenhängenden Graphen, dann gilt: 
 \begin{itemize}
 \item [E5] Jede Teilmenge $S \subseteq \Sigma_{\phi}$ mit $|S| \geq 2$ hat mindestens 3 freie Punkte.
 \end{itemize}
@@ -91,23 +91,23 @@ Betrachte einen ebenen, intern 3-zusammenhängenden Graphen $G$ mit Aufhängunge
 
 \subsection{Harmonische Funktionen auf planaren Graphen}
 
-Die Theorie zu (diskreten) harmonischen Funktionen auf planaren Graphen und ihre Anwendung wird in \cite{lov99} ausführlich behandelt. Es handelt sich um eine Diskretisierung von allgemeinen harmonischen Funktionen, also glatten Funktionen $f:G\subseteq \mathbb{R}^n \to \mathbb{R}$, mit $\Delta f = 0$, wobei $\Delta$ den Laplace Operator beschreibt. Für diese Funktionen gilt, dass der Funktionswert an einem Punkt $x$, dem Durchschnitt der Funktionswerte auf einem Ball um $x$ entspricht. 
+Die Theorie zu (diskreten) harmonischen Funktionen auf planaren Graphen und ihre Anwendung wird in \cite{lov99} ausführlich behandelt. Es handelt sich um eine Diskretisierung von allgemeinen harmonischen Funktionen, also glatten Funktionen $f:G\subseteq \mathbb{R}^n \to \mathbb{R}$, mit $\Delta f = 0$, wobei $\Delta$ den Laplace Operator beschreibt. Für diese Funktionen gilt, dass der Funktionswert an einem Punkt $x$ dem Durchschnitt der Funktionswerte auf einem Ball um $x$ entspricht. 
 
 Dies führt zu der folgenden Definition im diskreten Fall.
 
 \begin{definition}[Harmonische Funktionen]
 Sei $G=(V,E)$ ein planarer zusammenhängender Graph und $S \subseteq V$. Eine Funktion $g:V \to \mathbb{R}$ nennen wir am Knoten $v \in V$ \textit{harmonisch}, falls gilt:
 $$ \text{H1} \quad \sum_{u \in N(v)}(g(u) - g(v)) = 0 \quad \qquad\qquad \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad\:\,\:$$
-Wir können H1 durch das hinzufügen einer nichtnegativen Gewichtsfunktion $\lambda:E\to\mathbb{R}_+$ verallgemeinern. Es gilt $\lambda(v,w) = \lambda_{vw}$.
+Wir können H1 durch das Hinzufügen einer nichtnegativen Gewichtsfunktion $\lambda:E\to\mathbb{R}_+$ verallgemeinern. Es gilt $\lambda(v,w) = \lambda_{vw}$.
 $$ \text{H2}\quad \sum_{u \in N(v)}\lambda_{uv}(g(u) - g(v)) = 0 \quad\qquad \qquad\qquad \qquad\qquad\qquad\qquad\qquad\qquad$$
-Ein Knoten für den $g$ nicht harmonisch ist, nennen wir \textit{Pol}.
+Einen Knoten, für den $g$ nicht harmonisch ist, nennen wir \textit{Pol}.
 \end{definition}
 
 \begin{theorem}\cite[Theorem 3.1.2]{lov99}\label{harmonic_uni}
 Für jede nichtleere Teilmenge $S \subseteq V$ und jede Funktion $g_S:S\to\mathbb{R}$ existiert genau eine Funktion $g:V\to\mathbb{R}$, die $g_S$ auf $V$ fortsetzt, sodass $g$ in jedem Knoten $v\in V \backslash S$ harmonisch ist. Wir nennen sie die harmonische Fortsetzung von $g_S$ auf $V$.
 \end{theorem}
 
-Ein bekanntes Resultat, das sich in Form harmonischer Funktionen darstellen lässt, ist Tuttes \textit{rubber-band-representation}, die konvexe Zeichnungen für planare Graphen liefert \cite{tutte63}. Man stelle sich einen planaren Graphen vor, bei dem jede Kante durch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Fixiere für den Moment alle Knoten in einem beliebigen Punkt. Wähle nun ein äußeres Gebiet $f_{aus}$. Die Menge $S\subseteq V$ seien die zu $f_{aus}$ adjazenten Knoten. Nun fixieren wir diese Knoten in zyklischer Reihenfolge und in gleichen Abständen auf einem Kreis in der Ebene. Dies definiert $f_x:S \to \mathbb{R}$ und  $f_y:S \to \mathbb{R}$. Wenn wir nun die restlichen Knoten loslassen, dann werden sie von den Gummibändern in eine neue Position gezogen. Das resultierende Gleichgewicht, das genau dann entsteht, wenn H1 für beide Komponenten von $f$ erfüllt ist, entspricht der (komponentenweisen) harmonischen Fortsetzung von $f=(f_x,f_y)$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Wir können die Kanten zusätzlich noch mit nicht negativen Gewichten $\lambda_{vw}$, versehen um die Einbettung zu verändern. Das folgende Theorem ist das Hauptresultat dieser Vorgehensweise \cite{tutte63}.
+Ein bekanntes Resultat, das sich in Form harmonischer Funktionen darstellen lässt, ist Tuttes \textit{rubber-band-representation}, die konvexe Zeichnungen für planare Graphen liefert \cite{tutte63}. Man stelle sich einen planaren Graphen vor, bei dem jede Kante durch ein idealisiertes Gummiband\footnote{Die Gummibänder müssen das Hook'sche Gesetzt erfüllen, sodass eine Streckung auf Länge $l$ genau Kraft $l$ benötigt.} ersetzt wird. Fixiere für den Moment alle Knoten in einem beliebigen Punkt. Wähle nun ein äußeres Gebiet $f_{aus}$. Die Menge $S\subseteq V$ seien die zu $f_{aus}$ adjazenten Knoten. Nun fixieren wir diese Knoten in zyklischer Reihenfolge und in gleichen Abständen auf einem Kreis in der Ebene. Dies definiert $f_x:S \to \mathbb{R}$ und  $f_y:S \to \mathbb{R}$. Wenn wir nun die restlichen Knoten loslassen, dann werden sie von den Gummibändern in eine neue Position gezogen. Das resultierende Gleichgewicht, das genau dann entsteht, wenn H1 für beide Komponenten von $f$ erfüllt ist, entspricht der (komponentenweisen) harmonischen Fortsetzung von $f=(f_x,f_y)$  auf $V$, wobei $f(v)$ genau der Position von $v$ in der resultierenden Einbettung entspricht und $S$ die Menge der Pole von $f$ ist. Wir können die Kanten zusätzlich noch mit nicht negativen Gewichten $\lambda_{vw}$, versehen, um die Einbettung zu verändern. Das folgende Theorem ist das Hauptresultat dieser Vorgehensweise \cite{tutte63}.
 
 \begin{theorem}\label{theo_rubber}
 Sei $G$ ein planarer Graph, dann ist eine \textit{Gummiband-Representation (rubber-band-representation)} von $G$ eine planare Einbettung in der Ebene.
@@ -134,12 +134,12 @@ f_y(v) &= \sum_{u \in N(v)} \lambda_{uv} f_y(u) \text{, mit }  \sum_{u \in N(v)}
 \end{split}
 \end{equation}
 
-Somit erfüllt die so gegebene Funktion $f:V\to\mathbb{R}^2$ mit $f=(f_x,f_y)$ und passend gewählten $\lambda$ wegen (\ref{harm_1}) und (\ref{harm_2}) in beiden Komponenten H2. Es handelt sich somit bei $f_x$ und $f_y$ um harmonische Funktionen, mit den Polen $\{a_1,a_2,a_3\}$. Nach Theorem \ref{harmonic_uni}, existiert für jede, den Beschränkungen entsprechende Wahl von $\lambda$, somit genau eine Funktion $f=(f_x,f_y)$, welche die Gleichungen \ref{harm_1} und \ref{harm_2} erfüllt.
+Somit erfüllt die so gegebene Funktion $f:V\to\mathbb{R}^2$ mit $f=(f_x,f_y)$ und passend gewählten $\lambda$ wegen (\ref{harm_1}) und (\ref{harm_2}) in beiden Komponenten H2. Es handelt sich somit bei $f_x$ und $f_y$ um harmonische Funktionen mit den Polen $\{a_1,a_2,a_3\}$. Nach Theorem \ref{harmonic_uni} existiert für jede, den Beschränkungen entsprechende Wahl von $\lambda$, somit genau eine Funktion $f=(f_x,f_y)$, welche die Gleichungen \ref{harm_1} und \ref{harm_2} erfüllt.
 
 Dies führt uns zum Hauptresultat aus \cite{af13}:
 
 \begin{theorem}\label{com_theo}
-Sei $G$ ein intern-3-zusammenhängender, ebener Graph und $\Sigma$ eine Familie von Pseudosegmenten, induziert von einem FAA, sodass jede Teilfamilie $S \subset \Sigma$ entweder mindestens drei freie Punkte hat, oder maximal ein Element enthält. Dann induziert die eindeutige Lösung $f:V\to \mathbb{R}^2$ des aus $\Sigma$ resultierenden Gleichungssystems eine SLTR. 
+Sei $G$ ein intern-3-zusammenhängender, ebener Graph und $\Sigma$ eine Familie von Pseudosegmenten, induziert von einem FAA, sodass jede Teilfamilie $S \subset \Sigma$ entweder mindestens drei freie Punkte hat oder maximal ein Element enthält. Dann induziert die eindeutige Lösung $f:V\to \mathbb{R}^2$ des aus $\Sigma$ resultierenden Gleichungssystems eine SLTR. 
 \end{theorem}
 
 \begin{remark}
@@ -156,5 +156,5 @@ Aerts und Felsner werfen am Ende von \cite{af13} die Frage nach einer guten Wahl
 \end{figure}
 
 \begin{example}\label{bsp_exp_faa}
-Betrachten wir eine zusammenhängende Kette von $n$ Quadraten in der Ebene und verbinden wir ihre Eckpunkte mit drei Aufhängungen $a_1,a_2,a_3$, welche ein Dreieck bilden. Der so erzeuge Graph $G$ hat $2n+5$ Knoten und ist in Abbildung \ref{exp_faa} zu sehen. Wir wollen nun ein FAA für diesen Graphen erstellen (welches nicht zwangsläufig eine SLTR zulässt). Wir müssen für ein FAA jedem der inneren Quadrate einen Winkel zuordnen. Wenn wir von links beginnen und nach rechts laufen, können wir in jedem der $n$ inneren Quadrate mindestens aus drei Winkeln auswählen, um ein FAA zu erstellen. Es wurde höchstens einer der beiden Knoten auf der linken Seite von Quadrat $i$ im Schritt zuvor zugewiesen. Somit existieren mehr als $3^n$ FAAs für $G.$
+Betrachten wir eine zusammenhängende Kette von $n$ Quadraten in der Ebene und verbinden wir ihre Eckpunkte mit drei Aufhängungen $a_1,a_2,a_3$, welche ein Dreieck bilden. Der so erzeugte Graph $G$ hat $2n+5$ Knoten und ist in Abbildung \ref{exp_faa} zu sehen. Wir wollen nun ein FAA für diesen Graphen erstellen (welches nicht zwangsläufig eine SLTR zulässt). Wir müssen für ein FAA jedem der inneren Quadrate einen Winkel zuordnen. Wenn wir von links beginnen und nach rechts laufen, können wir in jedem der $n$ inneren Quadrate mindestens aus drei Winkeln auswählen, um ein FAA zu erstellen. Es wurde höchstens einer der beiden Knoten auf der linken Seite von Quadrat $i$ im Schritt zuvor zugewiesen. Somit existieren mehr als $3^n$ FAAs für $G.$
 \end{example}

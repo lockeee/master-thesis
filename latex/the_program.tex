@@ -8,6 +8,10 @@ Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, z
 
 Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutung \ref{int_conj} stimmt nicht notwendig. Es könnte hier ein FAA aus $\varphi_2$ extrahiert und ausgegeben werden. Wir gewährleisten  jedoch so die Korrektheit des Algorithmus, weil wir den Beweis von Vermutung \ref{int_conj} noch nicht gefunden haben. Bei Tests ergaben sich mit diesem Ansatz kürzere Berechnungszeiten, als bei der Suche nach ausschließlich ganzzahligen Lösungen. Zeile \ref{sanity_check} sollte nach Vermutung \ref{int_conj} nicht erreicht werden. Sie stellt jedoch sicher, dass Algorithmus \ref{algo_gfaa} immer dann ein Gutes-FAA ausgibt, wenn ein ganzzahliger Fluss auf Netzwerk \ref{net_sltr} existiert.
 
+\begin{remark}
+In der Implementierung wurden die Kanten innerhalb von Gebieten $f$ mit $|3|=3$ weggelassen, da die einzig mögliche Lösung hier ist, dass nur drei Ecken-Pfade durch das Gebiet laufen. Die Bedarfe werden dementsprechend angepasst.
+\end{remark}
+
 \section{Visualisierung}
 
 Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR, müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz über harmonische Funktionen nutzen, um eine SLTR von $G$ zu erhalten.
@@ -86,7 +90,7 @@ Es folgt eine kurze Beschreibung des von uns benutzen Samplers. Wir beginnen mit
 
 Nach jeder dieser Operationen ist $G_i$ weiterhin planar und die Erzeugung kann bei der gewünschten Knotenzahl angehalten werden. Abschließend wird zufällig ein äußeres Gebiet und aus diesem die Aufhängungen gewählt. Die Parameter der pseudo-zufälligen Erzeugung sind durch drei aufsteigende natürliche Zahlen $(a,b,c)$, mit $a\leq b\leq c\leq 1000$, gegeben und lassen sich anpassen. In jedem Schritt wird eine der vier Möglichkeiten PG1, PG2, PG3 und PG4 mit Verteilung $a/1000$, $(a+b)/1000$, $(a+b+c)/1000$ und $(1000-a-b-c)/1000$ ausgewählt. Wir benutzen zur Gewinnung der statistischen Daten Werte, die sich um $(a,b,c) \approx (380,650,990)$ bewegen.
 
-\input{table.tex}
+\input{table_int.tex}
 
 In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 100 und 1000 Knoten dargestellt, mit jeweils fünf Graphen pro Knotenanzahl. Ein Punkt in der Abbildung entspricht einem Graphen. Die Farben stehen für eine SLTR (blau), nur ein FAA (rot) oder einen Graphen mit keinem von beiden (grün). 
 Wie nicht anders zu erwarten, bilden die Farben drei Strahlen, die sich mit wachsender Knotenzahl zunehmend vermischen. Die Parameter des Samplers wurden so gewählt, um gerade an diesem Übergang viele Graphen zu erzeugen. Für Graphen mit im Verhältnis großen Kantenzahlen finden sich fast immer SLTRs und für Graphen mit wenigen Kanten existieren nur selten FAAs.
