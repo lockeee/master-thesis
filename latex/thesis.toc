@@ -27,4 +27,5 @@
 \contentsline {subsection}{\numberline {5.1.2}Eine heuristisch gute Wahl von $\lambda $}{75}{subsection.5.1.2}
 \contentsline {section}{\numberline {5.2}Experimentelle Rechnungen}{75}{section.5.2}
 \contentsline {section}{\numberline {5.3}Dokumentation}{77}{section.5.3}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{79}{chapter*.57}
+\contentsline {chapter}{\numberline {6}Fazit}{79}{chapter.6}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{81}{chapter*.57}
