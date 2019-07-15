@@ -14,7 +14,7 @@ def test_visualisation():
 		plot_sltr(G,outer_face=face,suspensions=sus)
 
 def write_statistics(s,t,amount):
-	with open('analysis13.csv', mode='a') as file:
+	with open('non_int_analysis13.csv', mode='a') as file:
 		for v in range(s,t+1):
 			for j in range(amount):
 				[G,sus,oF,emb] = random_3_graph(v)
@@ -29,6 +29,23 @@ def write_statistics(s,t,amount):
 						file.write(text + "f"+ '\n')
 				else:
 					file.write(text + "n" + '\n')
+			print v
+	file.close()
+
+def write_non_int_statistics(s,t,amount):
+	with open('non_int_analysis3.csv', mode='a') as file:
+		for v in range(s,t+1):
+			count = 0
+			while count < amount:
+				[G,sus,oF,emb] = random_3_graph(v)
+				if has_faa(G):
+					E = _calculate_2_flow(G,oF,sus,False,True,non_int_size=True)
+					if not E == [None,False]:
+						count += 1
+						print "E",E
+						text = str(E[0]) + " " + str(E[1]) + " "
+						file.write(text + "s"+ '\n')
+
 			print v
 	file.close()
 

@@ -271,7 +271,7 @@ Sei $\tilde{\varphi}=(\tilde{\varphi_1},\tilde{\varphi_2})$ ein nicht ganzzahlig
 Wenn wir nicht darauf bestehen, dass ein berechneter zulässiger Fluss auf $\mathcal{N}_G$ ganzzahlig ist, dann lässt sich ein zulässiger Fluss wie in Abschnitt \ref{dir_multi_flow} erwähnt durch lineare Programmierung in polynomineller Zeit finden und das Entscheidungsproblem, ob ein Graph eine SLTR hat läge so in P.
 \end{remark}
 
-Es ist uns noch nicht gelungen, einen Beweis von Vermutung \ref{int_conj} zu finden. Wir werden zuerst einen Weg besprechen, um ein FAA aus einer nicht-ganzzahligen Lösung zu konstruieren. Dieses FAA wäre dann nach Vermutung \ref{int_conj} ein Gutes-FAA. Im weiteren Verlauf dieses Abschnittes betrachten wir dann ein Paar der möglichen und verfolgten Beweisansätze. Um die Argumentation einfacher zu gestalten, werden wir das Zwei-Fluss-Problem manchmal als Drei-Fluss Problem, mit einer Lösung $\varphi=(\varphi_s,\varphi_e,\varphi_z)$, betrachten, indem wir Schnyder-, Ecken-, und Zuweisungs-Fluss eigene Typen und somit Quellen und Senken zuweisen.
+Es ist uns noch nicht gelungen, einen Beweis von Vermutung \ref{int_conj} zu finden. Wir werden zuerst einen Weg besprechen, um ein FAA aus einer nicht-ganzzahligen Lösung zu konstruieren. Dieses FAA wäre dann nach Vermutung \ref{int_conj} ein Gutes-FAA. Danach werden wir zwei mögliche Beweisansätze betrachten. Um die Argumentation einfacher zu gestalten, werden wir das Zwei-Fluss-Problem manchmal als Drei-Fluss Problem, mit einer Lösung $\varphi=(\varphi_s,\varphi_e,\varphi_z)$, betrachten, indem wir Schnyder-, Ecken-, und Zuweisungs-Fluss eigene Typen und somit Quellen und Senken zuweisen.
 
 \begin{proposition}
 Sei $\mathcal{N}^*_G$ ein Netzwerk bei dem wir Schnyder-, Ecken-, und Zuweisungs-Fluss jeweils eigene Quellen und Senken zuweisen und das sonst analog zu $\mathcal{N}_G$ konstruiert wird. Dann existiert ein zulässiger (ganzzahliger) Fluss $\varphi^*=(\varphi^*_s,\varphi^*_e,\varphi^*_z)$ auf $\mathcal{N}^*_G$ genau dann, wenn ein zulässiger (ganzzahliger) Fluss $\varphi=(\varphi_1,\varphi_2)$ auf 
@@ -321,7 +321,7 @@ Der Fluss $\varphi$ weißt nun jedem inneren Gebiet $f$ genau $|f|-3$ Winkel zu 
 
 Wenn wir zeigen könnten, dass ein wie in Proposition \ref{lem_faa} konstruiertes $\phi$ ein Gutes-FAA ist, folgt Vermutung \ref{int_conj}, da die Existenz eines Guten-FAAs $\phi$ nach Theorem \ref{theo_algo} auch die Existenz eines ganzzahligen zulässigen Flusses $\varphi$ für $\mathcal{N}_G$ impliziert. Die Ergebnisse aus Kapitel \ref{the_program} legen nahe, dass es sich um ein Gutes-FAA handelt. Formulieren wir dies als eine zweite Vermutung.
 
-\begin{conjecture}\label{conj_faa}
+\begin{conjecture}\label{faa_conj}
 Ein wie in Proposition \ref{lem_faa}, aus einem zulässigen Fluss auf $\mathcal{N}_G$ konstruiertes FAA $\phi$ ist ein Gutes-FAA von $G$ und induziert somit eine SLTR.
 \end{conjecture}
 
@@ -371,7 +371,7 @@ Falls es sich hierbei um minimale Schnitte handelt, dann würde dies bedeuten, d
 Falls wir nach demselben Schema diejenigen Kanten aus $\mathcal{N}_G$ entfernen, welche von einem Zuweisungs-Fluss gesättigt sind, der einem FAA entspricht, das keine SLTR induziert, dann muss so ein minimaler Schnitt $\mathcal{S}_{min}$ existieren. Sonst würde ein Widerspruch zu Theorem \ref{theo_ccc} entstehen.
 \end{remark}
 
-Falls Vermutung \ref{conj_faa} korrekt ist, dann könnte so ein Schnitt nicht existieren. Nehmen wir jedoch für den Moment an, dass $\mathcal{S}_{min}$ wie oben beschrieben existiert, dann können wir die folgenden Beobachtungen festhalten.
+Falls Vermutung \ref{faa_conj} korrekt ist, dann könnte so ein Schnitt nicht existieren. Nehmen wir jedoch für den Moment an, dass $\mathcal{S}_{min}$ wie oben beschrieben existiert, dann können wir die folgenden Beobachtungen festhalten.
 
 \begin{claim} \label{cut_types1}
 Falls $\mathcal{S}_{min}$ existiert, dann muss auch ein minimaler Schnitt $\mathcal{S}_{min}^*$ in $\overline{\mathcal{N}}_G$ existieren, sodass er nur Kanten von einem der vier Typen $\overline{E}_\triangledown, F_\square, V_\to$ und $E_\to$ enthält.
@@ -417,18 +417,18 @@ Uns ist es jedoch bis jetzt nicht gelungen mit diesem Ansatz zu einem Widerspruc
 
 Wir werden nun einen zweiten Beweisansatz erläutern. Sei $\tilde{\varphi}=(\tilde{\varphi}_s,\tilde{\varphi}_F)$ wieder ein (nicht-ganzzahliger) zulässiger Fluss auf $\mathcal{N}_G$. Wir können diesen Fluss in Pfade aufteilen. Diese Pfade werden bei einer nicht-ganzzahligen Lösung zumindest zum Teil fraktional sein\footnote{Der Fluss der auf so einem Pfad von der Quelle zur Senke gelangt ist nicht-ganzzahlig.}. Die Idee, die wir verfolgen wollen, ist, dass alternierende Folgen von Kanten in $\mathcal{N}_G$ existieren, auf denen wir den Fluss vertauschen können. Das Ziel ist es einen zulässigen Fluss zu konstruieren der weniger, oder gar keinen fraktionalen Anteil hat.
 
-Ein ganzzahliger Schnyder-Fluss entspricht genau einer $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Wir können nun nach \textit{essentiellen} Zykeln in einer $\alpha_s$-Orientierung suchen.
+Die formelle Definition dieses Ansatzes erfolgt nach einer Methode für $\alpha_s$-Orient\-ier\-ung\-en. Ein ganzzahliger Schnyder-Fluss auf $\mathcal{N}_G$ entspricht genau einer $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Wir definieren nach Felsner die \textit{essentiellen} Zykel auf dem Abschluss von $G+G^*$ bezüglich der $\alpha_s$-Orientierungen \cite{felsner04}.
 
 \begin{definition}[essenzieller Zykel]
-Einen Zykel $C$ in nennen wir \textit{essentiell}, falls gilt:
+Einen Zykel $C$ in $G+G^*$ nennen wir \textit{essentiell}, falls gilt:
 \begin{itemize}
-\item[C1] C ist einfach und es existieren keine Kanten, die zwei Knoten von C verbinden aber nicht zu C gehören.
-\item[C2] Alle Kanten die C mit einem Knoten in seinem Inneren verbinden sind in jeder $\alpha_s$-Orientierung gleich Orientiert.
-\item[C3] Es existiert eine $\alpha_s$-Orientierung mit C als gerichtetem Zykel
+\item[C1] $C$ ist einfach und es existieren keine Kanten, die zwei Knoten von $C$ verbinden aber nicht zu $C$ gehören.
+\item[C2] Alle Kanten die $C$ mit einem Knoten in seinem Inneren verbinden sind in jeder $\alpha_s$-Orientierung gleich orientiert.
+\item[C3] Es existiert eine $\alpha_s$-Orientierung mit $C$ als gerichtetem Zykel.
 \end{itemize}
 \end{definition}
 
-Nach Felsner können wir die Richtung der Kanten eines gerichteten essentiellen Zykels umdrehen und erhalten erneut eine $\alpha_s$-Orientierung. So kann man aus einem Schnyder Wood auf $G$ einen anderen erzeugen. Mit Hilfe dieser Methode lässt sich das folgende Theorem beweisen \cite{felsner04}.
+Nach Felsner können wir die Richtung der Kanten eines gerichteten essentiellen Zykels einer $\alpha_s$-Orientierung umkehren und erhalten erneut eine $\alpha_s$-Orientierung. So kann man aus einem Schnyder Wood auf $G$ einen anderen erzeugen. Mit Hilfe dieser Methode lässt sich das folgende Theorem beweisen \cite{felsner04}.
  
 \begin{theorem}
 Die Menge der Schnyder Woods eines intern-3-zusammenhängenden ebenen Graphen $G$ mit Aufhängungen $a_1,a_2,a_3$ bildet einen distributiven Verband.
@@ -437,14 +437,13 @@ Die Menge der Schnyder Woods eines intern-3-zusammenhängenden ebenen Graphen $G
 Das nächste Lemma schränkt die Länge essentieller Zykel ein.
 
 \begin{lemma}[Lemma 17 \cite{felsner04}]
-Sei $G$ ein intern-3-zusammenhängenden ebenen Graph $G$ mit Aufhängungen $a_1,a_2$ und $a_3$. Die mögliche Länge von e
-
+Sei $G$ ein intern-3-zusammenhängender ebener Graph $G$ mit Aufhängungen $a_1,a_2$ und $a_3$. Die möglichen Längen von essentiellen Zykeln $C$ von $\alpha_s$-Orientierungen sind 4, 6, 8, 10 und 12.
 \end{lemma}
 
-Beschränken wir unsere Suche, inspiriert von dieser Methode für $\alpha_s$-Orientierungen, für den Moment auf den Schnyder-Fluss $\tilde{\varphi}_s$. Die folgenden Definitionen stellen einen vorerst losen Zusammenhang, zwischen dem Schnyder-Fluss auf $\mathcal{N}_G$ und dem Umdrehen von essentiellen Zykeln einer $\alpha_s$-Orientierung her.
+Beschränken wir unsere Suche für den Moment auf den Schnyder-Fluss $\tilde{\varphi}_s$. Die folgenden Definitionen stellen einen vorerst losen Zusammenhang, zwischen dem Schnyder-Fluss auf $\mathcal{N}_G$ und der Umkehrung von essentiellen Zykeln einer $\alpha_s$-Orientierung her.
 
 \begin{definition}[V- und F-Schritte]
-Wir definieren zwei Mengen von Kanten in $\mathcal{N}_G$. Wir nennen $\{(e_1,v_1)(e_2,v_1)\}$ einen \textit{V-Schritt} mit Kapazität $a$, falls gilt: 
+Wir definieren zwei Mengen von Kanten in $\mathcal{N}_G$. Wir nennen $\{(e_1,v_1),(e_2,v_1)\}$ einen \textit{V-Schritt} mit Kapazität $a$, falls gilt: 
 $$\tilde{\varphi}_s(e_1,v_1) = a > 0 \text{ und } \tilde{\varphi}_s(e_2,v_1) \leq 1 - a.$$ 
 Analog nennen wir $\{(e_1,q_1),(q_1,f),(q_2,f),(e_2,q_2)\}$ einen \textit{F-Schritt} mit Kapazität $a$, falls gilt:
 $$\text{min}(\tilde{\varphi}_s(e_1,q_1),\tilde{\varphi}_s(q_1,f)) = a > 0 \text{ und } \text{max}(\tilde{\varphi}_s(q_2,f),\tilde{\varphi}_s(q_2,f)) \leq 1 - a.$$
@@ -454,33 +453,62 @@ Zwei Schritte folgen aufeinander, wenn der letze Knoten des Ersten dem ersten Kn
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{K_kreis.pdf}
-\caption{Wir können den $\alpha$-Kreis $E_C$ umdrehen, wenn er nur aus V-Schritten besteht. Die Kapazitäten werden nicht überschritten und durch die Konten $v$ und $e$ fließt gleich viel wie vor dem Wechsel. Wir erhalten somit einen zulässigen Fluss.}
+\caption{Wir können einen Schnyder-Zykel umkehren, wenn er nur aus V-Schritten besteht. Die Kapazitäten werden nicht überschritten und durch die Konten $v$ und $e$ fließt gleich viel Schnyder-Fluss.}
 \label{K_turn}
 \end{figure}
 
-\begin{definition}[$\alpha$-Kreis]
-Sei $E_C = \{S_1\cup \ldots \cup S_n\}$, sodass alle $S_i$ V- oder F-Schritte sind und $S_i$ und $S_{i+1}$ zyklisch aufeinander folgen. Wir nennen $E_C$ einen $\alpha$\textit{-Kreis} und seine Kapazität $|E_C|$ entspricht der minimalen Kapazität aller enthaltenen V- und F-Schritte.
+\begin{definition}[Schnyder-Zykel und alternierende Zykel]
+Sei $E_C = \{S_1\cup \ldots \cup S_n\}$, sodass alle $S_i$ V- oder F-Schritte sind und $S_i$ und $S_{i+1}$ zyklisch aufeinander folgen. Wir nennen $E_C$ einen \textit{Schnyder-Zykel} und seine Kapazität $|E_C|$ entspricht der minimalen Kapazität aller enthaltenen V- und F-Schritte. Wir nennen Schnyder-Zykel und die analogen Zykel in Ecken- und Zuweisungs-Fluss \textit{alternierende Zykel} von $\tilde{\varphi}$.
 \end{definition}
 
-Ein $\alpha$-Kreis mit Kapazität eins in $\mathcal{N}_G$ entspricht also einem gerichteten Zykel einer $\alpha_s$-Orientierung. Die $\alpha$-Kreise die nur aus V-Schritten bestehen können wir umdrehen indem wir den Fluss in $\tilde{\varphi}_s$ wie in Abbildung \ref{K_turn} verändern. Die Kapazitäten der Kanten werden nicht überschritten und durch die Knoten-Knoten und Kanten-Knoten fließt gleich viel Schnyder-Fluss wie zuvor. Der resultierende Fluss ist somit weiterhin zulässig.
+Ein Schnyder-Zykel mit Kapazität 1 in $\mathcal{N}_G$ entspricht also einem gerichteten Zykel einer $\alpha_s$-Orientierung. Insbesondere finden wir also in einem ganzzahligen Schnyder-Fluss auch Schnyder-Zykel, die essentiellen Zykeln bezüglich $\alpha_s$-Orientierungen entsprechen.
 
-Betrachten wir einen $\alpha$-Kreis der nur aus F-Schritten besteht. So ein Fluss ist in Abbildung \ref{G_turn} dargestellt. Das Problem bei der Drehung ist, dass die Kanten zwischen den kleinen Quadraten und inneren Gebieten von einem zulässigen Fluss $\tilde{\varphi}$ gesättigt werden. Somit müssen wir, wenn wir den Kreis drehen wollen, auch den FAA-Fluss $\tilde{\varphi}_F$ anpassen.
+\begin{remark}
+Wir können den fraktionalen Schnyder-Fluss vollständig mit Schnyder-Zyklen der passenden Kapazitäten überdecken ohne dabei neue fraktionale Teile zu erzeugen. Dies ist möglich, da wir den Fluss in Pfade aufteilen können. Da die Kanten von der Quelle und zu Senke gesättigt sind, reicht es wenn wir die Pfadstücke zwischen den Kanten-Knoten und Gebiets-Knoten bzw. Knoten-Knoten betrachten. Aus den fraktionalen Pfaden können wir nun Schnyder-Zyklen bilden. Dies wirft die folgenden Fragen auf, die wir allerdings hier nicht beantworten können.
+\begin{itemize}
+\item Ist es möglich die Schnyder-Zykel so zu bilden, dass zu allen korrespondierende essentielle Zykel auf $G+G^*$ existieren, wenn wir zulassen, dass auch ganzzahlige Pfade aufgeteilt werden?
+\item Angenommen dies ist möglich, muss dann $\tilde{\varphi}_s$ eine Linearkombination aus ganzzahligen Schnyder-Flüssen sein? Somit dann auch $\tilde{\varphi}$?
+\end{itemize}
+\end{remark}
 
-\begin{figure}[h]
+Die nächste Definition zeigt einen Weg auf mithilfe der alternierenden Zykel einen neuen zulässigen Fluss zu konstruieren.
+
+\begin{definition}[Umkehrung eines Schynder-Zykels]
+Sei $E_C = \{S_1\cup \ldots \cup S_n\}$ Schnyder-Zykel mit Kapazität $a=|E_C|$. Wir können einen Schritt $S_i$ umkehren, indem wir Fluss mit Kapazität $a$ vom ersten Teil der Kanten auf den zweiten Teil verschieben. Die \textit{Umkehrung} von $E_C$ erfolgt nun, indem wir jeden Schritt $S_i \subset E_C$ umkehren (vergleiche Abbildung \ref{K_turn}).
+\end{definition}
+
+Die Schnyder-Zykel, die nur aus V-Schritten bestehen, können wir umkehren, indem wir den Fluss in $\tilde{\varphi}_s$ wie in Abbildung \ref{K_turn} verändern. Die Kapazitäten der Kanten werden nicht überschritten und durch die Knoten-Knoten und Kanten-Knoten fließt gleich viel Schnyder-Fluss wie zuvor. Der resultierende Fluss ist somit weiterhin zulässig.
+
+\begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{G_kreis.pdf}
-\caption{Wir können einen $\alpha$-Kreis der F-Schritte enthält nicht umdrehen, ohne auch den FAA-Fluss anzupassen, da wir sonst die Kapazitäten der Kanten überschreiten. Die grau unterlegten Kanten sind von $\tilde{\varphi}$ gesättigt.}
+\caption{Wir können einen Schnyder-Zykel der F-Schritte enthält nicht umkehren, ohne auch den FAA-Fluss anzupassen, da wir sonst die Kapazitäten der Kanten überschreiten. Die grau unterlegten Kanten sind von $\tilde{\varphi}$ gesättigt.}
 \label{G_turn}
 \end{figure}
 
+Betrachten wir einen Schnyder-Zykel, der nur aus F-Schritten besteht. So ein Fluss ist in Abbildung \ref{G_turn} dargestellt. Das Problem bei der Umkehrung ist, dass die Kanten zwischen den kleinen Quadraten und inneren Gebieten von einem zulässigen Fluss $\tilde{\varphi}$ gesättigt werden. Somit müssen wir, wenn wir den Zykel umkehren wollen, auch den FAA-Fluss $\tilde{\varphi}_F$ anpassen. Wir definieren analog zu oben alternierende Zykel auf dem Ecken- und Zuweisungsfluss.
 
-
-\begin{definition}[C-Schritte]
-Wir nennen $\{(s_2,v_1)(e_2,v_1)\}$ einen \textit{V-Schritt} mit Kapazität $a$, falls gilt: 
-$$\tilde{\varphi}_s(e_1,v_1) = a > 0 \text{ und } \tilde{\varphi}_s(e_2,v_1) \leq 1 - a.$$ 
-Analog nennen wir $\{(e_1,q_1),(q_1,f),(q_2,f),(e_2,q_2)\}$ einen \textit{F-Schritt} mit Kapazität $a$, falls gilt:
-$$\text{min}(\tilde{\varphi}_s(e_1,q_1),\tilde{\varphi}_s(q_1,f)) = a > 0 \text{ und } \text{max}(\tilde{\varphi}_s(q_2,f),\tilde{\varphi}_s(q_2,f)) \leq 1 - a.$$
-Zwei Schritte folgen aufeinander, wenn der letze Knoten des Ersten dem ersten Knoten des Zweiten entspricht (vergleiche Abbildung \ref{K_turn}).
+\begin{definition}[Z-Zykel und C-Zykel]
+Wir nennen $E_C=\{S_Z \cup S'_Z\}$, mit  $S_Z = \{(s_2,w_1),(w_1,w_2),(w_2,v_1^*),(v_1^*,s_d)\}$ und $S'_Z=\{(s_2,w'_1),(w'_1,w'_2),(w'_2,v^{'*}_1),(v^{'*}_1,s_d)\}$ einen \textit{Z-Zykel} mit Kapazität $a$, falls gilt: 
+$$\text{min}(\tilde{\varphi}_s(\{S_Z\}) = a > 0 \text{ und } \text{max}(\tilde{\varphi}_s(\{S'_Z\}) \leq 1 - a.$$
+Wir nennen $E_C=\{C_Z \cup C'_Z\}$, mit  $C_Z = \{(s_2,w^1_1), (w^1_1,w^1_2), (w^1_2,w^1_3), (w^1_3,w^1_4), (w^1_4,w^2_3), $ $(w^2_3,w^2_4), \ldots (w^k_4,q),(q,f),(f,t_2)\}$ und analogem $C'_Z$ einen \textit{C-Zykel} mit Kapazität $a$, falls gilt: 
+$$\text{min}(\tilde{\varphi}_s(\{C_Z\}) = a > 0 \text{ und } \text{max}(\tilde{\varphi}_s(\{C'_Z\}) \leq 1 - a.$$
 \end{definition}
 
+\begin{remark}
+Die hier eingeführten Definitionen führen zu deutlich längeren gleichgerichteten Kantenfolgen als zuvor. Es können allerdings auch kürzere Formen von Z- und C-Zykel auftreten. Ein Z-Zykel kann schon in einem Dummy-Knoten enden. Ein C-Zykel kann entweder in einem inneren Gebiet, oder am Knoten $w^{i}_3$ eines Winkel\-dreiecks enden. In keinem der beiden Fälle müssen die Längen von erstem und zweitem Teil übereinstimmen.
+\end{remark}
 
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{combined_face_alt_cycle.pdf}
+\caption{Ein Beispiel eines C-Zykels (blau) und eines Z-Zykels(grün). Der C-Zykel führt in diesem Beispiel nur bis zu einem Winkeldreieck (roter Punkt). Falls $a+b=1$ gilt und durch einen der beiden, vom Z-Zykel genutzen, Dummy-Knoten kein weiterer Zuweisungs-Pfad führt können wir die beiden Zykel umkehren und erhalten einen ganzzahligen Fluss.}
+\label{combined_face_alt_cycle}
+\end{figure}
+
+Analog zu oben ist es möglich den fraktionalen Anteil des FAA-Flusses mit alternierenden Zykeln überdecken. Wir müssen dafür allerdings unter Umständen ganzzahlige Pfade aufteilen. In den Lösungen für $\mathcal{N}_G$, die mit dem in Kapitel \ref{the_program} vorgestellten Programm errechneten wurden, finden sich ebenfalls solche Zykel. Durch schrittweises Umkehren war es uns auf kleineren Beispielen möglich so ganzzahlige Lösungen zu konstruieren. Ein Ausschnitt aus so einem Beispiel ist in Abbildung \ref{combined_face_alt_cycle} zu sehen.
+
+Es könnte möglich sein für nicht-ganzzahlige Lösungen, unter der Annahme, dass keine Ganzzahligen existieren können, zu einem Widerspruch zu gelangen und somit Vermutung \ref{int_conj} zu beweisen. Wir haben dies für einige Sonderfälle gezeigt. 
+Im Allgemeinen haben wir allerdings auch hier keinen Weg gefunden Vermutung \ref{int_conj} zu beweisen.
+
+Wir beenden an diesem Punkt die Erläuterung der Beweisansätze und müssen Vermutung \ref{int_conj} unbewiesen lassen.

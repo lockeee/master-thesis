@@ -1,19 +1,3 @@
-
-\begin{figure}
-        \centering
-\begin{tikzpicture}[thick, scale=1.6,font=\tiny]
-\begin{axis}[xlabel=Anzahl Knoten,ylabel=Anzahl Kanten]
-
-\addplot[
-	scatter/classes={
-    	s={mark=square*,scale=0.1,blue},
-    	f={mark=square*,scale=0.1,red},
-    	n={mark=square*,scale=0.1,black}
-    	},
-	scatter,only marks,
-    	scatter src=explicit symbolic,]
-	table[meta=label] {
-x y label
 1971 280 s
 1767 0 s
 2162 118 s
@@ -216,11 +200,3 @@ x y label
 3593 208 s
 4206 62 s
 3516 0 s
-    };
-\end{axis}
-\end{tikzpicture}
-\caption{ Ergebnisse von experimentellen Rechnungen des Programms auf pseudo-zufälligen planaren 3-zusammenhängenden Graphen mit gegebenen Aufhängungen. Jeder Punkt entspricht einem Graphen mit SLTR (blau), nur FAA (rot) und ohne FAA (grün).}
-\label{table}
-\end{figure}
-
-TODO neue Daten nicht vergessen

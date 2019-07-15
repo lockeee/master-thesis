@@ -49,13 +49,13 @@ Sei $G$ ein ebener Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$ als äußere Ec
 \end{proposition}
 
 \begin{proof}
-Sei $\Delta$ die SLTR von $G=(V,E)$. Angenommen es existiert eine Menge $U \subseteq V$ in $G$ mit $|U| = 2$, deren Entnahme $G$ in nicht zusammenhängende Komponenten trennt. Wir werden zeigen, dass jeder Teil von $G\backslash U$ eine der Aufhängungen enthält und somit $G + a_\infty$ nicht von $U$ getrennt wird. Da $G$ intern-3-zusammenhängend ist können nur die Aufhängungen $a_i$ Grad zwei haben. Sei $K$ eine der Komponenten von $G\backslash U$. Betrachte $K\cup U$ als induzierten Teilgraphen von $G$. Falls $K\cup U$ ein Pfad ist, also nur Knoten von Grad zwei oder eins enthält, dann kann nur $K=\{a_i\}$ gelten.
+Sei $\Delta$ die SLTR von $G=(V,E)$. Angenommen es existiert eine Menge $U \subseteq V$ in $G$ mit $|U| = 2$, deren Entnahme $G$ in nicht zusammenhängende Komponenten trennt. Wir werden zeigen, dass jeder Teil von $G\backslash U$ eine der Aufhängungen enthält und somit $G + a_\infty$ nicht von $U$ getrennt wird. Da $G$ intern-3-zusammenhängend ist können nur die Aufhängungen $a_i$ Grad 2 haben. Sei $K$ eine der Komponenten von $G\backslash U$. Betrachte $K\cup U$ als induzierten Teilgraphen von $G$. Falls $K\cup U$ ein Pfad ist, also nur Knoten von Grad 1 oder 2 enthält, dann kann nur $K=\{a_i\}$ gelten.
 
 Falls $K\cup U$ kein Pfad ist, betrachte die konvexe Hülle von $U \cup K$ in $\Delta$. Mindestens drei der Ecken von $U \cup K$ haben Außenwinkel grösser als $\pi$ (an diesen Ecken befinden sich Knoten aus $U \cup K$). Zwei dieser Winkel können an den Knoten aus $U$ liegen, aber der dritte muss ein Winkel sein, der schon in $\Delta$ existiert. Es handelt sich somit um eine Aufhängung.
 \end{proof}
 
 \begin{remark}
-Für innere Knoten von Grad 2 in einer SLTR müssen die beiden angrenzenden Winkel gerade sein. Somit kann man diese Knoten durch eine gerade Kante zwischen ihren Nachbarn ersetzen und den resultierenden Graphen betrachten. Knoten von Grad eins können nicht existieren, da sie nicht aus dem Rand eines Dreiecks liegen können. Wir werden somit von nun an nur intern-3-zusammenhängende Graphen mit Aufhängungen betrachten, da alle anderen Graphen, die eine SLTR zulassen, auf diese reduziert werden können.
+Für innere Knoten von Grad 2 in einer SLTR müssen die beiden angrenzenden Winkel gerade sein. Somit kann man diese Knoten durch eine gerade Kante zwischen ihren Nachbarn ersetzen und den resultierenden Graphen betrachten. Knoten von Grad 1 können nicht existieren, da sie nicht aus dem Rand eines Dreiecks liegen können. Wir werden somit von nun an nur intern-3-zusammenhängende Graphen mit Aufhängungen betrachten, da alle anderen Graphen, die eine SLTR zulassen, auf diese reduziert werden können.
 \end{remark}
 
 Für 3-zusammenhängende planare Graphen mit mehr als drei Knoten ist die kombinatorische Einbettung nach Hassler Whitney bis auf Wahl des äußeren Gebietes eindeutig \cite{whitney32}. Zusammen mit der nächsten Proposition definiert somit die Wahl von Aufhängungen $\{a_1,a_2,a_3\}$, die in mindestens einem gemeinsamen Gebiet liegen, ein eindeutiges äußeres Gebiet $f_{aus}$.
@@ -93,7 +93,7 @@ Ein Schnyder Wood ist eine Orientierung und Beschriftung der Kanten von $G$ mit 
 \begin{itemize}
 \item[W1] Jede Kante ist entweder in eine oder zwei Richtungen orientiert. Falls sie bigerichtet ist, haben beide Richtungen unterschiedliche Label.
 \item[W2] An jeder Aufhängung  $a_i$ existiert eine nach außen gerichtete Halbkante\footnote{Eine Halbkante ist eine Kante mit nur einem Endpunkt.} mit Label i. 
-\item[W3] Jeder Knoten $v$ hat Ausgangsgrad eins in jedem Label. Um $v$ existieren im Uhrzeigersinn eine Auskante mit Label 1, null oder mehr eingehende Kanten mit Label 3, eine Auskante mit Label 2, null oder mehr  eingehende Kanten mit Label 1, eine Auskante mit Label 2 und null oder mehr  eingehende Kanten mit Label 2.
+\item[W3] Jeder Knoten $v$ hat Ausgangsgrad 1 in jedem Label. Um $v$ existieren im Uhrzeigersinn eine Auskante mit Label 1, null oder mehr eingehende Kanten mit Label 3, eine Auskante mit Label 2, null oder mehr  eingehende Kanten mit Label 1, eine Auskante mit Label 2 und null oder mehr  eingehende Kanten mit Label 2.
 \item[W4] Es existiert kein inneres Gebiet mit einem gerichteten Zykel in einer Farbe als Rand.
 \end{itemize}
 \end{definition}

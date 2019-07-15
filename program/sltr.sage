@@ -143,7 +143,7 @@ def _get_faa_from_non_int_solution(G,Flow):
 ####################################################################################################################################################################
 
 
-def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow):
+def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow,non_int_size=False):
 	## First builds the flow graph, to then calculate a solution 2-flow
 	H = _graph_2_flow(graph, outer_face, suspensions)
 	flow1 = _give_flow_1(graph,outer_face,suspensions)
@@ -152,6 +152,8 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 		try:
 			Flow = H.multicommodity_flow([['i1','o1',flow1],['i2','o2',flow2]],use_edge_labels=True,integer = False,verbose = 0)
 			[gFAA,angle_edges] = _get_good_faa(graph, Flow[1],outer_face=outer_face,suspensions=suspensions,return_angle_edges=True)
+			if non_int_size:
+				return _give_non_int_amount(Flow)
 			if not check_non_int_flow:
 				return [gFAA,True]
 			else:
@@ -193,6 +195,18 @@ def _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just
 			except EmptySetError:
 				pass
 	return [None,False]
+
+## For statistics
+def _give_non_int_amount(Flow):
+	e = 0
+	f = 0
+	edges = Flow[0].edges()+Flow[1].edges()
+	for edge in Flow[0].edges()+Flow[1].edges():
+		e += 1
+		if 0.00001 < edge[2] < 0.99999:
+			f += 1
+	return [e,f]
+
 
 def print_info(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow,embedding=None):
 	print "Graph  " + graph.sparse6_string()
