@@ -18,7 +18,7 @@
 			\If { $|\tilde{\varphi}| = d_1+d_2-|\varphi_z|$ }
 				\State $\phi \gets $ FAA$(\varphi_z)$
 				\State \Return $\phi$
-			\Else \Comment Nur erreichbar, falls Vermutung \ref{int_conj} falsch\label{sanity_check}
+			\Else \Comment Nur erreichbar, falls Vermutung \ref{faa_conj} falsch\label{sanity_check}
 				\State $\varphi=(\varphi_1,\varphi_2) \gets $ int-two-flow$(\mathcal{N}_G)$
 				\If {$\varphi \neq$ None}\Comment Sonst Gegenbeispiel zu Vermutung\ref{int_conj}\label{int_two_flow1}
 					\State $\phi \gets $ FAA$(\varphi_2)$

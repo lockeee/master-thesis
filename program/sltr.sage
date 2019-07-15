@@ -7,32 +7,34 @@ def has_sltr(graph,suspensions=None,outer_face=None,embedding=None,just_non_int_
 		sltr = get_sltr(graph,suspensions=suspensions,outer_face=outer_face,embedding=embedding,just_non_int_flow = just_non_int_flow)
 		return sltr != None
 
-def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,just_non_int_flow = True,check_non_int_flow=False):
+def get_sltr(graph,suspensions=None,outer_face=None,embedding=None,just_non_int_flow = True,check_non_int_flow=False,plotting=False,ipe=None):
 	## Returns a list of the faces and assigned vertices with the outer face first ##
 	if embedding != None:
 		graph.set_embedding(embedding)
 	if suspensions != None:
 		if outer_face == None:
 			raise ValueError("If the suspensions are given we also need an outer face")
-		return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,just_non_int_flow)
+		return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,just_non_int_flow,plotting=plotting,ipe=ipe)
 	else:			
 		## We will check all posible triplets as suspensions ##
 		if outer_face != None:
 			## outer face is given
 			for suspensions in _give_suspension_list(graph,outer_face):
-				return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,just_non_int_flow)
+				return _get_sltr(graph,suspensions,outer_face,check_non_int_flow,just_non_int_flow,plotting=plotting,ipe=ipe)
 		else:
 			## Checking all outer faces:
 			for outer_face in graph.faces():
 				for suspensions in _give_suspension_list(graph,outer_face):
-					gFAA = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,just_non_int_flow)
+					gFAA = _get_sltr(graph,suspensions,outer_face,check_non_int_flow,just_non_int_flow,plotting=plotting,ipe=ipe)
 					if gFAA != None:
 						return gFAA
 	return False
 
-def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow):
+def _get_sltr(graph,suspensions,outer_face,check_non_int_flow,check_just_non_int_flow,plotting=False,ipe=None):
 	[gFAA, has_sltr] = _calculate_2_flow(graph,outer_face,suspensions,check_non_int_flow,check_just_non_int_flow)
 	if has_sltr:
+		if plotting:
+			plot_sltr(graph,suspensions,outer_face,faa = gFAA,plotting=True,ipe=ipe)
 		return gFAA
 	return None
 

@@ -10,13 +10,23 @@ Ein Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\ph
 \end{itemize}
 \end{definition}
 
-Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem SLTR (mindestens) ein Ecken kompatibles Paar existiert, und dass andersherum jedes Ecken kompatible Paar eine SLTR induziert.
+\begin{example}
+Wir greifen vor und nehmen an, dass ein Graph genau dann eine SLTR zulässt, wenn ein Ecken kompatibles Paar existiert. Wir müssen für die Beantwortung, ob ein Graph eine SLTR zulässt unter Umständen alle Schnyder Woods von $G$ überprüfen. Dies sehen wir anhand von Abbildung \ref{exp_ccc}. Hier ist derselbe Graph mit zwei unterschiedlichen Schnyder Labelings abgebildet. Zu dem Labeling auf der linken Seite existiert ein Ecken kompatibles FAA. Auf der rechten Seite kann kein solches FAA existieren. Wie wir auf der linken Seite sehen, muss jeder innere Knoten zugewiesen werden. Insbesondere also der Knoten $v$. Dann fehlt jedoch im zugewiesenen Gebiet eine Ecke mit diesem Label, da die Label an $v$ jeweils nur einmal in den Gebieten auftreten.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{exp_ccc.pdf}
+\caption{Nicht jedes Schnyder Labeling lässt ein Ecken kompatibles Paar zu, selbst wenn der Graph eine SLTR hat.}
+\label{exp_ccc}
+\end{figure}
+
+\end{example}
+
+Der Rest dieses Kapitels wird sich mit dem Beweis beschäftigen, dass zu jedem SLTR (mindestens) ein Ecken kompatibles Paar existiert, und dass andersherum jedes Ecken kompatible Paar eine SLTR induziert. 
 
 \begin{theorem}\label{theo_ccc}
 Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $\{a_1,a_2,a_3\}$. G besitzt genau dann eine SLTR, wenn ein Ecken kompatibles Paar $(\sigma,\phi)$ aus einem Schnyder Labeling $\sigma$ und einem FAA $\phi$ existiert.
 \end{theorem}
-
-TODO Beispiel oder Bild!! \\
 
 Wir beweisen zuerst die (deutlich einfachere) Rückrichtung des Theorems. Hier können wir die durch das in Abschnitt \ref{face_counting} erklärte \textit{face-counting} erhaltene Einbettung nutzen, um zu zeigen, dass jeder begrenzende Zykel $\gamma$ mindestens drei kombinatorisch konvexe Ecken besitzt. 
 
@@ -99,7 +109,15 @@ Ein minimales Gegenbeispiel $\Delta$ hat kein unterteilendes Dreieck.
 \end{lemma}
 
 \begin{proof}
-Nehmen wir an, dass $\Delta$ ein unterteilendes Dreieck mit den Ecken $(a,b,c)$ beinhaltet. Seien $\Delta_1$ und $\Delta_2$ die Teile von $\Delta$ die alles außerhalb (1) und innerhalb (2) des Dreiecks beinhalten. Der Rand des Dreiecks $(a,b,c)$ liegt in beiden Teilen.
+Nehmen wir an, dass $\Delta$ ein unterteilendes Dreieck mit den Ecken $(a,b,c)$ beinhaltet. Dies ist in Abbildung \ref{lem2} dargestellt. Seien $\Delta_1$ und $\Delta_2$ die Teile von $\Delta$ die alles außerhalb ($\Delta_1$) und innerhalb ($\Delta_2$) des Dreiecks beinhalten. Der Rand des Dreiecks $(a,b,c)$ liegt in beiden Teilen.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{lem2.pdf}
+\caption{Wir teilen $\Delta$ in zwei Graphen und erhalten zwei Ecken kompatible Paare, die wir zusammenfügen können.}
+\label{lem2}
+\centering
+\end{figure}
 
 Wir ersetzen Knoten auf dem Rand des Dreiecks die Grad zwei in $\Delta_i$ haben mit einer Kante zwischen ihren Nachbarn. Somit sind $\Delta_1$ und $\Delta_2$ SLTRs mit weniger Knoten als $\Delta$. Da sie weniger Knoten haben als $\Delta$ können sie keine Gegenbeispiele sein und es existieren zu den SLTRs $\Delta_i$ Ecken kompatible Paare $(\sigma_i,\phi_i)$, wobei die $\phi_i$ die induzierten FAAs von $\Delta_i$ sind. Setzen wir die Paare zusammen kommen wir zu einen Widerspruch. Die Ecken $a,b,c$ sind die Aufhängungen von $\Delta_2$. Wir wählen ihre Label so, dass sie mit den inneren Labeln des (jetzt) leeren Dreiecks in $\Delta_1$ übereinstimmen\footnote{Wir können die Label beliebig umbenennen, ohne das Schnyder Labeling zu verändern.}. Die auf diese Weise kombinierten Schnyder Labelings $\sigma_1$ und $\sigma_2$ ergeben ein Schnyder Labeling auf $G$. Die FAAs $\phi_1$ und $\phi_2$ ergeben zusammen, wenn wir die Zuweisungen an den äußeren Knoten von $\Delta_2$ und den am leeren Dreieck liegenden Knoten von $\Delta_1$ anpassen, ein FAA $\phi$ für $G$. Somit folgt die Ecken Kompatibilität aus der Tatsache, dass $(\sigma_1,\phi_1)$ und $(\sigma_2,\phi_2)$ Ecken kompatibel sind. Die SLTR $\Delta$ induziert somit ein Ecken kompatibles Paar und kann kein Gegenbeispiel sein. $\Delta$ kann kein unterteilendes Dreieck haben.
 \end{proof} 
@@ -261,7 +279,7 @@ Sei $\gamma'$ ein begrenzender Zykel in $G'$ und $\gamma$ der korrespondierende 
     	\label{pic_lem5_7}
 \end{figure}
 
-Betrachten wir den Fall, dass kein begrenzender Zykel $\gamma$ in $G$ existiert, der $z$ als kombinatorisch konvexe Ecke hat. Weiter sei $z$ keine kombinatorisch konvexe Ecke von $\gamma'$. Somit ist $(a_1,x)$ kontrahierbar, jeder begrenzende Zykel in $G'$ hat mindestens drei kombinatorisch konvexe Ecken und $G'$ hat eine SLTR. Somit existiert ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist (wir haben $\phi'$ durch löschen der Zuweisung von $x$ erhalten). Wir können ein Schnyder Labeling $\sigma'$ zu $\sigma$ erweitern indem wie die Kontraktion einer Kante, die eine Aufhängung beinhaltet, umkehren (siehe Abbildung \ref{pic_lem5_8}) \cite[Kapitel 2.6]{felsner04}. Wir begründen die Ecken-Kompatibilität. Gebiet $f_{a_1,z,x}$ ist ein Dreieck und wir setzen beginnend bei $a_1$ die Label 1, 2 und 3 ein. Hinzu kommt, dass der von $\phi$ zugewiesene Winkel von $x$ nicht als einziger Label 2 hat. $G$ kann also kein Gegenbeispiel sein.
+Betrachten wir den Fall, dass kein begrenzender Zykel $\gamma$ in $G$ existiert, der $z$ als kombinatorisch konvexe Ecke hat. Weiter sei $z$ keine kombinatorisch konvexe Ecke von $\gamma'$. Somit ist $(a_1,x)$ kontrahierbar, jeder begrenzende Zykel in $G'$ hat mindestens drei kombinatorisch konvexe Ecken und $G'$ hat eine SLTR. Somit existiert ein Schnyder Labeling $\sigma'$, das Ecken kompatibel zu $\phi'$ ist (wir haben $\phi'$ durch löschen der Zuweisung von $x$ erhalten). Wir können ein Schnyder Labeling $\sigma'$ zu $\sigma$ erweitern indem wie die Kontraktion einer Kante, die eine Aufhängung beinhaltet, umkehren (siehe Abbildung \ref{pic_lem5_8}) \cite[Kapitel 2.6]{felsner12}. Wir begründen die Ecken-Kompatibilität. Gebiet $f_{a_1,z,x}$ ist ein Dreieck und wir setzen beginnend bei $a_1$ die Label 1, 2 und 3 ein. Hinzu kommt, dass der von $\phi$ zugewiesene Winkel von $x$ nicht als einziger Label 2 hat. $G$ kann also kein Gegenbeispiel sein.
 
 \begin{figure}[h]
 \centering

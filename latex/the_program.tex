@@ -6,13 +6,13 @@ In diesem Kapitel werden wir auf die Implementierung von Netzwerk \ref{net_sltr}
 
 Die Kontrolle, ob für $G$ ein FAA existiert ist optional, lässt sich jedoch, zum Beispiel wie zuvor über ein 1-Fluss-Problem, in polynomineller Zeit auf einem deutlich kleineren Netzwerk bestimmen. Dies spart Zeit, falls zu Aufhängungen keine FAAs auf $G$ existieren. Das Multi-Fluss-Problem auf $\mathcal{N}_G$ zu gegebenen Bedarfen $(d_1,d_2)$ wird mithilfe des in SageMath enthaltenen Solvers \textit{Glpk} für Lineare Programmierung gelöst, welcher ein Paar von Flussgraphen $(\varphi_1,\varphi_2)$ ausgibt, falls eine zulässige Lösung existiert und sonst nichts\cite{glpk,sage}. In den Zeilen \ref{int_one_flow1} und \ref{int_two_flow1}, wird im Gegensatz zu Zeile \ref{two_flow1}, nur nach ganzzahligen Lösungen gesucht. Aus einer ganzzahligen Lösung kann man ein FAA $\phi$ aus $\varphi_2$ extrahieren indem man die Zuweisungs-Pfade durch die Dummy-Senke zurück verfolgt. Wir betreten jeden passierten Dummy-Knoten $v^*$ aus einem Winkel $(f,v)$. Diese Winkel ergeben die Zuweisungen $\phi$.
 
-Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutung \ref{int_conj} stimmt nicht notwendig. Es könnte hier ein FAA aus $\varphi_2$ extrahiert und ausgegeben werden. Wir gewährleisten  jedoch so die Korrektheit des Algorithmus, weil wir den Beweis von Vermutung \ref{int_conj} noch nicht gefunden haben. Bei Tests ergaben sich mit diesem Ansatz kürzere Berechnungszeiten, als bei der Suche nach ausschließlich ganzzahligen Lösungen. Zeile \ref{sanity_check} sollte nach Vermutung \ref{int_conj} nicht erreicht werden. Sie stellt jedoch sicher gestellt, dass Algorithmus \ref{algo_gfaa} immer dann ein Gutes-FAA ausgibt, wenn ein ganzzahliger Fluss auf Netzwerk \ref{net_sltr} existiert.
+Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutung \ref{int_conj} stimmt nicht notwendig. Es könnte hier ein FAA aus $\varphi_2$ extrahiert und ausgegeben werden. Wir gewährleisten  jedoch so die Korrektheit des Algorithmus, weil wir den Beweis von Vermutung \ref{int_conj} noch nicht gefunden haben. Bei Tests ergaben sich mit diesem Ansatz kürzere Berechnungszeiten, als bei der Suche nach ausschließlich ganzzahligen Lösungen. Zeile \ref{sanity_check} sollte nach Vermutung \ref{int_conj} nicht erreicht werden. Sie stellt jedoch sicher, dass Algorithmus \ref{algo_gfaa} immer dann ein Gutes-FAA ausgibt, wenn ein ganzzahliger Fluss auf Netzwerk \ref{net_sltr} existiert.
 
 \section{Visualisierung}
 
 Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR, müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz über harmonische Funktionen nutzen, um eine SLTR von $G$ zu erhalten.
 
-Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummibad-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden harmonischen Gleichungen für zugewiesene (oben) und nicht zugewiesene Knoten (unten).
+Wir wollen nun eine Einbettung $f:V\to \mathbb{R}^2$ von $G$ ähnlich der Gummiband-Repräsentation berechnen, die $\phi$ respektiert. Sei $S \subseteq V$ die Menge der Knoten von $f_{aus}$. Nach Abschnitt \ref{harmonic_approach} gelten die folgenden harmonischen Gleichungen für zugewiesene (oben) und nicht zugewiesene Knoten (unten).
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1) $$
 $$ f(v) = \sum_{u \in N(v)} \lambda_{uv} f(u) \text{, mit }  \sum_{u \in N(v)}\lambda_{uv} = 1 \text{ und } \lambda_{uv} > 0 $$
 Um zu einer gegebenen Gewichtsfunktion $\lambda$ eine Lösung zu finden, können wir diese Gleichungen, um die Aufhängungen $A = \{a_1,a_2,a_3\}$ erweitern und als Matrix schreiben.
@@ -35,7 +35,7 @@ Setzten wir im ersten Durchlauf $\lambda = 1$ erhalten wir eine klassische Gummi
 \item Es existieren keine zu kurzen Kanten.
 \end{itemize}
 
-Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz nach Scheucher \cite{fs17}, bei dem $\lambda$ als monoton steigende Funktion, proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge, gewählt wird liefert im Allgemeinen keine schönen Zeichnungen wie im nächsten Beispiel gezeigt wird. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für dieses die oben erwähnten Einschränkungen stärker auftreten.
+Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz nach Scheucher \cite{fs17}, bei dem $\lambda$ als monoton steigende Funktion, proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge gewählt wird, liefert im Allgemeinen keine schönen Zeichnungen, wie im nächsten Beispiel gezeigt wird. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für diese die oben erwähnten Einschränkungen stärker auftreten.
 
 \begin{example}\label{bsp_long_segment}\label{bsp_long_segment}
 Bei der in Abbildung \ref{long_segment} a) zu sehenden SLTR sind alle Knoten bis auf die Aufhängungen einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen von Typ
@@ -90,22 +90,23 @@ In Abbildung \ref{table} sind die Ergebnisse für so erzeugte Graphen zwischen 1
 
 \input{table.tex}
 
-Wie nicht anders zu erwarten bilden die Farben drei Strahlen die sich mit wachsender Knotenzahl zunehmend vermischen. Die Parameter des Samplers sind dahingehend ausgerichtet um gerade an diesem Übergang viele Graphen zu erzeugen. Für Graphen mit im Verhältnis großen Kantenzahlen finden sich fast immer SLTRs.
+Wie nicht anders zu erwarten bilden die Farben drei Strahlen die sich mit wachsender Knotenzahl zunehmend vermischen. Die Parameter des Samplers wurden so gewählt, um gerade an diesem Übergang viele Graphen zu erzeugen. Für Graphen mit im Verhältnis großen Kantenzahlen finden sich fast immer SLTRs und für Graphen mit wenigen Kanten existieren nur selten FAAs.
 
 \section{Dokumentation}
 
 Zum Abschluss des Kapitels folgt eine Dokumentation des Programs. Die Datei \texttt{program.sage} muss in SageMath geladen werden \cite{sage}. Die beiden in \texttt{program.sage} implementierten Funktionen sind:
 \begin{description}
-\item[\texttt{sltr(graph, suspensions, face, non\char`_int, check\char`_int, plotting)}] \hfill 
+\item[\texttt{sltr(graph, face, suspensions, non\char`_int, check\char`_int, plotting, ipe)}] \hfill 
 Gibt, falls möglich, ein Gutes-FAA zurück und erstellt optional eine Zeichnung.
 \begin{description}
 \item[\texttt{return = GFAA :}] Eine Gutes-FAA als Liste von Gebieten mit Zuweisungen, \texttt{[[[1,4,6,8],[4]], ... ]}, oder \texttt{None}.
 \item[\texttt{graph :}] Ein planarer intern-3-zusammenhängender Graph
-\item[\texttt{suspensions :}] Die Aufhängungen als Liste \texttt{[$a_1,a_2,a_3$]}, mit \texttt{None} werden alle möglichen Aufhängungen überprüft.
 \item[\texttt{face :}] Das äußere Gebiet als Kantenfolge \texttt{[[$v_1,v_2$], ... ,[$v_k,v_1$]]}, mit \texttt{None} werden alle möglichen äußeren Gebiete überprüft.
+\item[\texttt{suspensions :}] Die Aufhängungen als Liste \texttt{[$a_1,a_2,a_3$]}, mit \texttt{None} werden alle möglichen Aufhängungen überprüft. Falls ein äußeres Gebiet übergeben wurde müssen auch die Aufhängungen übergeben werden.
 \item[\texttt{non\char`_int :}] default \texttt{True}, sonst wird nur nach ganzzahligen Lösungen gesucht.
 \item[\texttt{check\char`_int :}] default \texttt{True}, sonst wird die Überprüfung ab Zeile \ref{algo_check} ausgelassen.
 \item[\texttt{plotting :}] default \texttt{False}, sonst wird eine Zeichnung ausgegeben.
+\item[\texttt{ipe :}] default \texttt{None}, bei Übergabe eines Strings \texttt{string} wird eine ipe-Datei \texttt{string.ipe} erstellt.
 \end{description}
 \item[\texttt{random\char`_sltr(vertices, non\char`_int, check\char`_int, plotting, ipe, cut)}] \hfill 
 Erzeugt einen pseudo-zufälligen Graphen und erstellt, falls möglich, ein Gutes-FAA und eine passenden Zeichnung.
@@ -115,8 +116,8 @@ Erzeugt einen pseudo-zufälligen Graphen und erstellt, falls möglich, ein Gutes
 \item[\texttt{non\char`_int :}] default \texttt{True}, sonst wird nur nach ganzzahligen Lösungen gesucht.
 \item[\texttt{check\char`_int :}] default \texttt{True}, sonst wird die Überprüfung ab Zeile \ref{algo_check} ausgelassen.
 \item[\texttt{plotting :}] default \texttt{True}, sonst wird keine Zeichnung ausgegeben.
-\item[\texttt{ipe :}] default \texttt{None}, bei Übergabe eines Strings \texttt{\char"string"} wird eine ipe-Datei string.ipe erstellt.
-\item[\texttt{cut :}] default \texttt{None}, optional lassen sich die Parameter der pseudo-zufälligen Erzeugung durch drei aufsteigende natürliche Zahlen $\leq 1000$ anpassen \texttt{[a, b, c]}. Es wird der in Abschnitt \ref{stats} beschriebene Sampler genutzt. Die normale Einstellung ist \texttt{[300,600,990]}. In jedem Schritt wird eine der vier Möglichkeiten PG1, PG2, PG3 und PG4 mit Verteilung $a/1000$, $(a+b)/1000$, $(a+b+c)/1000$ und $(1000-a-b-c)/1000$ ausgewählt.
+\item[\texttt{ipe :}] default \texttt{None}, bei Übergabe eines Strings \texttt{string} wird eine ipe-Datei \texttt{string.ipe} erstellt.
+\item[\texttt{cut :}] default \texttt{None}, optional lassen sich die Parameter der pseudo-zufälligen Erzeugung durch drei aufsteigende natürliche Zahlen \texttt{[a, b, c]} anpassen, mit $a\leq b\leq c\leq 1000$. Es wird der in Abschnitt \ref{stats} beschriebene Sampler genutzt. Die normale Einstellung ist \texttt{[300,600,990]}. In jedem Schritt wird eine der vier Möglichkeiten PG1, PG2, PG3 und PG4 mit Verteilung $a/1000$, $(a+b)/1000$, $(a+b+c)/1000$ und $(1000-a-b-c)/1000$ ausgewählt.
 \end{description}
 \end{description}
 

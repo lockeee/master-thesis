@@ -13,17 +13,18 @@
 \contentsline {subsection}{\numberline {3.1.1}Harmonische Funktionen auf planaren Graphen}{20}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Das resultierende Gleichungssystem}{21}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}Ecken kompatible Paare}{22}{section.3.2}
-\contentsline {chapter}{\numberline {4}Algorithmen zur Erkennung von SLTRs}{43}{chapter.4}
-\contentsline {section}{\numberline {4.1}SLTRs via Zwei-Fluss}{43}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Schnyder-Wood-Fluss}{43}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}FAA-Fluss}{45}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}{47}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Nicht ganzzahlige L\IeC {\"o}sungen}{55}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Minimale Schnitte in $\mathcal {N}_G$}{59}{subsection.4.2.1}
-\contentsline {chapter}{\numberline {5}Das Programm}{63}{chapter.5}
-\contentsline {section}{\numberline {5.1}Visualisierung}{64}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Probleme bei der Wahl von $\lambda $}{65}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Eine heuristisch gute Wahl von $\lambda $}{67}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Experimentelle Rechnungen}{67}{section.5.2}
-\contentsline {section}{\numberline {5.3}Dokumentation}{69}{section.5.3}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{71}{chapter*.52}
+\contentsline {chapter}{\numberline {4}Algorithmen zur Erkennung von SLTRs}{45}{chapter.4}
+\contentsline {section}{\numberline {4.1}SLTRs als L\IeC {\"o}sungen eines Zwei-Fluss-Problems}{45}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Schnyder-Wood-Fluss}{46}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}FAA-Fluss}{48}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Ein Zwei-Fluss Netzwerk zur Erkennung von SLTRs}{50}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Nicht ganzzahlige L\IeC {\"o}sungen}{58}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Minimale Schnitte in $\mathcal {N}_G$}{61}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Alternierende Zykel auf $\mathcal {N}_G$}{65}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {5}Das Programm}{69}{chapter.5}
+\contentsline {section}{\numberline {5.1}Visualisierung}{70}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Probleme bei der Wahl von $\lambda $}{71}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Eine heuristisch gute Wahl von $\lambda $}{73}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Experimentelle Rechnungen}{73}{section.5.2}
+\contentsline {section}{\numberline {5.3}Dokumentation}{75}{section.5.3}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{77}{chapter*.56}
