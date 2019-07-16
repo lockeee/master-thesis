@@ -9,7 +9,7 @@ def sltr(graph, face=None, suspensions=None, non_int = True, check_int=True ,plo
 
 def random_sltr(vertices, non_int=True, check_int=False, plotting=False, ipe=None, cut=None):
 	## Creates pseudo random 3 graph and calculates an SLTR
-	## Returns a List [graph,gFAA]
+	## Returns a List [graph,gFAA] 
 	[G,suspensions,face,embedding] = random_3_graph(vertices,cut=cut)
 	if has_faa(G,suspensions=suspensions):
 		gFAA = sltr(G,suspensions=suspensions,outer_face=face,embedding=embedding,just_non_int_flow = non_int,check_non_int_flow=check_int)

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190527180651" modified="D:20190624205300"/>
+<info created="D:20190527180651" modified="D:20190716181751"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -338,19 +338,19 @@ h
 296 584 l
 h
 </path>
-<path stroke="blue" arrow="normal/normal">
+<path stroke="blue" pen="fat" arrow="normal/normal">
 232 640 m
 260 640 l
 </path>
-<path stroke="blue" arrow="normal/normal">
+<path stroke="blue" pen="fat" arrow="normal/normal">
 288 696 m
 288 668 l
 </path>
-<path stroke="blue" arrow="normal/normal">
+<path stroke="blue" pen="fat" arrow="normal/normal">
 344 640 m
 316 640 l
 </path>
-<path stroke="blue" arrow="normal/normal">
+<path stroke="blue" pen="fat" arrow="normal/normal">
 288 584 m
 288 612 l
 </path>
@@ -408,7 +408,7 @@ h
 176 560 m
 224 560 l
 </path>
-<path stroke="red" arrow="normal/normal">
+<path stroke="red" pen="fat" arrow="normal/normal">
 224 560 m
 208 576 l
 </path>
@@ -426,7 +426,7 @@ h
 208 752 m
 208 704 l
 </path>
-<path stroke="red" arrow="normal/normal">
+<path stroke="red" pen="fat" arrow="normal/normal">
 208 704 m
 224 720 l
 </path>
@@ -448,7 +448,7 @@ h
 368 528 m
 368 576 l
 </path>
-<path stroke="red" arrow="normal/normal">
+<path stroke="red" pen="fat" arrow="normal/normal">
 368 576 m
 352 560 l
 </path>
@@ -510,7 +510,7 @@ h
 144 700 l
 h
 </path>
-<path stroke="darkgreen" arrow="normal/normal">
+<path stroke="darkgreen" pen="fat" arrow="normal/normal">
 112 820 m
 188 820
 260 864
@@ -540,14 +540,14 @@ h
 516 576
 516 556 c
 </path>
-<path stroke="orange">
+<path stroke="orange" pen="fat">
 412 496 m
 380 456
 408 448
 420 448
 432 448 c
 </path>
-<path stroke="orange" arrow="normal/normal">
+<path stroke="orange" pen="fat" arrow="normal/normal">
 504 448 m
 540 448
 540 484

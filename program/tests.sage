@@ -33,7 +33,7 @@ def write_statistics(s,t,amount):
 	file.close()
 
 def write_non_int_statistics(s,t,amount):
-	with open('non_int_analysis5.csv', mode='a') as file:
+	with open('non_int_all_100.csv', mode='a') as file:
 		for v in range(s,t+1):
 			count = 0
 			while count < amount:
