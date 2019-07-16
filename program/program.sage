@@ -12,7 +12,7 @@ def random_sltr(vertices, non_int=True, check_int=False, plotting=False, ipe=Non
 	## Returns a List [graph,gFAA]
 	[G,suspensions,face,embedding] = random_3_graph(vertices,cut=cut)
 	if has_faa(G,suspensions=suspensions):
-		gFAA = sltr(G,suspensions=suspensions,outer_face=face,embedding=embedding,just_non_int_flow = non_int,check_non_int_flow=check_int)
+		gFAA = sltr(G,suspensions=suspensions,face=face,non_int = non_int,check_int=check_int)
 		if gFAA != None:
 			if plotting:
 				[Plot,G] = plot_sltr(G,suspensions,face,faa = gFAA ,plotting=plotting,ipe=ipe)
