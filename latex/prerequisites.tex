@@ -18,7 +18,7 @@ Eine Zeichnung eines ebenen Graphen $G$ wird \textit{SLTR} genannt, falls gilt:
 
 \begin{figure}[h]
 	\centering
-  \includegraphics[width=0.95\textwidth]{sltr-example.png}
+  \includegraphics[width=0.95\textwidth]{sltr-example.pdf}
 	\caption{Links einer der beiden 3-zusammenhängenden Graphen mit acht Knoten ohne SLTR und rechts ein Graph mit einer möglichen SLTR.}
 \end{figure}
 
@@ -29,8 +29,8 @@ Es existieren planare Graphen, von denen manche Einbettungen SLTRs zulassen, and
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{10_example.png}
-\caption{Zwei topologische Einbettungen des (kombinatorisch) gleichen planaren Graphen, wobei die linke keine SLTR zulässt.}
+\includegraphics[width=1\textwidth]{10_with_sltr.pdf}
+\caption{Zwei topologische Einbettungen des (kombinatorisch) gleichen planaren Graphen, wobei die linke keine SLTR zulässt. Die jeweils gewählten äußeren Gebiete sind rot und grün umrandet.}
 \label{10_example}
 \end{figure}
 
@@ -70,7 +70,7 @@ Angenommen es existieren zwei Gebiete $f$ und $f'$, die $a_1,a_2$ und $a_3$ enth
 
 \begin{figure}
 	\centering
-  \includegraphics[width=0.95\textwidth]{3_conn_uni.png}
+  \includegraphics[width=0.95\textwidth]{3_conn_uni.pdf}
 	\caption{Die Entnahme der Knoten $a_2$ und $a_3$ trennt $G$, was zu einem Widerspruch zum 3-Zusammenhang führt.}
 	\label{3_con_uni}
 \end{figure}
@@ -147,6 +147,13 @@ Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$. $G$ ist genau dann
 
 Es existieren einige Anwendungen von Schnyder Woods in Bezug auf Einbettungen. Wie schon erwähnt, bezieht sich eines der ersten Resultate auf die konvexe Einbettung auf einem Gitter. Das im Folgenden skizzierte \textit{face-counting} nach Felsner (deutsch: Gebiete zählen) erzeugt eine Einbettung auf einem kleineren Gitter als nach Schnyder \cite{felsner01}. Betrachte $G$ mit einem Schnyder Wood $T_1,T_2,T_3$. Es handelt es sich bei den Bäumen $T_i$ um gerichtete Bäume mit Wurzeln in $a_i$ \cite[Korollar 2.5]{felsner12}. Von jedem Knoten $v$ aus existieren also eindeutige Pfade $P_i(v)$ zu den Aufhängungen $a_i$. Jeweils zwei der Pfade von $v$ zu den Aufhängungen haben $v$ als einzigen gemeinsamen Knoten \cite[Lemma 2.4]{felsner12}. Wir können somit zu jedem Konten $v$ drei Regionen $R_i$ definieren, die jeweils von den Pfaden $P_{i-1}(v)$ und $P_{i+1}(v)$ und dem äußeren Gebiet eingegrenzt werden\footnote{Ein Beispiel für diese Regionen findet sich in Abbildung \ref{face_counting} auf der rechten Seite.}. In jeder dieser Regionen können wir nun die eingeschlossenen Gebiete von $G$ zählen. Durch das Zählen der Gebiete in den Regionen zu $v$ lässt sich eine konvexe Zeichnung von $G$ erzeugen.
 
+\begin{figure}
+	\centering
+  \includegraphics[width=1\textwidth]{face_counting.pdf}
+	\caption{Ein Schnyder Wood auf $G$ und die durch face-counting erhaltene Einbettung von $G$. Die eingefärbten Gebiete sind die Regionen, die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
+	\label{face_counting}
+\end{figure}
+
 Hierzu ordnet man jedem Knoten $v$ seinen \textit{Gebietsvektor} $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. In Abbildung \ref{face_counting} sind auf der rechten Seite die Regionen von $v$ eingefärbt. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äußeren Ecken unserer Zeichnung. Sie entsprechen ebenfalls den Bildern der Aufhängungen von $G$. Die Position der inneren Knoten ergibt sich nun durch die Funktion 
 $$\mu: V \to \mathbb{R}^2,v\mapsto v_1\alpha_1 + v_2\alpha_2+v_3\alpha_3.$$ 
 
@@ -155,13 +162,6 @@ Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a
 \end{theorem}
 
 Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und passt, falls $G$ 3-zusammenhängend ist, auf ein $(|F|-1)\times(|F|-1)$-Gitter \cite[Korollar 2.8]{felsner12}. Sie hat noch eine weitere Eigenschaft, die später von Nutzen sein wird und die in der nächsten Proposition festgehalten ist.  Dies ist in Abbildung \ref{face_counting} in der Mitte skizziert.
-
-\begin{figure}
-	\centering
-  \includegraphics[width=1\textwidth]{face_counting.png}
-	\caption{Eine Schnyder Wood auf $G$ und die durch face-counting erhaltene Einbettung von $G$. Die eingefärbten Gebiete sind die Regionen, die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
-	\label{face_counting}
-\end{figure}
 
 \begin{proposition}\label{w5}
 Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$. Für $\mu(G)$, die durch face-counting erzeugte Einbettung von $G$, gilt:
@@ -172,7 +172,7 @@ Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a
 
 \section{$\alpha$-Orientierungen}\label{alpha_orientations}
 
-Für den Algorithmus in Kapitel \ref{main_algo} führen wir nun eine weitere zu Schnyder-Woods und Labelings in Bijektion stehende Struktur auf Graphen ein und folgen dabei wieder Felsner \cite{felsner04}.
+Für den Algorithmus in Kapitel \ref{main_algo} führen wir nun eine weitere zu Schnyder-Woods und Labelings in Bijektion stehende Struktur auf Graphen ein und folgen dabei Felsner \cite{felsner04}.
 
 \begin{definition}[$\alpha$-Orientierung]
 Sei $G=(V,E)$ ein ungerichteter Graph und $\alpha:V\mapsto\mathbb{N}$ eine Funktion auf $G$. Eine $\alpha$\textit{-Orientierung} ist eine Orientierung der Kanten von $G$, sodass der Ausgangsgrad\footnote{Der Ausgangsgrad eines Knoten $v$ entspricht der Anzahl der adjazenten Kanten von $v$, die von $v$ weg gerichtet sind.} eines jeden Knoten $\alpha(v)$ entspricht, dass heißt, $$\text{outdeg}(v) = \alpha(v).$$
@@ -224,7 +224,7 @@ Angenommen wir haben eine $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$.
 
 Betrachten wir einen Pfad, der mit einer gerichteten Kante $e \in G+G^*$ beginnt, und mit der Gerader Pfad Regel fortfährt. Dann endet er in $a_\infty$ \cite[Lemma 15]{felsner01}. Der letzte passierte Knoten muss nun entweder eine der Aufhängungen von $G$ oder $G^*$ sein. Wir färben den Pfad in der Farbe dieser Aufhängung. Die so erhaltene Orientierung und Färbung auf den Kanten von $G$ und $G^*$ entspricht zwei in Bijektion stehenden Schnyder Woods $\sigma$ und $\sigma^*$ \cite{felsner04}.
 
-\section{Gerichtetes-Multi-Fluss-Problem}\label{dir_multi_flow}
+\section{Gerichtete-Multi-Fluss-Probleme}\label{dir_multi_flow}
 
 Wir werden in Kapitel \ref{main_algo} einen gerichteten Graphen $\mathcal{N}$ auf Basis von $G$ konstruieren, sodass ein maximaler Fluss $\varphi$ einer SLTR von $G$ entspricht. Es gibt viele unterschiedliche Arten von Flussproblemen. So kann man zum Beispiel Graphen mit nur einem Paar von Quellen und Senken oder mit jeweils mehreren Paaren betrachten und die Kanten können gerichtet oder ungerichtet sein. Im Fall von mehreren Quellen und Senken werden diese normalerweise als Paare $s_i,t_i$ gehandhabt und es wird gefordert, dass insgesamt Fluss $\varphi_i$ mit Stärke $d_i \in \mathbb{R}_+$ von $s_i$ zu $t_i$ fließt. Als zusätzliche Einschränkung haben die Kanten $e$ Kapazitäten $c(e) \in \mathbb{R}_+$, die nicht überschritten werden dürfen. Für jede Kante muss also gelten $\varphi(e) \leq c(e)$. Wir werden uns in Kapitel \ref{main_algo} mit einem Fluss der folgenden Form befassen.
 
