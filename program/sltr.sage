@@ -517,7 +517,7 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
 		show(G)
-		graph2ipe(G,"ex3_1")
+		graph2ipe(G,"ex4_1")
 		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face,segments,allP)
 	else:
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
@@ -531,18 +531,18 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 			#show(G)
 		if norm < const:
 			print "Stopped because of Norm, count is:" , count
-			graph2ipe(G,"ex3_2")
+			graph2ipe(G,"ex4_2")
 			return pos
 		elif count == 40:
 			print "Stopped because of count, norm is:" , norm
 			#[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
 			#[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
-			graph2ipe(G,"ex3_2")
+			graph2ipe(G,"ex4_2")
 			show(G)
 			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
-			graph2ipe(G,"ex3_3")
+			graph2ipe(G,"ex4_3")
 			return pos
 	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2,outer_face,allP)	
 
@@ -591,7 +591,7 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 						edges_to_r.append(ed)
 		if len(edges_to_r) != 0 and len(edges_to_l) != 0:
 			#print edges_to_l , edges_to_r
-			x = 1
+			x = 0.8
 			sus_l = []
 			sus_r = []
 			vol_l = vol_l1*c_r
@@ -612,10 +612,8 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 							for k in range(len(P)-1):
 								j = V.index(P[k])
 								i = V.index(P[k+1])
-								# W[j,i] += (vol_l/(1.*len(paths)*len(P)))^x
-								# W[i,j] += (vol_l/(1.*len(paths)*len(P)))^x
-								W[j,i] += vol_l
-								W[i,j] += vol_l
+								W[j,i] += (vol_l/(1.*len(paths)*len(P)))^x
+								W[i,j] += (vol_l/(1.*len(paths)*len(P)))^x
 				for s in sus_r:
 					allp = allPaths[V.index(v)][suspensions.index(s)]
 					paths = [p for p in allp if list_in_list(p,R+seg)]
@@ -626,10 +624,8 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 							for k in range(len(P)-1):
 								j = V.index(P[k])
 								i = V.index(P[k+1])
-								# W[j,i] += (vol_r/(1.*len(paths)*len(sus_r)*len(P)))^x
-								# W[i,j] += (vol_r/(1.*len(paths)*len(sus_r)*len(P)))^x
-								W[j,i] += vol_r
-								W[i,j] += vol_r
+								W[j,i] += (vol_r/(1.*len(paths)*len(sus_r)*len(P)))^x
+								W[i,j] += (vol_r/(1.*len(paths)*len(sus_r)*len(P)))^x
 				
 
 
