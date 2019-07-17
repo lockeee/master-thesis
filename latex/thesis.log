@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  16 JUL 2019 18:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  17 JUL 2019 02:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3019,82 +3019,81 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 116.
  [49 <./faa_2_flow.pdf>]
-<alpha_bij.pdf, id=2183, 546.44153pt x 175.40732pt>
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 124.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 124.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 124.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 124.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 124.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 124.
+
+[50]
+<alpha_bij.pdf, id=2191, 546.44153pt x 175.40732pt>
 File: alpha_bij.pdf Graphic file (type pdf)
 <use alpha_bij.pdf>
-Package pdftex.def Info: alpha_bij.pdf  used on input line 123.
-(pdftex.def)             Requested size: 362.56389pt x 116.3821pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 131.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 131.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 131.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 131.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 131.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 131.
-[50]
-<combined_face_sketch.pdf, id=2192, 562.68018pt x 400.16803pt>
+Package pdftex.def Info: alpha_bij.pdf  used on input line 131.
+(pdftex.def)             Requested size: 402.8515pt x 129.31493pt.
+<combined_face_sketch.pdf, id=2194, 562.68018pt x 400.16803pt>
 File: combined_face_sketch.pdf Graphic file (type pdf)
 <use combined_face_sketch.pdf>
-Package pdftex.def Info: combined_face_sketch.pdf  used on input line 138.
-(pdftex.def)             Requested size: 362.56389pt x 257.8591pt.
+Package pdftex.def Info: combined_face_sketch.pdf  used on input line 140.
+(pdftex.def)             Requested size: 382.70769pt x 272.18391pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<dummy_sink.pdf, id=2199, 538.81299pt x 171.77274pt>
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 146.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 146.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 146.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 146.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 146.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 146.
+[51 <./alpha_bij.pdf>]
+<dummy_sink.pdf, id=2251, 538.81299pt x 171.77274pt>
 File: dummy_sink.pdf Graphic file (type pdf)
 <use dummy_sink.pdf>
-Package pdftex.def Info: dummy_sink.pdf  used on input line 149.
-(pdftex.def)             Requested size: 281.99481pt x 89.90419pt.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 152.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 152.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 152.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 152.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 152.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 152.
-[51 <./alpha_bij.pdf>]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 155.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 155.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 155.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 155.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 155.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 155.
- [52 <./combined_face_sketch.pdf> <./dummy_sink.pdf>]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 189.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 189.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 189.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 189.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 189.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 189.
+Package pdftex.def Info: dummy_sink.pdf  used on input line 151.
+(pdftex.def)             Requested size: 342.42622pt x 109.16882pt.
 
-[53]
+Underfull \vbox (badness 3601) has occurred while \output is active []
+
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 158.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 158.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 158.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 158.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 158.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 158.
+ [52 <./combined_face_sketch.pdf>]
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 184.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 184.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 184.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 184.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 184.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 184.
+ [53 <./dummy_sink.pdf>]
 Underfull \hbox (badness 1354) in paragraph at lines 216--216
 []\T1/lmr/m/n/6 Dummy-Senke zu
  []
@@ -3152,17 +3151,17 @@ Package babel Info: Redefining german shorthand "~
 
 [56]
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 258.
+(babel)             in language  on input line 254.
  [57 <./combined_face_skip.pdf>]
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 262.
@@ -3170,6 +3169,19 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 262.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 262.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 262.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 262.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 262.
+
 
 Overfull \hbox (7.38147pt too wide) in paragraph at lines 277--279
 []\T1/lmr/bx/n/10.95 Proposition 4.4. []\T1/lmr/m/it/10.95 (-20) Sei $\OMS/lmsy
@@ -3191,35 +3203,35 @@ Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 283.
 [58]
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 295.
  [59]
-<lem_faa_choice.pdf, id=2431, 498.26149pt x 165.0165pt>
+<lem_faa_choice.pdf, id=2430, 498.26149pt x 165.0165pt>
 File: lem_faa_choice.pdf Graphic file (type pdf)
 <use lem_faa_choice.pdf>
 Package pdftex.def Info: lem_faa_choice.pdf  used on input line 318.
 (pdftex.def)             Requested size: 362.56389pt x 120.07578pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 327.
+(babel)             in language  on input line 324.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 327.
+(babel)             in language  on input line 324.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 327.
+(babel)             in language  on input line 324.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 327.
+(babel)             in language  on input line 324.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 327.
+(babel)             in language  on input line 324.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 327.
+(babel)             in language  on input line 324.
  [60]
 Overfull \hbox (14.96994pt too wide) detected at line 336
 \OMS/lmsy/m/n/10.95 j[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 f[]; v\OT1/lmr/m
@@ -3390,39 +3402,40 @@ w[]; w[]\OT1/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 (-20
 <combined_face_alt_cycle.pdf, id=2769, 458.1115pt x 393.87149pt>
 File: combined_face_alt_cycle.pdf Graphic file (type pdf)
 <use combined_face_alt_cycle.pdf>
-Package pdftex.def Info: combined_face_alt_cycle.pdf  used on input line 511.
+Package pdftex.def Info: combined_face_alt_cycle.pdf  used on input line 507.
 (pdftex.def)             Requested size: 322.28242pt x 277.09645pt.
-<combined_face_alt_cycle2.pdf, id=2774, 458.1115pt x 393.87149pt>
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 514.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 514.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 514.
+Package babel Info: Redefining german shorthand "f
+(babel)             in language  on input line 514.
+Package babel Info: Redefining german shorthand "|
+(babel)             in language  on input line 514.
+Package babel Info: Redefining german shorthand "~
+(babel)             in language  on input line 514.
+[69 <./combined_face_alt_cycle.pdf>]
+<combined_face_alt_cycle2.pdf, id=2808, 458.1115pt x 393.87149pt>
 File: combined_face_alt_cycle2.pdf Graphic file (type pdf)
 <use combined_face_alt_cycle2.pdf>
-Package pdftex.def Info: combined_face_alt_cycle2.pdf  used on input line 523.
+Package pdftex.def Info: combined_face_alt_cycle2.pdf  used on input line 520.
 (pdftex.def)             Requested size: 322.28242pt x 277.09645pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 531.
+(babel)             in language  on input line 528.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 531.
+(babel)             in language  on input line 528.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 531.
+(babel)             in language  on input line 528.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 531.
+(babel)             in language  on input line 528.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 531.
+(babel)             in language  on input line 528.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 531.
-[69]) (./the_program.tex
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
- [70 <./combined_face_alt_cycle.pdf>]
+(babel)             in language  on input line 528.
+ [70 <./combined_face_alt_cycle2.pdf>])
+(./the_program.tex
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -3435,7 +3448,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
- [71 <./combined_face_alt_cycle2.pdf>]
+ [71]
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "|
@@ -3725,7 +3738,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8DBA11CA10F590232F60E3D61D3C5BB6;1183.
+(rerunfilecheck)             Checksum: 9EE155F3E776C9ECC7247F698A9A0694;1188.
 
 
 LaTeX Warning: There were undefined references.
@@ -3738,7 +3751,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
 Here is how much of TeX's memory you used:
  49239 strings out of 492649
  1091474 string characters out of 6129622
- 2776876 words of memory out of 5000000
+ 2775858 words of memory out of 5000000
  51628 multiletter control sequences out of 15000+600000
  694541 words of font info for 285 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3831,7 +3844,7 @@ exlive/2018/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/201
 st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (92 pages, 2687292 bytes).
+Output written on thesis.pdf (92 pages, 2688700 bytes).
 PDF statistics:
  3201 PDF objects out of 3580 (max. 8388607)
  1690 compressed objects within 17 object streams

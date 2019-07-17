@@ -18,7 +18,7 @@ Sei ein ebener intern-3-zusammenhängender Graph $G$ mit Aufhängungen $a_1,a_2,
 
 Wie schon erwähnt ist $G+G^*$ bipartit, Kanten-Knoten haben Grad 4, Knoten-Knoten haben Grad $\text{deg}(v)$ und Gebiets-Knoten haben Grad $|f|$. Für eine $\alpha_s$-Orien\-tier\-ung muss nach Definition \ref{alpha_bij} A3 jeder Kanten-Knoten Ausgangsgrad 1, jeder Knoten-Knoten Eingangsgrad $\text{deg}(v)-3$ und jeder Gebiets-Knoten Eingangsgrad $|f|-3$ haben. Die Kanten-Knoten am äußeren Gebiet sind in $G+G^*$ immer nach außen orientiert. Somit reicht es, wenn wir nur die inneren Kanten-Kanten $E_{in}$ betrachten und die Orientierung der äußeren Kanten voraussetzten.
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
   \includegraphics[width=0.9\textwidth]{schnyder_flow.pdf}
   \caption{Der Schnyder Wood Fluss durch eine innere Kante $(v,w)$. Die nicht beschrifteten Kanten haben Kapazität 1.}
@@ -118,13 +118,6 @@ Wie oben in Abschnitt \ref{faa-flow} erwähnt, lässt sich ein FAA auch mit eine
 
 Bei der Kombination der beiden oben konstruierten Netzwerke $\mathcal{N}_S$ und $\mathcal{N}_F$ zu $\mathcal{N}_G$ muss die Ecken-Kompatibilität von Schnyder Labeling und FAA gewährleistet werden. Bei der Konstruktion von Netzwerk \ref{net_schnyder} und Netzwerk \ref{net_faa} haben wir jeweils die Aufhängungen von $G$ respektiert. Somit erfüllen wir K1 aus Definition \ref{def_ccc}, da das resultierende Schnyder Labeling $\sigma$ und das resultierende FAA $\phi$ nach Konstruktion die gleichen Aufhängungen nutzen. Allerdings müssen wir für die zweite Bedingung das Netzwerk etwas komplizierter machen. Betrachten wir als Basis $\mathcal{N}_S \cup \mathcal{N}_F$ und fürs erste nur das Teilnetzwerk um ein inneres Gebiet $f$, dann sehen wir, dass es $\mathcal{N}_S$ von $|f|-3$ adjazenten Kanten (Schnyder-)Fluss aufnimmt. Es bleiben somit drei Einkanten in $\mathcal{N}_S$ ungenutzt\footnote{Genau diese Kanten entsprechen in Netzwerk \ref{net_schnyder} der $\alpha_s$-Orientiertung.}. Wir können auf diesen drei Kanten den Ecken-Fluss aus $\mathcal{N}_F$ einfügen. Um K2 zu erfüllen, müssen wir gewährleisten, dass jede Ecke im Schnyder Labeling ein anderes Label hat. Betrachten wir also die von $\varphi_s$ induzierte $\alpha_s$-Orientierung auf dem Abschluss von $G+G^*$. Nach Theorem \ref{alpha_bij} erhalten wir in Bijektion stehende Schnyder Woods und nach Theorem \ref{theo_schnyder_bij} auch in Bijektion stehende Schnyder Labelings auf $G$ und $G^*$.
 
-\begin{figure}[h]
-	\centering
-  	\includegraphics[width=0.9\textwidth]{alpha_bij.pdf}
-  	\caption{a) Eine $\alpha_s$-Orientierung um eine innere Kante von $G$. b) Teile der korrespondierenden Schnyder Woods auf $G$ und $G^*$. c) Die induzierten Label, die für $G$ und $G^*$ gleich sind.}
-	\label{alpha_bij}
-\end{figure}
-
 Für diese gilt, wie in Abbildung \ref{alpha_bij} skizziert, dass das Label der Ecke eines Gebietes in $G$ und das ihr in $G+G^*$ gegenüberliegenden Label der Ecke eines Gebiets um einen (Gebiets-)Knoten $f$ in $G^*$ gleich sind. Für eine zu $f$ in $G^*$ hin orientierte Kante folgt aus der Bijektion zwischen Schnyder Labelings und Schnyder Woods, dass die Label links und rechts am Ende dieser Kante gleich sind. Somit sind auch die Label in $G$ gleich und wir können die folgende Eigenschaft festhalten (vergleiche Abbildung \ref{alpha_bij}):
 
 \begin{itemize}
@@ -135,23 +128,30 @@ Da es genau drei zu $f$ orientierte Kanten gibt, müssen wir also dafür sorgen,
 
 \begin{figure}[h]
 	\centering
-  	\includegraphics[width=0.9\textwidth]{combined_face_sketch.pdf}
-  	\caption{Eine Skizze des kombinierten Netzwerkes auf einem inneren Gebiet mit $|f| = 4$. Beispielhaft sind ein Schnyder-Pfad (rot), ein Ecken-Pfad (blau) und ein Zuweisungs-Pfad (grün) eingezeichnet. }
-	\label{combined_face_sketch}
+  	\includegraphics[width=1\textwidth]{alpha_bij.pdf}
+  	\caption{a) Eine $\alpha_s$-Orientierung um eine innere Kante von $G$. b) Teile der korrespondierenden Schnyder Woods auf $G$ und $G^*$. c) Die induzierten Label, die für $G$ und $G^*$ gleich sind.}
+	\label{alpha_bij}
 \end{figure}
 
 Betrachten wir zuerst den \textbf{Schnyder-Fluss}. Dieser wird Fluss von Typ 1, also von Quelle 1 zu Senke 1 sein. Für einen Schnyder-Pfad, der durch einen Knoten $v$ führt, hat sich nichts geändert. Der in der Abbildung \ref{combined_face_sketch} eingezeichnete Schnyder-Pfad, der durch das innere Gebiet $f$ führt, passiert davor einen extra Knoten, wir nennen ihn \textit{kleines Quadrat}. Das kleine Quadrat soll gewährleisten, dass von Seite des Gebietes aus (also von jeder adjazenten Kante) entweder ein Schnyder-Pfad oder ein Ecken-Pfad in $f$ mündet. Zuletzt fügen wir, wie oben, von jedem inneren Gebiet eine Kante mit Kapazität $|f|-3$ zu Senke 1 ein. Somit kodiert hier eine ganzzahlige Lösung, genau wie zuvor in Netzwerk \ref{net_schnyder}, einen Schnyder Wood auf $G$.
 
-Kommen wir nun zum \textbf{FAA-Fluss}, also Fluss von Typ 2. Für einen Winkelknoten $(f,v)$ aus Netzwerk \ref{net_faa} erstellen wir ein Winkeldreieck aus vier Knoten und drei Kanten in $\mathcal{N}_G$ (vergleiche Abbildung \ref{combined_face_sketch}). Betrachten wir zuerst den im FAA-Fluss enthaltenen \textbf{Zuweisungs-Fluss}. Von Quelle 2 geht, genau wie in Netzwerk \ref{net_faa}, eine Kante zu jedem inneren Winkeldreieck $(f,v)$. Ein Zuweisungs-Pfad benutzt nur die erste Kante in einem Winkeldreieck und verlässt es über einen zusätzlich zu $v$ eingefügten Dummy-Knoten $v^*$. Von jedem $v^*$ geht eine Kante mit Kapazität 1 zu einer vorgeschobenen Dummy-Senke. Von dieser fügen wir eine Kante mit Kapazität $\sum_{f \in F_{in}} |f|-3$ zu Senke 2 ein, wie in Abbildung \ref{dummy_sink} illustriert. Die Dummy-Knoten $v^*$ sorgen dafür, dass jeder Knoten im FAA nur einmal zugewiesen werden kann, ohne in Konflikt mit dem Schnyder-Fluss zu kommen. Die eingeschobene Dummy-Senke beschränkt die Anzahl der insgesamt zugewiesenen Knoten, genau wie im zuvor konstruierten FAA-Fluss, auf $\sum_{f \in F_{in}} |f|-3$.
-
 \begin{figure}[h]
 	\centering
-  	\includegraphics[width=0.7\textwidth]{dummy_sink.pdf}
+  	\includegraphics[width=0.95\textwidth]{combined_face_sketch.pdf}
+  	\caption{Eine Skizze des kombinierten Netzwerkes auf einem inneren Gebiet mit $|f| = 4$. Beispielhaft sind ein Schnyder-Pfad (rot), ein Ecken-Pfad (blau) und ein Zuweisungs-Pfad (grün) eingezeichnet. }
+	\label{combined_face_sketch}
+\end{figure}
+
+Kommen wir nun zum \textbf{FAA-Fluss}, also Fluss von Typ 2. Für einen Winkelknoten $(f,v)$ aus Netzwerk \ref{net_faa} erstellen wir ein Winkeldreieck aus vier Knoten und drei Kanten in $\mathcal{N}_G$ (vergleiche Abbildung \ref{combined_face_sketch}). Betrachten wir zuerst den im FAA-Fluss enthaltenen \textbf{Zuweisungs-Fluss}. Von Quelle 2 geht, genau wie in Netzwerk \ref{net_faa}, eine Kante zu jedem inneren Winkeldreieck $(f,v)$. Ein Zuweisungs-Pfad benutzt nur die erste Kante in einem Winkeldreieck und verlässt es über einen zusätzlich zu $v$ eingefügten Dummy-Knoten $v^*$. Von jedem $v^*$ geht eine Kante mit Kapazität 1 zu einer vorgeschobenen Dummy-Senke. Von dieser fügen wir eine Kante mit Kapazität $\sum_{f \in F_{in}} |f|-3$ zu Senke 2 ein, wie in Abbildung \ref{dummy_sink} illustriert. Die Dummy-Knoten $v^*$ sorgen dafür, dass jeder Knoten im FAA nur einmal zugewiesen werden kann, ohne in Konflikt mit dem Schnyder-Fluss zu kommen. Die eingeschobene Dummy-Senke beschränkt die Anzahl der insgesamt zugewiesenen Knoten, genau wie im zuvor konstruierten FAA-Fluss, auf $\sum_{f \in F_{in}} |f|-3$.
+
+Es bleibt der \textbf{Ecken-Fluss}. Ein Ecken-Pfad betritt das Netzwerk durch ein Winkeldreieck $(f,v)$ und muss, bevor er das Gebiet verlässt, ein vom Schnyder-Fluss ungenutztes kleines Quadrat passieren. Die zweite und dritte Kante in jedem Winkeldreieck gewährleisten, dass nicht immer das nächste kleine Quadrat genutzt werden muss. Falls dies von Schnyder-Fluss besetzt ist und der nächste Winkel zugewiesen wird, kann ein Ecken-Pfad den nächsten Winkel passieren (wie in Abbildung \ref{combined_face_sketch}). Die erste Kante, die von sowohl Zuweisungs-, als auch Ecken-Pfaden genutzt werden kann, sorgt im Falle einer ganzzahligen Lösung für eine eindeutige Beschriftung (als Ecke oder Zuweisung). Wie zuvor existieren auch hier Kanten von jedem inneren Gebiet zu Senke 2 mit Kapazität drei.
+
+\begin{figure}
+	\centering
+  	\includegraphics[width=0.85\textwidth]{dummy_sink.pdf}
   	\caption{Der Zuweisungsfluss durch die Winkel, Dummy-Knoten und die zusätzliche Kante vor Senke 2. Die Kante rechts hat Kapazität $\sum_{f \in F_{in}} |f|-3$ und alle anderen Kapazität 1.}
 	\label{dummy_sink}
 \end{figure}
-
-Es bleibt der \textbf{Ecken-Fluss}. Ein Ecken-Pfad betritt das Netzwerk durch ein Winkeldreieck $(f,v)$ und muss, bevor er das Gebiet verlässt, ein vom Schnyder-Fluss ungenutztes kleines Quadrat passieren. Die zweite und dritte Kante in jedem Winkeldreieck gewährleisten, dass nicht immer das nächste kleine Quadrat genutzt werden muss. Falls dies von Schnyder-Fluss besetzt ist und der nächste Winkel zugewiesen wird, kann ein Ecken-Pfad den nächsten Winkel passieren (wie in Abbildung \ref{combined_face_sketch}). Die erste Kante, die von sowohl Zuweisungs-, als auch Ecken-Pfaden genutzt werden kann, sorgt im Falle einer ganzzahligen Lösung für eine eindeutige Beschriftung (als Ecke oder Zuweisung). Wie zuvor existieren auch hier Kanten von jedem inneren Gebiet zu Senke 2 mit Kapazität drei.
 
 Die Bedarfe der beiden Flüsse $\varphi_s$ bzw. $\varphi_F$ haben sich nicht verändert. Beide entsprechen jeweils den Bedarfen der oben konstruierten Netzwerke. So kann, mit den gleichen Argumenten wie oben, ein Schnyder Wood und ein FAA kodiert werden. Jedes Gebiet benötigt genau drei Ecken und $|f|-3$ zugewiesene Knoten und je ein Schnyder-Pfad führt durch jede innere Kante, $|E_{in}|$. Hier seien wieder $E_{in}$ die inneren Kanten und $F_{in}$ die inneren Gebiete von $G$. Fassen wir noch einmal zusammen.
 
@@ -259,7 +259,7 @@ Wir können die Quellen und Senken von Netzwerk \ref{net_sltr} nicht vereinen un
 Wir können das Netzwerk leicht abwandeln, um sicher zu stellen, dass eine ganzzahlige Lösung immer eine FAA und einen Schnyder Wood induziert, doch dann geht uns die Kontrolle über die Ecken-Kompatibilität verloren.
 \end{remark}
 
-\section{Nicht ganzzahlige Lösungen}\label{sec_non_int}
+\section{Nicht-ganzzahlige Flüsse auf $\mathcal{N}_G$}\label{sec_non_int}
 
 Wir werden uns zum Abschluss des Kapitels mit der von Aerts und Felsner offen gelassenen Frage beschäftigen, ob die Erkennung von Graphen mit einer SLTR in P liegt -- ob also polynominelle deterministische Algorithmen für die Entscheidung existieren, ob für einen gegebenen Graphen eine SLTR existiert. Wie in Abschnitt \ref{dir_multi_flow} erwähnt, impliziert eine nicht ganzzahlige Lösung für ein Gerichtetes-Multi-Fluss-Problem auf einem Graphen mit $n\geq 2$ Paaren von Quellen und Senken im Allgemeinen nicht die Existenz einer ganzzahligen Lösung. Und nach Theorem \ref{np_hard} ist die Berechnung einer ganzzahligen Lösung NP-schwer. Die experimentellen Ergebnisse aus Kapitel \ref{the_program} lassen jedoch die Möglichkeit offen, dass wir für das betrachtete Netzwerk $\mathcal{N}_G$ die folgende Vermutung beweisen können.
 
@@ -502,28 +502,29 @@ Wir nennen $E_C=\{C_Z \cup C'_Z\}$, mit  $C_Z = \{(s_2,w^1_1), (w^1_1,w^1_2), (w
 $$\text{min}(\tilde{\varphi}_s(\{C_Z\}) = a > 0 \text{ und } \text{max}(\tilde{\varphi}_s(\{C'_Z\}) \leq 1 - a.$$
 \end{definition}
 
-\begin{remark}
-Die hier eingeführten Definitionen führen zu deutlich längeren gleichgerichteten Kantenfolgen als zuvor. Es können allerdings auch kürzere Formen von Z- und C-Zykel auftreten. Ein Z-Zykel kann schon in einem Dummy-Knoten enden. Ein C-Zykel kann entweder in einem inneren Gebiet, oder am Knoten $w_3$ eines Winkel\-dreiecks enden. In keinem der beiden Fälle müssen die Längen von erstem und zweitem Teil übereinstimmen.
-\end{remark}
-
-\begin{figure}
+\begin{figure}[b!]
 \centering
 \includegraphics[width=0.8\textwidth]{combined_face_alt_cycle.pdf}
 \caption{Ein Beispiel von zwei C-Zykeln (blau) und zwei Z-Zykeln(grün). Merke, dass es sich hier jeweils einmal um Zykel mit Kapazität $a$ und jeweils einmal um Zykel mit Kapazität $b$ handelt. Die C-Zykel führen in diesem Beispiel nur bis zu einem Winkeldreieck (roter Punkt). Falls $a+b=1$ gilt und durch einen der beiden, von den Z-Zykel genutzen Dummy-Knoten kein weiterer Zuweisungs-Pfad führt, können wir jeweils einen der beiden Zykel umkehren und erhalten einen ganzzahligen Fluss.}
 \label{combined_face_alt_cycle}
 \end{figure}
 
+\begin{remark}
+Die hier eingeführten Definitionen führen zu deutlich längeren gleichgerichteten Kantenfolgen als zuvor. Es können allerdings auch kürzere Formen von Z- und C-Zykel auftreten. Ein Z-Zykel kann schon in einem Dummy-Knoten enden. Ein C-Zykel kann entweder in einem inneren Gebiet, oder am Knoten $w_3$ eines Winkel\-dreiecks enden. In keinem der beiden Fälle müssen die Längen von erstem und zweitem Teil übereinstimmen.
+\end{remark}
+
 Analog zu oben ist es möglich, den fraktionalen Anteil von Ecken- und Zuweisungsfluss jeweils mit alternierenden Zykeln zu überdecken. In den Lösungen für $\mathcal{N}_G$, die mit dem in Kapitel \ref{the_program} vorgestellten Programm errechnet wurden, finden sich in allen drei Fluss-Typen solche Zykel. Durch schrittweises Umkehren war es uns auf kleineren Beispielen möglich so ganzzahlige Lösungen zu konstruieren. Ein Ausschnitt aus so einem Beispiel ist in Abbildung \ref{combined_face_alt_cycle} zu sehen.
 
-\begin{example}
-Kommen wir zurück zu einen Schnyder-Zykel den wir umkehren wollen. Betrachten wir den Fall, dass der Zykel nur durch einen Gebiets-Knoten führt. Wir müssen also einen oder mehrere Ecken-Zykel finden, die wir parallel zum Schnyder-Zykel umkehren können, sodass die Kapazitäten an den kleinen Quadraten nicht überschritten werden. In Abbildung \ref{combined_face_alt_cycle2} ist so eine Situation dargestellt Nehmen wir an, dass auf allen eingefärbten Kanten Fluss mit Stärke 1/2 fließt. Wie man hier sieht, müssen wir nun aber zusätzlich noch mindestens auf die äußeren Winkelkanten achten, an denen sich Zuweisungs- und Ecken-Zykel überschneiden. Wie in Proposition \ref{claim_non_int} festgehalten, sind diese Fälle die relevanten -- wenn nur zwei Flusstypen nicht-ganzzahlig sind können wir eine ganzzahligen Lösung konstruieren. Für die alternierenden Zykel in der Abbildung ist die gleichzeitige Umkehrung möglich, falls durch einen der beiden Dummy-Knoten kein weiterer Pfad läuft.
-
-\begin{figure}
+\begin{figure}[b]
 \centering
 \includegraphics[width=0.8\textwidth]{combined_face_alt_cycle2.pdf}
 \caption{Falls durch einen der Dummy-Knoten kein weiterer Zuweisungs-Pfad führt können wir die Zykel so umkehren, dass wir einen ganzzahligen Fluss erhalten. Alle eingezeichneten Flüsse haben Stärke $1/2$. Die dicken Kanten sind somit ausgelastet.}
 \label{combined_face_alt_cycle2}
 \end{figure}
+
+
+\begin{example}
+Kommen wir zurück zu einen Schnyder-Zykel den wir umkehren wollen. Betrachten wir den Fall, dass der Zykel nur durch einen Gebiets-Knoten führt. Wir müssen also einen oder mehrere Ecken-Zykel finden, die wir parallel zum Schnyder-Zykel umkehren können, sodass die Kapazitäten an den kleinen Quadraten nicht überschritten werden. In Abbildung \ref{combined_face_alt_cycle2} ist so eine Situation dargestellt Nehmen wir an, dass auf allen eingefärbten Kanten Fluss mit Stärke 1/2 fließt. Wie man hier sieht, müssen wir nun aber zusätzlich noch mindestens auf die äußeren Winkelkanten achten, an denen sich Zuweisungs- und Ecken-Zykel überschneiden. Wie in Proposition \ref{claim_non_int} festgehalten, sind diese Fälle die relevanten -- wenn nur zwei Flusstypen nicht-ganzzahlig sind können wir eine ganzzahligen Lösung konstruieren. Für die alternierenden Zykel in der Abbildung ist die gleichzeitige Umkehrung möglich, falls durch einen der beiden Dummy-Knoten kein weiterer Pfad läuft.
 \end{example}
 
 In einer nicht-ganzzahligen Lösung auf einem Netzwerk, dass eine ganzzahlige Lösung zulässt müsste es einen Weg geben über das Umkehren von alternierenden Zykeln zu einer ganzzahligen Lösung zu kommen. Nehmen wir jedoch an, dass es keine ganzzahlige Lösung gibt, dann könnten wir auf diesem Weg zu einem Widerspruch zu gelangen und somit Vermutung \ref{int_conj} zu beweisen. Wir haben dies für einige Sonderfälle gezeigt, doch im Allgemeinen noch keinen Weg gefunden. Wir formulieren darum eine weitere Frage:
