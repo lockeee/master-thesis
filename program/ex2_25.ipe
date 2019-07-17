@@ -1,0 +1,474 @@
+<?xml version="1.0"?>
+			<!DOCTYPE ipe SYSTEM "ipe.dtd">
+			<ipe version="70005" creator="Ipe 7.1.4">
+			<info created="D:20150825115823" modified="D:20150825115852"/>
+					<ipestyle name="basic">
+		<symbol name="arrow/arc(spx)">
+		<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-1 -0.333 l
+		h
+		</path>
+		</symbol>
+		<symbol name="arrow/farc(spx)">
+		<path stroke="sym-stroke" fill="white" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-1 -0.333 l
+		h
+		</path>
+		</symbol>
+		<symbol name="mark/circle(sx)" transformations="translations">
+		<path fill="sym-stroke">
+		0.6 0 0 0.6 0 0 e
+		0.4 0 0 0.4 0 0 e
+		</path>
+		</symbol>
+		<symbol name="mark/disk(sx)" transformations="translations">
+		<path fill="sym-stroke">
+		0.6 0 0 0.6 0 0 e
+		</path>
+		</symbol>
+		<symbol name="mark/fdisk(sfx)" transformations="translations">
+		<group>
+		<path fill="sym-fill">
+		0.5 0 0 0.5 0 0 e
+		</path>
+		<path fill="sym-stroke" fillrule="eofill">
+		0.6 0 0 0.6 0 0 e
+		0.4 0 0 0.4 0 0 e
+		</path>
+		</group>
+		</symbol>
+		<symbol name="mark/box(sx)" transformations="translations">
+		<path fill="sym-stroke" fillrule="eofill">
+		-0.6 -0.6 m
+		0.6 -0.6 l
+		0.6 0.6 l
+		-0.6 0.6 l
+		h
+		-0.4 -0.4 m
+		0.4 -0.4 l
+		0.4 0.4 l
+		-0.4 0.4 l
+		h
+		</path>
+		</symbol>
+		<symbol name="mark/square(sx)" transformations="translations">
+		<path fill="sym-stroke">
+		-0.6 -0.6 m
+		0.6 -0.6 l
+		0.6 0.6 l
+		-0.6 0.6 l
+		h
+		</path>
+		</symbol>
+		<symbol name="mark/fsquare(sfx)" transformations="translations">
+		<group>
+		<path fill="sym-fill">
+		-0.5 -0.5 m
+		0.5 -0.5 l
+		0.5 0.5 l
+		-0.5 0.5 l
+		h
+		</path>
+		<path fill="sym-stroke" fillrule="eofill">
+		-0.6 -0.6 m
+		0.6 -0.6 l
+		0.6 0.6 l
+		-0.6 0.6 l
+		h
+		-0.4 -0.4 m
+		0.4 -0.4 l
+		0.4 0.4 l
+		-0.4 0.4 l
+		h
+		</path>
+		</group>
+		</symbol>
+		<symbol name="mark/cross(sx)" transformations="translations">
+		<group>
+		<path fill="sym-stroke">
+		-0.43 -0.57 m
+		0.57 0.43 l
+		0.43 0.57 l
+		-0.57 -0.43 l
+		h
+		</path>
+		<path fill="sym-stroke">
+		-0.43 0.57 m
+		0.57 -0.43 l
+		0.43 -0.57 l
+		-0.57 0.43 l
+		h
+		</path>
+		</group>
+		</symbol>
+		<symbol name="arrow/fnormal(spx)">
+		<path stroke="sym-stroke" fill="white" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-1 -0.333 l
+		h
+		</path>
+		</symbol>
+		<symbol name="arrow/pointed(spx)">
+		<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-0.8 0 l
+		-1 -0.333 l
+		h
+		</path>
+		</symbol>
+		<symbol name="arrow/fpointed(spx)">
+		<path stroke="sym-stroke" fill="white" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-0.8 0 l
+		-1 -0.333 l
+		h
+		</path>
+		</symbol>
+		<symbol name="arrow/linear(spx)">
+		<path stroke="sym-stroke" pen="sym-pen">
+		-1 0.333 m
+		0 0 l
+		-1 -0.333 l
+		</path>
+		</symbol>
+		<symbol name="arrow/fdouble(spx)">
+		<path stroke="sym-stroke" fill="white" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-1 -0.333 l
+		h
+		-1 0 m
+		-2 0.333 l
+		-2 -0.333 l
+		h
+		</path>
+		</symbol>
+		<symbol name="arrow/double(spx)">
+		<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+		0 0 m
+		-1 0.333 l
+		-1 -0.333 l
+		h
+		-1 0 m
+		-2 0.333 l
+		-2 -0.333 l
+		h
+		</path>
+		</symbol>
+		<pen name="heavier" value="0.8"/>
+		<pen name="fat" value="1.2"/>
+		<pen name="ultrafat" value="2"/>
+		<symbolsize name="large" value="5"/>
+		<symbolsize name="small" value="2"/>
+		<symbolsize name="tiny" value="1.1"/>
+		<arrowsize name="large" value="10"/>
+		<arrowsize name="small" value="5"/>
+		<arrowsize name="tiny" value="3"/>
+		<color name="red" value="1 0 0"/>
+		<color name="green" value="0 1 0"/>
+		<color name="blue" value="0 0 1"/>
+		<color name="yellow" value="1 1 0"/>
+		<color name="orange" value="1 0.647 0"/>
+		<color name="gold" value="1 0.843 0"/>
+		<color name="purple" value="0.627 0.125 0.941"/>
+		<color name="gray" value="0.745"/>
+		<color name="brown" value="0.647 0.165 0.165"/>
+		<color name="navy" value="0 0 0.502"/>
+		<color name="pink" value="1 0.753 0.796"/>
+		<color name="seagreen" value="0.18 0.545 0.341"/>
+		<color name="turquoise" value="0.251 0.878 0.816"/>
+		<color name="violet" value="0.933 0.51 0.933"/>
+		<color name="darkblue" value="0 0 0.545"/>
+		<color name="darkcyan" value="0 0.545 0.545"/>
+		<color name="darkgray" value="0.663"/>
+		<color name="darkgreen" value="0 0.392 0"/>
+		<color name="darkmagenta" value="0.545 0 0.545"/>
+		<color name="darkorange" value="1 0.549 0"/>
+		<color name="darkred" value="0.545 0 0"/>
+		<color name="lightblue" value="0.678 0.847 0.902"/>
+		<color name="lightcyan" value="0.878 1 1"/>
+		<color name="lightgray" value="0.827"/>
+		<color name="lightgreen" value="0.565 0.933 0.565"/>
+		<color name="lightyellow" value="1 1 0.878"/>
+		<dashstyle name="dashed" value="[4] 0"/>
+		<dashstyle name="dotted" value="[1 3] 0"/>
+		<dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
+		<dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
+		<textsize name="large" value="\large"/>
+		<textsize name="Large" value="\Large"/>
+		<textsize name="LARGE" value="\LARGE"/>
+		<textsize name="huge" value="\huge"/>
+		<textsize name="Huge" value="\Huge"/>
+		<textsize name="small" value="\small"/>
+		<textsize name="footnote" value="\footnotesize"/>
+		<textsize name="tiny" value="\tiny"/>
+		<textstyle name="center" begin="\begin{center}" end="\end{center}"/>
+		<textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
+		<textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
+		<gridsize name="4 pts" value="4"/>
+		<gridsize name="8 pts (~3 mm)" value="8"/>
+		<gridsize name="16 pts (~6 mm)" value="16"/>
+		<gridsize name="32 pts (~12 mm)" value="32"/>
+		<gridsize name="10 pts (~3.5 mm)" value="10"/>
+		<gridsize name="20 pts (~7 mm)" value="20"/>
+		<gridsize name="14 pts (~5 mm)" value="14"/>
+		<gridsize name="28 pts (~10 mm)" value="28"/>
+		<gridsize name="56 pts (~20 mm)" value="56"/>
+		<anglesize name="90 deg" value="90"/>
+		<anglesize name="60 deg" value="60"/>
+		<anglesize name="45 deg" value="45"/>
+		<anglesize name="30 deg" value="30"/>
+		<anglesize name="22.5 deg" value="22.5"/>
+		<tiling name="falling" angle="-60" step="4" width="1"/>
+		<tiling name="rising" angle="30" step="4" width="1"/>
+		</ipestyle>
+<page>
+			<layer name="alpha"/>
+			<layer name="beta"/>
+			<view layers="alpha beta" active="alpha"/>
+<path layer="beta" stroke="black">
+492.000000000000 100.000000000000 m
+190.938644440761 190.017094794362 l
+</path>
+<path layer="beta" stroke="black">
+492.000000000000 100.000000000000 m
+470.222222215894 143.555555584510 l
+</path>
+<path layer="beta" stroke="black">
+492.000000000000 100.000000000000 m
+375.322124767659 130.209881833686 l
+</path>
+<path layer="beta" stroke="black">
+492.000000000000 100.000000000000 m
+100.000000000000 100.000000031440 l
+</path>
+<path layer="beta" stroke="black">
+492.000000000000 100.000000000000 m
+436.783284829979 110.274144146771 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+383.111111080995 317.777777922176 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+252.399804643029 170.081357207491 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+330.580433328210 166.786325189750 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+307.131903371768 241.786742127071 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+188.831185922460 143.463249334218 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+193.046102966780 236.570940233918 l
+</path>
+<path layer="beta" stroke="black">
+190.938644440761 190.017094794362 m
+238.515425187161 281.579487615379 l
+</path>
+<path layer="beta" stroke="black">
+470.222222215894 143.555555584510 m
+330.580433328210 166.786325189750 l
+</path>
+<path layer="beta" stroke="black">
+470.222222215894 143.555555584510 m
+426.666666648246 230.666666753862 l
+</path>
+<path layer="beta" stroke="black">
+383.111111080995 317.777777922176 m
+426.666666648246 230.666666753862 l
+</path>
+<path layer="beta" stroke="black">
+383.111111080995 317.777777922176 m
+307.131903371768 241.786742127071 l
+</path>
+<path layer="beta" stroke="black">
+383.111111080995 317.777777922176 m
+296.000000029834 492.000000000000 l
+</path>
+<path layer="beta" stroke="black">
+383.111111080995 317.777777922176 m
+238.515425187161 281.579487615379 l
+</path>
+<path layer="beta" stroke="black">
+383.111111080995 317.777777922176 m
+286.092205933561 373.141880436396 l
+</path>
+<path layer="beta" stroke="black">
+252.399804643029 170.081357207491 m
+228.405313915767 132.047533636934 l
+</path>
+<path layer="beta" stroke="black">
+252.399804643029 170.081357207491 m
+313.860964705344 150.145619520588 l
+</path>
+<path layer="beta" stroke="black">
+252.399804643029 170.081357207491 m
+188.831185922460 143.463249334218 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+100.000000000000 100.000000031440 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+304.985941786301 126.297910963856 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+326.349854483695 130.822432434769 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+188.831185922460 143.463249334218 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+211.130418567356 119.448481544077 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+172.412166612742 125.170261000864 l
+</path>
+<path layer="beta" stroke="black">
+228.405313915767 132.047533636934 m
+271.133139310555 141.096576578761 l
+</path>
+<path layer="beta" stroke="black">
+330.580433328210 166.786325189750 m
+307.131903371768 241.786742127071 l
+</path>
+<path layer="beta" stroke="black">
+330.580433328210 166.786325189750 m
+378.623549988267 198.726495971701 l
+</path>
+<path layer="beta" stroke="black">
+426.666666648246 230.666666753862 m
+307.131903371768 241.786742127071 l
+</path>
+<path layer="beta" stroke="black">
+426.666666648246 230.666666753862 m
+378.623549988267 198.726495971701 l
+</path>
+<path layer="beta" stroke="black">
+375.322124767659 130.209881833686 m
+313.860964705344 150.145619520588 l
+</path>
+<path layer="beta" stroke="black">
+375.322124767659 130.209881833686 m
+436.783284829979 110.274144146771 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+381.566569656832 120.548288290783 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+304.985941786301 126.297910963856 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+188.831185922460 143.463249334218 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+193.046102966780 236.570940233918 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+211.130418567356 119.448481544077 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+172.412166612742 125.170261000864 l
+</path>
+<path layer="beta" stroke="black">
+100.000000000000 100.000000031440 m
+296.000000029834 492.000000000000 l
+</path>
+<path layer="beta" stroke="black">
+381.566569656832 120.548288290783 m
+436.783284829979 110.274144146771 l
+</path>
+<path layer="beta" stroke="black">
+381.566569656832 120.548288290783 m
+304.985941786301 126.297910963856 l
+</path>
+<path layer="beta" stroke="black">
+381.566569656832 120.548288290783 m
+326.349854483695 130.822432434769 l
+</path>
+<path layer="beta" stroke="black">
+313.860964705344 150.145619520588 m
+271.133139310555 141.096576578761 l
+</path>
+<path layer="beta" stroke="black">
+304.985941786301 126.297910963856 m
+211.130418567356 119.448481544077 l
+</path>
+<path layer="beta" stroke="black">
+326.349854483695 130.822432434769 m
+271.133139310555 141.096576578761 l
+</path>
+<path layer="beta" stroke="black">
+307.131903371768 241.786742127071 m
+378.623549988267 198.726495971701 l
+</path>
+<path layer="beta" stroke="black">
+188.831185922460 143.463249334218 m
+172.412166612742 125.170261000864 l
+</path>
+<path layer="beta" stroke="black">
+193.046102966780 236.570940233918 m
+286.092205933561 373.141880436396 l
+</path>
+<path layer="beta" stroke="black">
+296.000000029834 492.000000000000 m
+286.092205933561 373.141880436396 l
+</path>
+<path layer="beta" stroke="black">
+238.515425187161 281.579487615379 m
+286.092205933561 373.141880436396 l
+</path>
+<use layer="alpha" name="mark/disk(sx)" pos="492.000000000000 100.000000000000" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="190.938644440761 190.017094794362" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="470.222222215894 143.555555584510" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="383.111111080995 317.777777922176" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="252.399804643029 170.081357207491" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="228.405313915767 132.047533636934" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="330.580433328210 166.786325189750" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="426.666666648246 230.666666753862" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="375.322124767659 130.209881833686" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="100.000000000000 100.000000031440" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="381.566569656832 120.548288290783" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="313.860964705344 150.145619520588" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="436.783284829979 110.274144146771" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="304.985941786301 126.297910963856" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="326.349854483695 130.822432434769" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="307.131903371768 241.786742127071" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="378.623549988267 198.726495971701" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="188.831185922460 143.463249334218" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="193.046102966780 236.570940233918" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="211.130418567356 119.448481544077" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="172.412166612742 125.170261000864" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="271.133139310555 141.096576578761" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="296.000000029834 492.000000000000" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="238.515425187161 281.579487615379" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="286.092205933561 373.141880436396" size="large" stroke="black"/>
+</page>
+</ipe>
