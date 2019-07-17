@@ -496,9 +496,8 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 	V = G.vertices()
 	n = len(V)
 	const = n*10
-	if n > 20:
+	if n > 17:
 		[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
-		graph2ipe(G,"ex4_25")
 		return pos
 	segments = _list_pseudo_segments(G,faa,faa_dict)
 	count += 1
@@ -508,8 +507,6 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
-		show(G)
-		graph2ipe(G,"ex15_1")
 		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face,segments,allP)
 	else:
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
@@ -519,10 +516,10 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 		M = weights-weights2
 		norm = M.norm()
 		if norm < const:
-			print "Stopped because of Norm, count is:" , count
+			print "Stopped because graph is converging. Iterations:" , count
 			return pos
 		elif count == 50:
-			print "Stopped because of count, norm is:" , norm
+			print "Stopped at Iteration limit, proceeding to second method."
 			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
 			return pos
@@ -570,7 +567,7 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 					if ed not in edges_to_r and ( ed[0] not in seg or ed[1] not in seg ):
 						edges_to_r.append(ed)
 		if len(edges_to_r) != 0 and len(edges_to_l) != 0:
-			x = 1.2
+			x = 1.1
 			sus_l = []
 			sus_r = []
 			vol_l = vol_l1
