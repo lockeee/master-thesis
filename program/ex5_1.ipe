@@ -234,125 +234,130 @@
 			<layer name="beta"/>
 			<view layers="alpha beta" active="alpha"/>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
-286.320987654321 250.024691358025 l
+361.333333333333 100.000000000000 m
+267.787878787879 245.515151515151 l
 </path>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
-286.724279835391 162.106995884773 l
+361.333333333333 100.000000000000 m
+238.090909090909 233.636363636364 l
 </path>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
-286.455418381344 220.718792866941 l
+361.333333333333 100.000000000000 m
+310.848484848485 236.606060606061 l
 </path>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
-286.589849108368 191.412894375857 l
+361.333333333333 100.000000000000 m
+492.000000000000 100.000000000000 l
 </path>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
-236.312757201646 175.818930041152 l
+361.333333333333 100.000000000000 m
+376.181818181818 236.606060606061 l
 </path>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
+361.333333333333 100.000000000000 m
+230.666666666667 100.000000000000 l
+</path>
+<path layer="beta" stroke="black">
+361.333333333333 100.000000000000 m
+276.696969696970 144.545454545455 l
+</path>
+<path layer="beta" stroke="black">
+224.727272727273 254.424242424242 m
+267.787878787879 245.515151515151 l
+</path>
+<path layer="beta" stroke="black">
+224.727272727273 254.424242424242 m
+260.363636363636 373.212121212121 l
+</path>
+<path layer="beta" stroke="black">
+224.727272727273 254.424242424242 m
+162.363636363636 177.212121212121 l
+</path>
+<path layer="beta" stroke="black">
+224.727272727273 254.424242424242 m
+208.393939393939 221.757575757576 l
+</path>
+<path layer="beta" stroke="black">
+267.787878787879 245.515151515151 m
+238.090909090909 233.636363636364 l
+</path>
+<path layer="beta" stroke="black">
+267.787878787879 245.515151515151 m
+310.848484848485 236.606060606061 l
+</path>
+<path layer="beta" stroke="black">
+238.090909090909 233.636363636364 m
+100.000000000000 100.000000000000 l
+</path>
+<path layer="beta" stroke="black">
+238.090909090909 233.636363636364 m
+162.363636363636 177.212121212121 l
+</path>
+<path layer="beta" stroke="black">
+238.090909090909 233.636363636364 m
+208.393939393939 221.757575757576 l
+</path>
+<path layer="beta" stroke="black">
+238.090909090909 233.636363636364 m
+230.666666666667 100.000000000000 l
+</path>
+<path layer="beta" stroke="black">
+238.090909090909 233.636363636364 m
+276.696969696970 144.545454545455 l
+</path>
+<path layer="beta" stroke="black">
+260.363636363636 373.212121212121 m
+310.848484848485 236.606060606061 l
+</path>
+<path layer="beta" stroke="black">
+260.363636363636 373.212121212121 m
+376.181818181818 236.606060606061 l
+</path>
+<path layer="beta" stroke="black">
+260.363636363636 373.212121212121 m
 296.000000000000 492.000000000000 l
 </path>
 <path layer="beta" stroke="black">
-254.057613168724 227.440329218107 m
-100.000000000000 100.000000000000 l
+100.000000000000 100.000000000000 m
+162.363636363636 177.212121212121 l
 </path>
 <path layer="beta" stroke="black">
-168.156378600823 137.909465020576 m
-286.724279835391 162.106995884773 l
+100.000000000000 100.000000000000 m
+230.666666666667 100.000000000000 l
 </path>
 <path layer="beta" stroke="black">
-168.156378600823 137.909465020576 m
-236.312757201646 175.818930041152 l
-</path>
-<path layer="beta" stroke="black">
-168.156378600823 137.909465020576 m
-100.000000000000 100.000000000000 l
-</path>
-<path layer="beta" stroke="black">
-286.320987654321 250.024691358025 m
-286.455418381344 220.718792866941 l
-</path>
-<path layer="beta" stroke="black">
-286.320987654321 250.024691358025 m
-318.584362139918 272.609053497942 l
-</path>
-<path layer="beta" stroke="black">
-286.724279835391 162.106995884773 m
-286.589849108368 191.412894375857 l
-</path>
-<path layer="beta" stroke="black">
-286.724279835391 162.106995884773 m
-318.584362139918 272.609053497942 l
-</path>
-<path layer="beta" stroke="black">
-286.724279835391 162.106995884773 m
-236.312757201646 175.818930041152 l
-</path>
-<path layer="beta" stroke="black">
-286.724279835391 162.106995884773 m
-405.292181069959 186.304526748971 l
-</path>
-<path layer="beta" stroke="black">
-286.455418381344 220.718792866941 m
-286.589849108368 191.412894375857 l
-</path>
-<path layer="beta" stroke="black">
-318.584362139918 272.609053497942 m
+100.000000000000 100.000000000000 m
 296.000000000000 492.000000000000 l
 </path>
 <path layer="beta" stroke="black">
-318.584362139918 272.609053497942 m
-405.292181069959 186.304526748971 l
-</path>
-<path layer="beta" stroke="black">
-296.000000000000 492.000000000000 m
-100.000000000000 100.000000000000 l
-</path>
-<path layer="beta" stroke="black">
-296.000000000000 492.000000000000 m
-492.000000000000 100.000000000000 l
-</path>
-<path layer="beta" stroke="black">
-100.000000000000 100.000000000000 m
-405.292181069959 186.304526748971 l
-</path>
-<path layer="beta" stroke="black">
-100.000000000000 100.000000000000 m
-492.000000000000 100.000000000000 l
-</path>
-<path layer="beta" stroke="black">
-100.000000000000 100.000000000000 m
-332.430727023320 128.768175582990 l
-</path>
-<path layer="beta" stroke="black">
-405.292181069959 186.304526748971 m
-492.000000000000 100.000000000000 l
-</path>
-<path layer="beta" stroke="black">
-405.292181069959 186.304526748971 m
-332.430727023320 128.768175582990 l
+162.363636363636 177.212121212121 m
+208.393939393939 221.757575757576 l
 </path>
 <path layer="beta" stroke="black">
 492.000000000000 100.000000000000 m
-332.430727023320 128.768175582990 l
+376.181818181818 236.606060606061 l
 </path>
-<use layer="alpha" name="mark/disk(sx)" pos="254.057613168724 227.440329218107" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="168.156378600823 137.909465020576" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="286.320987654321 250.024691358025" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="286.724279835391 162.106995884773" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="286.455418381344 220.718792866941" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="286.589849108368 191.412894375857" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="318.584362139918 272.609053497942" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="236.312757201646 175.818930041152" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="296.000000000000 492.000000000000" size="large" stroke="black"/>
+<path layer="beta" stroke="black">
+492.000000000000 100.000000000000 m
+296.000000000000 492.000000000000 l
+</path>
+<path layer="beta" stroke="black">
+230.666666666667 100.000000000000 m
+276.696969696970 144.545454545455 l
+</path>
+<use layer="alpha" name="mark/disk(sx)" pos="361.333333333333 100.000000000000" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="224.727272727273 254.424242424242" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="267.787878787879 245.515151515151" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="238.090909090909 233.636363636364" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="260.363636363636 373.212121212121" size="large" stroke="black"/>
 <use layer="alpha" name="mark/disk(sx)" pos="100.000000000000 100.000000000000" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="405.292181069959 186.304526748971" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="310.848484848485 236.606060606061" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="162.363636363636 177.212121212121" size="large" stroke="black"/>
 <use layer="alpha" name="mark/disk(sx)" pos="492.000000000000 100.000000000000" size="large" stroke="black"/>
-<use layer="alpha" name="mark/disk(sx)" pos="332.430727023320 128.768175582990" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="208.393939393939 221.757575757576" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="376.181818181818 236.606060606061" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="230.666666666667 100.000000000000" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="296.000000000000 492.000000000000" size="large" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="276.696969696970 144.545454545455" size="large" stroke="black"/>
 </page>
 </ipe>
