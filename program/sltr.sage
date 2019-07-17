@@ -502,11 +502,12 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 	# [pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
 	## const is for the stopping of the first iteration approach
 	
-	const = 5
+	const = 50
 	V = G.vertices()
 	n = len(V)
-	if n > 14:
+	if n > 15:
 		[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
+		graph2ipe(G,"ex4_25")
 		return pos
 	segments = _list_pseudo_segments(G,faa,faa_dict)
 	count += 1
@@ -517,7 +518,7 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
 		show(G)
-		graph2ipe(G,"ex8_1")
+		graph2ipe(G,"ex11_1")
 		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face,segments,allP)
 	else:
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
@@ -531,18 +532,18 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 			#show(G)
 		if norm < const:
 			print "Stopped because of Norm, count is:" , count
-			graph2ipe(G,"ex8_2")
+			graph2ipe(G,"ex11_2")
 			return pos
-		elif count == 40:
+		elif count == 50:
 			print "Stopped because of count, norm is:" , norm
 			#[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
 			#[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
-			graph2ipe(G,"ex8_2")
+			graph2ipe(G,"ex11_2")
 			show(G)
 			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
-			graph2ipe(G,"ex8_3")
+			graph2ipe(G,"ex11_3")
 			return pos
 	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2,outer_face,allP)	
 
@@ -591,11 +592,11 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 						edges_to_r.append(ed)
 		if len(edges_to_r) != 0 and len(edges_to_l) != 0:
 			#print edges_to_l , edges_to_r
-			x = 0.8
+			x = 1.2
 			sus_l = []
 			sus_r = []
-			vol_l = vol_l1*c_r
-			vol_r = vol_r1*c_l
+			vol_l = vol_l1
+			vol_r = vol_r1
 			for s in suspensions:
 				if s in L:
 					sus_l.append(s)
@@ -612,8 +613,8 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 							for k in range(len(P)-1):
 								j = V.index(P[k])
 								i = V.index(P[k+1])
-								W[j,i] += (vol_l/(1.*len(paths)*len(P)))^x
-								W[i,j] += (vol_l/(1.*len(paths)*len(P)))^x
+								W[j,i] += ((vol_l/(1.*len(paths)*len(P)*c_l))^x)/count
+								W[i,j] += ((vol_l/(1.*len(paths)*len(P)*c_l))^x)/count
 				for s in sus_r:
 					allp = allPaths[V.index(v)][suspensions.index(s)]
 					paths = [p for p in allp if list_in_list(p,R+seg)]
@@ -624,8 +625,8 @@ def _weights_for_pseudo_segments(G,faa,faa_dict,count,segments,suspensions,allPa
 							for k in range(len(P)-1):
 								j = V.index(P[k])
 								i = V.index(P[k+1])
-								W[j,i] += (vol_r/(1.*len(paths)*len(sus_r)*len(P)))^x
-								W[i,j] += (vol_r/(1.*len(paths)*len(sus_r)*len(P)))^x
+								W[j,i] += ((vol_r/(1.*len(paths)*len(P)*c_r))^x)/count
+								W[i,j] += ((vol_r/(1.*len(paths)*len(P)*c_r))^x)/count
 				
 
 
