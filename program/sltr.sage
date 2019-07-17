@@ -429,15 +429,15 @@ def plot_sltr(graph,suspensions,outer_face,faa = None,plotting=True,ipe=None):
 	if faa != None:
 		layout = _get_good_faa_layout(graph,faa,suspensions=suspensions,outer_face=outer_face)
 		graph.set_pos(layout)
-		# if plotting:
-		# 	Plot = graph.plot(axes = False)
-		# 	Plot.show()
-		# if ipe != None:
-		# 	graph2ipe(graph,ipe)
-		# if plotting:
-		# 	return [Plot,graph]
-		# else:
-		# 	return [None,graph]
+		if plotting:
+			Plot = graph.plot(axes = False)
+			Plot.show()
+		if ipe != None:
+			graph2ipe(graph,ipe)
+		if plotting:
+			return [Plot,graph]
+		else:
+			return [None,graph]
 	else:
 		print "No SLTR found for given parameters"
 
@@ -471,15 +471,16 @@ def _get_good_faa_layout(graph,faa,suspensions=None,outer_face=None):
 							n2 = face[0][(j+1)%l]
 							faa_dict[node] = (n1,n2)
 							break		
-	pos = _get_good_faa_layout_iteration(graph,faa,faa_dict,0,suspensions,None,outer_face)
+	pos = _get_good_faa_layout_iteration(graph,faa,faa_dict,0.,suspensions,None,outer_face)
 	return pos
 
 def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,outer_face):
 	## Recursively calculates a good embedding 
-	
+	# [pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
 	## const is for the stopping of the first iteration approach
-	const = 1
-
+	# [pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
+	# return pos
+	const = 0.01
 	V = G.vertices()
 	n = len(V)
 	count += 1
@@ -487,71 +488,112 @@ def _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights,oute
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
-		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=outer_face,W=copy(weights))
+		show(G)
+		graph2ipe(G,"ex3_1")
+		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=outer_face)
 	else:
 		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights)
 		pos = {V[i]:sol[i] for i in range(n)}
 		G.set_pos(pos)
-		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=outer_face,W=copy(weights))
+		weights2 = _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face=outer_face)
 		M = weights-weights2
 		norm = M.norm()
-		# if mod(count,5) == 0:
-		# 	print norm
-		# 	show(G)
+		if mod(count,1) == 0:
+			print norm
+			show(G)
 		if norm < const:
 			print "Stopped because of Norm, count is:" , count
+			graph2ipe(G,"ex3_2")
 			return pos
-		elif count == 30:
-			[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
-			#graph2ipe(G,"example1_1")
+		elif count == 5:
+			print "Stopped because of count, norm is:" , norm
+			#[pos,weights] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights)
 			#[pos,W] = _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face)
 			G.set_pos(pos)
+			graph2ipe(G,"ex3_2")
 			return pos
 	return _get_good_faa_layout_iteration(G,faa,faa_dict,count,suspensions,weights2,outer_face)	
 
-def _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face,W=None):
+def _calculate_weights(G,faa,faa_dict,suspensions,count,outer_face):
 	## Calculates the lambda for one step in Approach 1
 	n = len(G.vertices())
-	if W == None:
-		W = zero_matrix(RR,n,n)
-	W = _weights_for_pseudo_segments(G,faa,faa_dict,pos,W,count)
+	W = _weights_for_pseudo_segments(G,faa,faa_dict,count)
+	#W = _weigths_for_edges(G,W)
 	return W
 
-def _weights_for_pseudo_segments(G,faa,faa_dict,pos,W,count):
+def _weights_for_pseudo_segments(G,faa,faa_dict,count):
 	V = G.vertices()
-	x = 1.2
-	for seg in _list_pseudo_segments(G,faa,faa_dict):
-		[R,L] = _nodes_on_left_right(G,seg,pos)
-		vol_l1 = 0
-		vol_r1 = 0
-		c_l = 0
-		c_r = 0
-		for face in G.faces():
-			face_nodes = _nodes_in_face(face)
-			if list_in_list(face_nodes,L+seg):
-				vol_l1 += _get_face_area(G,face)
-				c_l += 1
-			elif list_in_list(face_nodes,R+seg):
-				vol_r1 += _get_face_area(G,face)
-				c_r += 1
-		if vol_l1 != 0 and vol_r1 != 0:
-			vol_l = (vol_l1^x)*(c_r)^2
-			vol_r = (vol_r1^x)*(c_l)^2
-			for node in seg+R:
-				j = V.index(node)
-				for n in R:
-					if G.has_edge(node,n):
-						i = V.index(n)
-						W[j,i] += vol_r
-						W[i,j] += vol_r
-			for node in seg+L:
-				j = V.index(node)
-				for n in L:
-					if G.has_edge(node,n):
-						i = V.index(n)
-						W[j,i] += vol_l
-						W[i,j] += vol_l
+	n = len(V)
+	e = len(G.edges())
+	f = len(G.faces())-1
+	W = zero_matrix(RR,n,n)
+	pos = G.get_pos()
+	segments = _list_pseudo_segments(G,faa,faa_dict)
+	vol = _get_face_area_nodes(G,faa[0][0])
+	for seg in segments:
+		if len(seg) > 2:
+			length = _get_edge_length(G,[seg[0],seg[-1]])
+			[R,L] = _nodes_on_left_right(G,seg,pos)
+			vol_l1 = 0
+			vol_r1 = 0
+			c_l = 0
+			c_r = 0
+			edges_to_l = []
+			edges_to_r = []
+			for face in G.faces():
+				face_nodes = _nodes_in_face(face)
+				if list_in_list(face_nodes,L+seg):
+					vol_l1 += _get_face_area(G,face)
+					c_l += 1
+					for edge in face:
+						ed = [edge[0],edge[1]]
+						ed.sort()
+						if ed not in edges_to_l and ( ed[0] not in seg or ed[1] not in seg ):
+							edges_to_l.append(ed)
+				elif list_in_list(face_nodes,R+seg):
+					vol_r1 += _get_face_area(G,face)
+					c_r += 1
+					for edge in face:
+						ed = [edge[0],edge[1]]
+						ed.sort()
+						if ed not in edges_to_r and ( ed[0] not in seg or ed[1] not in seg ):
+							edges_to_r.append(ed)
+			if len(edges_to_r) != 0 and len(edges_to_l) != 0:
+				# print  len(edges_to_l) , len(edges_to_r)
+				# print vol_l1,vol_r1
+				# vol_l = (vol_l1/(vol_r1+vol_l1))
+				# vol_r = (vol_r1/(vol_r1+vol_l1))
+				vol_l = vol_l1/(1.*c_l)
+				vol_r = vol_r1/(1.*c_r)
+				# print "l",vol_l,"r",vol_r,e
+				# (1.*len(edges_to_l)+1.*len(edges_to_r)))
+				# print (len(edges_to_l)/(1.*len(edges_to_l)+1.*len(edges_to_r))+len(edges_to_r)/(1.*len(edges_to_l)+1.*len(edges_to_r)))
+				# vol_l *= vol_l1^0.5/len(edges_to_l)
+				# vol_r *= vol_r1^0.5/len(edges_to_l)
+				# vol_l /=len(edges_to_r)
+				# vol_r *=len(edges_to_l)
+				vol_l = vol_l^1/count
+				vol_r = vol_r^1/count
+				#print seg, "l",vol_l,"r", vol_r
+				for face in G.faces():
+					q = _get_face_area(G,face)
+					q = 1
+					for edge in face:
+						q = _get_edge_length(G,edge)
+						ed = [edge[0],edge[1]]
+						ed.sort()
+						if ed in edges_to_r:
+							j = V.index(edge[0])
+							i = V.index(edge[1])
+							W[j,i] += vol_r
+							W[i,j] += vol_r
+						if ed in edges_to_l:
+							j = V.index(edge[0])
+							i = V.index(edge[1])
+							W[j,i] += vol_l
+							W[i,j] += vol_l
 	return W
+
 
 def _nodes_in_face(face):
 	nodes = []
@@ -653,6 +695,24 @@ def _get_face_area(G,F):
 	p = abs(p/2)
 	return p
 
+def _weigths_for_edges(G,W):
+	V = G.vertices()
+	for E in G.edges():
+		q = _get_edge_length(G,E)
+		j = V.index(E[0])
+		i = V.index(E[1])
+		W[j,i] += q^1.5
+		W[i,j] += q^1.5
+	return W
+
+
+def _get_edge_length(G,E):
+	pos = G.get_pos()
+	x1 = pos[E[0]][0]-pos[E[1]][0]
+	x2 = pos[E[0]][1]-pos[E[1]][1]
+	p = x1^2 + x2^2
+	return sqrt(p)
+
 def _get_face_area_nodes(G,nodes):
 	face = [[nodes[len(nodes)-1],nodes[0]]]
 	for j in range(len(nodes)-1):
@@ -661,6 +721,11 @@ def _get_face_area_nodes(G,nodes):
 
 def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weights=None):
 	## Calculates the lamda for the second or the combined approach
+	V = G.vertices()
+	n = len(V)
+	e = len(G.edges())
+	if weights == None:
+		weights = zero_matrix(RR,n,n)
 	count = 0
 	V = G.vertices()					
 	n = len(V)
@@ -673,36 +738,93 @@ def _calculate_position_iteratively(G,faa,faa_dict,suspensions,outer_face,weight
 		i1 = V.index(E[1])
 		W[i0,i1] = 2
 		W[i1,i0] = 2
-	while count < 2*n+10:
+	while count < 50:
+		print count 
+		if mod(count,10) == 5:
+			show(G)
 		G.set_pos(pos)
 		max_face = []
 		max_face_area = 0
+		face_list = []
 		for face in _interior_faces(G,oF=outer_face):
 			area = _get_face_area(G,face)
 			if max_face_area < area:
 					max_face_area = area
-		for face in _interior_faces(G,oF=outer_face):
-			area = _get_face_area(G,face)	
-			if area >= max_face_area*0.9:
-				max_face.append(face)
-		for face in max_face:
-			q = _get_face_area(G,face)
-			for E in face:
-				i0 = V.index(E[0])
-				i1 = V.index(E[1])
-				W[i0,i1] *= 2
-				W[i1,i0] *= 2
-		if weights == None:
-			sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,W)
-		else:
-			sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,W+weights)
+			face_list.append([face,area])
+		for [face,area] in face_list:
+			if area >= max_face_area*0.95:
+				for E in face:
+					i0 = V.index(E[0])
+					i1 = V.index(E[1])
+					if W[i0,i1] < 2^count:
+						W[i0,i1] *= 2
+						W[i1,i0] *= 2
+		#W = _weights_for_pseudo_segments_iter(G,faa,faa_dict,W,count)
+		sol = _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,W)
 		pos1 = {V[i]:sol[i] for i in range(n)}
 		if int(round(pos1[V.index(suspensions[0])][1])) == 100:
 			pos = pos1
 			count += 1
 		else:
+			print "ups"
 			return [pos,W+weights]
 	return [pos,W+weights]
+
+def _weights_for_pseudo_segments_iter(G,faa,faa_dict,W,count):
+	V = G.vertices()
+	e = len(G.edges())
+	pos = G.get_pos()
+	segments = _list_pseudo_segments(G,faa,faa_dict)
+	vol = _get_face_area_nodes(G,faa[0][0])
+	largest_d = 0
+	bag = []
+	for seg in segments:
+		length = _get_edge_length(G,[seg[0],seg[-1]])
+		[R,L] = _nodes_on_left_right(G,seg,pos)
+		vol_l1 = 0
+		vol_r1 = 0
+		c_l = 0
+		c_r = 0
+		edges_to_l = []
+		edges_to_r = []
+		for face in G.faces():
+			face_nodes = _nodes_in_face(face)
+			if list_in_list(face_nodes,L+seg):
+				vol_l1 += _get_face_area(G,face)
+				c_l += 1
+				for edge in face:
+					ed = [edge[0],edge[1]]
+					ed.sort()
+					if ed not in edges_to_l and ( ed[0] not in seg or ed[1] not in seg ):
+						edges_to_l.append(ed)
+			elif list_in_list(face_nodes,R+seg):
+				vol_r1 += _get_face_area(G,face)
+				c_r += 1
+				for edge in face:
+					ed = [edge[0],edge[1]]
+					ed.sort()
+					if ed not in edges_to_r and ( ed[0] not in seg or ed[1] not in seg ):
+						edges_to_r.append(ed)
+		if vol_r1 != 0 and vol_l1 != 0:
+			diff_r = 1.*vol_r1/(1.*c_r)
+			diff_l = 1.*vol_l1/(1.*c_l)
+			if diff_r/diff_l > largest_d:
+				largest_r_d = diff_r/diff_l
+				bag = [seg,edges_to_r]
+			if diff_l/diff_r > largest_d:
+				largest_d = diff_l/diff_r
+				bag = [seg,edges_to_l]
+	for face in G.faces():
+		for edge in face:
+			ed = [edge[0],edge[1]]
+			ed.sort()
+			if ed in bag[1]:
+				j = V.index(edge[0])
+				i = V.index(edge[1])
+				if W[i,j] < 4^count:
+					W[j,i] *= 1.2
+					W[i,j] *= 1.2
+	return W
 
 def _get_plotting_matrix_iteration(G,suspensions,faa_dict,count,weights=None,normal_rubber=False):
 	## calculates positions for given lambda
