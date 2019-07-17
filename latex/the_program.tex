@@ -46,40 +46,38 @@ Setzten wir im ersten Durchlauf $\lambda = 1$, erhalten wir eine klassische Gumm
 \item Es existieren keine zu kurzen Kanten.
 \end{itemize}
 
-Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz nach Felsner und Scheucher, bei dem $\lambda$ als monoton steigende Funktion proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge gewählt wird, konvergiert selten nicht und liefert so auch keine schönen Zeichnungen \cite{fs17}. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für diese die oben erwähnten Einschränkungen stärker auftreten.
+Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz nach Felsner und Scheucher, bei dem $\lambda$ als monoton steigende Funktion proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge gewählt wird, konvergiert selten nicht und liefert so auch keine schönen Zeichnungen \cite{fs17}. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für diese die oben erwähnten Einschränkungen stärker auftreten. Wir wollen das implementierte  Schema anhand von zwei Beispielen erklären.
 
 \begin{example}\label{bsp_long_segment}
-Bei der in Abbildung \ref{long_segment} a) zu sehenden SLTR sind alle Knoten, bis auf die Aufhängungen, einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen vom Typ
-
+Bei der in Abbildung \ref{long_segment} links zu sehenden SLTR sind alle Knoten, bis auf die Aufhängungen, einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen vom Typ
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).$$
-
-Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zu Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten, die uns helfen können, das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern, sind in blau eingefärbt. Um mit Tutte-Einbettungen zur Zeichnung auf der rechten Seite zu gelangen, erfolgt die Wahl der $\lambda$ in jedem Schritt nach folgendem Schema für jedes Segment $S$. Seien $G_1,G_2$ die Mengen der Gebiete, die vollständig auf einer der beiden Seiten des Segments liegen. Falls beide Mengen nicht leer sind, berechnen wir deren Gesamtfläche $A_1,A_2$. Seien nun $P_1,P_2$ Mengen von Pfaden die zu den Aufhängungen, die in $G_i$ liegen, führen. Auf den Pfaden $p \n P_i$ passen wir nun $\lambda$ an. So gelingt es uns Segmente wie in der Abbildung zu verschieben. Wir erhöhen für jede Kante $e \in p$ $\lambda(e)$ um $a_i$ an, mit:
-
-$$ a_i = \frac{A_i^{0.8}}{\text{Länge}(p)*|P_i|*|G_i]}}.$$
-
-Die Exponenten sind heuristisch gewählt. Wir brechen entweder ab, wenn die Einbettung konvergiert oder wir eine feste Anzahl an Schritten durchgeführt haben. Das Schema lässt sich auch leicht anpassen, indem man $\lambda$ jeweils nur auf Kanten anpasst die sich auf Pfaden befinden, die die Enden der Segmente mit passenden Aufhängungen verbindet. Dies ist jedoch vom Rechenaufwand schon bei mehr als 15 Knoten sehr ineffizient.
+Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zur Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten, die uns helfen können, das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern, sind in blau eingefärbt. Die Wahl der $\lambda$ erfolgt in Schritt $j$, nach folgendem Schema für jedes Segment $S$ des Guten-FAA. Seien $G_1,G_2$ die Mengen der Gebiete, die vollständig auf einer der beiden Seiten des Segments liegen (vergleiche die hellblaue Fläche). Nun berechnen wir deren Gesamtfläche $A_1,A_2$. Seien nun $P_1,P_2$ Mengen von (kurzen) Pfaden, die von den Endpunkten des Segments zu den Aufhängungen, die in $G_i$ liegen, führen. Wir fordern, dass die Pfade selbst ebenfalls nur auf den jeweiligen Seiten liegen. Auf den Pfaden $p \in P_i$ passen wir nun $\lambda$ an. Die Pfade $p,p'$, die in unserem Beispiel nach unten führen, sind genau die blau eingefärbten Kanten in Abbildung \ref{long_segment}. So gelingt es uns, Segmente wie in der Abbildung zu verschieben. Wir erhöhen für jede Kante $e \in p$ nun $\lambda(e)$ um $a_i$, mit:
+$$ a_i = \frac{1}{j} \Big( \frac{A_i}{\text{Länge}(p)*|P_i|}\Big)^{1.2}.$$
+Die Formel ist heuristisch gewählt. Wir brechen entweder ab, wenn die Einbettung konvergiert oder wir eine feste Anzahl an Schritten durchgeführt haben. Aufgrund der Einbindung von kurzen Pfaden auf $G$, ist der Rechenaufwand sehr hoch, selbst wenn wir diese bei der Initialisierung abspeichern.
 \end{example}
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
-  \includegraphics[width=1\textwidth]{example1_vis.pdf}
+  \includegraphics[width=0.8\textwidth]{example1_vis.pdf}
   \caption{a) Eine Einbettung mit $\lambda$=1. b) Eine Einbettung nach bei der wir nur zu $e$ adjazente Gebiete für $\lambda(e)$ berücksichtigen. c) Eine Einbettung nach dem Schema aus Beispiel \ref{bsp_large_corner}.}
   \label{long_segment}
 \end{figure}
 
 \begin{example}\label{bsp_large_corner}
-Dieser Schema aus Beispiel \ref{ref_long_segment} führt, gerade bei Graphen mit vielen Knoten, selten zu Zeichnung, die die oben genannten Punkte erfüllt. Ein anderer iterativer Ansatz führt hier jedoch zu schöneren Ergebnissen. Wir setzen bei der Initialisierung $\lambda_0(e)=1$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. Wir wählen $\epsilon = 0,1$ und $c=2$. In Abbildung \ref{large_corner} sind die Einbettung von zwei Graphen nach 100 Schritten zu sehen.
+Betrachten wir einen effizienteren Ansatz. Wir setzen bei der Initialisierung $\lambda_0(e)=1$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f\in F_{in}$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. Wir wählen $\epsilon = 0,1$ und $c=2$. In Abbildung \ref{large_corner} sind die Einbettung von zwei Graphen nach 100 Schritten zu sehen.
 \end{example}
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
-  \includegraphics[width=1\textwidth]{example1_vis.pdf}
-  \caption{Drei Zeichnungen der gleichen SLTR für unterschiedliche $\lambda$. a) Für $\lambda=1$. b) Nach dem Ansatz aus Beispiel \ref{bsp_long_segment}. c) Nach dem Ansatz aus Beispiel \ref{bsp_long_segment}.}
+  \includegraphics[width=0.8\textwidth]{ex_large_corner.pdf}
+  \caption{Zwei Zeichnungen der gleichen SLTR, nach dem Schema aus Beispiel \ref{bsp_long_segment} (a)und nach Beispiel \ref{bsp_long_segment} (b).}
   \label{large_corner}
 \end{figure}
 
+Wir haben bei der Implementierung eine Kombination aus beiden Ansätzen gewählt. Für kleine Graphen wird zuerst das erste Schema durchgeführt. Falls dieses nicht konvergiert fahren wir mit dem zweiten fort. Für Graphen mit mehr als 15 Knoten dauert die Berechnung allerdings so lange, dass wir standardmäßig das zweite Schema durchführen. Es sei angemerkt, dass es auch hier Graphen gibt, deren Einbettungen nach diesen Berechnungen weniger schön werden, als wenn wir einfach $\lambda=1$ setzen und nur einen Schritt durchführen. Im Durchschnitt kommen wir aber zu deutlich ansprechenderen Ergebnissen. Am Ende des Kapitels in Abbildung \ref{emb_exp} sind einige so berechnete Einbettungen festgehalten.
+
 \begin{remark}
-Bei der Implementierung ist der zweite Ansatz gewählt. Es sei angemerkt, dass es auch hier Graphen gibt, deren Einbettungen nach diesem Schema weniger schön, werden, als wenn wir einfach $\lambda=1$ setzen und nur einen Schritt durchführen. 
+Wir haben viele an den Parametern der Berechnungen verändert, um so zu heuristisch schönen Ergebnissen zu gelangen. Die Einschränkungen, die wir durch die Zuordnung der Knoten vornehmen, scheint es allerdings deutlich schwerer zu machen, einen Algorithmus zu finden der für sehr viele unterschiedliche Graphen immer hinreichend schöne Zeichnungen liefert.
 \end{remark}
 
 \section{Experimentelle Rechnungen}\label{stats}
@@ -136,4 +134,28 @@ Es wird ein pseudo-zufälliger Graph generiert und, falls möglich, ein Gutes-FA
 \item[\texttt{cut :}] default \texttt{None}, optional lassen sich die Parameter der pseudo-zufälligen Erzeugung durch drei aufsteigende natürliche Zahlen \texttt{[a, b, c]} anpassen, mit $a\leq b\leq c\leq 1000$. Es wird der in Abschnitt \ref{stats} beschriebene Sampler genutzt. Die normale Einstellung ist \texttt{[300,600,990]}. In jedem Schritt wird eine der vier Möglichkeiten PG1, PG2, PG3 und PG4 mit Verteilung $a/1000$, $(a+b)/1000$, $(a+b+c)/1000$ und $(1000-a-b-c)/1000$ ausgewählt.
 \end{description}
 \end{description}
+
+\begin{figure}
+\centering
+  \begin{minipage}{0.48\textwidth}
+  \centering
+    \includegraphics[width=0.95\textwidth]{vis_14_1.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+ \centering
+    \includegraphics[width=0.95\textwidth]{vis_15_1.pdf}
+  \end{minipage}
+    \hfill
+  \begin{minipage}{0.48\textwidth}
+  \centering
+    \includegraphics[width=0.95\textwidth]{vis_25_1.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+ \centering
+    \includegraphics[width=0.95\textwidth]{vis_25_2.pdf}
+  \end{minipage}
+
+\end{figure}
 
