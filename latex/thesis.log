@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  17 JUL 2019 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  17 JUL 2019 14:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3223,139 +3223,126 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 342.
  [61 <./lem_faa_choice.pdf> <./lem_faa_choice_ex.pdf>]
-Overfull \hbox (14.96994pt too wide) detected at line 344
-\OMS/lmsy/m/n/10.95 j[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 f[]; v\OT1/lmr/m
-/n/10.95 )\OMS/lmsy/m/n/10.95 j \OT1/lmr/m/n/10.95 = \OMS/lmsy/m/n/10.95 j[]\OT
-1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 f[]; x\OT1/lmr/m/n/10.95 )\OMS/lmsy/m/n/10
-.95 j \OT1/lmr/m/n/10.95 = 1[]\OMS/lmsy/m/n/10.95 j[]\OT1/lmr/m/n/10.95 (\OML/l
-mm/m/it/10.95 f[]; w\OT1/lmr/m/n/10.95 )\OMS/lmsy/m/n/10.95 j \OT1/lmr/m/n/10.9
-5 = \OMS/lmsy/m/n/10.95 j[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 f[]; u\OT1/l
-mr/m/n/10.95 )\OMS/lmsy/m/n/10.95 j \OT1/lmr/m/n/10.95 = \OMS/lmsy/m/n/10.95 j[
-]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 f[]; w\OT1/lmr/m/n/10.95 )\OMS/lmsy/m/
-n/10.95 j \OT1/lmr/m/n/10.95 = \OMS/lmsy/m/n/10.95 j[]\OT1/lmr/m/n/10.95 (\OML/
-lmm/m/it/10.95 f[]; u\OT1/lmr/m/n/10.95 )\OMS/lmsy/m/n/10.95 j \OT1/lmr/m/n/10.
-95 = []\OML/lmm/m/it/10.95 :
- []
-
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 348.
+(Font)              <12> on input line 349.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 368.
+(babel)             in language  on input line 366.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 368.
+(babel)             in language  on input line 366.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 368.
+(babel)             in language  on input line 366.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 368.
+(babel)             in language  on input line 366.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 368.
+(babel)             in language  on input line 366.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 368.
-[62]
+(babel)             in language  on input line 366.
+ [62]
 <face_cut.pdf, id=2572, 562.68018pt x 400.56952pt>
 File: face_cut.pdf Graphic file (type pdf)
 <use face_cut.pdf>
-Package pdftex.def Info: face_cut.pdf  used on input line 387.
+Package pdftex.def Info: face_cut.pdf  used on input line 388.
 (pdftex.def)             Requested size: 322.28242pt x 229.4394pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 394.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 394.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 394.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 394.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 394.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 393.
- [63]
+(babel)             in language  on input line 394.
+
+[63]
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 402.
+(babel)             in language  on input line 403.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 402.
+(babel)             in language  on input line 403.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 402.
+(babel)             in language  on input line 403.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 402.
+(babel)             in language  on input line 403.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 402.
+(babel)             in language  on input line 403.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 402.
+(babel)             in language  on input line 403.
  [64 <./face_cut.pdf>]
 <combined_face_not_corner.pdf, id=2629, 562.68018pt x 345.6915pt>
 File: combined_face_not_corner.pdf Graphic file (type pdf)
 <use combined_face_not_corner.pdf>
-Package pdftex.def Info: combined_face_not_corner.pdf  used on input line 410.
+Package pdftex.def Info: combined_face_not_corner.pdf  used on input line 411.
 (pdftex.def)             Requested size: 281.99481pt x 173.25148pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 420.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 420.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 420.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 420.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 420.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 420.
+(babel)             in language  on input line 421.
 [65 <./combined_face_not_corner.pdf>]
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 451.
+(babel)             in language  on input line 452.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 451.
+(babel)             in language  on input line 452.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 451.
+(babel)             in language  on input line 452.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 451.
+(babel)             in language  on input line 452.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 451.
+(babel)             in language  on input line 452.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 451.
+(babel)             in language  on input line 452.
  [66]
 <K_kreis.pdf, id=2683, 550.055pt x 70.43112pt>
 File: K_kreis.pdf Graphic file (type pdf)
 <use K_kreis.pdf>
-Package pdftex.def Info: K_kreis.pdf  used on input line 462.
+Package pdftex.def Info: K_kreis.pdf  used on input line 463.
 (pdftex.def)             Requested size: 402.8515pt x 51.58408pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 475.
+(babel)             in language  on input line 476.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 475.
+(babel)             in language  on input line 476.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 475.
+(babel)             in language  on input line 476.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 475.
+(babel)             in language  on input line 476.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 475.
+(babel)             in language  on input line 476.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 475.
+(babel)             in language  on input line 476.
  [67 <./K_kreis.pdf>]
 <G_kreis.pdf, id=2733, 261.67764pt x 68.95763pt>
 File: G_kreis.pdf Graphic file (type pdf)
 <use G_kreis.pdf>
-Package pdftex.def Info: G_kreis.pdf  used on input line 492.
+Package pdftex.def Info: G_kreis.pdf  used on input line 493.
 (pdftex.def)             Requested size: 281.99481pt x 74.31738pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 501.
+(babel)             in language  on input line 502.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 501.
+(babel)             in language  on input line 502.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 501.
+(babel)             in language  on input line 502.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 501.
+(babel)             in language  on input line 502.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 501.
+(babel)             in language  on input line 502.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 501.
+(babel)             in language  on input line 502.
  [68 <./G_kreis.pdf>]
-Overfull \hbox (3.15736pt too wide) in paragraph at lines 501--503
+Overfull \hbox (3.15736pt too wide) in paragraph at lines 502--504
 \T1/lmr/m/n/10.95 (-20) Wir nen-nen $\OML/lmm/m/it/10.95 E[] \OT1/lmr/m/n/10.95
  (-20) = \OMS/lmsy/m/n/10.95 f\OML/lmm/m/it/10.95 C[] \OMS/lmsy/m/n/10.95 [ \OM
 L/lmm/m/it/10.95 C[]\OMS/lmsy/m/n/10.95 g$\T1/lmr/m/n/10.95 (-20) , mit $\OML/l
@@ -3372,38 +3359,38 @@ w[]; w[]\OT1/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 (-20
 <combined_face_alt_cycle.pdf, id=2769, 458.1115pt x 393.87149pt>
 File: combined_face_alt_cycle.pdf Graphic file (type pdf)
 <use combined_face_alt_cycle.pdf>
-Package pdftex.def Info: combined_face_alt_cycle.pdf  used on input line 508.
+Package pdftex.def Info: combined_face_alt_cycle.pdf  used on input line 509.
 (pdftex.def)             Requested size: 322.28242pt x 277.09645pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 515.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 515.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 515.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 515.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 515.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 515.
+(babel)             in language  on input line 516.
 [69 <./combined_face_alt_cycle.pdf>]
 <combined_face_alt_cycle2.pdf, id=2806, 458.1115pt x 393.87149pt>
 File: combined_face_alt_cycle2.pdf Graphic file (type pdf)
 <use combined_face_alt_cycle2.pdf>
-Package pdftex.def Info: combined_face_alt_cycle2.pdf  used on input line 521.
+Package pdftex.def Info: combined_face_alt_cycle2.pdf  used on input line 522.
 (pdftex.def)             Requested size: 322.28242pt x 277.09645pt.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 530.
  [70 <./combined_face_alt_cycle2.pdf>])
 (./the_program.tex
 Package babel Info: Redefining german shorthand "f
@@ -3497,11 +3484,11 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 55.
  [75]
-<example1_vis.pdf, id=2930, 564.63547pt x 272.50807pt>
+<example1_vis.pdf, id=2930, 564.63547pt x 272.5071pt>
 File: example1_vis.pdf Graphic file (type pdf)
 <use example1_vis.pdf>
 Package pdftex.def Info: example1_vis.pdf  used on input line 61.
-(pdftex.def)             Requested size: 322.28242pt x 155.54327pt.
+(pdftex.def)             Requested size: 322.28242pt x 155.54271pt.
 <ex_large_corner.pdf, id=2934, 434.73969pt x 214.73726pt>
 File: ex_large_corner.pdf Graphic file (type pdf)
 <use ex_large_corner.pdf>
@@ -3527,17 +3514,17 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 83.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
  [77 <./ex_large_corner.pdf>] (./table.tex)
 Package babel Info: Redefining german shorthand "f
 (babel)             in language  on input line 99.
@@ -3744,7 +3731,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
 Here is how much of TeX's memory you used:
  49291 strings out of 492649
  1092544 string characters out of 6129622
- 2777568 words of memory out of 5000000
+ 2776612 words of memory out of 5000000
  51673 multiletter control sequences out of 15000+600000
  694541 words of font info for 285 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3837,7 +3824,7 @@ exlive/2018/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/201
 st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (92 pages, 2723754 bytes).
+Output written on thesis.pdf (92 pages, 2723628 bytes).
 PDF statistics:
  3235 PDF objects out of 3580 (max. 8388607)
  1696 compressed objects within 17 object streams
