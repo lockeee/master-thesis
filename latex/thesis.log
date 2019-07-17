@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  17 JUL 2019 02:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.11)  17 JUL 2019 03:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2020,7 +2020,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface .
 
-<topo_straight_convex.pdf, id=157, 507.7092pt x 112.7121pt>
+<topo_straight_convex.pdf, id=155, 507.7092pt x 112.7121pt>
 File: topo_straight_convex.pdf Graphic file (type pdf)
 <use topo_straight_convex.pdf>
 Package pdftex.def Info: topo_straight_convex.pdf  used on input line 10.
@@ -2083,12 +2083,12 @@ Package babel Info: Redefining german shorthand "~
 
 
 ]
-<sltr-example.pdf, id=194, 551.05875pt x 101.37875pt>
+<sltr-example.pdf, id=192, 551.05875pt x 101.37875pt>
 File: sltr-example.pdf Graphic file (type pdf)
 <use sltr-example.pdf>
 Package pdftex.def Info: sltr-example.pdf  used on input line 21.
 (pdftex.def)             Requested size: 382.70769pt x 70.40929pt.
-<10_with_sltr.pdf, id=197, 571.85844pt x 214.65395pt>
+<10_with_sltr.pdf, id=195, 571.85844pt x 214.65395pt>
 File: 10_with_sltr.pdf Graphic file (type pdf)
 <use 10_with_sltr.pdf>
 Package pdftex.def Info: 10_with_sltr.pdf  used on input line 32.
@@ -2119,7 +2119,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 69.
  [5]
-<3_conn_uni.pdf, id=223, 420.44075pt x 111.3239pt>
+<3_conn_uni.pdf, id=221, 420.44075pt x 111.3239pt>
 File: 3_conn_uni.pdf Graphic file (type pdf)
 <use 3_conn_uni.pdf>
 Package pdftex.def Info: 3_conn_uni.pdf  used on input line 73.
@@ -2143,7 +2143,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 90.
  [6 <./3_conn_uni.pdf>]
-<schnyder_wood_def.pdf, id=258, 354.26251pt x 89.66699pt>
+<schnyder_wood_def.pdf, id=256, 354.26251pt x 89.66699pt>
 File: schnyder_wood_def.pdf Graphic file (type pdf)
 <use schnyder_wood_def.pdf>
 Package pdftex.def Info: schnyder_wood_def.pdf  used on input line 103.
@@ -2162,12 +2162,12 @@ Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 114.
 
 [7 <./schnyder_wood_def.pdf>]
-<schnyder_label_def.pdf, id=300, 346.39444pt x 81.58781pt>
+<schnyder_label_def.pdf, id=298, 346.39444pt x 81.58781pt>
 File: schnyder_label_def.pdf Graphic file (type pdf)
 <use schnyder_label_def.pdf>
 Package pdftex.def Info: schnyder_label_def.pdf  used on input line 118.
 (pdftex.def)             Requested size: 362.56389pt x 85.4008pt.
-<schnyder_bij.pdf, id=303, 540.62077pt x 106.52798pt>
+<schnyder_bij.pdf, id=301, 540.62077pt x 106.52798pt>
 File: schnyder_bij.pdf Graphic file (type pdf)
 <use schnyder_bij.pdf>
 Package pdftex.def Info: schnyder_bij.pdf  used on input line 131.
@@ -2185,7 +2185,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 144.
  [8 <./schnyder_label_def.pdf> <./schnyder_bij.pdf>]
-<face_counting.pdf, id=373, 534.39653pt x 201.15149pt>
+<face_counting.pdf, id=371, 534.39653pt x 201.15149pt>
 File: face_counting.pdf Graphic file (type pdf)
 <use face_counting.pdf>
 Package pdftex.def Info: face_counting.pdf  used on input line 152.
@@ -2241,7 +2241,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 189.
 [10]
-<alpha_ex.pdf, id=436, 597.23125pt x 458.1115pt>
+<alpha_ex.pdf, id=434, 597.23125pt x 458.1115pt>
 File: alpha_ex.pdf Graphic file (type pdf)
 <use alpha_ex.pdf>
 Package pdftex.def Info: alpha_ex.pdf  used on input line 196.
@@ -2259,7 +2259,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 207.
  [11 <./alpha_ex.pdf>]
-<straight_path.pdf, id=459, 402.90524pt x 128.8815pt>
+<straight_path.pdf, id=457, 402.90524pt x 128.8815pt>
 File: straight_path.pdf Graphic file (type pdf)
 <use straight_path.pdf>
 Package pdftex.def Info: straight_path.pdf  used on input line 220.
@@ -2327,7 +2327,7 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 8.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<faa_def.pdf, id=520, 553.46777pt x 135.90775pt>
+<faa_def.pdf, id=518, 553.46777pt x 135.90775pt>
 File: faa_def.pdf Graphic file (type pdf)
 <use faa_def.pdf>
 Package pdftex.def Info: faa_def.pdf  used on input line 32.
@@ -2358,7 +2358,7 @@ Package babel Info: Redefining german shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 1.
-<corner_def.pdf, id=535, 498.663pt x 97.16301pt>
+<corner_def.pdf, id=533, 498.663pt x 97.16301pt>
 File: corner_def.pdf Graphic file (type pdf)
 <use corner_def.pdf>
 Package pdftex.def Info: corner_def.pdf  used on input line 16.
@@ -2380,7 +2380,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 23.
 [16 <./faa_def.pdf>]
-<exp_cycle.pdf, id=547, 551.2595pt x 294.29951pt>
+<exp_cycle.pdf, id=545, 551.2595pt x 294.29951pt>
 File: exp_cycle.pdf Graphic file (type pdf)
 <use exp_cycle.pdf>
 Package pdftex.def Info: exp_cycle.pdf  used on input line 31.
@@ -2402,7 +2402,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 49.
 [17 <./corner_def.pdf>]
-<pseudo_seg.pdf, id=583, 553.46777pt x 135.90775pt>
+<pseudo_seg.pdf, id=581, 553.46777pt x 135.90775pt>
 File: pseudo_seg.pdf Graphic file (type pdf)
 <use pseudo_seg.pdf>
 Package pdftex.def Info: pseudo_seg.pdf  used on input line 63.
@@ -2424,7 +2424,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 70.
 [18 <./exp_cycle.pdf>]
-<exp_free.pdf, id=599, 553.46777pt x 135.90775pt>
+<exp_free.pdf, id=597, 553.46777pt x 135.90775pt>
 File: exp_free.pdf Graphic file (type pdf)
 <use exp_free.pdf>
 Package pdftex.def Info: exp_free.pdf  used on input line 79.
@@ -2468,7 +2468,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 141.
  [21]
-<exp_faa.pdf, id=647, 441.04774pt x 176.05774pt>
+<exp_faa.pdf, id=645, 441.04774pt x 176.05774pt>
 File: exp_faa.pdf Graphic file (type pdf)
 <use exp_faa.pdf>
 Package pdftex.def Info: exp_faa.pdf  used on input line 151.
@@ -2494,7 +2494,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 9.
  [22 <./exp_faa.pdf>]
-<exp_ccc.pdf, id=673, 521.65392pt x 244.53157pt>
+<exp_ccc.pdf, id=671, 521.65392pt x 244.53157pt>
 File: exp_ccc.pdf Graphic file (type pdf)
 <use exp_ccc.pdf>
 Package pdftex.def Info: exp_ccc.pdf  used on input line 18.
@@ -2512,7 +2512,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 35.
  [23 <./exp_ccc.pdf>]
-<sweeplines1.pdf, id=754, 330.03299pt x 330.03299pt>
+<sweeplines1.pdf, id=752, 330.03299pt x 330.03299pt>
 File: sweeplines1.pdf Graphic file (type pdf)
 <use sweeplines1.pdf>
 Package pdftex.def Info: sweeplines1.pdf  used on input line 56.
@@ -2522,7 +2522,7 @@ Overfull \hbox (4.02937pt too wide) in paragraph at lines 57--57
 [] [] 
  []
 
-<sweeplines2.pdf, id=755, 257.76299pt x 257.76299pt>
+<sweeplines2.pdf, id=753, 257.76299pt x 257.76299pt>
 File: sweeplines2.pdf Graphic file (type pdf)
 <use sweeplines2.pdf>
 Package pdftex.def Info: sweeplines2.pdf  used on input line 63.
@@ -2545,7 +2545,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 71.
 [24 <./sweeplines1.pdf> <./sweeplines2.pdf>]
-<subdividing_ex.pdf, id=800, 567.11874pt x 133.49875pt>
+<subdividing_ex.pdf, id=798, 567.11874pt x 133.49875pt>
 File: subdividing_ex.pdf Graphic file (type pdf)
 <use subdividing_ex.pdf>
 Package pdftex.def Info: subdividing_ex.pdf  used on input line 98.
@@ -2554,7 +2554,7 @@ Package pdftex.def Info: subdividing_ex.pdf  used on input line 98.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<lem2.pdf, id=802, 580.18042pt x 166.3043pt>
+<lem2.pdf, id=800, 580.18042pt x 166.3043pt>
 File: lem2.pdf Graphic file (type pdf)
 <use lem2.pdf>
 Package pdftex.def Info: lem2.pdf  used on input line 116.
@@ -2598,12 +2598,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 141.
  [27]
-<lem3_1.pdf, id=906, 567.11874pt x 138.7835pt>
+<lem3_1.pdf, id=904, 567.11874pt x 138.7835pt>
 File: lem3_1.pdf Graphic file (type pdf)
 <use lem3_1.pdf>
 Package pdftex.def Info: lem3_1.pdf  used on input line 144.
 (pdftex.def)             Requested size: 402.8515pt x 98.58778pt.
-<lem3_2.pdf, id=908, 567.11874pt x 138.7835pt>
+<lem3_2.pdf, id=906, 567.11874pt x 138.7835pt>
 File: lem3_2.pdf Graphic file (type pdf)
 <use lem3_2.pdf>
 Package pdftex.def Info: lem3_2.pdf  used on input line 155.
@@ -2621,7 +2621,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 161.
  [28 <./lem3_1.pdf> <./lem3_2.pdf>]
-<lem4.pdf, id=1046, 289.48149pt x 101.04851pt>
+<lem4.pdf, id=1044, 289.48149pt x 101.04851pt>
 File: lem4.pdf Graphic file (type pdf)
 <use lem4.pdf>
 Package pdftex.def Info: lem4.pdf  used on input line 172.
@@ -2639,12 +2639,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 192.
  [29 <./lem4.pdf>]
-<lem5_1.pdf, id=1089, 546.44153pt x 116.33463pt>
+<lem5_1.pdf, id=1087, 546.44153pt x 116.33463pt>
 File: lem5_1.pdf Graphic file (type pdf)
 <use lem5_1.pdf>
 Package pdftex.def Info: lem5_1.pdf  used on input line 199.
 (pdftex.def)             Requested size: 322.28242pt x 68.61197pt.
-<lem5_2.pdf, id=1091, 518.93875pt x 229.85875pt>
+<lem5_2.pdf, id=1089, 518.93875pt x 229.85875pt>
 File: lem5_2.pdf Graphic file (type pdf)
 <use lem5_2.pdf>
 Package pdftex.def Info: lem5_2.pdf  used on input line 219.
@@ -2662,7 +2662,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 225.
  [30 <./lem5_1.pdf>]
-<lem5_3.pdf, id=1124, 516.42938pt x 101.37875pt>
+<lem5_3.pdf, id=1122, 516.42938pt x 101.37875pt>
 File: lem5_3.pdf Graphic file (type pdf)
 <use lem5_3.pdf>
 Package pdftex.def Info: lem5_3.pdf  used on input line 232.
@@ -2680,12 +2680,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 238.
  [31 <./lem5_2.pdf>]
-<lem5_4.pdf, id=1171, 518.93875pt x 101.37875pt>
+<lem5_4.pdf, id=1169, 518.93875pt x 101.37875pt>
 File: lem5_4.pdf Graphic file (type pdf)
 <use lem5_4.pdf>
 Package pdftex.def Info: lem5_4.pdf  used on input line 243.
 (pdftex.def)             Requested size: 402.8515pt x 78.70384pt.
-<lem5_5.pdf, id=1179, 518.93875pt x 101.37875pt>
+<lem5_5.pdf, id=1177, 518.93875pt x 101.37875pt>
 File: lem5_5.pdf Graphic file (type pdf)
 <use lem5_5.pdf>
 Package pdftex.def Info: lem5_5.pdf  used on input line 252.
@@ -2703,7 +2703,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 255.
  [32 <./lem5_3.pdf> <./lem5_4.pdf>]
-<lem5_6.pdf, id=1292, 342.27875pt x 101.37875pt>
+<lem5_6.pdf, id=1290, 342.27875pt x 101.37875pt>
 File: lem5_6.pdf Graphic file (type pdf)
 <use lem5_6.pdf>
 Package pdftex.def Info: lem5_6.pdf  used on input line 263.
@@ -2721,7 +2721,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 269.
  [33 <./lem5_5.pdf> <./lem5_6.pdf>]
-<lem5_7.pdf, id=1410, 342.27875pt x 101.37875pt>
+<lem5_7.pdf, id=1408, 342.27875pt x 101.37875pt>
 File: lem5_7.pdf Graphic file (type pdf)
 <use lem5_7.pdf>
 Package pdftex.def Info: lem5_7.pdf  used on input line 278.
@@ -2739,7 +2739,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 284.
  [34 <./lem5_7.pdf>]
-<lem5_8.pdf, id=1462, 518.93875pt x 101.37875pt>
+<lem5_8.pdf, id=1460, 518.93875pt x 101.37875pt>
 File: lem5_8.pdf Graphic file (type pdf)
 <use lem5_8.pdf>
 Package pdftex.def Info: lem5_8.pdf  used on input line 287.
@@ -2758,12 +2758,12 @@ Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 295.
 
 [35 <./lem5_8.pdf>]
-<lem5_9.pdf, id=1503, 518.93875pt x 101.37875pt>
+<lem5_9.pdf, id=1501, 518.93875pt x 101.37875pt>
 File: lem5_9.pdf Graphic file (type pdf)
 <use lem5_9.pdf>
 Package pdftex.def Info: lem5_9.pdf  used on input line 302.
 (pdftex.def)             Requested size: 402.8515pt x 78.70384pt.
-<lem5_10.pdf, id=1505, 342.27875pt x 101.37875pt>
+<lem5_10.pdf, id=1503, 342.27875pt x 101.37875pt>
 File: lem5_10.pdf Graphic file (type pdf)
 <use lem5_10.pdf>
 Package pdftex.def Info: lem5_10.pdf  used on input line 311.
@@ -2798,7 +2798,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 338.
  [37 <./lem5_10.pdf>]
-<lem6_1.pdf, id=1630, 571.60548pt x 132.98784pt>
+<lem6_1.pdf, id=1628, 571.60548pt x 132.98784pt>
 File: lem6_1.pdf Graphic file (type pdf)
 <use lem6_1.pdf>
 Package pdftex.def Info: lem6_1.pdf  used on input line 349.
@@ -2816,7 +2816,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 355.
  [38 <./lem6_1.pdf>]
-<lem6_2.pdf, id=1688, 457.33562pt x 165.61874pt>
+<lem6_2.pdf, id=1686, 457.33562pt x 165.61874pt>
 File: lem6_2.pdf Graphic file (type pdf)
 <use lem6_2.pdf>
 Package pdftex.def Info: lem6_2.pdf  used on input line 364.
@@ -2834,7 +2834,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 372.
  [39]
-<lem6_3.pdf, id=1700, 457.33562pt x 165.61874pt>
+<lem6_3.pdf, id=1698, 457.33562pt x 165.61874pt>
 File: lem6_3.pdf Graphic file (type pdf)
 <use lem6_3.pdf>
 Package pdftex.def Info: lem6_3.pdf  used on input line 381.
@@ -2865,12 +2865,12 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 397.
  [41 <./lem6_3.pdf>]
-<lem6_4.pdf, id=1818, 457.33562pt x 165.61874pt>
+<lem6_4.pdf, id=1816, 457.33562pt x 165.61874pt>
 File: lem6_4.pdf Graphic file (type pdf)
 <use lem6_4.pdf>
 Package pdftex.def Info: lem6_4.pdf  used on input line 400.
 (pdftex.def)             Requested size: 402.8515pt x 145.89403pt.
-<lem6_5.pdf, id=1823, 546.44153pt x 161.0015pt>
+<lem6_5.pdf, id=1821, 546.44153pt x 161.0015pt>
 File: lem6_5.pdf Graphic file (type pdf)
 <use lem6_5.pdf>
 Package pdftex.def Info: lem6_5.pdf  used on input line 409.
@@ -2888,7 +2888,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 415.
  [42 <./lem6_4.pdf> <./lem6_5.pdf>]
-<exp_many_sltr.pdf, id=1977, 489.22774pt x 264.38774pt>
+<exp_many_sltr.pdf, id=1975, 489.22774pt x 264.38774pt>
 File: exp_many_sltr.pdf Graphic file (type pdf)
 <use exp_many_sltr.pdf>
 Package pdftex.def Info: exp_many_sltr.pdf  used on input line 435.
@@ -2951,7 +2951,7 @@ Package babel Info: Redefining german shorthand "~
 
 
 ]
-<schnyder_flow.pdf, id=2053, 530.38153pt x 120.8515pt>
+<schnyder_flow.pdf, id=2051, 530.38153pt x 120.8515pt>
 File: schnyder_flow.pdf Graphic file (type pdf)
 <use schnyder_flow.pdf>
 Package pdftex.def Info: schnyder_flow.pdf  used on input line 23.
@@ -2983,7 +2983,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 58.
  [47]
-<faa_flow.pdf, id=2099, 562.90298pt x 65.043pt>
+<faa_flow.pdf, id=2097, 562.90298pt x 65.043pt>
 File: faa_flow.pdf Graphic file (type pdf)
 <use faa_flow.pdf>
 Package pdftex.def Info: faa_flow.pdf  used on input line 66.
@@ -3001,7 +3001,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 82.
  [48 <./faa_flow.pdf>]
-<faa_2_flow.pdf, id=2135, 562.90298pt x 65.043pt>
+<faa_2_flow.pdf, id=2133, 562.90298pt x 65.043pt>
 File: faa_2_flow.pdf Graphic file (type pdf)
 <use faa_2_flow.pdf>
 Package pdftex.def Info: faa_2_flow.pdf  used on input line 105.
@@ -3033,12 +3033,12 @@ Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 124.
 
 [50]
-<alpha_bij.pdf, id=2191, 546.44153pt x 175.40732pt>
+<alpha_bij.pdf, id=2189, 546.44153pt x 175.40732pt>
 File: alpha_bij.pdf Graphic file (type pdf)
 <use alpha_bij.pdf>
 Package pdftex.def Info: alpha_bij.pdf  used on input line 131.
 (pdftex.def)             Requested size: 402.8515pt x 129.31493pt.
-<combined_face_sketch.pdf, id=2194, 562.68018pt x 400.16803pt>
+<combined_face_sketch.pdf, id=2192, 562.68018pt x 400.16803pt>
 File: combined_face_sketch.pdf Graphic file (type pdf)
 <use combined_face_sketch.pdf>
 Package pdftex.def Info: combined_face_sketch.pdf  used on input line 140.
@@ -3060,7 +3060,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 146.
 [51 <./alpha_bij.pdf>]
-<dummy_sink.pdf, id=2251, 538.81299pt x 171.77274pt>
+<dummy_sink.pdf, id=2249, 538.81299pt x 171.77274pt>
 File: dummy_sink.pdf Graphic file (type pdf)
 <use dummy_sink.pdf>
 Package pdftex.def Info: dummy_sink.pdf  used on input line 151.
@@ -3131,7 +3131,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 225.
  [55]
-<combined_face_skip.pdf, id=2353, 562.68018pt x 400.16803pt>
+<combined_face_skip.pdf, id=2351, 562.68018pt x 400.16803pt>
 File: combined_face_skip.pdf Graphic file (type pdf)
 <use combined_face_skip.pdf>
 Package pdftex.def Info: combined_face_skip.pdf  used on input line 234.
@@ -3215,7 +3215,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 295.
  [59]
-<lem_faa_choice.pdf, id=2430, 498.26149pt x 165.0165pt>
+<lem_faa_choice.pdf, id=2428, 498.26149pt x 165.0165pt>
 File: lem_faa_choice.pdf Graphic file (type pdf)
 <use lem_faa_choice.pdf>
 Package pdftex.def Info: lem_faa_choice.pdf  used on input line 318.
@@ -3247,7 +3247,7 @@ lmm/m/it/10.95 f[]; u\OT1/lmr/m/n/10.95 )\OMS/lmsy/m/n/10.95 j \OT1/lmr/m/n/10.
 95 = []\OML/lmm/m/it/10.95 :
  []
 
-<lem_faa_choice_ex.pdf, id=2445, 597.23125pt x 133.49875pt>
+<lem_faa_choice_ex.pdf, id=2443, 597.23125pt x 133.49875pt>
 File: lem_faa_choice_ex.pdf Graphic file (type pdf)
 <use lem_faa_choice_ex.pdf>
 Package pdftex.def Info: lem_faa_choice_ex.pdf  used on input line 341.
@@ -3283,7 +3283,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 367.
  [62 <./lem_faa_choice_ex.pdf>]
-<face_cut.pdf, id=2574, 562.68018pt x 400.56952pt>
+<face_cut.pdf, id=2572, 562.68018pt x 400.56952pt>
 File: face_cut.pdf Graphic file (type pdf)
 <use face_cut.pdf>
 Package pdftex.def Info: face_cut.pdf  used on input line 386.
@@ -3318,7 +3318,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 411--412
 
  []
 
-<combined_face_not_corner.pdf, id=2632, 562.68018pt x 345.6915pt>
+<combined_face_not_corner.pdf, id=2630, 562.68018pt x 345.6915pt>
 File: combined_face_not_corner.pdf Graphic file (type pdf)
 <use combined_face_not_corner.pdf>
 Package pdftex.def Info: combined_face_not_corner.pdf  used on input line 415.
@@ -3349,7 +3349,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 438.
  [66 <./combined_face_not_corner.pdf>]
-<K_kreis.pdf, id=2683, 550.055pt x 70.43112pt>
+<K_kreis.pdf, id=2681, 550.055pt x 70.43112pt>
 File: K_kreis.pdf Graphic file (type pdf)
 <use K_kreis.pdf>
 Package pdftex.def Info: K_kreis.pdf  used on input line 461.
@@ -3367,7 +3367,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 471.
  [67 <./K_kreis.pdf>]
-<G_kreis.pdf, id=2735, 261.67764pt x 68.95763pt>
+<G_kreis.pdf, id=2733, 261.67764pt x 68.95763pt>
 File: G_kreis.pdf Graphic file (type pdf)
 <use G_kreis.pdf>
 Package pdftex.def Info: G_kreis.pdf  used on input line 491.
@@ -3399,7 +3399,7 @@ w[]; w[]\OT1/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 (-20
 )\OML/lmm/m/it/10.95 ;$
  []
 
-<combined_face_alt_cycle.pdf, id=2769, 458.1115pt x 393.87149pt>
+<combined_face_alt_cycle.pdf, id=2767, 458.1115pt x 393.87149pt>
 File: combined_face_alt_cycle.pdf Graphic file (type pdf)
 <use combined_face_alt_cycle.pdf>
 Package pdftex.def Info: combined_face_alt_cycle.pdf  used on input line 507.
@@ -3417,7 +3417,7 @@ Package babel Info: Redefining german shorthand "|
 Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 514.
 [69 <./combined_face_alt_cycle.pdf>]
-<combined_face_alt_cycle2.pdf, id=2808, 458.1115pt x 393.87149pt>
+<combined_face_alt_cycle2.pdf, id=2806, 458.1115pt x 393.87149pt>
 File: combined_face_alt_cycle2.pdf Graphic file (type pdf)
 <use combined_face_alt_cycle2.pdf>
 Package pdftex.def Info: combined_face_alt_cycle2.pdf  used on input line 520.
@@ -3514,340 +3514,4 @@ Package babel Info: Redefining german shorthand "~
 (babel)             in language  on input line 32.
 
 [74]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 57.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 57.
- [75]
-<example1_vis.pdf, id=2932, 564.63547pt x 272.5071pt>
-File: example1_vis.pdf Graphic file (type pdf)
-<use example1_vis.pdf>
-Package pdftex.def Info: example1_vis.pdf  used on input line 65.
-(pdftex.def)             Requested size: 402.8515pt x 194.42526pt.
-File: example1_vis.pdf Graphic file (type pdf)
-<use example1_vis.pdf>
-Package pdftex.def Info: example1_vis.pdf  used on input line 78.
-(pdftex.def)             Requested size: 402.8515pt x 194.42526pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 83.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 83.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 83.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 83.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 83.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 83.
-[76 <./example1_vis.pdf>]
-
-LaTeX Warning: Reference `vis_examples' on page 77 undefined on input line 87.
-
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 96.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 96.
-[77] (./table.tex)
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 105.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 105.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 105.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 105.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 105.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 105.
- [78] (./table_500_int.tex)
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 115.
- [79]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 115.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 115.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 117.
-
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 119.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 127.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 127.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 127.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 127.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 127.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 127.
- [80]) (./fazit.tex
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-
-[81]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
- [82
-
-
-]
-chapter 6.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 1.
-) (./thesis.bbl
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 2.
- [83]
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 2.
- [84
-
-
-]
-chapter without number
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 2.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 89.
-[85])
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 114.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 114.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 114.
-Package babel Info: Redefining german shorthand "f
-(babel)             in language  on input line 114.
-Package babel Info: Redefining german shorthand "|
-(babel)             in language  on input line 114.
-Package babel Info: Redefining german shorthand "~
-(babel)             in language  on input line 114.
- [86]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
- (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 9EE155F3E776C9ECC7247F698A9A0694;1188.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
- ) 
-Here is how much of TeX's memory you used:
- 49239 strings out of 492649
- 1091474 string characters out of 6129622
- 2775858 words of memory out of 5000000
- 51628 multiletter control sequences out of 15000+600000
- 694541 words of font info for 285 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 71i,24n,100p,10382b,2050s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.19} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.18} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.17} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.15} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/te
-xlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2018
-/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dv
-ips/lm/lm-ts1.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hex.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2018/texmf-
-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts
-/type1/public/lm/lmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pub
-lic/lm/lmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi
-6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2018/te
-xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2018/texmf-dist/fo
-nts/type1/public/lm/lmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pu
-blic/lm/lmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr8
-.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2018/te
-xmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2018/texmf-dist/fo
-nts/type1/public/lm/lmro9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
-ublic/lm/lmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/l
-msy6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/201
-8/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (92 pages, 2688700 bytes).
-PDF statistics:
- 3201 PDF objects out of 3580 (max. 8388607)
- 1690 compressed objects within 17 object streams
- 331 named destinations out of 1000 (max. 500000)
- 44986 words of extra memory for PDF output out of 51595 (max. 10000000)
-
+./the_program.tex:56: Undefined control seq
