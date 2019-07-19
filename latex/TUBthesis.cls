@@ -39,7 +39,7 @@
 \RequirePackage{pgf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %set page margins
-\RequirePackage[a4paper, textwidth=37em,textheight=44\baselineskip]{geometry}
+\RequirePackage[a4paperwide, textwidth=37em,textheight=44\baselineskip]{geometry}
 \RequirePackage[final, bookmarksopenlevel=section, bookmarksdepth=section]{hyperref}
 
 
