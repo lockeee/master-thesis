@@ -60,12 +60,14 @@ Für innere Knoten von Grad 2 in einer SLTR müssen die beiden angrenzenden Wink
 
 Für 3-zusammenhängende planare Graphen mit mehr als drei Knoten ist die kombinatorische Einbettung nach Hassler Whitney bis auf Wahl des äußeren Gebietes eindeutig \cite{whitney32}. Zusammen mit der nächsten Proposition definiert somit die Wahl von Aufhängungen $\{a_1,a_2,a_3\}$, die in mindestens einem gemeinsamen Gebiet liegen, ein eindeutiges äußeres Gebiet $f_{aus}$.
 
+\pagebreak
+
 \begin{proposition}
 Sei $G$ ein planarer 3-zusammenhängender Graph und $\{a_1,a_2,a_3\} \subset V$. Dann existiert höchstens ein Gebiet $f$, das adjazent zu $a_1,a_2,a_3$ ist.
 \end{proposition}
 
 \begin{proof}
-Angenommen es existieren zwei Gebiete $f$ und $f'$, die $a_1,a_2$ und $a_3$ enthalten. Dann berühren sich diese Gebiete an mehr als einer Kante (vergleiche Abbildung \ref{3_con_uni} links). Im grauen Gebiet müssen Knoten liegen, da $G$ 3-zusammenhängend ist. Wenn wir aber nun $a_2$ und $a_3$ entfernen, dann teilen wir $G$ in zwei nicht zusammenhängende Gebiete. Es kann somit nur ein Gebiet $f$ geben, in welchem die $a_1,a_2$ und $a_3$ liegen.
+Angenommen es existieren zwei Gebiete $f$ und $f'$, die $a_1,a_2$ und $a_3$ enthalten. Dann berühren sich diese Gebiete an mehr als einer Kante (vergleiche Abbildung \ref{3_con_uni} links). Im grauen Gebiet müssen Knoten liegen, da $G$ 3-zusammenhängend ist. Wenn wir aber nun $a_2$ und $a_3$ entfernen, dann teilen wir $G$ in zwei nicht zusammenhängende Gebiete. Es kann somit nur ein Gebiet $f$ geben, in welchem die $a_1,a_2$ und $a_3$ liegen, falls $G$ mehr als drei Knoten hat.
 \end{proof}
 
 \begin{figure}
@@ -126,16 +128,16 @@ In Abbildung \ref{schnyder_bij} wird eine Verbindung zwischen Schnyder Woods und
 Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $a_1,a_2,a_3$ und einem Schnyder Labeling. Dann beinhalten die vier Winkel entgegen dem Uhrzeigersinn an jeder Kante die Label 1, 2 und 3. Somit hat jede Kante einen der beiden Typen in Abbildung \ref{schnyder_bij}.
 \end{lemma}
 
-\begin{figure}[h]
-	\centering
-  \includegraphics[width=0.9\textwidth]{schnyder_bij.pdf}
-	\caption{Bijektion zwischen Schnyder Wood auf der rechten und Schnyder Labeling auf der linken Seite.}
-	\label{schnyder_bij}
-\end{figure}
-
 \begin{theorem}\label{theo_schnyder_bij}
 Sei G ein ebener, intern-3-zusammenhängender Graph mit den Aufhängungen $a_1,a_2,a_3$. Der in Abbildung \ref{schnyder_bij} dargestellte Zusammenhang erzeugt eine Bijektion zwischen Schnyder Woods und Schnyder Labelings auf $G$.
 \end{theorem}
+
+\begin{figure}[h]
+	\centering
+  \includegraphics[width=0.8\textwidth]{schnyder_bij.pdf}
+	\caption{Bijektion zwischen Schnyder Wood auf der rechten und Schnyder Labeling auf der linken Seite.}
+	\label{schnyder_bij}
+\end{figure}
 
 Dies ermöglicht es zwischen den beiden Strukturen hin und her zu wechseln, wenn es für die Darstellung und für das Verständnis sinnvoll ist. So kann es im Verlauf dieser Arbeit vorkommen, dass wir vom einen schreiben, aber implizit Eigenschaften des anderen meinen. Für die von uns im Folgenden betrachteten Graphen existiert mindestens ein Schnyder Wood. Dies belegt das nächste Theorem nach Ezra Miller \cite[Theorem A]{miller02}.
 
@@ -151,17 +153,17 @@ Es existieren einige Anwendungen von Schnyder Woods in Bezug auf Einbettungen. W
 	\centering
   \includegraphics[width=1\textwidth]{face_counting.pdf}
 	\caption{Ein Schnyder Wood auf $G$ und die durch face-counting erhaltene Einbettung von $G$. Die eingefärbten Gebiete sind die Regionen, die den Gebietsvektor $(v_1,v_2,v_3)$ ergeben. In der Mitte ist W5 illustriert.}
-	\label{face_counting}
+	\label{face_counting_pic}
 \end{figure}
 
-Hierzu ordnet man jedem Knoten $v$ seinen \textit{Gebietsvektor} $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. In Abbildung \ref{face_counting} sind auf der rechten Seite die Regionen von $v$ eingefärbt. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äußeren Ecken unserer Zeichnung. Sie entsprechen ebenfalls den Bildern der Aufhängungen von $G$. Die Position der inneren Knoten ergibt sich nun durch die Funktion 
+Hierzu ordnet man jedem Knoten $v$ seinen \textit{Gebietsvektor} $(v_1,v_2,v_3)$ zu, wobei $v_i$ die Anzahl der inneren Gebiete in $R_i(v)$ beschreibt. In Abbildung \ref{face_counting_pic} sind auf der rechten Seite die Regionen von $v$ eingefärbt. Seien $\alpha_1 = (0,1),\alpha_2 = (1,0)$ und $\alpha_3 = (0,0)$ die äußeren Ecken unserer Zeichnung. Sie entsprechen ebenfalls den Bildern der Aufhängungen von $G$. Die Position der inneren Knoten ergibt sich nun durch die Funktion 
 $$\mu: V \to \mathbb{R}^2,v\mapsto v_1\alpha_1 + v_2\alpha_2+v_3\alpha_3.$$ 
 
 \begin{theorem}[Theorem 2.7 \cite{felsner12}]
 Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$ und $(v_1,v_2,v_3)$ der unter Berücksichtigung von $\sigma$ berechnete Gebietsvektor von $v \in V$, mit $ v_i = \text{Anzahl der Gebiete in }R_i(v).$, dann ist die Zeichnung $\mu(G)$ konvex.
 \end{theorem}
 
-Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und passt, falls $G$ 3-zusammenhängend ist, auf ein $(|F|-1)\times(|F|-1)$-Gitter \cite[Korollar 2.8]{felsner12}. Sie hat noch eine weitere Eigenschaft, die später von Nutzen sein wird und die in der nächsten Proposition festgehalten ist.  Dies ist in Abbildung \ref{face_counting} in der Mitte skizziert.
+Die mit diesen Koordinaten erzeugte Einbettung von $G$ ist planar, konvex und passt, falls $G$ 3-zusammenhängend ist, auf ein $(|F|-1)\times(|F|-1)$-Gitter \cite[Korollar 2.8]{felsner12}. Sie hat noch eine weitere Eigenschaft, die später von Nutzen sein wird und die in der nächsten Proposition festgehalten ist.  Dies ist in Abbildung \ref{face_counting_pic} in der Mitte skizziert.
 
 \begin{proposition}\label{w5}
 Sei G ein ebener Graph mit einem Schnyder Wood $\sigma$ und den Aufhängungen $a_1,a_2,a_3$. Für $\mu(G)$, die durch face-counting erzeugte Einbettung von $G$, gilt:

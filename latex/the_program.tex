@@ -12,7 +12,7 @@ Die Überprüfung ab Zeile \ref{algo_check} ist unter der Annahme, dass Vermutun
 In der Implementierung wurden die Kanten innerhalb von Gebieten $f$ mit $|f|=3$ weggelassen, da die einzig mögliche Lösung hier ist, dass nur drei Ecken-Pfade durch das Gebiet laufen. Die Bedarfe werden dementsprechend angepasst.
 \end{remark}
 
-\section{Visualisierung}
+\section{Visualisierung}\label{visualization}
 
 Nehmen wir an, wir haben für einen Graphen $G$ ein Gutes-FAA $\phi$ gefunden. Für eine SLTR müssen wir eine zu $\phi$ passende Einbettung von $G$ finden. Wir werden den in Abschnitt \ref{harmonic_approach} erörterten Ansatz über harmonische Funktionen nutzen, um eine SLTR von $G$ zu erhalten.
 
@@ -46,14 +46,14 @@ Setzten wir im ersten Durchlauf $\lambda = 1$, erhalten wir eine klassische Gumm
 \item Es existieren keine zu kurzen Kanten.
 \end{itemize}
 
-Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Der Ansatz nach Felsner und Scheucher, bei dem $\lambda$ als monoton steigende Funktion proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge gewählt wird, konvergiert selten nicht und liefert so auch keine schönen Zeichnungen \cite{fs17}. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für diese die oben erwähnten Einschränkungen stärker auftreten. Wir wollen das implementierte  Schema anhand von zwei Beispielen erklären.
+Sehr lange Kanten lassen sich, wie in Beispiel \ref{bsp_large_corner}, nicht immer vermeiden. Es gibt SLTRs, wie in Beispiel \ref{bsp_long_segment}, bei denen alle inneren Knoten zugewiesen sind. Dies macht eine gute Wahl der $\lambda$ kompliziert. Felsner und Scheucher verfolgen einen Ansatz, bei dem $\lambda$ als monoton steigende Funktion proportional zu Größe der an eine Kante angrenzenden Gebiete und ihrer Länge gewählt wird \cite{fs17}. Dieser Ansatz konvergiert selten und liefert dementsprechend keine schönen Zeichnungen. Allgemein wurden besonders SLTRs mit wenigen Kanten betrachtet, da für diese die oben erwähnten Einschränkungen stärker auftreten. Wir wollen das implementierte  Schema anhand von zwei Beispielen erklären.
 
 \begin{example}\label{bsp_long_segment}
 Bei der in Abbildung \ref{long_segment} links zu sehenden SLTR sind alle Knoten, bis auf die Aufhängungen, einem Gebiet zugeordnet. Somit liegt jeder Knoten auf einer Gerade und es existieren nur Gleichungen vom Typ
 $$ f(v) = \lambda_v f(u) + (1-\lambda_v)f(w) \text{, mit } \lambda_v \in (0,1).$$
-Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zur Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten, die uns helfen können, das Segment in rot nach unten zu bewegen und somit das untere Dreieck zu verkleinern, sind in blau eingefärbt. Die Wahl der $\lambda$ erfolgt in Schritt $j$, nach folgendem Schema für jedes Segment $S$ des Guten-FAA. Seien $G_1,G_2$ die Mengen der Gebiete, die vollständig auf einer der beiden Seiten des Segments liegen (vergleiche die hellblaue Fläche). Nun berechnen wir deren Gesamtfläche $A_1,A_2$. Seien nun $P_1,P_2$ Mengen von (kurzen) Pfaden, die von den Endpunkten des Segments zu den Aufhängungen, die in $G_i$ liegen, führen. Wir fordern, dass die Pfade selbst ebenfalls nur auf den jeweiligen Seiten liegen. Auf den Pfaden $p \in P_i$ passen wir nun $\lambda$ an. Die Pfade $p,p'$, die in unserem Beispiel nach unten führen, sind genau die blau eingefärbten Kanten in Abbildung \ref{long_segment}. So gelingt es uns, Segmente wie in der Abbildung zu verschieben. Wir erhöhen für jede Kante $e \in p$ nun $\lambda(e)$ um $a_i$, mit:
-$$ a_i = \frac{1}{j} \Big( \frac{A_i}{\text{Länge}(p)*|P_i|}\Big)^{1.2}.$$
-Die Formel ist heuristisch gewählt. Wir brechen entweder ab, wenn die Einbettung konvergiert oder wir eine feste Anzahl an Schritten durchgeführt haben. Aufgrund der Einbindung von kurzen Pfaden auf $G$, ist der Rechenaufwand sehr hoch, selbst wenn wir diese bei der Initialisierung abspeichern.
+Um von der linken zur rechten Zeichnung zu gelangen, wollen wir das Gebiet unten in der Mitte verkleinern, doch die drei angrenzenden Kanten kommen in keiner der Gleichungen zur Bestimmung unserer Einbettung $f(V)$ vor. Die Kanten, die uns helfen können, das Segment in rot nach unten zu bewegen, und somit das untere Dreieck zu verkleinern, sind in blau eingefärbt. Die Wahl der $\lambda$ erfolgt in Schritt $j$, nach folgendem Schema für jedes Segment $S$ des Guten-FAA. Seien $G_1,G_2$ die Mengen der Gebiete, die vollständig auf einer der beiden Seiten des Segments liegen (vergleiche die hellblaue Fläche). Nun berechnen wir deren Gesamtfläche $A_1,A_2$. Seien nun $P_1,P_2$ Mengen von (kurzen) Pfaden, die von den Endpunkten des Segments zu den Aufhängungen, die in $G_i$ liegen, führen. Wir fordern, dass die Pfade selbst ebenfalls nur auf den jeweiligen Seiten verlaufen. Auf den Pfaden $p \in P_i$ passen wir nun $\lambda$ an. Die Pfade $p,p'$, die in unserem Beispiel nach unten führen, sind genau die blau eingefärbten Kanten in Abbildung \ref{long_segment}. Wir erhöhen nun $\lambda(e)$ für jede Kante $e \in p$ um $a_i$, mit:
+$$ a_i = \frac{1}{j} \Big( \frac{A_i}{\text{Länge}(p)*|P_i|}\Big)^{1.1}.$$
+Die Formel ist heuristisch gewählt. Wir brechen entweder ab, wenn die Einbettung konvergiert oder wir eine feste Anzahl an Schritten durchgeführt haben. Aufgrund der Einbindung von kurzen Pfaden auf $G$, ist der Rechenaufwand allerdings sehr hoch, selbst wenn wir die Pfade bei der Initialisierung nur einmal berechnen und abspeichern.
 \end{example}
 
 \begin{figure}
@@ -64,20 +64,20 @@ Die Formel ist heuristisch gewählt. Wir brechen entweder ab, wenn die Einbettun
 \end{figure}
 
 \begin{example}\label{bsp_large_corner}
-Betrachten wir einen effizienteren Ansatz. Wir setzen bei der Initialisierung $\lambda_0(e)=1$ für jede Kante von $G$. Nun multiplizieren wir die Kanten an den Gebieten $f\in F_{in}$ mit $A(f) > A(f_{max})*(1+\epsilon)$ mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. Wir wählen $\epsilon = 0,1$ und $c=2$. In Abbildung \ref{large_corner} sind die Einbettung von zwei Graphen nach 100 Schritten zu sehen.
+Wir erläutern einen effizienteren Ansatz. Setze bei der Initialisierung $\lambda_0(e)=1$ für jede Kante von $G$. Nun multiplizieren wir $\lambda(e)$ für die Kanten $e$, die an den Gebieten $f\in F_{in}$ mit $A(f) > A(f_{max})*(1+\epsilon)$ liegen, mit einer Konstante $c \in \mathbb{N}$. Für diese Kanten gilt somit $\lambda_{i+1}(e) = \lambda_{i}(e)*c$. Wir wählen $\epsilon = 0,05$ und $c=2$. In Abbildung \ref{large_corner} b) sind die Einbettung von einem Graphen nach 100 Schritten zu sehen.
 \end{example}
 
 \begin{figure}
 	\centering
   \includegraphics[width=0.8\textwidth]{ex_large_corner.pdf}
-  \caption{Zwei Zeichnungen der gleichen SLTR, nach dem Schema aus Beispiel \ref{bsp_long_segment} (a)und nach Beispiel \ref{bsp_long_segment} (b).}
+  \caption{Zwei Zeichnungen der gleichen SLTR, nach dem Schema aus Beispiel \ref{bsp_long_segment} (a)und nach Beispiel \ref{bsp_large_corner} (b).}
   \label{large_corner}
 \end{figure}
 
-Wir haben bei der Implementierung eine Kombination aus beiden Ansätzen gewählt. Für kleine Graphen wird zuerst das erste Schema durchgeführt. Falls dieses nicht konvergiert fahren wir mit dem zweiten fort. Für Graphen mit mehr als 15 Knoten dauert die Berechnung allerdings so lange, dass wir standardmäßig das zweite Schema durchführen. Es sei angemerkt, dass es auch hier Graphen gibt, deren Einbettungen nach diesen Berechnungen weniger schön werden, als wenn wir einfach $\lambda=1$ setzen und nur einen Schritt durchführen. Im Durchschnitt kommen wir aber zu deutlich ansprechenderen Ergebnissen. Am Ende des Kapitels in Abbildung \ref{emb_exp} sind einige so berechnete Einbettungen festgehalten.
+Wir haben bei der Implementierung eine Kombination aus beiden Ansätzen gewählt. Für kleine Graphen wird zuerst das erste Schema durchgeführt. Falls dieses nicht konvergiert, fahren wir mit dem zweiten fort. Für Graphen mit mehr als 17 Knoten dauert die Durchführung von Schema allerdings so lange, dass wir standardmäßig das zweite Schema durchführen. Es sei angemerkt, dass es Graphen gibt, deren Einbettungen nach diesen Berechnungen weniger schön werden, als wenn wir einfach $\lambda=1$ setzen und nur einen Schritt durchführen. Im Durchschnitt kommen wir aber zu deutlich ansprechenderen Ergebnissen. Am Ende des Kapitels in Abbildung \ref{examples_vis} sind einige so berechnete Einbettungen festgehalten.
 
 \begin{remark}
-Wir haben viele an den Parametern der Berechnungen verändert, um so zu heuristisch schönen Ergebnissen zu gelangen. Die Einschränkungen, die wir durch die Zuordnung der Knoten vornehmen, scheint es allerdings deutlich schwerer zu machen, einen Algorithmus zu finden der für sehr viele unterschiedliche Graphen immer hinreichend schöne Zeichnungen liefert.
+Wir haben systematisch viele Parameter der Berechnungen variiert und auch weitere Schemata verfolgt, um auf heuristischem Weg zu schönen Ergebnissen zu gelangen. Die Einschränkungen, die wir durch die Zuordnung der Knoten vornehmen, scheinen es allerdings deutlich schwerer zu machen, einen Algorithmus zu finden, der für sehr viele unterschiedliche Graphen immer hinreichend schöne Zeichnungen liefert.
 \end{remark}
 
 \section{Experimentelle Rechnungen}\label{stats}
@@ -147,6 +147,18 @@ Es wird ein pseudo-zufälliger Graph generiert und, falls möglich, ein Gutes-FA
     \includegraphics[width=0.95\textwidth]{vis_15_1.pdf}
   \end{minipage}
     \hfill
+    \vspace{5mm}
+  \begin{minipage}{0.48\textwidth}
+  \centering
+    \includegraphics[width=0.95\textwidth]{vis_17_1.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+ \centering
+    \includegraphics[width=0.95\textwidth]{vis_17_2.pdf}
+  \end{minipage}
+      \hfill
+\vspace{5mm}
   \begin{minipage}{0.48\textwidth}
   \centering
     \includegraphics[width=0.95\textwidth]{vis_25_1.pdf}
@@ -156,6 +168,7 @@ Es wird ein pseudo-zufälliger Graph generiert und, falls möglich, ein Gutes-FA
  \centering
     \includegraphics[width=0.95\textwidth]{vis_25_2.pdf}
   \end{minipage}
-
+\caption{Einige SLTRs, die nach dem in Abschnitt \ref{visualization} beschriebenen Schema berechnet wurden.}
+\label{examples_vis}
 \end{figure}
 

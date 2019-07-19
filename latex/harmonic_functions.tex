@@ -2,7 +2,7 @@
 
 Zum Einstieg eine weitere Definition, die es ermöglicht eine Beobachtung zu SLTRs festzuhalten. Die Beweise zu den in diesem Abschnitt aufgestellten Propositionen und Theoremen werden ausgelassen. Sie befinden sich, wenn nicht anders angegeben, in der entsprechenden Arbeit von Aerts und Felsner \cite{af13}.
 
-\begin{definition}[Begrenzende Zykel und kombinatorisch konvexe Ecken]\label{def_ccc}
+\begin{definition}[Begrenzende Zykel und kombinatorisch konvexe Ecken]\label{def_cyc_cor}
 Sei $G$ ein ebener Graph mit Aufhängungen $\{a_1,a_2,a_3\}$ und einem FAA $\phi$ von G. Sei $H$ ein zusammenhängender Teilgraph von G und $\gamma=\gamma(H)$ der H umrandende Weg in G. Somit ist $\gamma$ eine Folge aus Kanten und Knoten die $H$ in $G$ begrenzt. Knoten und Kanten können in $\gamma$ mehrfach vorkommen (vergleiche Abbildung \ref{corner_def}). Wir werden so erhaltene $\gamma$ als \textit{begrenzende Zykel} bezeichnen. Die Menge der Knoten, Kanten und Gebiete aus $G$, die im Inneren von $\gamma$ oder auf $\gamma$ liegen, bezeichnen wir mit int$(\gamma)$. Einen Knoten $v$ aus $\gamma$ bezeichnen wir als \textit{kombinatorisch konvexe Ecke} von $\gamma$ im Bezug auf $\phi$, falls gilt:
 \begin{itemize}
 \item [E1] $v$ ist eine Aufhängung, oder
@@ -150,9 +150,9 @@ Aerts und Felsner werfen am Ende von \cite{af13} die Frage nach einer guten Wahl
 	\centering
   \includegraphics[width=0.7\textwidth]{exp_faa.pdf}
   \caption{Ein Graph mit exponentiell vielen FAAs.}
-  \label{exp_faa}
+  \label{exp_faa_pic}
 \end{figure}
 
 \begin{example}\label{bsp_exp_faa}
-Betrachten wir eine zusammenhängende Kette von $n$ Quadraten in der Ebene und verbinden wir ihre Eckpunkte mit drei Aufhängungen $a_1,a_2,a_3$, welche ein Dreieck bilden. Der so erzeugte Graph $G$ hat $2n+5$ Knoten und ist in Abbildung \ref{exp_faa} zu sehen. Wir wollen nun ein FAA für diesen Graphen erstellen (welches nicht zwangsläufig eine SLTR zulässt). Wir müssen für ein FAA jedem der inneren Quadrate einen Winkel zuordnen. Wenn wir von links beginnen und nach rechts laufen, können wir in jedem der $n$ inneren Quadrate mindestens aus drei Winkeln auswählen, um ein FAA zu erstellen. Es wurde höchstens einer der beiden Knoten auf der linken Seite von Quadrat $i$ im Schritt zuvor zugewiesen. Somit existieren mehr als $3^n$ FAAs für $G.$
+Betrachten wir eine zusammenhängende Kette von $n$ Quadraten in der Ebene und verbinden wir ihre Eckpunkte mit drei Aufhängungen $a_1,a_2,a_3$, welche ein Dreieck bilden. Der so erzeugte Graph $G$ hat $2n+5$ Knoten und ist in Abbildung \ref{exp_faa_pic} zu sehen. Wir wollen nun ein FAA für diesen Graphen erstellen (welches nicht zwangsläufig eine SLTR zulässt). Wir müssen für ein FAA jedem der inneren Quadrate einen Winkel zuordnen. Wenn wir von links beginnen und nach rechts laufen, können wir in jedem der $n$ inneren Quadrate mindestens aus drei Winkeln auswählen, um ein FAA zu erstellen. Es wurde höchstens einer der beiden Knoten auf der linken Seite von Quadrat $i$ im Schritt zuvor zugewiesen. Somit existieren mehr als $3^n$ FAAs für $G.$
 \end{example}
